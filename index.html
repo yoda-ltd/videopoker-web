@@ -8,6 +8,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Game","name":"Jacks or Better Video Poker","description":"Free online Jacks or Better video poker. No download required.","genre":"Casino"}
 </script>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:linear-gradient(160deg,#0a1628,#0d2040 50%,#0a1628);min-height:100vh;font-family:Arial,sans-serif;color:#fff;display:flex;flex-direction:column;align-items:center}
@@ -42,12 +43,13 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 .card.drawing{animation:dr .4s cubic-bezier(.34,1.2,.64,1) forwards}
 @keyframes dr{0%{opacity:0;transform:scale(0) rotate(-180deg)}70%{transform:scale(1.06) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}
 .card.fd{background:repeating-linear-gradient(45deg,#1a3a6e,#1a3a6e 5px,#1e4280 5px,#1e4280 10px);border-color:#2a5aaa}
-.cc{font-size:.9rem;font-weight:bold;line-height:1;position:absolute;top:5px;left:6px;display:flex;flex-direction:column;align-items:center;gap:1px}
-.cc .cr{font-size:1.4rem;line-height:1}
-.cc .cs{font-size:1rem}
+.cc{font-family:'Fredoka One',cursive;line-height:1;position:absolute;top:5px;left:6px;display:flex;flex-direction:column;align-items:center;gap:0px}
+.cc .cr{font-size:1.5rem;line-height:1}
+.cc .cs{font-size:1.1rem;margin-top:-1px}
 .cc.bot{display:none}
-.cm{font-size:3.5rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
-.red{color:#cc0000}.black{color:#111}
+.cm{font-size:3.8rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
+.red{color:#d63031}.black{color:#2d3436}
 .hl{font-size:.65rem;font-weight:bold;color:#ffd700;letter-spacing:2px;text-transform:uppercase;height:16px;line-height:16px;text-shadow:0 0 6px rgba(255,215,0,.8)}
 #msg{text-align:center;height:40px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #rm{font-size:1.1rem;font-weight:bold;letter-spacing:2px;color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.6);text-transform:uppercase}
