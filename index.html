@@ -194,7 +194,7 @@ function clrPay(){document.querySelectorAll('.pr[data-hand]').forEach(r=>r.class
 function hilPay(ht){clrPay();const r=document.querySelector(`.pr[data-hand="${ht}"]`);if(r)r.classList.add('win');}
 function showBet(){document.getElementById('btns-left').style.display='';document.getElementById('bbbet').disabled=false;document.getElementById('bbclear').style.display='none';document.getElementById('bbholdall').style.display='none';bddeal.style.display='';bdr.style.display='none';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
 function showHold(){document.getElementById('btns-left').style.display='';document.getElementById('bbbet').disabled=true;document.getElementById('bbclear').style.display='';document.getElementById('bbholdall').style.display='';bddeal.style.display='none';bdr.style.display='';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='';}
-function showAgain(){document.getElementById('btns-left').style.display='';document.getElementById('bbbet').disabled=true;document.getElementById('bbclear').style.display='none';document.getElementById('bbholdall').style.display='none';bddeal.style.display='none';bdr.style.display='none';bda.style.display='';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
+function showAgain(){document.getElementById('btns-left').style.display='';document.getElementById('bbbet').disabled=false;document.getElementById('bbclear').style.display='none';document.getElementById('bbholdall').style.display='none';bddeal.style.display='';bdr.style.display='none';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
 function setMsg(t,nw){const el=document.getElementById('rm');el.textContent=t;el.className=nw?'nw':'';}
 
 function cycleBet(){
@@ -209,7 +209,8 @@ function updBetHighlight(){
   document.getElementById('bet-num').textContent=lastBet;
 }
 function startDeal(){
-  if(state!=='bet')return;
+  if(state!=='bet'&&state!=='over')return;
+  state='bet';
   const b=lastBet;
   if(credits<b){setMsg('Not enough credits!',true);return;}
   credits-=b;bet=b;held.clear();clrPay();
