@@ -201,16 +201,21 @@ function renderDrawCard(i,c,delay){
       el.style.opacity='0';
       // Phase 2: new card flips in
       requestAnimationFrame(()=>{
-        el.animate(
+        const inn=el.animate(
           [{transform:'rotateY(-90deg)',opacity:0},{transform:'rotateY(0deg)',opacity:1}],
           {duration:210,easing:'ease-out',fill:'forwards'}
         );
+        inn.onfinish=()=>{ el.style.transform=''; el.style.opacity=''; };
       });
     };
   },delay);
 }
 function renderCard(i,c,anim,delay){
   const el=document.getElementById('c'+i);
+  // clear residual draw animation state
+  if(el.getAnimations) el.getAnimations().forEach(a=>a.cancel());
+  el.style.transform='';
+  el.style.opacity='';
   el.className='card'+(anim?' dealing':'');
   el.style.animationDelay=delay+'s';
   el.innerHTML=cardHTML(c);
