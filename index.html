@@ -47,10 +47,20 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 #rm{font-size:1.1rem;font-weight:bold;letter-spacing:2px;color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.6);text-transform:uppercase}
 #rm.nw{color:#888;text-shadow:none;font-size:.9rem}
 #btns{display:flex;justify-content:space-between;align-items:center;gap:8px}#btns-left{display:flex;gap:8px}#btns-right{display:flex;gap:8px}
-.btn{padding:10px 18px;border:none;border-radius:8px;font-size:.85rem;font-weight:bold;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:transform .1s,box-shadow .1s,opacity .2s;box-shadow:0 4px 12px rgba(0,0,0,.4);min-width:80px}
-.btn:active{transform:scale(.95)}
-.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
-.b1btn{background:linear-gradient(135deg,#1a6fd4,#0d4fa0);color:#fff;border:1px solid rgba(255,255,255,.2)}.b1btn:disabled{opacity:.4;cursor:not-allowed;transform:none}.holdallbtn{background:linear-gradient(135deg,#6c3483,#512e5f);color:#fff;border:1px solid rgba(200,150,255,.3)}.clearbtn{background:linear-gradient(135deg,#555,#333);color:#fff;border:1px solid rgba(255,255,255,.15)}
+.btn{padding:10px 20px;border:none;border-radius:12px;font-size:.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease,opacity .2s;min-width:80px;position:relative;overflow:hidden}
+.btn::after{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,0));border-radius:12px 12px 0 0;pointer-events:none}
+.btn:active{transform:scale(.93);box-shadow:none!important}
+.btn:disabled{cursor:not-allowed;transform:none}
+/* BET — blue, disabled = muted */
+.b1btn{background:linear-gradient(160deg,#2980d4 0%,#1a5faa 60%,#134d8a 100%);color:#fff;box-shadow:0 4px 14px rgba(30,90,200,.45),inset 0 1px 0 rgba(255,255,255,.25)}
+.b1btn:disabled{background:linear-gradient(160deg,#3a3a4a,#2a2a3a);color:rgba(255,255,255,.35);box-shadow:none}
+/* HOLD ALL — violet/indigo */
+.holdallbtn{background:linear-gradient(160deg,#7c4dcc 0%,#5b32a8 60%,#4a2090 100%);color:#fff;box-shadow:0 4px 14px rgba(100,60,200,.5),inset 0 1px 0 rgba(255,255,255,.25)}
+/* CLEAR — pink-purple when active, light gray when disabled */
+.clearbtn{background:linear-gradient(160deg,#c05ab0 0%,#9b3a9a 60%,#7a2a80 100%);color:#fff;box-shadow:0 4px 14px rgba(180,80,170,.45),inset 0 1px 0 rgba(255,255,255,.25)}
+.clearbtn:disabled{background:linear-gradient(160deg,#ccc,#bbb);color:rgba(0,0,0,.35);box-shadow:none}
+/* DRAW / DEAL — green */
+.drawbtn,.dealbtn{background:linear-gradient(160deg,#2ecc7a 0%,#1fa85c 60%,#167a42 100%);color:#fff;font-size:.9rem;padding:12px 28px;box-shadow:0 4px 18px rgba(30,180,90,.5),inset 0 1px 0 rgba(255,255,255,.25)}
 .b5btn{background:linear-gradient(135deg,#d4a017,#a07010);color:#fff;border:1px solid rgba(255,215,0,.3)}
 .mbtn{background:linear-gradient(135deg,#c0392b,#922b21);color:#fff;border:1px solid rgba(255,100,100,.3)}
 .drawbtn{background:linear-gradient(135deg,#27ae60,#1e8449);color:#fff;font-size:1rem;padding:12px 28px}
