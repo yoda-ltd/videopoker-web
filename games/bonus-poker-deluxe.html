@@ -166,7 +166,7 @@ for(const a of RANKS)for(const b of RANKS){if(a===b)continue;for(let wa=0;wa<=wi
 const suitCount={};for(const s of ss)suitCount[s]=(suitCount[s]||0)+1;if(Object.values(suitCount).some(v=>v+wild>=5))return'Flush';if(canStraightWithWild(rs,wild))return'Straight';for(const r of RANKS){if((rc[r]||0)+wild>=3)return'Three of a Kind';}
 if(kind==='joker'){if(wild===1&&rs.some(r=>['K','A'].includes(r)))return'Kings or Better';if(evalClassic(nat,['K','A'],'Kings or Better',false)==='Two Pair')return'Two Pair';}
 return'No Win'}
-function evalHand(h){if(MODE==='deuces')return evalWild(h,'deuces');if(MODE==='joker')return evalWild(h,'joker');if(MODE==='bonus')return evalClassic(h,PAIR_OK,PAIR_LABEL,true);return evalClassic(h,PAIR_OK,PAIR_LABEL,false)}
+function evalHand(h){if(MODE==='deuces')return evalWild(h,'deuces');if(MODE==='joker'){const hasJ=h.some(c=>c.s==='joker');return hasJ?evalWild(h,'joker'):evalClassic(h,['K','A'],'Kings or Better',false);}if(MODE==='bonus')return evalClassic(h,PAIR_OK,PAIR_LABEL,true);return evalClassic(h,PAIR_OK,PAIR_LABEL,false)}
 function getWin(ht,b){const t=PAY[ht];if(!t)return 0;return b===5?t[1]:t[0]*b}
 
 
