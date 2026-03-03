@@ -35,8 +35,10 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 .card.held{border-color:#ffd700;box-shadow:0 0 12px rgba(255,215,0,.7);transform:translateY(-6px)}
 .card.wc{border-color:#00ff88;box-shadow:0 0 16px rgba(0,255,136,.8);animation:cw .5s ease 3}
 @keyframes cw{0%,100%{transform:translateY(-6px) scale(1)}50%{transform:translateY(-10px) scale(1.05)}}
-.card.dealing{animation:di .3s ease forwards}
-@keyframes di{from{opacity:0;transform:translateY(-30px) scale(.8)}to{opacity:1;transform:translateY(0) scale(1)}}
+.card.dealing{animation:di .32s cubic-bezier(.22,.68,0,1.2) forwards}
+@keyframes di{from{opacity:0;transform:translateY(-40px) scale(.75)}to{opacity:1;transform:translateY(0) scale(1)}}
+.card.drawing{animation:dr .28s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes dr{0%{opacity:0;transform:translateY(36px) scale(.8) rotate(-4deg)}60%{transform:translateY(-6px) scale(1.04) rotate(1deg)}100%{opacity:1;transform:translateY(0) scale(1) rotate(0deg)}}
 .card.fd{background:repeating-linear-gradient(45deg,#1a3a6e,#1a3a6e 5px,#1e4280 5px,#1e4280 10px);border-color:#2a5aaa}
 .cc{font-size:.9rem;font-weight:bold;line-height:1}
 .cc.bot{transform:rotate(180deg);align-self:flex-end}
@@ -178,6 +180,13 @@ function cardHTML(c){
   const sym=SYM[c.s];
   return`<div class="cc ${cl}">${c.r}<br>${sym}</div><div class="cm ${cl}">${sym}</div><div class="cc bot ${cl}">${c.r}<br>${sym}</div>`;
 }
+function renderDrawCard(i,c,delay){
+  const el=document.getElementById('c'+i);
+  el.className='card drawing';
+  el.style.animationDelay=delay+'s';
+  el.innerHTML=cardHTML(c);
+  el.style.background='';el.style.borderColor='';
+}
 function renderCard(i,c,anim,delay){
   const el=document.getElementById('c'+i);
   el.className='card'+(anim?' dealing':'');
@@ -227,11 +236,21 @@ function startDeal(){
   }
 }
 function hold(i){if(state!=='hold')return;held.has(i)?held.delete(i):held.add(i);updHeld();}
+function drawFaceDown(i,delay){
+  setTimeout(()=>{
+    const el=document.getElementById('c'+i);
+    el.style.transition='transform .15s ease-in,opacity .15s ease-in';
+    el.style.transform='translateY(20px) scale(.85)';
+    el.style.opacity='0';
+    setTimeout(()=>{faceDown(i);el.style.transition='';el.style.transform='';el.style.opacity='';},160);
+  },delay);
+}
 function draw(){
   if(state!=='hold')return;
   state='drawing';bdr.disabled=true;
   const rep=[];for(let i=0;i<5;i++)if(!held.has(i))rep.push(i);
-  rep.forEach(i=>faceDown(i));
+  rep.forEach((i,idx)=>drawFaceDown(i,idx*60));
+  const exitMs=rep.length*60+180;
   setTimeout(()=>{
     rep.forEach((i,idx)=>{hand[i]=deck.splice(0,1)[0];setTimeout(()=>renderCard(i,hand[i],true,0),idx*80);});
     setTimeout(()=>finish(),rep.length*80+350);
