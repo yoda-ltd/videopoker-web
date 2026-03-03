@@ -53,12 +53,12 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 .btn:disabled{cursor:not-allowed;transform:none}
 /* BET — blue, disabled = muted */
 .b1btn{background:linear-gradient(160deg,#2980d4 0%,#1a5faa 60%,#134d8a 100%);color:#fff;box-shadow:0 4px 14px rgba(30,90,200,.45),inset 0 1px 0 rgba(255,255,255,.25);width:100px}
-.b1btn:disabled{background:linear-gradient(160deg,#3a3a4a,#2a2a3a);color:rgba(255,255,255,.35);box-shadow:none}
+.b1btn{transition:opacity .3s ease,filter .3s ease,box-shadow .3s ease}.b1btn:disabled{opacity:.38;filter:grayscale(.7);box-shadow:none}
 /* HOLD ALL — violet/indigo */
-.holdallbtn{background:linear-gradient(160deg,#2980d4 0%,#1a5faa 60%,#134d8a 100%);color:#fff;box-shadow:0 4px 14px rgba(30,90,200,.5),inset 0 1px 0 rgba(255,255,255,.25);width:100px}.holdallbtn:disabled{background:linear-gradient(160deg,#ccc,#bbb);color:rgba(0,0,0,.3);box-shadow:none}
+.holdallbtn{background:linear-gradient(160deg,#2980d4 0%,#1a5faa 60%,#134d8a 100%);color:#fff;box-shadow:0 4px 14px rgba(30,90,200,.5),inset 0 1px 0 rgba(255,255,255,.25);width:100px;transition:opacity .3s ease,filter .3s ease,box-shadow .3s ease}.holdallbtn:disabled{opacity:.38;filter:grayscale(1);box-shadow:none}
 /* CLEAR — pink-purple when active, light gray when disabled */
-.clearbtn{background:linear-gradient(160deg,#c05ab0 0%,#9b3a9a 60%,#7a2a80 100%);color:#fff;box-shadow:0 4px 14px rgba(180,80,170,.45),inset 0 1px 0 rgba(255,255,255,.25);width:100px}
-.clearbtn:disabled{background:linear-gradient(160deg,#ddd,#ccc);color:rgba(0,0,0,.3);box-shadow:none}
+.clearbtn{background:linear-gradient(160deg,#c05ab0 0%,#9b3a9a 60%,#7a2a80 100%);color:#fff;box-shadow:0 4px 14px rgba(180,80,170,.45),inset 0 1px 0 rgba(255,255,255,.25);width:100px;transition:opacity .3s ease,filter .3s ease,box-shadow .3s ease}
+.clearbtn:disabled{opacity:.38;filter:grayscale(1);box-shadow:none}
 /* DRAW / DEAL — green */
 .drawbtn,.dealbtn{background:linear-gradient(160deg,#2ecc7a 0%,#1fa85c 60%,#167a42 100%);color:#fff;font-size:.85rem;box-shadow:0 4px 18px rgba(30,180,90,.5),inset 0 1px 0 rgba(255,255,255,.25);width:100px}
 .b5btn{background:linear-gradient(135deg,#d4a017,#a07010);color:#fff;border:1px solid rgba(255,215,0,.3)}
