@@ -15,9 +15,9 @@ body{background:linear-gradient(160deg,#0a1628,#0d2040 50%,#0a1628);min-height:1
 header{width:100%;text-align:center;padding:12px 0 6px;background:rgba(0,0,0,.3);border-bottom:1px solid rgba(255,215,0,.2)}
 header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ffd700;text-shadow:0 0 20px rgba(255,215,0,.5);font-family:'Copperplate Gothic','Copperplate',serif}
 #game{width:100%;max-width:680px;padding:10px 12px;display:flex;flex-direction:column;gap:10px;min-height:calc(100vh - 60px);justify-content:flex-start}
-#payout-table{background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden}
+#payout-table{background:rgba(255,255,255,.04);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
 .pr{display:flex;justify-content:space-between;align-items:center;padding:4px 12px;border-bottom:1px solid rgba(255,255,255,.04);font-size:.72rem;transition:background .3s,color .3s}
-.pr:nth-child(even){background:rgba(255,255,255,.03)}
+.pr:nth-child(even){background:rgba(255,255,255,.04)}
 .pr:last-child{border-bottom:none}
 .pr .hn{flex:1;color:#bbb;letter-spacing:.3px}
 .pr .b1,.pr .b5{width:52px;text-align:right;color:#888;font-variant-numeric:tabular-nums}
@@ -26,7 +26,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 .pr.win .hn{color:#ffd700;font-weight:700;letter-spacing:.5px}
 .pr.win .b1,.pr.win .b5,.pr.win .ch{color:#ffd700;font-weight:700}
 @keyframes wp{0%{background:rgba(255,215,0,.05)}50%{background:rgba(255,215,0,.35)}100%{background:rgba(255,215,0,.18)}}
-#cbar{display:flex;justify-content:space-between;align-items:stretch;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden}
+#cbar{display:flex;justify-content:space-between;align-items:stretch;background:rgba(255,255,255,.05);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
 .ci{flex:1;text-align:center;padding:10px 8px;position:relative;transition:background .3s}
 .ci+.ci{border-left:1px solid rgba(255,255,255,.07)}
 .cl{font-size:.62rem;color:#666;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px}
