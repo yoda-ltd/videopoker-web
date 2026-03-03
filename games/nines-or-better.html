@@ -262,7 +262,7 @@ function startDeal(){
   const b=lastBet;
   if(credits<b){setMsg('Not enough credits!',true);return;}
   credits-=b;bet=b;held.clear();clrPay();
-  document.getElementById('wv').textContent='-';document.getElementById('wv').className='';
+  document.getElementById('wv').textContent='-';document.getElementById('wv').classList.remove('active');
   setMsg('Select cards to HOLD, then press DRAW',false);
   deck=shuffle(mkDeck());hand=deck.splice(0,5);
   updHeld();updCredits();state='hold';showHold();
@@ -289,12 +289,12 @@ function finish(){
   const ht=evalHand(hand);const w=getWin(ht,bet);
   if(w>0){
     credits+=w;
-    const wvEl=document.getElementById('wv');wvEl.textContent=w;wvEl.className='active';
+    const wvEl=document.getElementById('wv');wvEl.textContent=w;wvEl.classList.add('active');
     setMsg(ht.toUpperCase(),false);
     hilPay(ht);hilWin(ht);
     if(ht==='Royal Flush')confetti();
   }else{
-    document.getElementById('wv').textContent='-';document.getElementById('wv').className='';
+    document.getElementById('wv').textContent='-';document.getElementById('wv').classList.remove('active');
     setMsg('No win — try again!',true);
   }
   updCredits();state='over';bdr.disabled=false;showAgain();
