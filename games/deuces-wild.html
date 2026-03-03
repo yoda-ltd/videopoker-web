@@ -191,6 +191,7 @@ function renderDrawCard(i,c,delay){
     el.classList.remove('flip-in');
     el.classList.add('flip-out');
     setTimeout(()=>{
+      hand[i]=c;
       el.className='card flip-in';
       el.innerHTML=cardHTML(c);
       el.style.background='';el.style.borderColor='';
@@ -254,7 +255,7 @@ function draw(){
   if(state!=='hold')return;
   state='drawing';bdr.disabled=true;
   const rep=[];for(let i=0;i<5;i++)if(!held.has(i))rep.push(i);
-  rep.forEach((i,idx)=>{hand[i]=deck.splice(0,1)[0];renderDrawCard(i,hand[i],idx*120);});
+  rep.forEach((i,idx)=>{const nextCard=deck.splice(0,1)[0];renderDrawCard(i,nextCard,idx*120);});
   setTimeout(()=>finish(),rep.length*120+450);
 }
 function finish(){
