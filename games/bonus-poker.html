@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonus Poker Video Poker - Play Free Online | No Download</title>
+<meta name="description" content="Play free Bonus Poker video poker online. No download, no registration. Classic casino video poker in your browser.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Game","name":"Bonus Poker Video Poker","description":"Free online Bonus Poker video poker. No download required.","genre":"Casino"}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:linear-gradient(160deg,#0a1628,#0d2040 50%,#0a1628);min-height:100vh;font-family:Arial,sans-serif;color:#fff;display:flex;flex-direction:column;align-items:center}
+header{width:100%;text-align:center;padding:12px 0 6px;background:rgba(0,0,0,.3);border-bottom:1px solid rgba(255,215,0,.2)}
+header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ffd700;text-shadow:0 0 20px rgba(255,215,0,.5);font-family:'Copperplate Gothic','Copperplate',serif}
+#game{width:100%;max-width:680px;padding:10px 12px;display:flex;flex-direction:column;gap:10px;min-height:calc(100vh - 60px);justify-content:flex-start}
+#payout-table{background:rgba(255,255,255,.04);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+.pr{display:flex;justify-content:space-between;align-items:center;padding:4px 12px;border-bottom:1px solid rgba(255,255,255,.04);font-size:.72rem;transition:background .3s,color .3s}
+.pr:nth-child(even){background:rgba(255,255,255,.04)}
+.pr:last-child{border-bottom:none}
+.pr .hn{flex:1;color:#bbb;letter-spacing:.3px}
+.pr .b1,.pr .b5{width:52px;text-align:right;color:#888;font-variant-numeric:tabular-nums}
+.pr .ch{color:#ffd700;font-weight:bold;font-size:.8rem}
+.pr.win{background:rgba(255,215,0,.18)!important;box-shadow:inset 0 0 0 1px rgba(255,215,0,.4);animation:wp .5s ease}
+.pr.win .hn{color:#ffd700;font-weight:700;letter-spacing:.5px}
+.pr.win .b1,.pr.win .b5,.pr.win .ch{color:#ffd700;font-weight:700}
+@keyframes wp{0%{background:rgba(255,215,0,.05)}50%{background:rgba(255,215,0,.35)}100%{background:rgba(255,215,0,.18)}}
+#cbar{display:flex;justify-content:space-between;align-items:stretch;background:rgba(255,255,255,.05);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+.ci{flex:1;text-align:center;padding:10px 8px;position:relative;transition:background .3s}
+.ci+.ci{border-left:1px solid rgba(255,255,255,.07)}
+.cl{font-size:.62rem;color:#666;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px}
+.cv{font-size:1.6rem;font-weight:bold;color:#ffd700;line-height:1;font-variant-numeric:tabular-nums;transition:color .3s}
+#wv{color:#888;font-size:1.6rem;font-weight:bold}
+#wv.active{color:#00e87a;text-shadow:0 0 12px rgba(0,220,120,.5)}
+#cards{display:flex;gap:8px;justify-content:center;padding:0 4px}
+.cs{display:flex;flex-direction:column;align-items:center;gap:4px}
+.card{width:116px;height:160px;background:#fff;border-radius:8px;border:2px solid #ddd;display:flex;flex-direction:column;justify-content:space-between;padding:7px 7px 6px 7px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.4)}
+.card.held{border-color:#ffd700;box-shadow:0 0 12px rgba(255,215,0,.7);transform:translateY(-6px)}
+.card.wc{border-color:#00ff88;box-shadow:0 0 16px rgba(0,255,136,.8);animation:cw .5s ease 3}
+@keyframes cw{0%,100%{transform:translateY(-6px) scale(1)}50%{transform:translateY(-10px) scale(1.05)}}
+/* DEAL: sweep in from left */
+.card.dealing{animation:di .35s cubic-bezier(.25,.46,.45,.94) forwards}
+@keyframes di{from{opacity:0;transform:translateX(-120px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
+/* DRAW: spin-in (full rotation + scale) */
+.card.drawing{animation:dr .4s cubic-bezier(.34,1.2,.64,1) forwards}
+@keyframes dr{0%{opacity:0;transform:scale(0) rotate(-180deg)}70%{transform:scale(1.06) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}
+.card.fd{background:repeating-linear-gradient(45deg,#1a3a6e,#1a3a6e 5px,#1e4280 5px,#1e4280 10px);border-color:#2a5aaa}
+.cc{font-family:'Fredoka One',cursive;line-height:1;position:absolute;top:7px;left:8px;display:flex;flex-direction:column;align-items:center;gap:0px}
+.cc .cr{font-size:2rem;line-height:1}
+.cc .cs{font-size:1.45rem;margin-top:-1px}
+.cc.bot{display:none}
+.cm{font-size:5.8rem;position:absolute;top:65%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Fredoka One',cursive;
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
+.red{color:#d63031}.black{color:#2d3436}
+.hl{font-size:.65rem;font-weight:bold;color:#ffd700;letter-spacing:2px;text-transform:uppercase;height:16px;line-height:16px;text-shadow:0 0 6px rgba(255,215,0,.8)}
+#msg{text-align:center;height:40px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#rm{font-size:.9rem;font-weight:bold;letter-spacing:2px;color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.6);text-transform:uppercase}
+#rm.nw{color:#888;text-shadow:none;font-size:.9rem}
+#btns{display:flex;justify-content:space-between;align-items:center;gap:8px}#btns-left{display:flex;gap:8px}#btns-right{display:flex;gap:8px}
+.btn{padding:0 20px;height:44px;border:none;border-radius:12px;font-size:.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease,opacity .2s;min-width:80px;position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center}
+.btn::after{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,0));border-radius:12px 12px 0 0;pointer-events:none}
+.btn:active{transform:scale(.93);box-shadow:none!important}
+.btn:disabled{cursor:not-allowed;transform:none}
+/* BET — blue, disabled = muted */
+.b1btn{background:linear-gradient(160deg,#2980d4 0%,#1a5faa 60%,#134d8a 100%);color:#fff;box-shadow:0 4px 14px rgba(30,90,200,.45),inset 0 1px 0 rgba(255,255,255,.25);width:100px}
+.b1btn{transition:opacity .3s ease,filter .3s ease,box-shadow .3s ease}.b1btn:disabled{opacity:.38;filter:grayscale(.7);box-shadow:none}
+/* HOLD ALL — violet/indigo */
+.holdallbtn{background:linear-gradient(160deg,#2980d4 0%,#1a5faa 60%,#134d8a 100%);color:#fff;box-shadow:0 4px 14px rgba(30,90,200,.5),inset 0 1px 0 rgba(255,255,255,.25);width:100px;transition:opacity .3s ease,filter .3s ease,box-shadow .3s ease}.holdallbtn:disabled{opacity:.38;filter:grayscale(1);box-shadow:none}
+/* CLEAR — pink-purple when active, light gray when disabled */
+.clearbtn{background:linear-gradient(160deg,#c05ab0 0%,#9b3a9a 60%,#7a2a80 100%);color:#fff;box-shadow:0 4px 14px rgba(180,80,170,.45),inset 0 1px 0 rgba(255,255,255,.25);width:100px;transition:opacity .3s ease,filter .3s ease,box-shadow .3s ease}
+.clearbtn:disabled{opacity:.38;filter:grayscale(1);box-shadow:none}
+/* DRAW / DEAL — green */
+.drawbtn,.dealbtn{background:linear-gradient(160deg,#2ecc7a 0%,#1fa85c 60%,#167a42 100%);color:#fff;font-size:.85rem;box-shadow:0 4px 18px rgba(30,180,90,.5),inset 0 1px 0 rgba(255,255,255,.25);width:100px}
+.b5btn{background:linear-gradient(135deg,#d4a017,#a07010);color:#fff;border:1px solid rgba(255,215,0,.3)}
+.mbtn{background:linear-gradient(135deg,#c0392b,#922b21);color:#fff;border:1px solid rgba(255,100,100,.3)}
+.drawbtn{background:linear-gradient(160deg,#e74c3c 0%,#c0392b 60%,#922b21 100%);color:#fff;font-size:.85rem;box-shadow:0 4px 18px rgba(220,60,50,.5),inset 0 1px 0 rgba(255,255,255,.25);width:100px}
+.dealbtn{background:linear-gradient(135deg,#27ae60,#1e8449);color:#fff;font-size:1rem;padding:12px 28px}
+#cel{display:none;position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:100;overflow:hidden}
+.cf{position:absolute;width:10px;height:10px;border-radius:2px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+#seo{width:100%;max-width:680px;padding:20px 16px 40px;color:#aaa;font-size:.85rem;line-height:1.7}
+#seo h2{color:#ffd700;font-size:1rem;margin:16px 0 8px;letter-spacing:1px}
+#seo table{width:100%;border-collapse:collapse;margin:8px 0}
+#seo th{background:rgba(255,215,0,.15);color:#ffd700;padding:6px 8px;text-align:left;font-size:.8rem}
+#seo td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.07);font-size:.8rem}
+@media(max-width:500px){.card{width:60px;height:85px;padding:4px}.cc{font-size:.72rem}.cm{font-size:1.4rem}header h1{font-size:1rem}}
+</style>
+</head>
+<body>
+<header><h1>&#9824; Bonus Poker &#9829;</h1></header>
+<div style="max-width:680px;width:100%;padding:6px 12px 0;color:#9bb;display:flex;justify-content:space-between;font-size:.8rem"><a href="/index.html" style="color:#9bb;text-decoration:none">← Home</a><a href="/index.html#variants" style="color:#9bb;text-decoration:none">All Games</a></div>
+<div id="game">
+  <div id="payout-table">
+    <div class="pr"><span class="hn ch">HAND</span><span class="b1 ch">BET 1</span><span class="b5 ch">BET 5</span></div>
+    <div class="pr" data-hand="Royal Flush"><span class="hn">ROYAL FLUSH</span><span class="b1">250</span><span class="b5">4000</span></div>
+    <div class="pr" data-hand="Straight Flush"><span class="hn">STRAIGHT FLUSH</span><span class="b1">50</span><span class="b5">250</span></div>
+    <div class="pr" data-hand="Four of a Kind"><span class="hn">FOUR OF A KIND</span><span class="b1">25</span><span class="b5">125</span></div>
+    <div class="pr" data-hand="Full House"><span class="hn">FULL HOUSE</span><span class="b1">9</span><span class="b5">45</span></div>
+    <div class="pr" data-hand="Flush"><span class="hn">FLUSH</span><span class="b1">6</span><span class="b5">30</span></div>
+    <div class="pr" data-hand="Straight"><span class="hn">STRAIGHT</span><span class="b1">4</span><span class="b5">20</span></div>
+    <div class="pr" data-hand="Three of a Kind"><span class="hn">THREE OF A KIND</span><span class="b1">3</span><span class="b5">15</span></div>
+    <div class="pr" data-hand="Two Pair"><span class="hn">TWO PAIR</span><span class="b1">2</span><span class="b5">10</span></div>
+    <div class="pr" data-hand="Jacks or Better"><span class="hn">JACKS OR BETTER</span><span class="b1">1</span><span class="b5">5</span></div>
+  </div>
+  <div id="cbar">
+    <div class="ci"><div class="cl">Credits</div><div class="cv" id="cd">1000</div></div>
+    <div class="ci"><div class="cl">Bet</div><div class="cv" id="bd">-</div></div>
+    <div class="ci"><div class="cl">Win</div><div class="cv" id="wv">-</div></div>
+  </div>
+  <div id="cards">
+    <div class="cs"><span class="hl" id="h0"></span><div class="card fd" id="c0" onclick="hold(0)"></div></div>
+    <div class="cs"><span class="hl" id="h1"></span><div class="card fd" id="c1" onclick="hold(1)"></div></div>
+    <div class="cs"><span class="hl" id="h2"></span><div class="card fd" id="c2" onclick="hold(2)"></div></div>
+    <div class="cs"><span class="hl" id="h3"></span><div class="card fd" id="c3" onclick="hold(3)"></div></div>
+    <div class="cs"><span class="hl" id="h4"></span><div class="card fd" id="c4" onclick="hold(4)"></div></div>
+  </div>
+  <div id="msg"><div id="rm" class="nw">Place your bet to start!</div></div>
+  <div id="btns">
+    <div id="btns-left">
+      <button class="btn b1btn" id="bbbet" onclick="cycleBet()">BET <span id="bet-num">1</span></button>
+    </div>
+    <div id="btns-right">
+      <button class="btn clearbtn" id="bbclear" onclick="clearHolds()">CLEAR</button>
+      <button class="btn holdallbtn" id="bbholdall" onclick="holdAll()">HOLD ALL</button>
+      <button class="btn dealbtn" id="bddeal" onclick="startDeal()">DEAL</button>
+      <button class="btn drawbtn" id="bdr" onclick="draw()" style="display:none">DRAW</button>
+    </div>
+  </div>
+</div>
+<div id="cel"></div>
+<div id="seo-sep" style="width:100%;max-width:680px;padding:16px 16px 0;text-align:center;color:rgba(255,255,255,.25);font-size:.75rem;letter-spacing:2px">▼ &nbsp; GAME GUIDE &nbsp; ▼</div>
+<div id="seo">
+  <h2>How to Play Bonus Poker Video Poker</h2>
+  <p>Bonus Poker is a classic video poker variant. Use BET and DEAL, choose your HOLD cards, then DRAW to complete your hand and win payouts.</p>
+  <h2>Rules</h2>
+  <p>1. Choose BET 1 or BET 5 (always bet max for the 4,000 Royal Flush jackpot!)</p>
+  <p>2. Receive 5 cards. Click cards to HOLD them.</p>
+  <p>3. Press DRAW to replace unheld cards.</p>
+  <p>4. Win if your final hand matches the payout table above.</p>
+  <h2>Payout Table</h2>
+  <table><tr><th>Hand</th><th>BET 1</th><th>BET 5</th></tr><tr><td>Royal Flush</td><td>250</td><td>4000</td></tr><tr><td>Straight Flush</td><td>50</td><td>250</td></tr><tr><td>Four of a Kind</td><td>35</td><td>175</td></tr><tr><td>Full House</td><td>8</td><td>40</td></tr><tr><td>Flush</td><td>5</td><td>25</td></tr><tr><td>Straight</td><td>4</td><td>20</td></tr><tr><td>Three of a Kind</td><td>3</td><td>15</td></tr><tr><td>Two Pair</td><td>2</td><td>10</td></tr><tr><td>Jacks or Better</td><td>1</td><td>5</td></tr></table>
+</div>
+<script>
+const SUITS=['hearts','diamonds','clubs','spades'];
+const RANKS=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+const SYM={hearts:'&#9829;',diamonds:'&#9830;',clubs:'&#9827;',spades:'&#9824;'};
+const PAY={'Royal Flush':[250 ,4000],'Straight Flush':[50 ,250],'Four of a Kind':[35 ,175],'Full House':[8 ,40],'Flush':[5 ,25],'Straight':[4 ,20],'Three of a Kind':[3 ,15],'Two Pair':[2 ,10],'Jacks or Better':[1 ,5]};
+let credits=+localStorage.getItem('vp_c')||1000,bet=0,lastBet=+(localStorage.getItem('vp_lastbet')||1),hand=[],held=new Set(),deck=[],state='bet';
+function mkDeck(){const d=[];for(const s of SUITS)for(const r of RANKS)d.push({s,r});return d}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function rv(r){return{A:1,J:11,Q:12,K:13}[r]||+r}
+function evalHand(h){
+  const rs=h.map(c=>c.r),ss=h.map(c=>c.s);
+  const rc={};for(const r of rs)rc[r]=(rc[r]||0)+1;
+  const cs=Object.values(rc).sort((a,b)=>b-a);
+  const fl=new Set(ss).size===1;
+  const st=isStraight(rs);
+  const rset=new Set(rs);
+  if(fl&&st&&rset.has('10')&&rset.has('J')&&rset.has('Q')&&rset.has('K')&&rset.has('A'))return'Royal Flush';
+  if(fl&&st)return'Straight Flush';
+  if(cs[0]===4)return'Four of a Kind';
+  if(cs[0]===3&&cs[1]===2)return'Full House';
+  if(fl)return'Flush';
+  if(st)return'Straight';
+  if(cs[0]===3)return'Three of a Kind';
+  if(cs[0]===2&&cs[1]===2)return'Two Pair';
+  if(cs[0]===2){const pr=Object.entries(rc).find(([,v])=>v===2)?.[0];if(['J','Q','K','A'].includes(pr))return'Jacks or Better';}
+  return'No Win';
+}
+function isStraight(rs){
+  const vs=rs.map(rv).sort((a,b)=>a-b);
+  if(JSON.stringify(vs)==='[1,2,3,4,5]')return true;
+  const us=[...new Set(vs)].sort((a,b)=>a-b);
+  if(us.length===5&&JSON.stringify(us)==='[1,10,11,12,13]')return true;
+  const mn=vs[0];return vs.every((v,i)=>v===mn+i);
+}
+function getWin(ht,b){const t=PAY[ht];if(!t)return 0;return b===5?t[1]:t[0]*b}
+function cardHTML(c){
+  const isRed=c.s==='hearts'||c.s==='diamonds';
+  const cl=isRed?'red':'black';
+  const sym=SYM[c.s];
+  return`<div class="cc ${cl}"><span class="cr">${c.r}</span><span class="cs">${sym}︎</span></div><div class="cm ${cl}">${sym}︎</div>`;
+}
+function renderDrawCard(i,c,delay){
+  setTimeout(()=>{
+    const el=document.getElementById('c'+i);
+    // force reflow so animation restarts cleanly
+    el.className='card';
+    void el.offsetWidth;
+    el.innerHTML=cardHTML(c);
+    el.style.background='';el.style.borderColor='';
+    el.className='card drawing';
+  },delay);
+}
+function renderCard(i,c,anim,delay){
+  const el=document.getElementById('c'+i);
+  el.className='card'+(anim?' dealing':'');
+  el.style.animationDelay=delay+'s';
+  el.innerHTML=cardHTML(c);
+  el.style.background='';
+  el.style.borderColor='';
+}
+function faceDown(i){const el=document.getElementById('c'+i);el.className='card fd';el.innerHTML='';el.style.background='';el.style.borderColor='';}
+function updHeld(){for(let i=0;i<5;i++){document.getElementById('h'+i).textContent=held.has(i)?'HELD':'';const c=document.getElementById('c'+i);held.has(i)?c.classList.add('held'):c.classList.remove('held');}}
+function updCredits(){document.getElementById('cd').textContent=credits;document.getElementById('bd').textContent=bet||'-';localStorage.setItem('vp_c',credits);}
+function clrPay(){document.querySelectorAll('.pr[data-hand]').forEach(r=>r.classList.remove('win'));}
+function hilPay(ht){clrPay();const r=document.querySelector(`.pr[data-hand="${ht}"]`);if(r)r.classList.add('win');}
+function showBet(){document.getElementById('bbbet').disabled=false;document.getElementById('bbclear').disabled=true;document.getElementById('bbholdall').disabled=true;bddeal.style.display='';bdr.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
+function showHold(){document.getElementById('bbbet').disabled=true;document.getElementById('bbclear').disabled=false;document.getElementById('bbholdall').disabled=false;bddeal.style.display='none';bdr.style.display='';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='';}
+function showAgain(){document.getElementById('bbbet').disabled=false;document.getElementById('bbclear').disabled=true;document.getElementById('bbholdall').disabled=true;bddeal.style.display='';bdr.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
+function setMsg(t,nw){const el=document.getElementById('rm');el.textContent=t;el.className=nw?'nw':'';}
+
+function cycleBet(){
+  if(state!=='bet')return;
+  lastBet=lastBet>=5?1:lastBet+1;
+  localStorage.setItem('vp_lastbet',lastBet);
+  document.getElementById('bet-num').textContent=lastBet;
+  document.getElementById('bd').textContent=lastBet;
+  setMsg('BET '+lastBet+' selected — press DEAL to start',false);
+}
+function updBetHighlight(){
+  document.getElementById('bet-num').textContent=lastBet;
+}
+function startDeal(){
+  if(state!=='bet'&&state!=='over')return;
+  const wasOver=state==='over';
+  state='bet';
+  const b=lastBet;
+  if(credits<b){setMsg('Not enough credits!',true);return;}
+  credits-=b;bet=b;held.clear();clrPay();
+  document.getElementById('wv').textContent='-';document.getElementById('wv').className='';
+  setMsg('Select cards to HOLD, then press DRAW',false);
+  deck=shuffle(mkDeck());hand=deck.splice(0,5);
+  updHeld();updCredits();state='hold';showHold();
+  if(wasOver){
+    // flip previous cards face-down first, then deal with animation
+    for(let i=0;i<5;i++)faceDown(i);
+    setTimeout(()=>{for(let i=0;i<5;i++)renderCard(i,hand[i],true,i*0.08);},200);
+  }else{
+    for(let i=0;i<5;i++)renderCard(i,hand[i],true,i*0.08);
+  }
+}
+function hold(i){if(state!=='hold')return;held.has(i)?held.delete(i):held.add(i);updHeld();}
+function drawFaceDown(i,delay){
+  setTimeout(()=>faceDown(i),delay);
+}
+function draw(){
+  if(state!=='hold')return;
+  state='drawing';bdr.disabled=true;
+  const rep=[];for(let i=0;i<5;i++)if(!held.has(i))rep.push(i);
+  rep.forEach((i,idx)=>drawFaceDown(i,idx*60));
+  const exitMs=rep.length*60+180;
+  setTimeout(()=>{
+    rep.forEach((i,idx)=>{hand[i]=deck.splice(0,1)[0];setTimeout(()=>renderCard(i,hand[i],true,0),idx*80);});
+    setTimeout(()=>finish(),rep.length*80+350);
+  },200);
+}
+function finish(){
+  const ht=evalHand(hand);const w=getWin(ht,bet);
+  if(w>0){
+    credits+=w;
+    const wvEl=document.getElementById('wv');wvEl.textContent=w;wvEl.className='active';
+    setMsg(ht.toUpperCase(),false);
+    hilPay(ht);hilWin(ht);
+    if(ht==='Royal Flush')confetti();
+  }else{
+    document.getElementById('wv').textContent='-';document.getElementById('wv').className='';
+    setMsg('No win — try again!',true);
+  }
+  updCredits();state='over';bdr.disabled=false;showAgain();
+  if(credits<=0)setTimeout(()=>{credits=1000;updCredits();setMsg('Refilled to 1000 credits!',false);},1500);
+}
+function again(){state='bet';held.clear();clrPay();document.getElementById('wv').textContent='-';for(let i=0;i<5;i++)faceDown(i);updHeld();showBet();document.getElementById('bet-num').textContent=lastBet;document.getElementById('bd').textContent=lastBet;setMsg('BET '+lastBet+' selected — press DEAL to start',false);}
+function hilWin(ht){
+  const rs=hand.map(c=>c.r),rc={};for(const r of rs)rc[r]=(rc[r]||0)+1;
+  let idx=[];
+  if(['Royal Flush','Straight Flush','Flush','Straight','Full House'].includes(ht))idx=[0,1,2,3,4];
+  else if(ht==='Four of a Kind'){const fr=Object.entries(rc).find(([,v])=>v===4)?.[0];idx=rs.map((r,i)=>r===fr?i:-1).filter(i=>i>=0);}
+  else if(ht==='Three of a Kind'){const tr=Object.entries(rc).find(([,v])=>v===3)?.[0];idx=rs.map((r,i)=>r===tr?i:-1).filter(i=>i>=0);}
+  else if(ht==='Two Pair'){const pr=Object.entries(rc).filter(([,v])=>v===2).map(([r])=>r);idx=rs.map((r,i)=>pr.includes(r)?i:-1).filter(i=>i>=0);}
+  else if(ht==='Jacks or Better'){const pr=Object.entries(rc).find(([,v])=>v===2)?.[0];idx=rs.map((r,i)=>r===pr?i:-1).filter(i=>i>=0);}
+  idx.forEach(i=>document.getElementById('c'+i).classList.add('wc'));
+}
+function confetti(){
+  const box=document.getElementById('cel');box.style.display='block';box.innerHTML='';
+  const cols=['#ffd700','#ff6b6b','#48dbfb','#ff9ff3','#54a0ff'];
+  for(let i=0;i<80;i++){const el=document.createElement('div');el.className='cf';el.style.left=Math.random()*100+'vw';el.style.top='-20px';el.style.background=cols[Math.floor(Math.random()*cols.length)];el.style.width=(6+Math.random()*8)+'px';el.style.height=(6+Math.random()*8)+'px';el.style.animationDuration=(2+Math.random()*2)+'s';el.style.animationDelay=Math.random()+'s';box.appendChild(el);}
+  setTimeout(()=>{box.style.display='none';box.innerHTML='';},4000);
+}
+function holdAll(){if(state!=='hold')return;for(let i=0;i<5;i++)held.add(i);updHeld();}
+function clearHolds(){if(state!=='hold')return;held.clear();updHeld();}
+const bddeal=document.getElementById('bddeal'),bdr=document.getElementById('bdr');
+updCredits();showBet();updBetHighlight();document.getElementById('bd').textContent=lastBet;setMsg('BET '+lastBet+' selected — press DEAL to start',false);
+</script>
+</body>
+</html>
