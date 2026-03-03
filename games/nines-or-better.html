@@ -33,8 +33,8 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 .cv{font-size:1.6rem;font-weight:bold;color:#ffd700;line-height:1;font-variant-numeric:tabular-nums;transition:color .3s}
 #wv{color:#888;font-size:1.6rem;font-weight:bold}
 #wv.active{color:#00e87a;text-shadow:0 0 12px rgba(0,220,120,.5)}
-#cards{display:flex;gap:8px;justify-content:center;padding:0 4px;perspective:1000px}
-.cs{display:flex;flex-direction:column;align-items:center;gap:4px}
+#cards{display:flex;gap:8px;justify-content:center;padding:0 4px;perspective:1000px;height:182px;align-items:flex-start}
+.cs{display:flex;flex-direction:column;align-items:center;gap:4px;height:182px;justify-content:flex-start}
 .card{width:116px;height:160px;background:#fff;border-radius:8px;border:2px solid #ddd;display:flex;flex-direction:column;justify-content:space-between;padding:7px 7px 6px 7px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.4)}
 .card.held{border-color:#ffd700;box-shadow:0 0 12px rgba(255,215,0,.7);transform:translateY(-6px)}
@@ -88,7 +88,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 #seo table{width:100%;border-collapse:collapse;margin:8px 0}
 #seo th{background:rgba(255,215,0,.15);color:#ffd700;padding:6px 8px;text-align:left;font-size:.8rem}
 #seo td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.07);font-size:.8rem}
-@media(max-width:500px){.card{width:60px;height:85px;padding:4px}.cc{font-size:.72rem}.cm{font-size:1.4rem}header h1{font-size:1rem}}
+@media(max-width:500px){#cards{height:102px}.cs{height:102px}.card{width:60px;height:85px;padding:4px}.cc{font-size:.72rem}.cm{font-size:1.4rem}header h1{font-size:1rem}}
 </style>
 </head>
 <body>
