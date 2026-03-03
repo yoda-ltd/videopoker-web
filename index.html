@@ -95,10 +95,10 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
   </div>
   <div id="msg"><div id="rm" class="nw">Place your bet to start!</div></div>
   <div id="btns">
-    <button class="btn b1btn" id="bb1" onclick="deal(1)">BET 1</button>
-    <button class="btn b5btn" id="bb5" onclick="deal(5)">BET 5</button>
-    <button class="btn mbtn" id="bbm" onclick="deal(5)">MAX BET</button>
-    <button class="btn dealbtn" id="bdrpt" onclick="deal()" style="">DEAL &#9654;</button>
+    <button class="btn b1btn" id="bb1" onclick="setBet(1)">BET 1</button>
+    <button class="btn b5btn" id="bb5" onclick="setBet(5)">BET 5</button>
+    <button class="btn mbtn" id="bbm" onclick="setBet(5)">MAX BET</button>
+    <button class="btn dealbtn" id="bddeal" onclick="startDeal()">DEAL &#9654;</button>
     <button class="btn drawbtn" id="bdr" onclick="draw()" style="display:none">DRAW</button>
     <button class="btn dealbtn" id="bda" onclick="again()" style="display:none">DEAL AGAIN</button>
   </div>
@@ -178,16 +178,27 @@ function updHeld(){for(let i=0;i<5;i++){document.getElementById('h'+i).textConte
 function updCredits(){document.getElementById('cd').textContent=credits;document.getElementById('bd').textContent=bet||'-';localStorage.setItem('vp_c',credits);}
 function clrPay(){document.querySelectorAll('.pr[data-hand]').forEach(r=>r.classList.remove('win'));}
 function hilPay(ht){clrPay();const r=document.querySelector(`.pr[data-hand="${ht}"]`);if(r)r.classList.add('win');}
-function showBet(){bb1.style.display='';bb5.style.display='';bbm.style.display='';bdrpt.style.display='';bdr.style.display='none';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
-function showHold(){bb1.style.display='none';bb5.style.display='none';bbm.style.display='none';bdrpt.style.display='none';bdr.style.display='';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='';}
-function showAgain(){bb1.style.display='none';bb5.style.display='none';bbm.style.display='none';bdrpt.style.display='none';bdr.style.display='none';bda.style.display='';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
+function showBet(){bb1.style.display='';bb5.style.display='';bbm.style.display='';bddeal.style.display='';bdr.style.display='none';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
+function showHold(){bb1.style.display='none';bb5.style.display='none';bbm.style.display='none';bddeal.style.display='none';bdr.style.display='';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='';}
+function showAgain(){bb1.style.display='none';bb5.style.display='none';bbm.style.display='none';bddeal.style.display='none';bdr.style.display='none';bda.style.display='';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
 function setMsg(t,nw){const el=document.getElementById('rm');el.textContent=t;el.className=nw?'nw':'';}
 
-function deal(b){
+function setBet(b){
   if(state!=='bet')return;
-  if(b===undefined)b=lastBet;
-  if(credits<b){setMsg('Not enough credits!',true);return;}
   lastBet=b;localStorage.setItem('vp_lastbet',b);
+  updBetHighlight();
+  document.getElementById('bd').textContent=b;
+  setMsg('BET '+b+' selected — press DEAL to start',false);
+}
+function updBetHighlight(){
+  document.getElementById('bb1').style.outline=lastBet===1?'3px solid #ffd700':'none';
+  document.getElementById('bb5').style.outline=lastBet===5?'3px solid #ffd700':'none';
+  document.getElementById('bbm').style.outline=lastBet===5?'3px solid #ffd700':'none';
+}
+function startDeal(){
+  if(state!=='bet')return;
+  const b=lastBet;
+  if(credits<b){setMsg('Not enough credits!',true);return;}
   credits-=b;bet=b;held.clear();clrPay();
   document.getElementById('wv').textContent='-';
   setMsg('Select cards to HOLD, then press DRAW',false);
@@ -221,7 +232,7 @@ function finish(){
   updCredits();state='over';bdr.disabled=false;showAgain();
   if(credits<=0)setTimeout(()=>{credits=1000;updCredits();setMsg('Refilled to 1000 credits!',false);},1500);
 }
-function again(){state='bet';held.clear();clrPay();document.getElementById('wv').textContent='-';document.getElementById('bd').textContent='-';for(let i=0;i<5;i++)faceDown(i);updHeld();showBet();setMsg('Press BET to start (last: '+lastBet+' credit'+(lastBet>1?'s':'')+') or DEAL to repeat',true);}
+function again(){state='bet';held.clear();clrPay();document.getElementById('wv').textContent='-';for(let i=0;i<5;i++)faceDown(i);updHeld();showBet();updBetHighlight();setMsg('BET '+lastBet+' selected — press DEAL to start',false);}
 function hilWin(ht){
   const rs=hand.map(c=>c.r),rc={};for(const r of rs)rc[r]=(rc[r]||0)+1;
   let idx=[];
@@ -238,8 +249,8 @@ function confetti(){
   for(let i=0;i<80;i++){const el=document.createElement('div');el.className='cf';el.style.left=Math.random()*100+'vw';el.style.top='-20px';el.style.background=cols[Math.floor(Math.random()*cols.length)];el.style.width=(6+Math.random()*8)+'px';el.style.height=(6+Math.random()*8)+'px';el.style.animationDuration=(2+Math.random()*2)+'s';el.style.animationDelay=Math.random()+'s';box.appendChild(el);}
   setTimeout(()=>{box.style.display='none';box.innerHTML='';},4000);
 }
-const bb1=document.getElementById('bb1'),bb5=document.getElementById('bb5'),bbm=document.getElementById('bbm'),bdrpt=document.getElementById('bdrpt'),bdr=document.getElementById('bdr'),bda=document.getElementById('bda');
-updCredits();showBet();document.getElementById('bd').textContent=lastBet;
+const bb1=document.getElementById('bb1'),bb5=document.getElementById('bb5'),bbm=document.getElementById('bbm'),bddeal=document.getElementById('bddeal'),bdr=document.getElementById('bdr'),bda=document.getElementById('bda');
+updCredits();showBet();updBetHighlight();document.getElementById('bd').textContent=lastBet;setMsg('BET '+lastBet+' selected — press DEAL to start',false);
 </script>
 </body>
 </html>
