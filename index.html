@@ -46,7 +46,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 #msg{text-align:center;min-height:32px;display:flex;align-items:center;justify-content:center}
 #rm{font-size:1.1rem;font-weight:bold;letter-spacing:2px;color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.6);text-transform:uppercase}
 #rm.nw{color:#888;text-shadow:none;font-size:.9rem}
-#btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+#btns{display:flex;justify-content:space-between;align-items:center;gap:8px}#btns-left{display:flex;gap:8px}#btns-right{display:flex;gap:8px}
 .btn{padding:10px 18px;border:none;border-radius:8px;font-size:.85rem;font-weight:bold;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:transform .1s,box-shadow .1s,opacity .2s;box-shadow:0 4px 12px rgba(0,0,0,.4);min-width:80px}
 .btn:active{transform:scale(.95)}
 .btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
@@ -95,12 +95,14 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
   </div>
   <div id="msg"><div id="rm" class="nw">Place your bet to start!</div></div>
   <div id="btns">
-    <button class="btn b1btn" id="bb1" onclick="setBet(1)">BET 1</button>
-    <button class="btn b5btn" id="bb5" onclick="setBet(5)">BET 5</button>
-    <button class="btn mbtn" id="bbm" onclick="setBet(5)">MAX BET</button>
-    <button class="btn dealbtn" id="bddeal" onclick="startDeal()">DEAL &#9654;</button>
-    <button class="btn drawbtn" id="bdr" onclick="draw()" style="display:none">DRAW</button>
-    <button class="btn dealbtn" id="bda" onclick="again()" style="display:none">DEAL AGAIN</button>
+    <div id="btns-left">
+      <button class="btn b1btn" id="bbbet" onclick="cycleBet()">BET <span id="bet-num">1</span></button>
+    </div>
+    <div id="btns-right">
+      <button class="btn dealbtn" id="bddeal" onclick="startDeal()">DEAL &#9654;</button>
+      <button class="btn drawbtn" id="bdr" onclick="draw()" style="display:none">DRAW</button>
+      <button class="btn dealbtn" id="bda" onclick="again()" style="display:none">DEAL AGAIN</button>
+    </div>
   </div>
 </div>
 <div id="cel"></div>
@@ -178,22 +180,21 @@ function updHeld(){for(let i=0;i<5;i++){document.getElementById('h'+i).textConte
 function updCredits(){document.getElementById('cd').textContent=credits;document.getElementById('bd').textContent=bet||'-';localStorage.setItem('vp_c',credits);}
 function clrPay(){document.querySelectorAll('.pr[data-hand]').forEach(r=>r.classList.remove('win'));}
 function hilPay(ht){clrPay();const r=document.querySelector(`.pr[data-hand="${ht}"]`);if(r)r.classList.add('win');}
-function showBet(){bb1.style.display='';bb5.style.display='';bbm.style.display='';bddeal.style.display='';bdr.style.display='none';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
-function showHold(){bb1.style.display='none';bb5.style.display='none';bbm.style.display='none';bddeal.style.display='none';bdr.style.display='';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='';}
-function showAgain(){bb1.style.display='none';bb5.style.display='none';bbm.style.display='none';bddeal.style.display='none';bdr.style.display='none';bda.style.display='';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
+function showBet(){document.getElementById('btns-left').style.display='';bddeal.style.display='';bdr.style.display='none';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
+function showHold(){document.getElementById('btns-left').style.display='none';bddeal.style.display='none';bdr.style.display='';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='';}
+function showAgain(){document.getElementById('btns-left').style.display='none';bddeal.style.display='none';bdr.style.display='none';bda.style.display='';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
 function setMsg(t,nw){const el=document.getElementById('rm');el.textContent=t;el.className=nw?'nw':'';}
 
-function setBet(b){
+function cycleBet(){
   if(state!=='bet')return;
-  lastBet=b;localStorage.setItem('vp_lastbet',b);
-  updBetHighlight();
-  document.getElementById('bd').textContent=b;
-  setMsg('BET '+b+' selected — press DEAL to start',false);
+  lastBet=lastBet>=5?1:lastBet+1;
+  localStorage.setItem('vp_lastbet',lastBet);
+  document.getElementById('bet-num').textContent=lastBet;
+  document.getElementById('bd').textContent=lastBet;
+  setMsg('BET '+lastBet+' selected — press DEAL to start',false);
 }
 function updBetHighlight(){
-  document.getElementById('bb1').style.outline=lastBet===1?'3px solid #ffd700':'none';
-  document.getElementById('bb5').style.outline=lastBet===5?'3px solid #ffd700':'none';
-  document.getElementById('bbm').style.outline=lastBet===5?'3px solid #ffd700':'none';
+  document.getElementById('bet-num').textContent=lastBet;
 }
 function startDeal(){
   if(state!=='bet')return;
@@ -232,7 +233,7 @@ function finish(){
   updCredits();state='over';bdr.disabled=false;showAgain();
   if(credits<=0)setTimeout(()=>{credits=1000;updCredits();setMsg('Refilled to 1000 credits!',false);},1500);
 }
-function again(){state='bet';held.clear();clrPay();document.getElementById('wv').textContent='-';for(let i=0;i<5;i++)faceDown(i);updHeld();showBet();updBetHighlight();setMsg('BET '+lastBet+' selected — press DEAL to start',false);}
+function again(){state='bet';held.clear();clrPay();document.getElementById('wv').textContent='-';for(let i=0;i<5;i++)faceDown(i);updHeld();showBet();document.getElementById('bet-num').textContent=lastBet;document.getElementById('bd').textContent=lastBet;setMsg('BET '+lastBet+' selected — press DEAL to start',false);}
 function hilWin(ht){
   const rs=hand.map(c=>c.r),rc={};for(const r of rs)rc[r]=(rc[r]||0)+1;
   let idx=[];
@@ -249,7 +250,7 @@ function confetti(){
   for(let i=0;i<80;i++){const el=document.createElement('div');el.className='cf';el.style.left=Math.random()*100+'vw';el.style.top='-20px';el.style.background=cols[Math.floor(Math.random()*cols.length)];el.style.width=(6+Math.random()*8)+'px';el.style.height=(6+Math.random()*8)+'px';el.style.animationDuration=(2+Math.random()*2)+'s';el.style.animationDelay=Math.random()+'s';box.appendChild(el);}
   setTimeout(()=>{box.style.display='none';box.innerHTML='';},4000);
 }
-const bb1=document.getElementById('bb1'),bb5=document.getElementById('bb5'),bbm=document.getElementById('bbm'),bddeal=document.getElementById('bddeal'),bdr=document.getElementById('bdr'),bda=document.getElementById('bda');
+const bddeal=document.getElementById('bddeal'),bdr=document.getElementById('bdr'),bda=document.getElementById('bda');
 updCredits();showBet();updBetHighlight();document.getElementById('bd').textContent=lastBet;setMsg('BET '+lastBet+' selected — press DEAL to start',false);
 </script>
 </body>
