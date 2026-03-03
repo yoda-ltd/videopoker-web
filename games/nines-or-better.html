@@ -195,6 +195,7 @@ function renderDrawCard(i,c,delay){
     out.onfinish=()=>{
       // Swap to new card exactly at midpoint (when invisible)
       hand[i]=c;
+      el.className='card';
       el.innerHTML=cardHTML(c);
       el.style.background='';el.style.borderColor='';
       el.style.transform='rotateY(-90deg)';
