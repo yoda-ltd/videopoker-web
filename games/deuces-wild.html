@@ -224,6 +224,13 @@ function renderCard(i,c,anim,delay){
   el.style.borderColor='';
 }
 function faceDown(i){const el=document.getElementById('c'+i);el.className='card fd';el.innerHTML='';el.style.background='';el.style.borderColor='';}
+function resetCardFlipOut(i,delay){
+  setTimeout(()=>{
+    const el=document.getElementById('c'+i);
+    if(el.getAnimations) el.getAnimations().forEach(a=>a.cancel());
+    el.animate([{transform:'rotateY(0deg)',opacity:1},{transform:'rotateY(90deg)',opacity:0}],{duration:220,easing:'ease-in',fill:'forwards'});
+  },delay);
+}
 function updHeld(){for(let i=0;i<5;i++){document.getElementById('h'+i).textContent=held.has(i)?'HELD':'';const c=document.getElementById('c'+i);held.has(i)?c.classList.add('held'):c.classList.remove('held');}}
 function updCredits(){document.getElementById('cd').textContent=credits;document.getElementById('bd').textContent=bet||'-';localStorage.setItem('vp_c',credits);}
 function clrPay(){document.querySelectorAll('.pr[data-hand]').forEach(r=>r.classList.remove('win'));}
@@ -257,9 +264,13 @@ function startDeal(){
   deck=shuffle(mkDeck());hand=deck.splice(0,5);
   updHeld();updCredits();state='hold';showHold();
   if(wasOver){
-    // flip previous cards face-down first, then deal with animation
-    for(let i=0;i<5;i++)faceDown(i);
-    setTimeout(()=>{for(let i=0;i<5;i++)renderCard(i,hand[i],true,i*0.08);},200);
+    // stage 1: old cards flip out (visible duration longer)
+    for(let i=0;i<5;i++)resetCardFlipOut(i,i*70);
+    // stage 2: after flip-out complete, clear to face-down
+    const resetMs=4*70+260;
+    setTimeout(()=>{for(let i=0;i<5;i++)faceDown(i);},resetMs);
+    // stage 3: slight pause, then new DEAL sweep from left
+    setTimeout(()=>{for(let i=0;i<5;i++)renderCard(i,hand[i],true,i*0.08);},resetMs+180);
   }else{
     for(let i=0;i<5;i++)renderCard(i,hand[i],true,i*0.08);
   }
