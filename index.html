@@ -15,20 +15,24 @@ body{background:linear-gradient(160deg,#0a1628,#0d2040 50%,#0a1628);min-height:1
 header{width:100%;text-align:center;padding:12px 0 6px;background:rgba(0,0,0,.3);border-bottom:1px solid rgba(255,215,0,.2)}
 header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ffd700;text-shadow:0 0 20px rgba(255,215,0,.5);font-family:'Copperplate Gothic','Copperplate',serif}
 #game{width:100%;max-width:680px;padding:10px 12px;display:flex;flex-direction:column;gap:10px;min-height:calc(100vh - 60px);justify-content:flex-start}
-#payout-table{background:rgba(0,0,0,.6);border:1px solid rgba(255,215,0,.3);border-radius:8px;overflow:hidden}
-.pr{display:flex;justify-content:space-between;padding:3px 10px;border-bottom:1px solid rgba(255,255,255,.05);font-size:.72rem}
+#payout-table{background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden}
+.pr{display:flex;justify-content:space-between;align-items:center;padding:4px 12px;border-bottom:1px solid rgba(255,255,255,.04);font-size:.72rem;transition:background .3s,color .3s}
+.pr:nth-child(even){background:rgba(255,255,255,.03)}
 .pr:last-child{border-bottom:none}
-.pr .hn{flex:1;color:#ccc}
-.pr .b1,.pr .b5{width:60px;text-align:right;color:#aaa}
-.pr .ch{color:#ffd700;font-weight:bold}
-.pr.win{background:rgba(255,215,0,.25);animation:wp .6s ease}
-.pr.win .hn,.pr.win .b1,.pr.win .b5{color:#ffd700;font-weight:bold}
-@keyframes wp{0%,100%{background:rgba(255,215,0,.25)}50%{background:rgba(255,215,0,.5)}}
-#cbar{display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.4);border:1px solid rgba(255,215,0,.2);border-radius:8px;padding:8px 16px}
-.ci{text-align:center}
-.cl{font-size:.65rem;color:#888;text-transform:uppercase;letter-spacing:1px}
-.cv{font-size:1.3rem;font-weight:bold;color:#ffd700}
-#wv{color:#00ff88}
+.pr .hn{flex:1;color:#bbb;letter-spacing:.3px}
+.pr .b1,.pr .b5{width:52px;text-align:right;color:#888;font-variant-numeric:tabular-nums}
+.pr .ch{color:#ffd700;font-weight:bold;font-size:.8rem}
+.pr.win{background:rgba(255,215,0,.18)!important;box-shadow:inset 0 0 0 1px rgba(255,215,0,.4);animation:wp .5s ease}
+.pr.win .hn{color:#ffd700;font-weight:700;letter-spacing:.5px}
+.pr.win .b1,.pr.win .b5,.pr.win .ch{color:#ffd700;font-weight:700}
+@keyframes wp{0%{background:rgba(255,215,0,.05)}50%{background:rgba(255,215,0,.35)}100%{background:rgba(255,215,0,.18)}}
+#cbar{display:flex;justify-content:space-between;align-items:stretch;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden}
+.ci{flex:1;text-align:center;padding:10px 8px;position:relative;transition:background .3s}
+.ci+.ci{border-left:1px solid rgba(255,255,255,.07)}
+.cl{font-size:.62rem;color:#666;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px}
+.cv{font-size:1.6rem;font-weight:bold;color:#ffd700;line-height:1;font-variant-numeric:tabular-nums;transition:color .3s}
+#wv{color:#888}
+#wv.active{color:#00e87a;text-shadow:0 0 12px rgba(0,220,120,.5)}
 #cards{display:flex;gap:8px;justify-content:center;padding:0 4px}
 .cs{display:flex;flex-direction:column;align-items:center;gap:4px}
 .card{width:116px;height:160px;background:#fff;border-radius:8px;border:2px solid #ddd;display:flex;flex-direction:column;justify-content:space-between;padding:7px 7px 6px 7px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none}
@@ -235,7 +239,7 @@ function startDeal(){
   const b=lastBet;
   if(credits<b){setMsg('Not enough credits!',true);return;}
   credits-=b;bet=b;held.clear();clrPay();
-  document.getElementById('wv').textContent='-';
+  document.getElementById('wv').textContent='-';document.getElementById('wv').className='';
   setMsg('Select cards to HOLD, then press DRAW',false);
   deck=shuffle(mkDeck());hand=deck.splice(0,5);
   updHeld();updCredits();state='hold';showHold();
@@ -266,12 +270,12 @@ function finish(){
   const ht=evalHand(hand);const w=getWin(ht,bet);
   if(w>0){
     credits+=w;
-    document.getElementById('wv').textContent=w;
+    const wvEl=document.getElementById('wv');wvEl.textContent=w;wvEl.className='active';
     setMsg(ht.toUpperCase(),false);
     hilPay(ht);hilWin(ht);
     if(ht==='Royal Flush')confetti();
   }else{
-    document.getElementById('wv').textContent='-';
+    document.getElementById('wv').textContent='-';document.getElementById('wv').className='';
     setMsg('No win — try again!',true);
   }
   updCredits();state='over';bdr.disabled=false;showAgain();
