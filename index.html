@@ -48,6 +48,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 .cc .cs{font-size:1.1rem;margin-top:-1px}
 .cc.bot{display:none}
 .cm{font-size:3.8rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Fredoka One',cursive;
   filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
 .red{color:#d63031}.black{color:#2d3436}
 .hl{font-size:.65rem;font-weight:bold;color:#ffd700;letter-spacing:2px;text-transform:uppercase;height:16px;line-height:16px;text-shadow:0 0 6px rgba(255,215,0,.8)}
@@ -184,7 +185,7 @@ function cardHTML(c){
   const isRed=c.s==='hearts'||c.s==='diamonds';
   const cl=isRed?'red':'black';
   const sym=SYM[c.s];
-  return`<div class="cc ${cl}"><span class="cr">${c.r}</span><span class="cs">${sym}</span></div><div class="cm ${cl}">${sym}</div>`;
+  return`<div class="cc ${cl}"><span class="cr">${c.r}</span><span class="cs">${sym}︎</span></div><div class="cm ${cl}">${sym}︎</div>`;
 }
 function renderDrawCard(i,c,delay){
   setTimeout(()=>{
