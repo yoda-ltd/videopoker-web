@@ -8,7 +8,6 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Game","name":"Jacks or Better Video Poker","description":"Free online Jacks or Better video poker. No download required.","genre":"Casino"}
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:linear-gradient(160deg,#0a1628,#0d2040 50%,#0a1628);min-height:100vh;font-family:Arial,sans-serif;color:#fff;display:flex;flex-direction:column;align-items:center}
@@ -31,7 +30,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 #wv{color:#00ff88}
 #cards{display:flex;gap:8px;justify-content:center}
 .cs{display:flex;flex-direction:column;align-items:center;gap:4px}
-.card{width:90px;height:124px;background:#fff;border-radius:8px;border:2px solid #ddd;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none}
+.card{width:88px;height:120px;background:#fff;border-radius:8px;border:2px solid #ddd;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.4)}
 .card.held{border-color:#ffd700;box-shadow:0 0 12px rgba(255,215,0,.7);transform:translateY(-6px)}
 .card.wc{border-color:#00ff88;box-shadow:0 0 16px rgba(0,255,136,.8);animation:cw .5s ease 3}
@@ -43,12 +42,10 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 .card.drawing{animation:dr .4s cubic-bezier(.34,1.2,.64,1) forwards}
 @keyframes dr{0%{opacity:0;transform:scale(0) rotate(-180deg)}70%{transform:scale(1.06) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}
 .card.fd{background:repeating-linear-gradient(45deg,#1a3a6e,#1a3a6e 5px,#1e4280 5px,#1e4280 10px);border-color:#2a5aaa}
-.cc{font-family:'Bebas Neue',sans-serif;letter-spacing:.5px;line-height:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0}
-.cc .cr{font-size:1.4rem;line-height:1}
-.cc .cs{font-size:.95rem;line-height:1}
+.cc{font-size:.9rem;font-weight:bold;line-height:1}
 .cc.bot{transform:rotate(180deg);align-self:flex-end}
-.cm{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px}
-.red{color:#c0392b}.black{color:#1c2340}
+.cm{font-size:2rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.red{color:#cc0000}.black{color:#111}
 .hl{font-size:.65rem;font-weight:bold;color:#ffd700;letter-spacing:2px;text-transform:uppercase;height:16px;line-height:16px;text-shadow:0 0 6px rgba(255,215,0,.8)}
 #msg{text-align:center;height:40px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #rm{font-size:1.1rem;font-weight:bold;letter-spacing:2px;color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.6);text-transform:uppercase}
@@ -80,7 +77,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 #seo table{width:100%;border-collapse:collapse;margin:8px 0}
 #seo th{background:rgba(255,215,0,.15);color:#ffd700;padding:6px 8px;text-align:left;font-size:.8rem}
 #seo td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.07);font-size:.8rem}
-@media(max-width:500px){.card{width:62px;height:88px;padding:4px}.cc .cr{font-size:.82rem}.cc .cs{font-size:.68rem}.cm{font-size:2.2rem}header h1{font-size:1rem}}
+@media(max-width:500px){.card{width:60px;height:85px;padding:4px}.cc{font-size:.72rem}.cm{font-size:1.4rem}header h1{font-size:1rem}}
 </style>
 </head>
 <body>
@@ -179,19 +176,11 @@ function isStraight(rs){
   const mn=vs[0];return vs.every((v,i)=>v===mn+i);
 }
 function getWin(ht,b){const t=PAY[ht];if(!t)return 0;return b===5?t[1]:t[0]*b}
-const SVG_SUITS={
-  hearts:`<svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg"><path d="M50 85 C50 85 5 52 5 28 C5 12 17 2 33 2 C42 2 50 10 50 10 C50 10 58 2 67 2 C83 2 95 12 95 28 C95 52 50 85 50 85Z" fill="#c0392b"/></svg>`,
-  diamonds:`<svg viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg"><path d="M40 4 L76 50 L40 96 L4 50Z" fill="#c0392b"/></svg>`,
-  spades:`<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 4 C50 4 8 38 8 58 C8 72 18 80 32 78 C26 86 22 92 22 92 L78 92 C78 92 74 86 68 78 C82 80 92 72 92 58 C92 38 50 4 50 4Z" fill="#1c2340"/></svg>`,
-  clubs:`<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="30" r="22" fill="#1c2340"/><circle cx="25" cy="58" r="20" fill="#1c2340"/><circle cx="75" cy="58" r="20" fill="#1c2340"/><rect x="42" y="55" width="16" height="30" rx="4" fill="#1c2340"/><rect x="28" y="82" width="44" height="12" rx="4" fill="#1c2340"/></svg>`
-};
-const SYM_SMALL={hearts:'♥',diamonds:'♦',spades:'♠',clubs:'♣'};
 function cardHTML(c){
   const isRed=c.s==='hearts'||c.s==='diamonds';
   const cl=isRed?'red':'black';
-  const smallSym=SYM_SMALL[c.s];
-  const corner=`<div class="cc ${cl}"><span class="cr">${c.r}</span><span class="cs">${smallSym}</span></div>`;
-  return`${corner}<div class="cm">${SVG_SUITS[c.s]}</div><div class="cc bot ${cl}"><span class="cr">${c.r}</span><span class="cs">${smallSym}</span></div>`;
+  const sym=SYM[c.s];
+  return`<div class="cc ${cl}">${c.r}<br>${sym}</div><div class="cm ${cl}">${sym}</div><div class="cc bot ${cl}">${c.r}<br>${sym}</div>`;
 }
 function renderDrawCard(i,c,delay){
   setTimeout(()=>{
