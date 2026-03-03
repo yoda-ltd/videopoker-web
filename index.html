@@ -209,6 +209,7 @@ function updBetHighlight(){
 }
 function startDeal(){
   if(state!=='bet'&&state!=='over')return;
+  const wasOver=state==='over';
   state='bet';
   const b=lastBet;
   if(credits<b){setMsg('Not enough credits!',true);return;}
@@ -216,8 +217,14 @@ function startDeal(){
   document.getElementById('wv').textContent='-';
   setMsg('Select cards to HOLD, then press DRAW',false);
   deck=shuffle(mkDeck());hand=deck.splice(0,5);
-  for(let i=0;i<5;i++)renderCard(i,hand[i],true,i*0.08);
   updHeld();updCredits();state='hold';showHold();
+  if(wasOver){
+    // flip previous cards face-down first, then deal with animation
+    for(let i=0;i<5;i++)faceDown(i);
+    setTimeout(()=>{for(let i=0;i<5;i++)renderCard(i,hand[i],true,i*0.08);},200);
+  }else{
+    for(let i=0;i<5;i++)renderCard(i,hand[i],true,i*0.08);
+  }
 }
 function hold(i){if(state!=='hold')return;held.has(i)?held.delete(i):held.add(i);updHeld();}
 function draw(){
