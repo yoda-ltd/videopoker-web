@@ -36,10 +36,9 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 .card.wc{border-color:#00ff88;box-shadow:0 0 16px rgba(0,255,136,.8);animation:cw .5s ease 3}
 @keyframes cw{0%,100%{transform:translateY(-6px) scale(1)}50%{transform:translateY(-10px) scale(1.05)}}
 /* DEAL: sweep in from left */
-.card.dealing{animation:di .35s cubic-bezier(.25,.46,.45,.94) forwards}
+/* deal/draw use inline animation style for reliability */
 @keyframes di{from{opacity:0;transform:translateX(-120px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
-/* DRAW: spin-in (full rotation + scale) */
-.card.drawing{animation:dr .4s cubic-bezier(.34,1.2,.64,1) forwards}
+/* di = deal sweep from left, dr = spin-in for draw */
 @keyframes dr{0%{opacity:0;transform:scale(0) rotate(-180deg)}70%{transform:scale(1.06) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}
 .card.fd{background:repeating-linear-gradient(45deg,#1a3a6e,#1a3a6e 5px,#1e4280 5px,#1e4280 10px);border-color:#2a5aaa}
 .cc{font-size:.9rem;font-weight:bold;line-height:1}
@@ -185,21 +184,27 @@ function cardHTML(c){
 function renderDrawCard(i,c,delay){
   setTimeout(()=>{
     const el=document.getElementById('c'+i);
-    // force reflow so animation restarts cleanly
-    el.className='card';
+    el.style.animationDelay='0s';
+    el.style.animation='none';
     void el.offsetWidth;
     el.innerHTML=cardHTML(c);
     el.style.background='';el.style.borderColor='';
-    el.className='card drawing';
+    el.style.animation='dr .4s cubic-bezier(.34,1.2,.64,1) forwards';
   },delay);
 }
 function renderCard(i,c,anim,delay){
   const el=document.getElementById('c'+i);
-  el.className='card'+(anim?' dealing':'');
-  el.style.animationDelay=delay+'s';
+  el.style.animationDelay='0s';
+  el.style.animation='none';
+  void el.offsetWidth;
   el.innerHTML=cardHTML(c);
   el.style.background='';
   el.style.borderColor='';
+  if(anim){
+    el.style.animation=`di .35s ${delay}s cubic-bezier(.25,.46,.45,.94) both`;
+  }else{
+    el.style.animation='';
+  }
 }
 function faceDown(i){const el=document.getElementById('c'+i);el.className='card fd';el.innerHTML='';el.style.background='';el.style.borderColor='';}
 function updHeld(){for(let i=0;i<5;i++){document.getElementById('h'+i).textContent=held.has(i)?'HELD':'';const c=document.getElementById('c'+i);held.has(i)?c.classList.add('held'):c.classList.remove('held');}}
