@@ -50,7 +50,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 .btn{padding:10px 18px;border:none;border-radius:8px;font-size:.85rem;font-weight:bold;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:transform .1s,box-shadow .1s,opacity .2s;box-shadow:0 4px 12px rgba(0,0,0,.4);min-width:80px}
 .btn:active{transform:scale(.95)}
 .btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
-.b1btn{background:linear-gradient(135deg,#1a6fd4,#0d4fa0);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.b1btn{background:linear-gradient(135deg,#1a6fd4,#0d4fa0);color:#fff;border:1px solid rgba(255,255,255,.2)}.b1btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
 .b5btn{background:linear-gradient(135deg,#d4a017,#a07010);color:#fff;border:1px solid rgba(255,215,0,.3)}
 .mbtn{background:linear-gradient(135deg,#c0392b,#922b21);color:#fff;border:1px solid rgba(255,100,100,.3)}
 .drawbtn{background:linear-gradient(135deg,#27ae60,#1e8449);color:#fff;font-size:1rem;padding:12px 28px}
@@ -180,9 +180,9 @@ function updHeld(){for(let i=0;i<5;i++){document.getElementById('h'+i).textConte
 function updCredits(){document.getElementById('cd').textContent=credits;document.getElementById('bd').textContent=bet||'-';localStorage.setItem('vp_c',credits);}
 function clrPay(){document.querySelectorAll('.pr[data-hand]').forEach(r=>r.classList.remove('win'));}
 function hilPay(ht){clrPay();const r=document.querySelector(`.pr[data-hand="${ht}"]`);if(r)r.classList.add('win');}
-function showBet(){document.getElementById('btns-left').style.display='';bddeal.style.display='';bdr.style.display='none';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
-function showHold(){document.getElementById('btns-left').style.display='none';bddeal.style.display='none';bdr.style.display='';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='';}
-function showAgain(){document.getElementById('btns-left').style.display='none';bddeal.style.display='none';bdr.style.display='none';bda.style.display='';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
+function showBet(){const bl=document.getElementById('btns-left');bl.style.display='';document.getElementById('bbbet').disabled=false;bddeal.style.display='';bdr.style.display='none';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
+function showHold(){document.getElementById('btns-left').style.display='';document.getElementById('bbbet').disabled=true;bddeal.style.display='none';bdr.style.display='';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='';}
+function showAgain(){document.getElementById('btns-left').style.display='';document.getElementById('bbbet').disabled=true;bddeal.style.display='none';bdr.style.display='none';bda.style.display='';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
 function setMsg(t,nw){const el=document.getElementById('rm');el.textContent=t;el.className=nw?'nw':'';}
 
 function cycleBet(){
