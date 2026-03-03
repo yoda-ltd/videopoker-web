@@ -38,13 +38,12 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 /* DEAL: sweep in from left */
 .card.dealing{animation:di .35s cubic-bezier(.25,.46,.45,.94) forwards}
 @keyframes di{from{opacity:0;transform:translateX(-120px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
-/* DRAW: 3D card flip on Y axis */
-.card.drawing{animation:dr .4s ease forwards;transform-style:preserve-3d}
+/* DRAW: in-place pop swap */
+.card.drawing{animation:dr .3s cubic-bezier(.34,1.56,.64,1) forwards}
 @keyframes dr{
-  0%  {transform:rotateY(0deg);opacity:1}
-  49% {transform:rotateY(90deg);opacity:0}
-  50% {transform:rotateY(-90deg);opacity:0}
-  100%{transform:rotateY(0deg);opacity:1}
+  0%  {opacity:0;transform:scale(.5) rotate(-6deg)}
+  70% {transform:scale(1.08) rotate(1deg)}
+  100%{opacity:1;transform:scale(1) rotate(0deg)}
 }
 .card.fd{background:repeating-linear-gradient(45deg,#1a3a6e,#1a3a6e 5px,#1e4280 5px,#1e4280 10px);border-color:#2a5aaa}
 .cc{font-size:.9rem;font-weight:bold;line-height:1}
@@ -246,10 +245,10 @@ function hold(i){if(state!=='hold')return;held.has(i)?held.delete(i):held.add(i)
 function drawFaceDown(i,delay){
   setTimeout(()=>{
     const el=document.getElementById('c'+i);
-    el.style.transition='transform .15s ease-in,opacity .15s ease-in';
-    el.style.transform='translateY(20px) scale(.85)';
+    el.style.transition='transform .13s ease-in,opacity .13s ease-in';
+    el.style.transform='scale(.45)';
     el.style.opacity='0';
-    setTimeout(()=>{faceDown(i);el.style.transition='';el.style.transform='';el.style.opacity='';},160);
+    setTimeout(()=>{faceDown(i);el.style.transition='';el.style.transform='';el.style.opacity='';},140);
   },delay);
 }
 function draw(){
