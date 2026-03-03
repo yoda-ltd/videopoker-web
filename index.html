@@ -30,42 +30,22 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 #wv{color:#00ff88}
 #cards{display:flex;gap:8px;justify-content:center}
 .cs{display:flex;flex-direction:column;align-items:center;gap:4px}
-.card{
-  width:88px;height:120px;
-  background:#fff;
-  border-radius:10px;
-  border:1px solid rgba(0,0,0,.1);
-  box-shadow:0 2px 8px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.9);
-  display:flex;flex-direction:column;justify-content:space-between;
-  padding:6px 7px;cursor:pointer;position:relative;
-  transition:transform .18s cubic-bezier(.34,1.56,.64,1),box-shadow .18s ease;
-  user-select:none;overflow:hidden}
-/* subtle inner frame */
-.card::before{content:'';position:absolute;inset:4px;border-radius:7px;border:1px solid rgba(0,0,0,.06);pointer-events:none}
-.card:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 12px 28px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.9)}
-.card.held{
-  border-color:rgba(255,210,0,.9);
-  box-shadow:0 0 0 2px #ffd700,0 8px 24px rgba(255,180,0,.5),inset 0 1px 0 rgba(255,255,255,.9);
-  transform:translateY(-8px) scale(1.04)}
-.card.wc{border-color:#00e87a;box-shadow:0 0 0 2px #00e87a,0 8px 24px rgba(0,220,120,.4);animation:cw .5s ease 3}
-@keyframes cw{0%,100%{transform:translateY(-8px) scale(1.04)}50%{transform:translateY(-12px) scale(1.07)}}
+.card{width:88px;height:120px;background:#fff;border-radius:8px;border:2px solid #ddd;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.4)}
+.card.held{border-color:#ffd700;box-shadow:0 0 12px rgba(255,215,0,.7);transform:translateY(-6px)}
+.card.wc{border-color:#00ff88;box-shadow:0 0 16px rgba(0,255,136,.8);animation:cw .5s ease 3}
+@keyframes cw{0%,100%{transform:translateY(-6px) scale(1)}50%{transform:translateY(-10px) scale(1.05)}}
 /* DEAL: sweep in from left */
 .card.dealing{animation:di .35s cubic-bezier(.25,.46,.45,.94) forwards}
 @keyframes di{from{opacity:0;transform:translateX(-120px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
 /* DRAW: spin-in (full rotation + scale) */
 .card.drawing{animation:dr .4s cubic-bezier(.34,1.2,.64,1) forwards}
 @keyframes dr{0%{opacity:0;transform:scale(0) rotate(-180deg)}70%{transform:scale(1.06) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}
-.card.fd{
-  background:linear-gradient(160deg,#1a3060,#0e1e45);
-  border-color:#2a4a8a;
-  box-shadow:0 2px 8px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08)}
-.card.fd::after{content:'';position:absolute;inset:8px;border-radius:5px;
-  border:1px solid rgba(255,255,255,.12);
-  background:repeating-linear-gradient(45deg,transparent,transparent 6px,rgba(255,255,255,.04) 6px,rgba(255,255,255,.04) 7px)}
-.cc{font-size:1.05rem;font-weight:900;line-height:1.1;letter-spacing:-.5px;font-family:Georgia,'Times New Roman',serif;text-align:center}
+.card.fd{background:repeating-linear-gradient(45deg,#1a3a6e,#1a3a6e 5px,#1e4280 5px,#1e4280 10px);border-color:#2a5aaa}
+.cc{font-size:.9rem;font-weight:bold;line-height:1}
 .cc.bot{transform:rotate(180deg);align-self:flex-end}
-.cm{font-size:2.8rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
-.red{color:#c0392b}.black{color:#1a1a2e}
+.cm{font-size:2rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.red{color:#cc0000}.black{color:#111}
 .hl{font-size:.65rem;font-weight:bold;color:#ffd700;letter-spacing:2px;text-transform:uppercase;height:16px;line-height:16px;text-shadow:0 0 6px rgba(255,215,0,.8)}
 #msg{text-align:center;height:40px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #rm{font-size:1.1rem;font-weight:bold;letter-spacing:2px;color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.6);text-transform:uppercase}
@@ -200,9 +180,7 @@ function cardHTML(c){
   const isRed=c.s==='hearts'||c.s==='diamonds';
   const cl=isRed?'red':'black';
   const sym=SYM[c.s];
-  return`<div class="cc ${cl}">${c.r}<br>${sym}</div>
-<div class="cm ${cl}">${sym}</div>
-<div class="cc bot ${cl}">${c.r}<br>${sym}</div>`;
+  return`<div class="cc ${cl}">${c.r}<br>${sym}</div><div class="cm ${cl}">${sym}</div><div class="cc bot ${cl}">${c.r}<br>${sym}</div>`;
 }
 function renderDrawCard(i,c,delay){
   setTimeout(()=>{
