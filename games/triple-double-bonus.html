@@ -141,75 +141,35 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
   <p>3. Press DRAW to replace unheld cards.</p>
   <p>4. Win if your final hand matches the payout table above.</p>
   <h2>Payout Table</h2>
-  <table><tr><th>Hand</th><th>BET 1</th><th>BET 5</th></tr><tr><td>Royal Flush</td><td>250</td><td>4000</td></tr><tr><td>Straight Flush</td><td>50</td><td>250</td></tr><tr><td>Four of a Kind</td><td>120</td><td>600</td></tr><tr><td>Full House</td><td>9</td><td>45</td></tr><tr><td>Flush</td><td>6</td><td>30</td></tr><tr><td>Straight</td><td>4</td><td>20</td></tr><tr><td>Three of a Kind</td><td>3</td><td>15</td></tr><tr><td>Two Pair</td><td>1</td><td>5</td></tr><tr><td>Jacks or Better</td><td>1</td><td>5</td></tr></table>
+  <table><tr><th>Hand</th><th>BET 1</th><th>BET 5</th></tr><tr><td>Royal Flush</td><td>250</td><td>4000</td></tr><tr><td>Straight Flush</td><td>50</td><td>250</td></tr><tr><td>Four Aces</td><td>240</td><td>1200</td></tr><tr><td>Four 2s-4s</td><td>120</td><td>600</td></tr><tr><td>Four of a Kind</td><td>60</td><td>300</td></tr><tr><td>Full House</td><td>9</td><td>45</td></tr><tr><td>Flush</td><td>6</td><td>30</td></tr><tr><td>Straight</td><td>4</td><td>20</td></tr><tr><td>Three of a Kind</td><td>3</td><td>15</td></tr><tr><td>Two Pair</td><td>1</td><td>5</td></tr><tr><td>Jacks or Better</td><td>1</td><td>5</td></tr></table>
 </div>
 <script>
 const SUITS=['hearts','diamonds','clubs','spades'];
 const RANKS=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
 const SYM={hearts:'&#9829;',diamonds:'&#9830;',clubs:'&#9827;',spades:'&#9824;',joker:'🃏'};
-const PAY={'Royal Flush':[250,4000],'Straight Flush':[50,250],'Four of a Kind':[120,600],'Full House':[9,45],'Flush':[6,30],'Straight':[4,20],'Three of a Kind':[3,15],'Two Pair':[1,5],'Jacks or Better':[1,5]};
-const WILD_MODE='none';
-const PAIR_OK=['J', 'Q', 'K', 'A'];
+const PAY={'Royal Flush':[250,4000],'Straight Flush':[50,250],'Four Aces':[240,1200],'Four 2s-4s':[120,600],'Four of a Kind':[60,300],'Full House':[9,45],'Flush':[6,30],'Straight':[4,20],'Three of a Kind':[3,15],'Two Pair':[1,5],'Jacks or Better':[1,5]};
+const MODE='bonus';
 const PAIR_LABEL='Jacks or Better';
+const PAIR_OK=['J', 'Q', 'K', 'A'];
 let credits=+localStorage.getItem('vp_c')||1000,bet=0,lastBet=+(localStorage.getItem('vp_lastbet')||1),hand=[],held=new Set(),deck=[],state='bet';
-function mkDeck(){const d=[];for(const s of SUITS)for(const r of RANKS)d.push({s,r});if(WILD_MODE==='joker')d.push({s:'joker',r:'JK'});return d}
+function mkDeck(){const d=[];for(const s of SUITS)for(const r of RANKS)d.push({s,r});if(MODE==='joker')d.push({s:'joker',r:'JK'});return d}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function rv(r){return{A:1,J:11,Q:12,K:13}[r]||+r}
-function evalBase(h){
-  const rs=h.map(c=>c.r),ss=h.map(c=>c.s);
-  const rc={};for(const r of rs)rc[r]=(rc[r]||0)+1;
-  const cs=Object.values(rc).sort((a,b)=>b-a);
-  const fl=new Set(ss).size===1;
-  const st=isStraight(rs);
-  const rset=new Set(rs);
-  if(fl&&st&&rset.has('10')&&rset.has('J')&&rset.has('Q')&&rset.has('K')&&rset.has('A'))return'Royal Flush';
-  if(fl&&st)return'Straight Flush';
-  if(cs[0]===4)return'Four of a Kind';
-  if(cs[0]===3&&cs[1]===2)return'Full House';
-  if(fl)return'Flush';
-  if(st)return'Straight';
-  if(cs[0]===3)return'Three of a Kind';
-  if(cs[0]===2&&cs[1]===2)return'Two Pair';
-  if(cs[0]===2){const pr=Object.entries(rc).find(([,v])=>v===2)?.[0];if(PAIR_OK.includes(pr))return PAIR_LABEL;}
-  return'No Win';
-}
-function handRank(hn){
-  const ord=['No Win',PAIR_LABEL,'Two Pair','Three of a Kind','Straight','Flush','Full House','Four of a Kind','Straight Flush','Royal Flush'];
-  return ord.indexOf(hn);
-}
-function evalHand(h){
-  const wildIdx=[];
-  for(let i=0;i<h.length;i++){
-    if((WILD_MODE==='deuces'&&h[i].r==='2')||(WILD_MODE==='joker'&&h[i].s==='joker')) wildIdx.push(i);
-  }
-  if(!wildIdx.length) return evalBase(h);
-  const pool=[];
-  for(const s of SUITS) for(const r of RANKS) pool.push({s,r});
-  let best='No Win';
-  const cur=h.map(c=>({...c}));
-  function dfs(k){
-    if(k===wildIdx.length){
-      const res=evalBase(cur);
-      if(handRank(res)>handRank(best)) best=res;
-      return;
-    }
-    const idx=wildIdx[k];
-    for(const pc of pool){
-      cur[idx]=pc;
-      dfs(k+1);
-    }
-  }
-  dfs(0);
-  return best;
-}
-function isStraight(rs){
-  const vs=rs.map(rv).sort((a,b)=>a-b);
-  if(JSON.stringify(vs)==='[1,2,3,4,5]')return true;
-  const us=[...new Set(vs)].sort((a,b)=>a-b);
-  if(us.length===5&&JSON.stringify(us)==='[1,10,11,12,13]')return true;
-  const mn=vs[0];return vs.every((v,i)=>v===mn+i);
-}
+function rv(r){return{A:1,J:11,Q:12,K:13,JK:0}[r]||+r}
+function isStraight(rs){const vs=rs.map(rv).sort((a,b)=>a-b);if(JSON.stringify(vs)==='[1,2,3,4,5]')return true;const us=[...new Set(vs)].sort((a,b)=>a-b);if(us.length===5&&JSON.stringify(us)==='[1,10,11,12,13]')return true;const mn=us[0];return us.length===5&&us.every((v,i)=>v===mn+i)}
+function evalClassic(h,pairOk,pairLabel,bonus){const rs=h.map(c=>c.r),ss=h.map(c=>c.s);const rc={};for(const r of rs)rc[r]=(rc[r]||0)+1;const cs=Object.values(rc).sort((a,b)=>b-a);const fl=new Set(ss).size===1;const st=isStraight(rs);const rset=new Set(rs);if(fl&&st&&rset.has('10')&&rset.has('J')&&rset.has('Q')&&rset.has('K')&&rset.has('A'))return'Royal Flush';if(fl&&st)return'Straight Flush';if(cs[0]===4){if(bonus){const q=Object.entries(rc).find(([,v])=>v===4)?.[0];if(q==='A')return'Four Aces';if(['2','3','4'].includes(q))return'Four 2s-4s';}return'Four of a Kind';}if(cs[0]===3&&cs[1]===2)return'Full House';if(fl)return'Flush';if(st)return'Straight';if(cs[0]===3)return'Three of a Kind';if(cs[0]===2&&cs[1]===2)return'Two Pair';if(cs[0]===2){const pr=Object.entries(rc).find(([,v])=>v===2)?.[0];if(pairOk.includes(pr))return pairLabel;}return'No Win'}
+function canStraightWithWild(ranks,w){const set=new Set(ranks.map(rv));const runs=[[1,2,3,4,5],[1,10,11,12,13],[2,3,4,5,6],[3,4,5,6,7],[4,5,6,7,8],[5,6,7,8,9],[6,7,8,9,10],[7,8,9,10,11],[8,9,10,11,12],[9,10,11,12,13]];for(const run of runs){let miss=0;for(const v of run)if(!set.has(v))miss++;if(miss<=w)return true;}return false}
+function evalWild(h,kind){const isWild=c=>kind==='deuces'?c.r==='2':c.s==='joker';const wild=h.filter(isWild).length;const nat=h.filter(c=>!isWild(c));const rs=nat.map(c=>c.r),ss=nat.map(c=>c.s);const rc={};for(const r of rs)rc[r]=(rc[r]||0)+1;if(kind==='deuces'&&wild===4)return'Four Deuces';const royalNeed=new Set(['10','J','Q','K','A']);for(const s of SUITS){const suitRanks=nat.filter(c=>c.s===s).map(c=>c.r);let miss=0;for(const r of royalNeed)if(!suitRanks.includes(r))miss++;if(miss===0&&wild===0)return'Natural Royal Flush';if(miss<=wild&&wild>0)return'Wild Royal Flush';}
+for(const r of RANKS){if((rc[r]||0)+wild>=5)return'Five of a Kind';}
+for(const s of SUITS){const suitRanks=nat.filter(c=>c.s===s).map(c=>c.r);if(canStraightWithWild(suitRanks,wild))return'Straight Flush';}
+for(const r of RANKS){if((rc[r]||0)+wild>=4){if(kind==='joker'&&r==='A')return'Four Aces';return'Four of a Kind';}}
+for(const a of RANKS)for(const b of RANKS){if(a===b)continue;for(let wa=0;wa<=wild;wa++){const wb=wild-wa;if((rc[a]||0)+wa>=3&&(rc[b]||0)+wb>=2)return'Full House';}}
+const suitCount={};for(const s of ss)suitCount[s]=(suitCount[s]||0)+1;if(Object.values(suitCount).some(v=>v+wild>=5))return'Flush';if(canStraightWithWild(rs,wild))return'Straight';for(const r of RANKS){if((rc[r]||0)+wild>=3)return'Three of a Kind';}
+if(kind==='joker'){if(wild===1&&rs.some(r=>['K','A'].includes(r)))return'Kings or Better';if(evalClassic(nat,['K','A'],'Kings or Better',false)==='Two Pair')return'Two Pair';}
+return'No Win'}
+function evalHand(h){if(MODE==='deuces')return evalWild(h,'deuces');if(MODE==='joker')return evalWild(h,'joker');if(MODE==='bonus')return evalClassic(h,PAIR_OK,PAIR_LABEL,true);return evalClassic(h,PAIR_OK,PAIR_LABEL,false)}
 function getWin(ht,b){const t=PAY[ht];if(!t)return 0;return b===5?t[1]:t[0]*b}
+
+
 function cardHTML(c){
   const isRed=c.s==='hearts'||c.s==='diamonds';
   const cl=(c.s==='joker')?'black':(isRed?'red':'black');
