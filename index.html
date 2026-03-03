@@ -38,9 +38,9 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 /* DEAL: sweep in from left */
 .card.dealing{animation:di .35s cubic-bezier(.25,.46,.45,.94) forwards}
 @keyframes di{from{opacity:0;transform:translateX(-120px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
-/* DRAW: bounce up from below */
-.card.drawing{animation:dr .28s cubic-bezier(.34,1.56,.64,1) forwards}
-@keyframes dr{0%{opacity:0;transform:translateY(36px) scale(.8) rotate(-4deg)}60%{transform:translateY(-6px) scale(1.04) rotate(1deg)}100%{opacity:1;transform:translateY(0) scale(1) rotate(0deg)}}
+/* DRAW: spin-in (full rotation + scale) */
+.card.drawing{animation:dr .4s cubic-bezier(.34,1.2,.64,1) forwards}
+@keyframes dr{0%{opacity:0;transform:scale(0) rotate(-180deg)}70%{transform:scale(1.06) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}
 .card.fd{background:repeating-linear-gradient(45deg,#1a3a6e,#1a3a6e 5px,#1e4280 5px,#1e4280 10px);border-color:#2a5aaa}
 .cc{font-size:.9rem;font-weight:bold;line-height:1}
 .cc.bot{transform:rotate(180deg);align-self:flex-end}
@@ -185,9 +185,12 @@ function cardHTML(c){
 function renderDrawCard(i,c,delay){
   setTimeout(()=>{
     const el=document.getElementById('c'+i);
-    el.className='card drawing';
+    // force reflow so animation restarts cleanly
+    el.className='card';
+    void el.offsetWidth;
     el.innerHTML=cardHTML(c);
     el.style.background='';el.style.borderColor='';
+    el.className='card drawing';
   },delay);
 }
 function renderCard(i,c,anim,delay){
@@ -240,13 +243,7 @@ function startDeal(){
 }
 function hold(i){if(state!=='hold')return;held.has(i)?held.delete(i):held.add(i);updHeld();}
 function drawFaceDown(i,delay){
-  setTimeout(()=>{
-    const el=document.getElementById('c'+i);
-    el.style.transition='transform .15s ease-in,opacity .15s ease-in';
-    el.style.transform='translateY(20px) scale(.85)';
-    el.style.opacity='0';
-    setTimeout(()=>{faceDown(i);el.style.transition='';el.style.transform='';el.style.opacity='';},160);
-  },delay);
+  setTimeout(()=>faceDown(i),delay);
 }
 function draw(){
   if(state!=='hold')return;
