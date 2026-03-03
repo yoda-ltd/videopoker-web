@@ -8,7 +8,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Game","name":"Jacks or Better Video Poker","description":"Free online Jacks or Better video poker. No download required.","genre":"Casino"}
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:linear-gradient(160deg,#0a1628,#0d2040 50%,#0a1628);min-height:100vh;font-family:Arial,sans-serif;color:#fff;display:flex;flex-direction:column;align-items:center}
@@ -31,7 +31,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 #wv{color:#00ff88}
 #cards{display:flex;gap:8px;justify-content:center}
 .cs{display:flex;flex-direction:column;align-items:center;gap:4px}
-.card{width:88px;height:120px;background:#fff;border-radius:8px;border:2px solid #ddd;display:flex;flex-direction:column;justify-content:space-between;padding:7px 7px 6px 7px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none}
+.card{width:88px;height:120px;background:#fff;border-radius:8px;border:2px solid #ddd;display:block;padding:7px 7px 6px 7px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.4)}
 .card.held{border-color:#ffd700;box-shadow:0 0 12px rgba(255,215,0,.7);transform:translateY(-6px)}
 .card.wc{border-color:#00ff88;box-shadow:0 0 16px rgba(0,255,136,.8);animation:cw .5s ease 3}
@@ -43,11 +43,11 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 .card.drawing{animation:dr .4s cubic-bezier(.34,1.2,.64,1) forwards}
 @keyframes dr{0%{opacity:0;transform:scale(0) rotate(-180deg)}70%{transform:scale(1.06) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}
 .card.fd{background:repeating-linear-gradient(45deg,#1a3a6e,#1a3a6e 5px,#1e4280 5px,#1e4280 10px);border-color:#2a5aaa}
-.cc{font-family:'Oswald',Arial,sans-serif;font-weight:700;line-height:1.1;display:flex;flex-direction:column;align-items:center;gap:2px}
-.cc .cr{font-size:1.6rem}
-.cc .cs{font-size:1.1rem}
+.cc{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;line-height:1;display:flex;flex-direction:column;align-items:flex-start;gap:1px;position:absolute;top:6px;left:7px}
+.cc .cr{font-size:1.5rem;letter-spacing:-.5px}
+.cc .cs{font-size:1.1rem;margin-top:-2px}
 .cc.bot{display:none}
-.cm{font-size:3.6rem;position:absolute;top:52%;left:50%;transform:translate(-50%,-50%)}
+.cm{font-size:3.8rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
 .red{color:#cc0000}.black{color:#111}
 .hl{font-size:.65rem;font-weight:bold;color:#ffd700;letter-spacing:2px;text-transform:uppercase;height:16px;line-height:16px;text-shadow:0 0 6px rgba(255,215,0,.8)}
 #msg{text-align:center;height:40px;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -183,9 +183,7 @@ function cardHTML(c){
   const isRed=c.s==='hearts'||c.s==='diamonds';
   const cl=isRed?'red':'black';
   const sym=SYM[c.s];
-  return`<div class="cc ${cl}"><span class="cr">${c.r}</span><span class="cs">${sym}</span></div>
-<div class="cm ${cl}">${sym}</div>
-<div class="cc bot"></div>`;
+  return`<div class="cc ${cl}"><span class="cr">${c.r}</span><span class="cs">${sym}</span></div><div class="cm ${cl}">${sym}</div>`;
 }
 function renderDrawCard(i,c,delay){
   setTimeout(()=>{
