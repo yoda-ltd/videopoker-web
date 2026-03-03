@@ -50,7 +50,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 .btn{padding:10px 18px;border:none;border-radius:8px;font-size:.85rem;font-weight:bold;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:transform .1s,box-shadow .1s,opacity .2s;box-shadow:0 4px 12px rgba(0,0,0,.4);min-width:80px}
 .btn:active{transform:scale(.95)}
 .btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
-.b1btn{background:linear-gradient(135deg,#1a6fd4,#0d4fa0);color:#fff;border:1px solid rgba(255,255,255,.2)}.b1btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.b1btn{background:linear-gradient(135deg,#1a6fd4,#0d4fa0);color:#fff;border:1px solid rgba(255,255,255,.2)}.b1btn:disabled{opacity:.4;cursor:not-allowed;transform:none}.holdallbtn{background:linear-gradient(135deg,#6c3483,#512e5f);color:#fff;border:1px solid rgba(200,150,255,.3)}.clearbtn{background:linear-gradient(135deg,#555,#333);color:#fff;border:1px solid rgba(255,255,255,.15)}
 .b5btn{background:linear-gradient(135deg,#d4a017,#a07010);color:#fff;border:1px solid rgba(255,215,0,.3)}
 .mbtn{background:linear-gradient(135deg,#c0392b,#922b21);color:#fff;border:1px solid rgba(255,100,100,.3)}
 .drawbtn{background:linear-gradient(135deg,#27ae60,#1e8449);color:#fff;font-size:1rem;padding:12px 28px}
@@ -97,6 +97,8 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
   <div id="btns">
     <div id="btns-left">
       <button class="btn b1btn" id="bbbet" onclick="cycleBet()">BET <span id="bet-num">1</span></button>
+      <button class="btn holdallbtn" id="bbholdall" onclick="holdAll()" style="display:none">HOLD ALL</button>
+      <button class="btn clearbtn" id="bbclear" onclick="clearHolds()" style="display:none">CLEAR</button>
     </div>
     <div id="btns-right">
       <button class="btn dealbtn" id="bddeal" onclick="startDeal()">DEAL &#9654;</button>
@@ -180,9 +182,9 @@ function updHeld(){for(let i=0;i<5;i++){document.getElementById('h'+i).textConte
 function updCredits(){document.getElementById('cd').textContent=credits;document.getElementById('bd').textContent=bet||'-';localStorage.setItem('vp_c',credits);}
 function clrPay(){document.querySelectorAll('.pr[data-hand]').forEach(r=>r.classList.remove('win'));}
 function hilPay(ht){clrPay();const r=document.querySelector(`.pr[data-hand="${ht}"]`);if(r)r.classList.add('win');}
-function showBet(){const bl=document.getElementById('btns-left');bl.style.display='';document.getElementById('bbbet').disabled=false;bddeal.style.display='';bdr.style.display='none';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
-function showHold(){document.getElementById('btns-left').style.display='';document.getElementById('bbbet').disabled=true;bddeal.style.display='none';bdr.style.display='';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='';}
-function showAgain(){document.getElementById('btns-left').style.display='';document.getElementById('bbbet').disabled=true;bddeal.style.display='none';bdr.style.display='none';bda.style.display='';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
+function showBet(){document.getElementById('btns-left').style.display='';document.getElementById('bbbet').disabled=false;document.getElementById('bbholdall').style.display='none';document.getElementById('bbclear').style.display='none';bddeal.style.display='';bdr.style.display='none';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
+function showHold(){document.getElementById('btns-left').style.display='';document.getElementById('bbbet').disabled=true;document.getElementById('bbholdall').style.display='';document.getElementById('bbclear').style.display='';bddeal.style.display='none';bdr.style.display='';bda.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='';}
+function showAgain(){document.getElementById('btns-left').style.display='';document.getElementById('bbbet').disabled=true;document.getElementById('bbholdall').style.display='none';document.getElementById('bbclear').style.display='none';bddeal.style.display='none';bdr.style.display='none';bda.style.display='';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
 function setMsg(t,nw){const el=document.getElementById('rm');el.textContent=t;el.className=nw?'nw':'';}
 
 function cycleBet(){
@@ -250,6 +252,8 @@ function confetti(){
   for(let i=0;i<80;i++){const el=document.createElement('div');el.className='cf';el.style.left=Math.random()*100+'vw';el.style.top='-20px';el.style.background=cols[Math.floor(Math.random()*cols.length)];el.style.width=(6+Math.random()*8)+'px';el.style.height=(6+Math.random()*8)+'px';el.style.animationDuration=(2+Math.random()*2)+'s';el.style.animationDelay=Math.random()+'s';box.appendChild(el);}
   setTimeout(()=>{box.style.display='none';box.innerHTML='';},4000);
 }
+function holdAll(){if(state!=='hold')return;for(let i=0;i<5;i++)held.add(i);updHeld();}
+function clearHolds(){if(state!=='hold')return;held.clear();updHeld();}
 const bddeal=document.getElementById('bddeal'),bdr=document.getElementById('bdr'),bda=document.getElementById('bda');
 updCredits();showBet();updBetHighlight();document.getElementById('bd').textContent=lastBet;setMsg('BET '+lastBet+' selected — press DEAL to start',false);
 </script>
