@@ -139,6 +139,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
   <p>1. Choose BET 1 or BET 5 (always bet max for the 4,000 Royal Flush jackpot!)</p>
   <p>2. Receive 5 cards. Click cards to HOLD them.</p>
   <p>3. Press DRAW to replace unheld cards.</p>
+  <p><strong>Wild Rule:</strong> Joker is wild and can represent any card.</p>
   <p>4. Win if your final hand matches the payout table above.</p>
   <h2>Payout Table</h2>
   <table><tr><th>Hand</th><th>BET 1</th><th>BET 5</th></tr><tr><td>Royal Flush</td><td>250</td><td>4000</td></tr><tr><td>Straight Flush</td><td>50</td><td>250</td></tr><tr><td>Four of a Kind</td><td>40</td><td>200</td></tr><tr><td>Full House</td><td>8</td><td>40</td></tr><tr><td>Flush</td><td>5</td><td>25</td></tr><tr><td>Straight</td><td>4</td><td>20</td></tr><tr><td>Three of a Kind</td><td>3</td><td>15</td></tr><tr><td>Two Pair</td><td>2</td><td>10</td></tr><tr><td>Jacks or Better</td><td>1</td><td>5</td></tr></table>
@@ -146,13 +147,16 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 <script>
 const SUITS=['hearts','diamonds','clubs','spades'];
 const RANKS=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
-const SYM={hearts:'&#9829;',diamonds:'&#9830;',clubs:'&#9827;',spades:'&#9824;'};
+const SYM={hearts:'&#9829;',diamonds:'&#9830;',clubs:'&#9827;',spades:'&#9824;',joker:'🃏'};
 const PAY={'Royal Flush':[250,4000],'Straight Flush':[50,250],'Four of a Kind':[40,200],'Full House':[8,40],'Flush':[5,25],'Straight':[4,20],'Three of a Kind':[3,15],'Two Pair':[2,10],'Jacks or Better':[1,5]};
+const WILD_MODE='joker';
+const PAIR_OK=['J', 'Q', 'K', 'A'];
+const PAIR_LABEL='Jacks or Better';
 let credits=+localStorage.getItem('vp_c')||1000,bet=0,lastBet=+(localStorage.getItem('vp_lastbet')||1),hand=[],held=new Set(),deck=[],state='bet';
-function mkDeck(){const d=[];for(const s of SUITS)for(const r of RANKS)d.push({s,r});return d}
+function mkDeck(){const d=[];for(const s of SUITS)for(const r of RANKS)d.push({s,r});if(WILD_MODE==='joker')d.push({s:'joker',r:'JK'});return d}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function rv(r){return{A:1,J:11,Q:12,K:13}[r]||+r}
-function evalHand(h){
+function evalBase(h){
   const rs=h.map(c=>c.r),ss=h.map(c=>c.s);
   const rc={};for(const r of rs)rc[r]=(rc[r]||0)+1;
   const cs=Object.values(rc).sort((a,b)=>b-a);
@@ -167,8 +171,37 @@ function evalHand(h){
   if(st)return'Straight';
   if(cs[0]===3)return'Three of a Kind';
   if(cs[0]===2&&cs[1]===2)return'Two Pair';
-  if(cs[0]===2){const pr=Object.entries(rc).find(([,v])=>v===2)?.[0];if(['J','Q','K','A'].includes(pr))return'Jacks or Better';}
+  if(cs[0]===2){const pr=Object.entries(rc).find(([,v])=>v===2)?.[0];if(PAIR_OK.includes(pr))return PAIR_LABEL;}
   return'No Win';
+}
+function handRank(hn){
+  const ord=['No Win',PAIR_LABEL,'Two Pair','Three of a Kind','Straight','Flush','Full House','Four of a Kind','Straight Flush','Royal Flush'];
+  return ord.indexOf(hn);
+}
+function evalHand(h){
+  const wildIdx=[];
+  for(let i=0;i<h.length;i++){
+    if((WILD_MODE==='deuces'&&h[i].r==='2')||(WILD_MODE==='joker'&&h[i].s==='joker')) wildIdx.push(i);
+  }
+  if(!wildIdx.length) return evalBase(h);
+  const pool=[];
+  for(const s of SUITS) for(const r of RANKS) pool.push({s,r});
+  let best='No Win';
+  const cur=h.map(c=>({...c}));
+  function dfs(k){
+    if(k===wildIdx.length){
+      const res=evalBase(cur);
+      if(handRank(res)>handRank(best)) best=res;
+      return;
+    }
+    const idx=wildIdx[k];
+    for(const pc of pool){
+      cur[idx]=pc;
+      dfs(k+1);
+    }
+  }
+  dfs(0);
+  return best;
 }
 function isStraight(rs){
   const vs=rs.map(rv).sort((a,b)=>a-b);
@@ -180,8 +213,8 @@ function isStraight(rs){
 function getWin(ht,b){const t=PAY[ht];if(!t)return 0;return b===5?t[1]:t[0]*b}
 function cardHTML(c){
   const isRed=c.s==='hearts'||c.s==='diamonds';
-  const cl=isRed?'red':'black';
-  const sym=SYM[c.s];
+  const cl=(c.s==='joker')?'black':(isRed?'red':'black');
+  const sym=SYM[c.s]||'?';
   return`<div class="cc ${cl}"><span class="cr">${c.r}</span><span class="cs">${sym}︎</span></div><div class="cm ${cl}">${sym}︎</div>`;
 }
 function renderDrawCard(i,c,delay){
@@ -281,7 +314,7 @@ function hilWin(ht){
   else if(ht==='Four of a Kind'){const fr=Object.entries(rc).find(([,v])=>v===4)?.[0];idx=rs.map((r,i)=>r===fr?i:-1).filter(i=>i>=0);}
   else if(ht==='Three of a Kind'){const tr=Object.entries(rc).find(([,v])=>v===3)?.[0];idx=rs.map((r,i)=>r===tr?i:-1).filter(i=>i>=0);}
   else if(ht==='Two Pair'){const pr=Object.entries(rc).filter(([,v])=>v===2).map(([r])=>r);idx=rs.map((r,i)=>pr.includes(r)?i:-1).filter(i=>i>=0);}
-  else if(ht==='Jacks or Better'){const pr=Object.entries(rc).find(([,v])=>v===2)?.[0];idx=rs.map((r,i)=>r===pr?i:-1).filter(i=>i>=0);}
+  else if(ht===PAIR_LABEL){const pr=Object.entries(rc).find(([,v])=>v===2)?.[0];idx=rs.map((r,i)=>r===pr?i:-1).filter(i=>i>=0);}
   idx.forEach(i=>document.getElementById('c'+i).classList.add('wc'));
 }
 function confetti(){
