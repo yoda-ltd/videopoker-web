@@ -134,7 +134,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 <div id="seo-sep" style="width:100%;max-width:680px;padding:16px 16px 0;text-align:center;color:rgba(255,255,255,.25);font-size:.75rem;letter-spacing:2px">▼ &nbsp; GAME GUIDE &nbsp; ▼</div>
 <div id="seo">
   <h2>How to Play Bonus Poker Deluxe Video Poker</h2>
-  <p>Bonus Poker Deluxe is a classic video poker variant. Use BET and DEAL, choose your HOLD cards, then DRAW to complete your hand and win payouts.</p>
+  <p>Jacks or Better is a classic video poker variant. Use BET and DEAL, choose your HOLD cards, then DRAW to complete your hand and win payouts.</p>
   <h2>Rules</h2>
   <p>1. Choose BET 1 or BET 5 (always bet max for the 4,000 Royal Flush jackpot!)</p>
   <p>2. Receive 5 cards. Click cards to HOLD them.</p>
@@ -147,7 +147,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 const SUITS=['hearts','diamonds','clubs','spades'];
 const RANKS=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
 const SYM={hearts:'&#9829;',diamonds:'&#9830;',clubs:'&#9827;',spades:'&#9824;'};
-const PAY={'Royal Flush':[250 ,4000],'Straight Flush':[50 ,250],'Four of a Kind':[80 ,400],'Full House':[8 ,40],'Flush':[5 ,25],'Straight':[4 ,20],'Three of a Kind':[3 ,15],'Two Pair':[1 ,5],'Jacks or Better':[1 ,5]};
+const PAY={'Royal Flush':[250,4000],'Straight Flush':[50,250],'Four of a Kind':[80,400],'Full House':[8,40],'Flush':[5,25],'Straight':[4,20],'Three of a Kind':[3,15],'Two Pair':[1,5],'Jacks or Better':[1,5]};
 let credits=+localStorage.getItem('vp_c')||1000,bet=0,lastBet=+(localStorage.getItem('vp_lastbet')||1),hand=[],held=new Set(),deck=[],state='bet';
 function mkDeck(){const d=[];for(const s of SUITS)for(const r of RANKS)d.push({s,r});return d}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}

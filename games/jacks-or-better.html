@@ -147,7 +147,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 const SUITS=['hearts','diamonds','clubs','spades'];
 const RANKS=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
 const SYM={hearts:'&#9829;',diamonds:'&#9830;',clubs:'&#9827;',spades:'&#9824;'};
-const PAY={'Royal Flush':[250 ,4000],'Straight Flush':[50 ,250],'Four of a Kind':[25 ,125],'Full House':[9 ,45],'Flush':[6 ,30],'Straight':[4 ,20],'Three of a Kind':[3 ,15],'Two Pair':[2 ,10],'Jacks or Better':[1 ,5]};
+const PAY={'Royal Flush':[250,4000],'Straight Flush':[50,250],'Four of a Kind':[25,125],'Full House':[9,45],'Flush':[6,30],'Straight':[4,20],'Three of a Kind':[3,15],'Two Pair':[2,10],'Jacks or Better':[1,5]};
 let credits=+localStorage.getItem('vp_c')||1000,bet=0,lastBet=+(localStorage.getItem('vp_lastbet')||1),hand=[],held=new Set(),deck=[],state='bet';
 function mkDeck(){const d=[];for(const s of SUITS)for(const r of RANKS)d.push({s,r});return d}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
