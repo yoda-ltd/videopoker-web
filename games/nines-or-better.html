@@ -33,9 +33,9 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 .cv{font-size:1.6rem;font-weight:bold;color:#ffd700;line-height:1;font-variant-numeric:tabular-nums;transition:color .3s}
 #wv{color:#888;font-size:1.6rem;font-weight:bold}
 #wv.active{color:#00e87a;text-shadow:0 0 12px rgba(0,220,120,.5)}
-#cards{display:flex;gap:8px;justify-content:center;padding:0 4px}
+#cards{display:flex;gap:8px;justify-content:center;padding:0 4px;perspective:1000px}
 .cs{display:flex;flex-direction:column;align-items:center;gap:4px}
-.card{width:116px;height:160px;background:#fff;border-radius:8px;border:2px solid #ddd;display:flex;flex-direction:column;justify-content:space-between;padding:7px 7px 6px 7px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none}
+.card{width:116px;height:160px;background:#fff;border-radius:8px;border:2px solid #ddd;display:flex;flex-direction:column;justify-content:space-between;padding:7px 7px 6px 7px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.4)}
 .card.held{border-color:#ffd700;box-shadow:0 0 12px rgba(255,215,0,.7);transform:translateY(-6px)}
 .card.wc{border-color:#00ff88;box-shadow:0 0 16px rgba(0,255,136,.8);animation:cw .5s ease 3}
@@ -43,9 +43,11 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 /* DEAL: sweep in from left */
 .card.dealing{animation:di .35s cubic-bezier(.25,.46,.45,.94) forwards}
 @keyframes di{from{opacity:0;transform:translateX(-120px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
-/* DRAW: spin-in (full rotation + scale) */
-.card.drawing{animation:dr .4s cubic-bezier(.34,1.2,.64,1) forwards}
-@keyframes dr{0%{opacity:0;transform:scale(0) rotate(-180deg)}70%{transform:scale(1.06) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}
+/* DRAW: in-place vertical-axis flip */
+.card.flip-out{animation:fo .16s ease-in forwards;transform-origin:center center}
+@keyframes fo{from{opacity:1;transform:rotateY(0deg)}to{opacity:.12;transform:rotateY(90deg)}}
+.card.flip-in{animation:fi .22s ease-out forwards;transform-origin:center center}
+@keyframes fi{from{opacity:.12;transform:rotateY(-90deg)}to{opacity:1;transform:rotateY(0deg)}}
 .card.fd{background:repeating-linear-gradient(45deg,#c94a5c,#c94a5c 5px,#de6b7a 5px,#de6b7a 10px);border-color:#ffffff}
 .cc{font-family:'Fredoka One',cursive;line-height:1;position:absolute;top:7px;left:8px;display:flex;flex-direction:column;align-items:center;gap:0px}
 .cc .cr{font-size:2rem;line-height:1}
@@ -185,12 +187,13 @@ function cardHTML(c){
 function renderDrawCard(i,c,delay){
   setTimeout(()=>{
     const el=document.getElementById('c'+i);
-    // force reflow so animation restarts cleanly
-    el.className='card';
-    void el.offsetWidth;
-    el.innerHTML=cardHTML(c);
-    el.style.background='';el.style.borderColor='';
-    el.className='card drawing';
+    el.classList.remove('flip-in');
+    el.classList.add('flip-out');
+    setTimeout(()=>{
+      el.className='card flip-in';
+      el.innerHTML=cardHTML(c);
+      el.style.background='';el.style.borderColor='';
+    },170);
   },delay);
 }
 function renderCard(i,c,anim,delay){
@@ -250,12 +253,8 @@ function draw(){
   if(state!=='hold')return;
   state='drawing';bdr.disabled=true;
   const rep=[];for(let i=0;i<5;i++)if(!held.has(i))rep.push(i);
-  rep.forEach((i,idx)=>drawFaceDown(i,idx*60));
-  const exitMs=rep.length*60+180;
-  setTimeout(()=>{
-    rep.forEach((i,idx)=>{hand[i]=deck.splice(0,1)[0];setTimeout(()=>renderCard(i,hand[i],true,0),idx*80);});
-    setTimeout(()=>finish(),rep.length*80+350);
-  },200);
+  rep.forEach((i,idx)=>{hand[i]=deck.splice(0,1)[0];renderDrawCard(i,hand[i],idx*120);});
+  setTimeout(()=>finish(),rep.length*120+450);
 }
 function finish(){
   const ht=evalHand(hand);const w=getWin(ht,bet);
