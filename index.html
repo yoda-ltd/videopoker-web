@@ -38,13 +38,11 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 /* DEAL: sweep in from left */
 .card.dealing{animation:di .35s cubic-bezier(.25,.46,.45,.94) forwards}
 @keyframes di{from{opacity:0;transform:translateX(-120px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
-/* DRAW: in-place pop swap */
-.card.drawing{animation:dr .3s cubic-bezier(.34,1.56,.64,1) forwards}
-@keyframes dr{
-  0%  {opacity:0;transform:scale(.5) rotate(-6deg)}
-  70% {transform:scale(1.08) rotate(1deg)}
-  100%{opacity:1;transform:scale(1) rotate(0deg)}
-}
+/* DRAW: vertical fold (collapse down, expand up with new card) */
+.card.collapsing{animation:dcol .15s ease-in forwards}
+@keyframes dcol{from{transform:scaleY(1)}to{transform:scaleY(0)}}
+.card.expanding{animation:dexp .22s cubic-bezier(.34,1.4,.64,1) forwards}
+@keyframes dexp{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 .card.fd{background:repeating-linear-gradient(45deg,#1a3a6e,#1a3a6e 5px,#1e4280 5px,#1e4280 10px);border-color:#2a5aaa}
 .cc{font-size:.9rem;font-weight:bold;line-height:1}
 .cc.bot{transform:rotate(180deg);align-self:flex-end}
@@ -187,11 +185,19 @@ function cardHTML(c){
   return`<div class="cc ${cl}">${c.r}<br>${sym}</div><div class="cm ${cl}">${sym}</div><div class="cc bot ${cl}">${c.r}<br>${sym}</div>`;
 }
 function renderDrawCard(i,c,delay){
-  const el=document.getElementById('c'+i);
-  el.className='card drawing';
-  el.style.animationDelay=delay+'s';
-  el.innerHTML=cardHTML(c);
-  el.style.background='';el.style.borderColor='';
+  setTimeout(()=>{
+    const el=document.getElementById('c'+i);
+    // Phase 1: collapse (scaleY 1→0)
+    el.className='card collapsing';
+    el.style.transformOrigin='center center';
+    setTimeout(()=>{
+      // Midpoint: swap content
+      el.innerHTML=cardHTML(c);
+      el.style.background='';el.style.borderColor='';
+      // Phase 2: expand (scaleY 0→1) with spring
+      el.className='card expanding';
+    },160);
+  },delay);
 }
 function renderCard(i,c,anim,delay){
   const el=document.getElementById('c'+i);
@@ -243,13 +249,7 @@ function startDeal(){
 }
 function hold(i){if(state!=='hold')return;held.has(i)?held.delete(i):held.add(i);updHeld();}
 function drawFaceDown(i,delay){
-  setTimeout(()=>{
-    const el=document.getElementById('c'+i);
-    el.style.transition='transform .13s ease-in,opacity .13s ease-in';
-    el.style.transform='scale(.45)';
-    el.style.opacity='0';
-    setTimeout(()=>{faceDown(i);el.style.transition='';el.style.transform='';el.style.opacity='';},140);
-  },delay);
+  // intentionally empty — renderDrawCard handles the full collapse+swap+expand
 }
 function draw(){
   if(state!=='hold')return;
