@@ -223,11 +223,11 @@ function renderCard(i,c,anim,delay){
   el.style.borderColor='';
 }
 function faceDown(i){const el=document.getElementById('c'+i);el.className='card fd';el.innerHTML='';el.style.background='';el.style.borderColor='';}
-function resetCardFlipOut(i,delay){
+function resetCardSlideOut(i,delay){
   setTimeout(()=>{
     const el=document.getElementById('c'+i);
     if(el.getAnimations) el.getAnimations().forEach(a=>a.cancel());
-    el.animate([{transform:'rotateY(0deg)',opacity:1},{transform:'rotateY(90deg)',opacity:0}],{duration:220,easing:'ease-in',fill:'forwards'});
+    el.animate([{transform:'translateX(0) rotate(0deg)',opacity:1},{transform:'translateX(140px) rotate(10deg)',opacity:0}],{duration:220,easing:'ease-in',fill:'forwards'});
   },delay);
 }
 function updHeld(){for(let i=0;i<5;i++){document.getElementById('h'+i).textContent=held.has(i)?'HELD':'';const c=document.getElementById('c'+i);held.has(i)?c.classList.add('held'):c.classList.remove('held');}}
@@ -264,7 +264,7 @@ function startDeal(){
   updHeld();updCredits();state='hold';showHold();
   if(wasOver){
     // stage 1: old cards flip out (visible duration longer)
-    for(let i=0;i<5;i++)resetCardFlipOut(i,i*70);
+    for(let i=0;i<5;i++)resetCardSlideOut(i,i*70);
     // stage 2: after flip-out complete, clear to face-down
     const resetMs=4*70+260;
     setTimeout(()=>{for(let i=0;i<5;i++)faceDown(i);},resetMs);
