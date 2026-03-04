@@ -263,12 +263,12 @@ function resetCardSlideOut(i,delay){
     el.animate([{transform:'translateX(0) rotate(0deg)',opacity:1},{transform:'translateX(140px) rotate(10deg)',opacity:0}],{duration:220,easing:'ease-in',fill:'forwards'});
   },delay);
 }
-function updHeld(){for(let i=0;i<5;i++){document.getElementById('h'+i).textContent=held.has(i)?'HELD':'';const c=document.getElementById('c'+i);held.has(i)?c.classList.add('held'):c.classList.remove('held');}}
+function updHeld(){for(let i=0;i<5;i++){document.getElementById('h'+i).textContent=held.has(i)?'HELD':'';const c=document.getElementById('c'+i);held.has(i)?c.classList.add('held'):c.classList.remove('held');}if(state==='hold')document.getElementById('bbclear').disabled=held.size===0;}
 function updCredits(){document.getElementById('cd').textContent=credits;document.getElementById('bd').textContent=bet||'-';localStorage.setItem('vp_c',credits);}
 function clrPay(){document.querySelectorAll('.pr[data-hand]').forEach(r=>r.classList.remove('win'));}
 function hilPay(ht){clrPay();const r=document.querySelector(`.pr[data-hand="${ht}"]`);if(r)r.classList.add('win');}
 function showBet(){document.getElementById('bbbet').disabled=false;document.getElementById('bbclear').disabled=true;document.getElementById('bbholdall').disabled=true;bddeal.style.display='';bdr.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
-function showHold(){document.getElementById('bbbet').disabled=true;document.getElementById('bbclear').disabled=false;document.getElementById('bbholdall').disabled=false;bddeal.style.display='none';bdr.style.display='';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='';}
+function showHold(){document.getElementById('bbbet').disabled=true;document.getElementById('bbclear').disabled=true;document.getElementById('bbholdall').disabled=false;bddeal.style.display='none';bdr.style.display='';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='';}
 function showAgain(){document.getElementById('bbbet').disabled=false;document.getElementById('bbclear').disabled=true;document.getElementById('bbholdall').disabled=true;bddeal.style.display='';bdr.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
 function setMsg(t,nw){const el=document.getElementById('rm');el.textContent=t;el.className=nw?'nw':'';}
 
