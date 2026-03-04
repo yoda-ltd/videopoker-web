@@ -100,6 +100,9 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 .b5btn{background:linear-gradient(180deg,#ff9900 0%,#cc6600 45%,#993300 100%);color:#fff}
 .mbtn{background:linear-gradient(180deg,#ff5533 0%,#cc2200 45%,#991100 100%);color:#fff}
 
+/* ── Bottom banner ad slot ── */
+#ad-slot{width:100%;height:56px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#111 0%,#050505 100%);border:1px solid #2f2f2f;border-radius:5px;color:#9aa4bf;font-size:.72rem;letter-spacing:1.4px;text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+
 /* ── Confetti ── */
 #cel{display:none;position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:100;overflow:hidden}
 .cf{position:absolute;width:10px;height:10px;border-radius:2px;animation:fall linear forwards}
@@ -116,7 +119,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 /* ── Mobile ── */
 @media(max-width:768px){
   body{overflow-x:hidden}
-  #game{max-width:100%;padding:8px 8px 10px;gap:8px;min-height:auto}
+  #game{max-width:100%;padding:6px 6px 8px;gap:6px;min-height:calc(100dvh - 56px - env(safe-area-inset-bottom));max-height:calc(100dvh - 56px - env(safe-area-inset-bottom));overflow:hidden}
   header h1{font-size:1.02rem;letter-spacing:2px}
 
   #payout-table{border-radius:6px}
@@ -129,63 +132,65 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
   .cl{font-size:.52rem;letter-spacing:1.4px}
   .cv,#wv{font-size:1.28rem}
 
-  #cards{height:118px;gap:4px;padding:0}
-  .cs{height:118px;gap:2px}
-  .card{width:64px;height:92px;padding:4px;border-radius:6px}
+  #cards{height:110px;gap:3px;padding:0}
+  .cs{height:110px;gap:2px}
+  .card{width:60px;height:86px;padding:3px;border-radius:6px}
   .cc .cr{font-size:1.1rem}
   .cc .cs{font-size:.9rem;margin-top:-1px}
   .cm{font-size:1.7rem;top:64%}
   .hl{font-size:.56rem;letter-spacing:1.2px;height:14px;line-height:14px}
 
-  #msg{height:32px}
+  #msg{height:22px}
   #rm{font-size:.76rem;letter-spacing:1.2px}
   #rm.nw{font-size:.70rem}
 
   #btns{flex-wrap:wrap;gap:6px}
   #btns-left,#btns-right{display:flex;width:100%;gap:6px}
-  .btn{height:42px;min-width:0;flex:1;padding:0 8px;font-size:.72rem;letter-spacing:.6px}
+  .btn{height:38px;min-width:0;flex:1;padding:0 7px;font-size:.66rem;letter-spacing:.5px}
   .dealbtn,.drawbtn,.holdallbtn,.b1btn,.clearbtn,.b5btn,.mbtn{width:auto}
 
   #seo{padding:16px 10px 28px;font-size:.80rem;line-height:1.6}
   #seo h2{font-size:.9rem}
   #seo table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
   #seo th,#seo td{font-size:.74rem;padding:5px 6px}
+  #ad-slot{height:48px;font-size:.66rem;letter-spacing:1px}
 }
 
 @media(max-width:430px){
-  #game{padding:6px 6px 10px}
+  #game{padding:5px 5px 8px}
   .pr{padding:2px 4px}
   .pr .hn{font-size:.56rem}
   .pr .pv{width:38px;font-size:.62rem}
   .pr .ch{font-size:.68rem}
 
-  #cards{height:104px;gap:3px}
-  .cs{height:104px}
-  .card{width:58px;height:84px;padding:3px}
+  #cards{height:98px;gap:2px}
+  .cs{height:98px}
+  .card{width:50px;height:72px;padding:2px}
   .cc .cr{font-size:1rem}
   .cm{font-size:1.42rem}
 
-  .btn{height:40px;font-size:.68rem}
+  .btn{height:36px;font-size:.62rem}
   .cl{font-size:.5rem}
   .cv,#wv{font-size:1.16rem}
-  #rm{font-size:.70rem}
+  #rm{font-size:.66rem}
+  #ad-slot{height:44px;font-size:.60rem}
 }
 
 /* iPhone 13 (390×844) */
 @media (min-width:389px) and (max-width:395px) and (min-height:820px){
-  #cards{height:112px}
-  .cs{height:112px}
-  .card{width:62px;height:90px}
-  .btn{height:42px;font-size:.72rem}
+  #cards{height:106px}
+  .cs{height:106px}
+  .card{width:58px;height:82px}
+  .btn{height:38px;font-size:.66rem}
   .cv,#wv{font-size:1.22rem}
 }
 
 /* iPhone 12/13 mini (375×812) */
 @media (min-width:370px) and (max-width:380px) and (min-height:780px){
-  #cards{height:108px}
-  .cs{height:108px}
-  .card{width:60px;height:86px}
-  .btn{height:40px;font-size:.69rem}
+  #cards{height:102px}
+  .cs{height:102px}
+  .card{width:56px;height:80px}
+  .btn{height:37px;font-size:.64rem}
 }
 
 /* iPhone SE (375×667) */
@@ -199,15 +204,16 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
   .ci{padding:6px 3px}
   .cl{font-size:.46rem;letter-spacing:1px}
   .cv,#wv{font-size:1.06rem}
-  #cards{height:96px;gap:2px}
-  .cs{height:96px}
-  .card{width:54px;height:78px;padding:2px}
+  #cards{height:90px;gap:2px}
+  .cs{height:90px}
+  .card{width:50px;height:72px;padding:2px}
   .cc .cr{font-size:.92rem}
   .cc .cs{font-size:.78rem}
   .cm{font-size:1.28rem}
-  #msg{height:26px}
+  #msg{height:22px}
   #rm{font-size:.64rem;letter-spacing:.8px}
-  .btn{height:38px;font-size:.62rem;padding:0 6px}
+  .btn{height:34px;font-size:.58rem;padding:0 5px}
+  #ad-slot{height:40px;font-size:.56rem;letter-spacing:.6px}
 }
 
 </style>
@@ -240,6 +246,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
       <button class="btn drawbtn" id="bdr" onclick="draw()" style="display:none">DRAW</button>
     </div>
   </div>
+  <div id="ad-slot">Banner Ad Slot · 320×50</div>
 </div>
 <div id="cel"></div>
 <div id="seo-sep" style="width:100%;max-width:680px;padding:16px 16px 0;text-align:center;color:rgba(255,255,255,.25);font-size:.75rem;letter-spacing:2px">▼ &nbsp; GAME GUIDE &nbsp; ▼</div>
