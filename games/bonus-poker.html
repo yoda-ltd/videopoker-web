@@ -52,7 +52,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 /* ── CARDS ── */
 #cards{display:flex;gap:6px;justify-content:center;padding:0 2px;perspective:1000px;height:178px;align-items:flex-start;user-select:none;-webkit-user-select:none}
 .cs{display:flex;flex-direction:column;align-items:center;gap:4px;height:178px;justify-content:flex-start}
-.card{width:112px;height:155px;background:#fff;border-radius:6px;border:2px solid #ccc;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
+.card{width:112px;height:155px;--card-scale:1;background:#fff;border-radius:6px;border:2px solid #ccc;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
 .card.held{border-color:#ffe033;border-width:3px;box-shadow:0 0 18px rgba(255,224,0,.9);transform:translateY(-8px)}
 .card.wc{border-color:#00ff88;box-shadow:0 0 18px rgba(0,255,136,.9);animation:cw .5s ease 3}
@@ -66,10 +66,10 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 
 /* ── Card face content ── */
 .cc{font-family:'Fredoka One',cursive;line-height:1;position:absolute;top:5px;left:6px;display:flex;flex-direction:column;align-items:center;gap:0}
-.cc .cr{font-size:2rem;line-height:1}
-.cc .cs{font-size:1.45rem;margin-top:-1px}
+.cc .cr{font-size:calc(2rem * var(--card-scale));line-height:1}
+.cc .cs{font-size:calc(1.45rem * var(--card-scale));margin-top:-1px}
 .cc.bot{display:none}
-.cm{font-size:5.8rem;position:absolute;top:65%;left:50%;transform:translate(-50%,-50%);font-family:'Fredoka One',cursive;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
+.cm{font-size:calc(5.8rem * var(--card-scale));position:absolute;top:65%;left:50%;transform:translate(-50%,-50%);font-family:'Fredoka One',cursive;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
 .red{color:#cc0000}.black{color:#111}
 
 /* HOLD label */
@@ -134,10 +134,8 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 
   #cards{height:118px;gap:3px;padding:0}
   .cs{height:118px;gap:2px}
-  .card{width:64px;height:93px;padding:3px;border-radius:6px}
-  .cc .cr{font-size:1.1rem}
-  .cc .cs{font-size:.9rem;margin-top:-1px}
-  .cm{font-size:1.7rem;top:64%}
+  .card{width:64px;height:93px;--card-scale:.57;padding:3px;border-radius:6px}
+  .cm{top:64%}
   .hl{font-size:.56rem;letter-spacing:1.2px;height:14px;line-height:14px}
 
   #msg{height:22px}
@@ -166,9 +164,8 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 
   #cards{height:106px;gap:2px}
   .cs{height:110px}
-  .card{width:54px;height:79px;padding:2px}
-  .cc .cr{font-size:1rem}
-  .cm{font-size:1.42rem}
+  .card{width:54px;height:79px;--card-scale:.48;padding:2px}
+  
 
   .btn{height:36px;font-size:.62rem}
   .cl{font-size:.5rem}
@@ -181,7 +178,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 @media (min-width:389px) and (max-width:395px) and (min-height:820px){
   #cards{height:146px}
   .cs{height:146px}
-  .card{width:82px;height:118px}
+  .card{width:82px;height:118px;--card-scale:.73}
   .btn{height:38px;font-size:.66rem}
   .cv,#wv{font-size:1.22rem}
 }
@@ -190,7 +187,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 @media (min-width:370px) and (max-width:380px) and (min-height:780px){
   #cards{height:110px}
   .cs{height:110px}
-  .card{width:60px;height:87px}
+  .card{width:60px;height:87px;--card-scale:.54}
   .btn{height:37px;font-size:.64rem}
 }
 
@@ -198,13 +195,13 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 @media (min-width:390px) and (max-width:430px){
   #cards{height:146px}
   .cs{height:146px}
-  .card{width:82px;height:118px}
+  .card{width:82px;height:118px;--card-scale:.73}
 }
 
 @media (min-width:431px){
   #cards{height:152px}
   .cs{height:152px}
-  .card{width:86px;height:124px}
+  .card{width:86px;height:124px;--card-scale:.77}
 }
 
 /* iPhone SE (375×667) */
@@ -220,10 +217,8 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
   .cv,#wv{font-size:1.06rem}
   #cards{height:98px;gap:2px}
   .cs{height:98px}
-  .card{width:54px;height:79px;padding:2px}
-  .cc .cr{font-size:.92rem}
-  .cc .cs{font-size:.78rem}
-  .cm{font-size:1.28rem}
+  .card{width:54px;height:79px;--card-scale:.48;padding:2px}
+  
   #msg{height:22px}
   #rm{font-size:.64rem;letter-spacing:.8px}
   .btn{height:34px;font-size:.58rem;padding:0 5px}
