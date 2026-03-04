@@ -75,6 +75,12 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 /* HOLD label */
 .hl{font-size:.65rem;font-weight:900;color:#ffe033;letter-spacing:2px;text-transform:uppercase;height:16px;line-height:16px;text-shadow:0 0 8px rgba(255,224,0,.8)}
 
+
+/* ── Unified full-width card layout (all devices) ── */
+#cards{width:100%!important;padding:0!important;justify-content:space-between!important;gap:clamp(3px,1vw,8px)!important;height:auto!important;align-items:flex-start!important}
+.cs{flex:1 1 0!important;min-width:0!important;height:auto!important}
+.card{width:100%!important;height:auto!important;aspect-ratio:112/155!important;max-width:none!important}
+
 /* ── MESSAGE ── */
 #msg{text-align:center;height:38px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #rm{font-size:.88rem;font-weight:900;letter-spacing:2px;color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.6);text-transform:uppercase}
@@ -368,13 +374,14 @@ function renderDrawCard(i,c,delay){
       el.style.background='';el.style.borderColor='';
       el.style.transform='rotateY(-90deg)';
       el.style.opacity='0';
+      syncCardScale();
       // Phase 2: new card flips in
       requestAnimationFrame(()=>{
         const inn=el.animate(
           [{transform:'rotateY(-90deg)',opacity:0},{transform:'rotateY(0deg)',opacity:1}],
           {duration:210,easing:'ease-out',fill:'forwards'}
         );
-        inn.onfinish=()=>{ el.style.transform=''; el.style.opacity=''; };
+        inn.onfinish=()=>{ el.style.transform=''; el.style.opacity=''; syncCardScale(); };
       });
     };
   },delay);
@@ -389,12 +396,14 @@ function renderCard(i,c,anim,delay){
   el.innerHTML=cardHTML(c);
   el.style.background='';
   el.style.borderColor='';
+  syncCardScale();
 }
 function renderDealCard(i,c,delay){
   // same flip mechanic as DRAW: old/back -> midpoint swap -> new front
   renderDrawCard(i,c,delay);
 }
-function faceDown(i){const el=document.getElementById('c'+i);el.className='card fd';el.innerHTML='';el.style.background='';el.style.borderColor='';}
+function faceDown(i){const el=document.getElementById('c'+i);el.className='card fd';el.innerHTML='';el.style.background='';el.style.borderColor='';syncCardScale();}
+function syncCardScale(){for(let i=0;i<5;i++){const el=document.getElementById('c'+i);if(!el)continue;const w=el.getBoundingClientRect().width||112;el.style.setProperty('--card-scale',(w/112).toFixed(4));}}
 function resetCardSlideOut(i,delay){
   setTimeout(()=>{
     const el=document.getElementById('c'+i);
@@ -493,6 +502,8 @@ function clearHolds(){if(state!=='hold')return;held.clear();updHeld();}
 const bddeal=document.getElementById('bddeal'),bdr=document.getElementById('bdr');
 renderPayTable();updCredits();showBet();updBetHighlight();document.getElementById('bd').textContent=lastBet;highlightBetColumn(lastBet);
   setMsg('BET '+lastBet+' selected — press DEAL to start',false);
+  syncCardScale();
+  window.addEventListener('resize',()=>requestAnimationFrame(syncCardScale));
 
 // ── Swipe-to-hold gesture (touch + mouse) ─────────────────────────────────
 (function(){
