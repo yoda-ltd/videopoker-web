@@ -416,7 +416,7 @@ function showAgain(){document.getElementById('bbbet').disabled=false;document.ge
 function setMsg(t,nw){const el=document.getElementById('rm');el.textContent=t;el.className=nw?'nw':'';}
 
 function cycleBet(){
-  if(state!=='bet')return;
+  if(state!=='bet'&&state!=='over')return;
   lastBet=lastBet>=5?1:lastBet+1;
   saveLastBet();
   document.getElementById('bet-num').textContent=lastBet;
