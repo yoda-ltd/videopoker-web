@@ -438,8 +438,6 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
   document.addEventListener('mousedown', function(e){
     if (e.button !== 0) return;
     mouseDown = true;
-    swipeTarget = null;
-    touchedInThisSwipe.clear();
   });
 
   // Mouse down on cards: immediate single-card toggle (single-click works)
