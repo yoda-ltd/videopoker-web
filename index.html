@@ -7,7 +7,7 @@
 <meta name="description" content="8 classic video poker variants with casino-style UI.">
 <style>
 *{box-sizing:border-box}
-:root{--bg:#020816;--panel:#00006e;--panel-border:#3f62c9;--gold:#ffe033;--text:#d7e3ff;--muted:#9eb0d8;--red1:#ff5a37;--red2:#bf2100}
+:root{--bg:#020816;--panel-border:#3f62c9;--gold:#ffe033;--muted:#9eb0d8;--red1:#ff5a37;--red2:#bf2100}
 body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradient(1200px 700px at 50% -120px,#1a1406 0,#070c1a 40%,var(--bg) 85%);color:#fff}
 .wrap{max-width:1080px;margin:0 auto;padding:18px 14px 34px}
 .marquee{text-align:center;padding:12px 10px;border:2px solid #a98a00;border-radius:8px;background:linear-gradient(180deg,#1a1200,#0b0700);box-shadow:0 0 18px rgba(255,208,0,.24),inset 0 1px 0 rgba(255,255,255,.15)}
@@ -17,14 +17,16 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
 .panel-head{display:flex;justify-content:space-between;align-items:center;background:#000;border:1px solid #2c2c2c;border-radius:6px;padding:8px 12px;margin-bottom:12px}
 .panel-head .label{color:#78839b;font-size:.72rem;letter-spacing:2px}.panel-head .value{color:var(--gold);font-size:1.2rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
-.game-card{display:block;text-decoration:none;color:#fff;background:linear-gradient(180deg,#00018a 0%,#00006e 52%,#00045b 100%);border:2px solid var(--panel-border);border-radius:8px;padding:14px 14px 12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 5px 16px rgba(0,0,0,.45);transition:transform .12s ease,filter .12s ease,box-shadow .12s ease}
+.game-card{display:block;text-decoration:none;color:#fff;background:linear-gradient(180deg,#00018a 0%,#00006e 52%,#00045b 100%);border:2px solid var(--panel-border);border-radius:8px;padding:12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 5px 16px rgba(0,0,0,.45);transition:transform .12s ease,filter .12s ease,box-shadow .12s ease}
 .game-card:hover{transform:translateY(-3px);filter:brightness(1.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 22px rgba(0,0,0,.55)}
 .game-card:active{transform:translateY(-1px) scale(.985)}
-.topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .badge{font-size:.62rem;color:#001018;background:linear-gradient(180deg,#ffe75a,#d6ad00);border:1px solid #8f7200;border-radius:3px;padding:2px 6px;letter-spacing:1px}
-.game-card h3{margin:0 0 8px;color:var(--gold);letter-spacing:1.2px;font-size:1.05rem}
-.game-card p{margin:0;color:var(--muted);font-size:.78rem;line-height:1.35;min-height:34px;font-family:Arial,sans-serif}
-.play-btn{margin-top:12px;display:inline-block;background:linear-gradient(180deg,var(--red1),var(--red2));border:1px solid #7d1600;border-radius:4px;padding:6px 12px;color:#fff;font-size:.74rem;letter-spacing:1px}
+.logo{width:54px;height:54px;border-radius:8px;border:1px solid rgba(255,255,255,.25);display:block;object-fit:cover;box-shadow:0 4px 10px rgba(0,0,0,.45)}
+.row{display:flex;gap:10px;align-items:flex-start}
+.game-card h3{margin:2px 0 8px;color:var(--gold);letter-spacing:1px;font-size:1.02rem;line-height:1.15}
+.game-card p{margin:0;color:var(--muted);font-size:.78rem;line-height:1.35;font-family:Arial,sans-serif;min-height:32px}
+.play-btn{margin-top:10px;display:inline-block;background:linear-gradient(180deg,var(--red1),var(--red2));border:1px solid #7d1600;border-radius:4px;padding:6px 12px;color:#fff;font-size:.74rem;letter-spacing:1px}
 .footer-note{text-align:center;color:#7f91b9;font-size:.72rem;letter-spacing:1px;margin-top:14px}
 @media (max-width:560px){.marquee h1{font-size:1.08rem;letter-spacing:2px}.panel-head .value{font-size:1rem}}
 </style>
@@ -37,20 +39,25 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
     </div>
 
     <div class="cabinet">
-      <div class="panel-head">
-        <div><span class="label">AVAILABLE GAMES</span></div>
-        <div class="value">8 VARIANTS</div>
-      </div>
-
+      <div class="panel-head"><div><span class="label">AVAILABLE GAMES</span></div><div class="value">8 VARIANTS</div></div>
       <div id="variants" class="grid">
-        <a class="game-card" href="games/jacks-or-better.html"><div class="topline"><span class="badge">CLASSIC</span></div><h3>Jacks or Better</h3><p>Foundational casino video poker with balanced volatility.</p><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card" href="games/deuces-wild.html"><div class="topline"><span class="badge">WILD</span></div><h3>Deuces Wild</h3><p>All 2s are wild cards. Higher complexity, bigger swings.</p><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card" href="games/bonus-poker.html"><div class="topline"><span class="badge">BONUS</span></div><h3>Bonus Poker</h3><p>Enhanced Four of a Kind payouts with familiar core rules.</p><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card" href="games/double-bonus-poker.html"><div class="topline"><span class="badge">HI-VAR</span></div><h3>Double Bonus Poker</h3><p>High-variance mode with aggressive quad rewards.</p><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card" href="games/aces-and-faces.html"><div class="topline"><span class="badge">PREMIUM</span></div><h3>Aces and Faces</h3><p>Big bonuses for Four Aces and Four Face Cards.</p><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card" href="games/nines-or-better.html"><div class="topline"><span class="badge">EASY</span></div><h3>Nines or Better</h3><p>Lower pair threshold for frequent entry-level wins.</p><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card" href="games/tens-or-better.html"><div class="topline"><span class="badge">EASY+</span></div><h3>Tens or Better</h3><p>Beginner-friendly structure with smoother hit rate.</p><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card" href="games/all-american-poker.html"><div class="topline"><span class="badge">PRO</span></div><h3>All American Poker</h3><p>Distinctive payout profile with premium straight value.</p><span class="play-btn">PLAY NOW</span></a>
+
+        <a class="game-card" href="games/jacks-or-better.html"><div class="topline"><span class="badge">CLASSIC</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Jacks or Better logo"><div><h3>Jacks or Better</h3><p>Foundational casino video poker with balanced volatility.</p></div></div><span class="play-btn">PLAY NOW</span></a>
+
+        <a class="game-card" href="games/deuces-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Deuces Wild logo"><div><h3>Deuces Wild</h3><p>All 2s are wild cards. Higher complexity, bigger swings.</p></div></div><span class="play-btn">PLAY NOW</span></a>
+
+        <a class="game-card" href="games/bonus-poker.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Bonus Poker logo"><div><h3>Bonus Poker</h3><p>Enhanced Four of a Kind payouts with familiar core rules.</p></div></div><span class="play-btn">PLAY NOW</span></a>
+
+        <a class="game-card" href="games/double-bonus-poker.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Bonus Poker logo"><div><h3>Double Bonus Poker</h3><p>High-variance mode with aggressive quad rewards.</p></div></div><span class="play-btn">PLAY NOW</span></a>
+
+        <a class="game-card" href="games/aces-and-faces.html"><div class="topline"><span class="badge">PREMIUM</span></div><div class="row"><img class="logo" src="assets/logos/aces-and-faces.png" alt="Aces and Faces logo"><div><h3>Aces and Faces</h3><p>Big bonuses for Four Aces and Four Face Cards.</p></div></div><span class="play-btn">PLAY NOW</span></a>
+
+        <a class="game-card" href="games/nines-or-better.html"><div class="topline"><span class="badge">EASY</span></div><div class="row"><img class="logo" src="assets/logos/nines-or-better.png" alt="Nines or Better logo"><div><h3>Nines or Better</h3><p>Lower pair threshold for frequent entry-level wins.</p></div></div><span class="play-btn">PLAY NOW</span></a>
+
+        <a class="game-card" href="games/tens-or-better.html"><div class="topline"><span class="badge">EASY+</span></div><div class="row"><img class="logo" src="assets/logos/tens-or-better.png" alt="Tens or Better logo"><div><h3>Tens or Better</h3><p>Beginner-friendly structure with smoother hit rate.</p></div></div><span class="play-btn">PLAY NOW</span></a>
+
+        <a class="game-card" href="games/all-american-poker.html"><div class="topline"><span class="badge">PRO</span></div><div class="row"><img class="logo" src="assets/logos/all-american-poker.png" alt="All American Poker logo"><div><h3>All American Poker</h3><p>Distinctive payout profile with premium straight value.</p></div></div><span class="play-btn">PLAY NOW</span></a>
+
       </div>
     </div>
 
