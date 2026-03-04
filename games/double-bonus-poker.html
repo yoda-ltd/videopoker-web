@@ -8,10 +8,11 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Game","name":"Double Bonus Poker Video Poker","description":"Free online Double Bonus Poker video poker. No download required.","genre":"Casino"}
 
-// ── Swipe-to-hold gesture ──────────────────────────────────────────────────
+// ── Swipe-to-hold gesture (touch + mouse) ─────────────────────────────────
 (function(){
   let swipeTarget = null; // null | 'hold' | 'unhold'
-  let lastSwiped = new Set();
+  let dragging = false;
+  const cardsEl = document.getElementById('cards');
 
   function cardIndexAt(x, y) {
     for (let i = 0; i < 5; i++) {
@@ -23,33 +24,56 @@
     return -1;
   }
 
-  document.getElementById('cards').addEventListener('touchstart', function(e) {
+  function applySwipe(idx) {
+    if (idx === -1 || state !== 'hold' || swipeTarget === null) return;
+    const cur = held.has(idx);
+    if (swipeTarget === 'hold' && !cur) { held.add(idx); updHeld(); }
+    else if (swipeTarget === 'unhold' && cur) { held.delete(idx); updHeld(); }
+  }
+
+  function endSwipe() { swipeTarget = null; dragging = false; }
+
+  // ── Mouse: mousedown on cards container ──
+  cardsEl.addEventListener('mousedown', function(e) {
+    if (e.button !== 0 || state !== 'hold') return;
+    const idx = cardIndexAt(e.clientX, e.clientY);
+    if (idx === -1) return;
+    dragging = true;
+    swipeTarget = held.has(idx) ? 'unhold' : 'hold';
+    applySwipe(idx);
+    e.preventDefault();
+  });
+
+  // ── Mouse: mousemove on cards container (fires via CDP + real mouse) ──
+  cardsEl.addEventListener('mousemove', function(e) {
+    if (!dragging) return;
+    applySwipe(cardIndexAt(e.clientX, e.clientY));
+  });
+
+  cardsEl.addEventListener('dragstart', function(e) { e.preventDefault(); });
+  document.addEventListener('mouseup', endSwipe);
+  document.addEventListener('mouseleave', endSwipe);
+
+  // ── Touch events (mobile) ──
+  cardsEl.addEventListener('touchstart', function(e) {
     if (state !== 'hold') return;
     const t = e.touches[0];
     const idx = cardIndexAt(t.clientX, t.clientY);
     if (idx === -1) return;
+    dragging = true;
     swipeTarget = held.has(idx) ? 'unhold' : 'hold';
-    lastSwiped = new Set([idx]);
-    swipeTarget === 'hold' ? held.add(idx) : held.delete(idx);
-    updHeld();
+    applySwipe(idx);
     e.preventDefault();
   }, { passive: false });
 
-  document.getElementById('cards').addEventListener('touchmove', function(e) {
-    if (state !== 'hold' || swipeTarget === null) return;
+  cardsEl.addEventListener('touchmove', function(e) {
+    if (!dragging) return;
     const t = e.touches[0];
-    const idx = cardIndexAt(t.clientX, t.clientY);
-    if (idx === -1 || lastSwiped.has(idx)) return;
-    lastSwiped.add(idx);
-    swipeTarget === 'hold' ? held.add(idx) : held.delete(idx);
-    updHeld();
+    applySwipe(cardIndexAt(t.clientX, t.clientY));
     e.preventDefault();
   }, { passive: false });
 
-  document.addEventListener('touchend', function() {
-    swipeTarget = null;
-    lastSwiped.clear();
-  });
+  document.addEventListener('touchend', endSwipe);
 })();
 
 </script>
@@ -93,7 +117,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 #wv.active{color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.5)}
 
 /* ── CARDS ── */
-#cards{display:flex;gap:6px;justify-content:center;padding:0 2px;perspective:1000px;height:178px;align-items:flex-start}
+#cards{display:flex;gap:6px;justify-content:center;padding:0 2px;perspective:1000px;height:178px;align-items:flex-start;user-select:none;-webkit-user-select:none}
 .cs{display:flex;flex-direction:column;align-items:center;gap:4px;height:178px;justify-content:flex-start}
 .card{width:112px;height:155px;background:#fff;border-radius:6px;border:2px solid #ccc;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
