@@ -398,7 +398,7 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
 // ── Swipe-to-hold gesture (touch + mouse) ─────────────────────────────────
 (function(){
   let swipeTarget = null; // null | 'hold' | 'unhold'
-  let dragging = false;
+  let mouseDown = false;
   const cardsEl = document.getElementById('cards');
 
   function cardIndexAt(x, y) {
@@ -418,23 +418,45 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
     else if (swipeTarget === 'unhold' && cur) { held.delete(idx); updHeld(); }
   }
 
-  function endSwipe() { swipeTarget = null; dragging = false; }
+  function endSwipe() {
+    swipeTarget = null;
+    mouseDown = false;
+  }
 
-  // ── Mouse: mousedown on cards container ──
-  cardsEl.addEventListener('mousedown', function(e) {
+  // Capture click on cards to avoid inline onclick double-toggle
+  cardsEl.addEventListener('click', function(e){
+    const card = e.target.closest('.card');
+    if (!card || state !== 'hold') return;
+    e.preventDefault();
+    e.stopPropagation();
+  }, true);
+
+  // Mouse down anywhere: allow entering card zone later while pressed
+  document.addEventListener('mousedown', function(e){
+    if (e.button !== 0) return;
+    mouseDown = true;
+  });
+
+  // Mouse down on cards: immediate single-card toggle (single-click works)
+  cardsEl.addEventListener('mousedown', function(e){
     if (e.button !== 0 || state !== 'hold') return;
     const idx = cardIndexAt(e.clientX, e.clientY);
     if (idx === -1) return;
-    dragging = true;
     swipeTarget = held.has(idx) ? 'unhold' : 'hold';
     applySwipe(idx);
     e.preventDefault();
   });
 
-  // ── Mouse: mousemove on cards container ──
+  // Mouse move on card zone: if button held, continue swipe selection
   cardsEl.addEventListener('mousemove', function(e) {
-    if (!dragging) return;
-    applySwipe(cardIndexAt(e.clientX, e.clientY));
+    if (!mouseDown || state !== 'hold') return;
+    const idx = cardIndexAt(e.clientX, e.clientY);
+    if (idx === -1) return;
+    if (swipeTarget === null) {
+      // started outside and entered cards
+      swipeTarget = held.has(idx) ? 'unhold' : 'hold';
+    }
+    applySwipe(idx);
   });
 
   cardsEl.addEventListener('dragstart', function(e) { e.preventDefault(); });
@@ -445,25 +467,37 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
   document.addEventListener('mouseleave', endSwipe);
 
   // ── Touch events (mobile) ──
+  let touchDragging = false;
+  let touchTarget = null;
+
   cardsEl.addEventListener('touchstart', function(e) {
     if (state !== 'hold') return;
     const t = e.touches[0];
     const idx = cardIndexAt(t.clientX, t.clientY);
     if (idx === -1) return;
-    dragging = true;
-    swipeTarget = held.has(idx) ? 'unhold' : 'hold';
-    applySwipe(idx);
+    touchDragging = true;
+    touchTarget = held.has(idx) ? 'unhold' : 'hold';
+    const cur = held.has(idx);
+    if (touchTarget === 'hold' && !cur) { held.add(idx); updHeld(); }
+    else if (touchTarget === 'unhold' && cur) { held.delete(idx); updHeld(); }
     e.preventDefault();
   }, { passive: false });
 
   cardsEl.addEventListener('touchmove', function(e) {
-    if (!dragging) return;
+    if (!touchDragging || state !== 'hold') return;
     const t = e.touches[0];
-    applySwipe(cardIndexAt(t.clientX, t.clientY));
+    const idx = cardIndexAt(t.clientX, t.clientY);
+    if (idx === -1) return;
+    const cur = held.has(idx);
+    if (touchTarget === 'hold' && !cur) { held.add(idx); updHeld(); }
+    else if (touchTarget === 'unhold' && cur) { held.delete(idx); updHeld(); }
     e.preventDefault();
   }, { passive: false });
 
-  document.addEventListener('touchend', endSwipe);
+  document.addEventListener('touchend', function(){
+    touchDragging = false;
+    touchTarget = null;
+  });
 })();
 </script>
 </body>
