@@ -56,8 +56,8 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 .card.wc{border-color:#00ff88;box-shadow:0 0 18px rgba(0,255,136,.9);animation:cw .5s ease 3}
 @keyframes cw{0%,100%{transform:translateY(-8px) scale(1)}50%{transform:translateY(-12px) scale(1.06)}}
 /* Card back — casino green felt */
-.card.fd{background:linear-gradient(145deg,#1a6b3c 0%,#0d4020 50%,#1a6b3c 100%);border:3px solid #c8a800}
-.card.fd::after{content:"♠";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:3rem;color:rgba(255,215,0,.22);pointer-events:none}
+.card.fd{background:repeating-linear-gradient(45deg,#c94a5c,#c94a5c 5px,#de6b7a 5px,#de6b7a 10px);border-color:#ffffff;border-width:2px}
+
 /* Card animations */
 .card.dealing{animation:di .32s cubic-bezier(.25,.46,.45,.94) forwards}
 @keyframes di{from{opacity:0;transform:translateX(-100px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
