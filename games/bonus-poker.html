@@ -10,7 +10,7 @@
 
 
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
@@ -19,7 +19,7 @@ body{background:#000814;min-height:100vh;font-family:'Arial Black',Arial,sans-se
 
 /* ── Header ── */
 header{width:100%;text-align:center;padding:10px 0;background:linear-gradient(180deg,#1a1200 0%,#0d0900 100%);border-bottom:3px solid #c8a800}
-header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#ffe033;text-shadow:0 0 30px rgba(255,200,0,.8),0 2px 4px rgba(0,0,0,.8);font-family:'Arial Black','Impact',sans-serif;font-weight:900}
+header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:#ffe033;text-shadow:0 0 30px rgba(255,200,0,.8),0 2px 4px rgba(0,0,0,.8);font-family:'Cinzel','Trajan Pro','Times New Roman',serif;font-weight:800}
 
 /* ── Game wrapper ── */
 #game{width:100%;max-width:680px;padding:8px 12px;display:flex;flex-direction:column;gap:6px;min-height:calc(100vh - 56px);justify-content:flex-start}
@@ -89,7 +89,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 /* ── BUTTONS — IGT beveled machine style ── */
 #btns{display:flex;justify-content:space-between;align-items:center;gap:8px}
 #btns-left{display:flex;gap:8px}#btns-right{display:flex;gap:8px}
-.btn{padding:0 16px;height:46px;border-top:2px solid rgba(255,255,255,.38);border-left:2px solid rgba(255,255,255,.22);border-bottom:2px solid rgba(0,0,0,.5);border-right:2px solid rgba(0,0,0,.3);border-radius:5px;font-size:.82rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;cursor:pointer;min-width:78px;position:relative;display:inline-flex;align-items:center;justify-content:center;transition:filter .1s,transform .1s}
+.btn{padding:0 16px;height:50px;border-top:2px solid rgba(255,255,255,.38);border-left:2px solid rgba(255,255,255,.22);border-bottom:2px solid rgba(0,0,0,.5);border-right:2px solid rgba(0,0,0,.3);border-radius:5px;font-size:.82rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;cursor:pointer;min-width:78px;position:relative;display:inline-flex;align-items:center;justify-content:center;transition:filter .1s,transform .1s}
 .btn:active{transform:scale(.94) translateY(1px);filter:brightness(.82)}
 .btn:disabled{opacity:.3;cursor:not-allowed;transform:none;filter:grayscale(.6)}
 
@@ -126,7 +126,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 @media(max-width:768px){
   body{overflow-x:hidden}
   #game{max-width:100%;padding:6px 6px calc(48px + env(safe-area-inset-bottom) + 6px);gap:6px;min-height:calc(100dvh - 56px);max-height:calc(100dvh - 56px);overflow:hidden}
-  header h1{font-size:1.02rem;letter-spacing:2px}
+  header h1{font-size:1.12rem;letter-spacing:2.4px}
 
   #payout-table{border-radius:6px}
   .pr{padding:2px 6px;font-size:.66rem}
@@ -151,7 +151,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
   #btns{flex-wrap:wrap;gap:6px}
   #btns-left,#btns-right{display:flex;width:100%;gap:6px}
   #btns-left{flex-wrap:wrap}
-  .btn{height:38px;min-width:0;flex:1;padding:0 7px;font-size:.66rem;letter-spacing:.5px}
+  .btn{height:42px;min-width:0;flex:1;padding:0 8px;font-size:.68rem;letter-spacing:.5px}
   .dealbtn,.drawbtn,.holdallbtn,.b1btn,.clearbtn,.b5btn,.mbtn{width:auto}
 
   #seo{padding:16px 10px 28px;font-size:.80rem;line-height:1.6}
@@ -173,7 +173,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
   .card{width:54px;height:75px;--card-scale:.4821;padding:2px}
   
 
-  .btn{height:36px;font-size:.62rem}
+  .btn{height:40px;font-size:.64rem}
   .cl{font-size:.5rem}
   .cv,#wv{font-size:1.16rem}
   #rm{font-size:.66rem}
@@ -185,7 +185,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
   #cards{height:110px}
   .cs{height:110px}
   .card{width:60px;height:83px;--card-scale:.5357}
-  .btn{height:37px;font-size:.64rem}
+  .btn{height:40px;font-size:.66rem}
 }
 
 /* Medium+ phones (e.g., 400-430px wide Android devices) */
@@ -203,7 +203,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 
 /* iPhone SE (375×667) */
 @media (min-width:370px) and (max-width:380px) and (max-height:700px){
-  header h1{font-size:.94rem;letter-spacing:1.2px}
+  header h1{font-size:1.00rem;letter-spacing:1.4px}
   #game{padding:5px 5px calc(40px + env(safe-area-inset-bottom) + 4px);gap:6px}
   .pr{padding:1px 3px}
   .pr .hn{font-size:.52rem}
@@ -218,7 +218,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
   
   #msg{height:22px}
   #rm{font-size:.64rem;letter-spacing:.8px}
-  .btn{height:34px;font-size:.58rem;padding:0 5px}
+  .btn{height:37px;font-size:.60rem;padding:0 5px}
   #ad-slot{height:40px;font-size:.56rem;letter-spacing:.6px;padding-bottom:env(safe-area-inset-bottom)}
 }
 
