@@ -389,9 +389,10 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
 
 // ── Swipe-to-hold gesture (touch + mouse) ─────────────────────────────────
 (function(){
-  let swipeTarget = null; // null | 'hold' | 'unhold'
+  let swipeTarget = null; // 'hold' | 'unhold' | 'toggle' | null
   let mouseDown = false;
   const cardsEl = document.getElementById('cards');
+  let touchedInThisSwipe = new Set();
 
   function cardIndexAt(x, y) {
     for (let i = 0; i < 5; i++) {
@@ -405,14 +406,24 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
 
   function applySwipe(idx) {
     if (idx === -1 || state !== 'hold' || swipeTarget === null) return;
+    if (touchedInThisSwipe.has(idx)) return; // each card changes once per swipe
+    touchedInThisSwipe.add(idx);
+
     const cur = held.has(idx);
-    if (swipeTarget === 'hold' && !cur) { held.add(idx); updHeld(); }
-    else if (swipeTarget === 'unhold' && cur) { held.delete(idx); updHeld(); }
+    if (swipeTarget === 'hold') {
+      if (!cur) { held.add(idx); updHeld(); }
+    } else if (swipeTarget === 'unhold') {
+      if (cur) { held.delete(idx); updHeld(); }
+    } else if (swipeTarget === 'toggle') {
+      if (cur) held.delete(idx); else held.add(idx);
+      updHeld();
+    }
   }
 
   function endSwipe() {
     swipeTarget = null;
     mouseDown = false;
+    touchedInThisSwipe.clear();
   }
 
   // Capture click on cards to avoid inline onclick double-toggle
@@ -427,6 +438,8 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
   document.addEventListener('mousedown', function(e){
     if (e.button !== 0) return;
     mouseDown = true;
+    swipeTarget = null;
+    touchedInThisSwipe.clear();
   });
 
   // Mouse down on cards: immediate single-card toggle (single-click works)
@@ -434,6 +447,7 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
     if (e.button !== 0 || state !== 'hold') return;
     const idx = cardIndexAt(e.clientX, e.clientY);
     if (idx === -1) return;
+    // Started inside cards: unify mode by first card state
     swipeTarget = held.has(idx) ? 'unhold' : 'hold';
     applySwipe(idx);
     e.preventDefault();
@@ -444,9 +458,10 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
     if (!mouseDown || state !== 'hold') return;
     const idx = cardIndexAt(e.clientX, e.clientY);
     if (idx === -1) return;
+
     if (swipeTarget === null) {
-      // started outside and entered cards
-      swipeTarget = held.has(idx) ? 'unhold' : 'hold';
+      // Started outside and entered cards: use per-card toggle mode
+      swipeTarget = 'toggle';
     }
     applySwipe(idx);
   });
@@ -460,7 +475,8 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
 
   // ── Touch events (mobile) ──
   let touchDragging = false;
-  let touchTarget = null;
+  let touchTarget = null; // 'hold' | 'unhold'
+  let touchTouched = new Set();
 
   cardsEl.addEventListener('touchstart', function(e) {
     if (state !== 'hold') return;
@@ -469,9 +485,12 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
     if (idx === -1) return;
     touchDragging = true;
     touchTarget = held.has(idx) ? 'unhold' : 'hold';
+    touchTouched.clear();
+
     const cur = held.has(idx);
     if (touchTarget === 'hold' && !cur) { held.add(idx); updHeld(); }
     else if (touchTarget === 'unhold' && cur) { held.delete(idx); updHeld(); }
+    touchTouched.add(idx);
     e.preventDefault();
   }, { passive: false });
 
@@ -479,7 +498,9 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
     if (!touchDragging || state !== 'hold') return;
     const t = e.touches[0];
     const idx = cardIndexAt(t.clientX, t.clientY);
-    if (idx === -1) return;
+    if (idx === -1 || touchTouched.has(idx)) return;
+    touchTouched.add(idx);
+
     const cur = held.has(idx);
     if (touchTarget === 'hold' && !cur) { held.add(idx); updHeld(); }
     else if (touchTarget === 'unhold' && cur) { held.delete(idx); updHeld(); }
@@ -489,6 +510,7 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
   document.addEventListener('touchend', function(){
     touchDragging = false;
     touchTarget = null;
+    touchTouched.clear();
   });
 })();
 </script>
