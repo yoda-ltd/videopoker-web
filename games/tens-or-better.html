@@ -7,6 +7,51 @@
 <meta name="description" content="Play free Tens or Better video poker online. No download, no registration. Classic casino video poker in your browser.">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Game","name":"Tens or Better Video Poker","description":"Free online Tens or Better video poker. No download required.","genre":"Casino"}
+
+// ── Swipe-to-hold gesture ──────────────────────────────────────────────────
+(function(){
+  let swipeTarget = null; // null | 'hold' | 'unhold'
+  let lastSwiped = new Set();
+
+  function cardIndexAt(x, y) {
+    for (let i = 0; i < 5; i++) {
+      const el = document.getElementById('c' + i);
+      if (!el) continue;
+      const r = el.getBoundingClientRect();
+      if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return i;
+    }
+    return -1;
+  }
+
+  document.getElementById('cards').addEventListener('touchstart', function(e) {
+    if (state !== 'hold') return;
+    const t = e.touches[0];
+    const idx = cardIndexAt(t.clientX, t.clientY);
+    if (idx === -1) return;
+    swipeTarget = held.has(idx) ? 'unhold' : 'hold';
+    lastSwiped = new Set([idx]);
+    swipeTarget === 'hold' ? held.add(idx) : held.delete(idx);
+    updHeld();
+    e.preventDefault();
+  }, { passive: false });
+
+  document.getElementById('cards').addEventListener('touchmove', function(e) {
+    if (state !== 'hold' || swipeTarget === null) return;
+    const t = e.touches[0];
+    const idx = cardIndexAt(t.clientX, t.clientY);
+    if (idx === -1 || lastSwiped.has(idx)) return;
+    lastSwiped.add(idx);
+    swipeTarget === 'hold' ? held.add(idx) : held.delete(idx);
+    updHeld();
+    e.preventDefault();
+  }, { passive: false });
+
+  document.addEventListener('touchend', function() {
+    swipeTarget = null;
+    lastSwiped.clear();
+  });
+})();
+
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 <style>
