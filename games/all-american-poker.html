@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bonus Poker Deluxe Video Poker - Play Free Online | No Download</title>
-<meta name="description" content="Play free Bonus Poker Deluxe video poker online. No download, no registration. Classic casino video poker in your browser.">
+<title>All American Poker Video Poker - Play Free Online | No Download</title>
+<meta name="description" content="Play free All American Poker video poker online. No download, no registration. Classic casino video poker in your browser.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Game","name":"Bonus Poker Deluxe Video Poker","description":"Free online Bonus Poker Deluxe video poker. No download required.","genre":"Casino"}
+{"@context":"https://schema.org","@type":"Game","name":"All American Poker Video Poker","description":"Free online All American Poker video poker. No download required.","genre":"Casino"}
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 <style>
@@ -92,7 +92,7 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 </style>
 </head>
 <body>
-<header style="position:relative"><a href="../index.html" aria-label="Home" title="Home" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#ffd700;text-decoration:none;font-size:1.6rem;line-height:1">&#8962;</a><h1>&#9824; Bonus Poker Deluxe &#9829;</h1></header>
+<header style="position:relative"><a href="../index.html" aria-label="Home" title="Home" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#ffd700;text-decoration:none;font-size:1.6rem;line-height:1">&#8962;</a><h1>&#9824; All American Poker &#9829;</h1></header>
 <div id="game">
   <div id="payout-table"></div>
   <div id="cbar">
@@ -123,24 +123,24 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
 <div id="cel"></div>
 <div id="seo-sep" style="width:100%;max-width:680px;padding:16px 16px 0;text-align:center;color:rgba(255,255,255,.25);font-size:.75rem;letter-spacing:2px">▼ &nbsp; GAME GUIDE &nbsp; ▼</div>
 <div id="seo">
-  <h2>How to Play Bonus Poker Deluxe Video Poker</h2>
-  <p>Jacks or Better is a classic video poker variant. Use BET and DEAL, choose your HOLD cards, then DRAW to complete your hand and win payouts.</p>
+  <h2>How to Play All American Poker Video Poker</h2>
+  <p>All American Poker features equal 8x payouts for Straight, Flush, and Full House. Two Pair only pays 1 credit. Use BET and DEAL, choose your HOLD cards, then DRAW to complete your hand and win payouts.</p>
   <h2>Rules</h2>
   <p>1. Choose BET 1 or BET 5 (always bet max for the 4,000 Royal Flush jackpot!)</p>
   <p>2. Receive 5 cards. Click cards to HOLD them.</p>
   <p>3. Press DRAW to replace unheld cards.</p>
   <p>4. Win if your final hand matches the payout table above.</p>
   <h2>Payout Table</h2>
-  <table><tr><th>Hand</th><th>BET 1</th><th>BET 5</th></tr><tr><td>Royal Flush</td><td>250</td><td>4000</td></tr><tr><td>Straight Flush</td><td>50</td><td>250</td></tr><tr><td>Four of a Kind</td><td>80</td><td>400</td></tr><tr><td>Full House</td><td>8</td><td>40</td></tr><tr><td>Flush</td><td>5</td><td>25</td></tr><tr><td>Straight</td><td>4</td><td>20</td></tr><tr><td>Three of a Kind</td><td>3</td><td>15</td></tr><tr><td>Two Pair</td><td>1</td><td>5</td></tr><tr><td>Jacks or Better</td><td>1</td><td>5</td></tr></table>
+  <table><tr><th>Hand</th><th>BET 1</th><th>BET 5</th></tr><tr><td>Royal Flush</td><td>250</td><td>4000</td></tr><tr><td>Straight Flush</td><td>200</td><td>1000</td></tr><tr><td>Four of a Kind</td><td>40</td><td>200</td></tr><tr><td>Full House</td><td>8</td><td>40</td></tr><tr><td>Flush</td><td>8</td><td>40</td></tr><tr><td>Straight</td><td>8</td><td>40</td></tr><tr><td>Three of a Kind</td><td>3</td><td>15</td></tr><tr><td>Two Pair</td><td>1</td><td>5</td></tr><tr><td>Jacks or Better</td><td>1</td><td>5</td></tr></table>
 </div>
 <script>
 const SUITS=['hearts','diamonds','clubs','spades'];
 const RANKS=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
 const SYM={hearts:'&#9829;',diamonds:'&#9830;',clubs:'&#9827;',spades:'&#9824;',joker:'🃏'};
-const PAY={'Royal Flush':[250,4000],'Straight Flush':[50,250],'Four of a Kind':[80,400],'Full House':[8,40],'Flush':[5,25],'Straight':[4,20],'Three of a Kind':[3,15],'Two Pair':[1,5],'Jacks or Better':[1,5]};
-const MODE='jacks';
+const PAY={'Royal Flush':[250,4000],'Straight Flush':[200,1000],'Four of a Kind':[40,200],'Full House':[8,40],'Flush':[8,40],'Straight':[8,40],'Three of a Kind':[3,15],'Two Pair':[1,5],'Jacks or Better':[1,5]};
+const MODE='allameri';
 const PAIR_LABEL='Jacks or Better';
-const PAIR_OK=['J', 'Q', 'K', 'A'];
+const PAIR_OK=['J','Q','K','A'];
 let credits=+localStorage.getItem('vp_c')||1000,bet=0,lastBet=+(localStorage.getItem('vp_lastbet')||1),hand=[],held=new Set(),deck=[],state='bet';
 function mkDeck(){const d=[];for(const s of SUITS)for(const r of RANKS)d.push({s,r});if(MODE==='joker')d.push({s:'joker',r:'JK'});return d}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
@@ -156,7 +156,7 @@ for(const a of RANKS)for(const b of RANKS){if(a===b)continue;for(let wa=0;wa<=wi
 const suitCount={};for(const s of ss)suitCount[s]=(suitCount[s]||0)+1;if(Object.values(suitCount).some(v=>v+wild>=5))return'Flush';if(canStraightWithWild(rs,wild))return'Straight';for(const r of RANKS){if((rc[r]||0)+wild>=3)return'Three of a Kind';}
 if(kind==='joker'){if(wild===1&&rs.some(r=>['K','A'].includes(r)))return'Kings or Better';if(evalClassic(nat,['K','A'],'Kings or Better',false)==='Two Pair')return'Two Pair';}
 return'No Win'}
-function evalHand(h){if(MODE==='deuces')return evalWild(h,'deuces');if(MODE==='joker'){const hasJ=h.some(c=>c.s==='joker');return hasJ?evalWild(h,'joker'):evalClassic(h,['K','A'],'Kings or Better',false);}if(MODE==='bonus')return evalClassic(h,PAIR_OK,PAIR_LABEL,true);return evalClassic(h,PAIR_OK,PAIR_LABEL,false)}
+function evalHand(h){if(MODE==='deuces')return evalWild(h,'deuces');if(MODE==='joker'){const hasJ=h.some(c=>c.s==='joker');return hasJ?evalWild(h,'joker'):evalClassic(h,['K','A'],'Kings or Better',false);}if(MODE==='allameri')return evalClassic(h,PAIR_OK,PAIR_LABEL,false);return evalClassic(h,PAIR_OK,PAIR_LABEL,false)}
 function getWin(ht,b){const t=PAY[ht];if(!t)return 0;return b===5?t[1]:t[0]*b}
 
 function payAt(arr,b){return b===5?arr[1]:arr[0]*b}
