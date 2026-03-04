@@ -98,6 +98,14 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
 /* ── BUTTONS — IGT beveled machine style ── */
 #btns{display:flex;justify-content:space-between;align-items:center;gap:8px}
 #btns-left{display:flex;gap:8px}#btns-right{display:flex;gap:8px}
+
+/* Desktop: force perfectly balanced control row */
+@media (min-width:769px){
+  #btns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;align-items:center}
+  #btns-left,#btns-right{display:contents}
+  .btn{width:100%!important;min-width:0}
+}
+
 .btn{padding:0 16px;height:50px;border-top:2px solid rgba(255,255,255,.38);border-left:2px solid rgba(255,255,255,.22);border-bottom:2px solid rgba(0,0,0,.5);border-right:2px solid rgba(0,0,0,.3);border-radius:5px;font-size:.82rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;cursor:pointer;min-width:78px;position:relative;display:inline-flex;align-items:center;justify-content:center;transition:filter .1s,transform .1s}
 .btn:active{transform:scale(.94) translateY(1px);filter:brightness(.82)}
 .btn:disabled{opacity:.3;cursor:not-allowed;transform:none;filter:grayscale(.6)}
