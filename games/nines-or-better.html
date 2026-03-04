@@ -11,84 +11,114 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:linear-gradient(160deg,#0a1628,#0d2040 50%,#0a1628);min-height:100vh;font-family:Arial,sans-serif;color:#fff;display:flex;flex-direction:column;align-items:center}
-header{width:100%;text-align:center;padding:12px 0 6px;background:rgba(0,0,0,.3);border-bottom:1px solid rgba(255,215,0,.2)}
-header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ffd700;text-shadow:0 0 20px rgba(255,215,0,.5);font-family:'Copperplate Gothic','Copperplate',serif}
-#game{width:100%;max-width:680px;padding:10px 12px;display:flex;flex-direction:column;gap:10px;min-height:calc(100vh - 60px);justify-content:flex-start}
-#payout-table{background:rgba(255,255,255,.04);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
-.pr{display:flex;justify-content:space-between;align-items:center;padding:4px 12px;border-bottom:1px solid rgba(255,255,255,.04);font-size:.72rem;transition:background .3s,color .3s}
-.pr:nth-child(even){background:rgba(255,255,255,.04)}
+
+/* ── Body: near-black machine background ── */
+body{background:#000814;min-height:100vh;font-family:'Arial Black',Arial,sans-serif;color:#fff;display:flex;flex-direction:column;align-items:center}
+
+/* ── Header ── */
+header{width:100%;text-align:center;padding:10px 0;background:linear-gradient(180deg,#1a1200 0%,#0d0900 100%);border-bottom:3px solid #c8a800}
+header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#ffe033;text-shadow:0 0 30px rgba(255,200,0,.8),0 2px 4px rgba(0,0,0,.8);font-family:'Arial Black','Impact',sans-serif;font-weight:900}
+
+/* ── Game wrapper ── */
+#game{width:100%;max-width:680px;padding:8px 12px;display:flex;flex-direction:column;gap:6px;min-height:calc(100vh - 56px);justify-content:flex-start}
+
+/* ── PAYOUT TABLE — IGT deep royal blue ── */
+#payout-table{background:#00006e;border:2px solid #3355bb;border-radius:4px;overflow:hidden}
+.pr{display:flex;justify-content:space-between;align-items:center;padding:3px 10px;border-bottom:1px solid #112299;font-size:.72rem;transition:background .3s}
 .pr:last-child{border-bottom:none}
-.pr .hn{flex:1;color:#bbb;letter-spacing:.3px}
-.pr .pv{width:44px;text-align:right;color:#888;font-variant-numeric:tabular-nums}
-.pr .ch{color:#ffd700;font-weight:bold;font-size:.8rem}
-.pr.win{background:rgba(255,215,0,.18)!important;box-shadow:inset 0 0 0 1px rgba(255,215,0,.4);animation:wp .5s ease}
-.pr.win .hn{color:#ffd700;font-weight:700;letter-spacing:.5px}
-.pr.win .b1,.pr.win .b5,.pr.win .ch{color:#ffd700;font-weight:700}
-@keyframes wp{0%{background:rgba(255,215,0,.05)}50%{background:rgba(255,215,0,.35)}100%{background:rgba(255,215,0,.18)}}
-#cbar{display:flex;justify-content:space-between;align-items:stretch;background:rgba(255,255,255,.05);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
-.ci{flex:1;text-align:center;padding:10px 8px;position:relative;transition:background .3s}
-.ci+.ci{border-left:1px solid rgba(255,255,255,.07)}
-.cl{font-size:.62rem;color:#666;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px}
-.cv{font-size:1.6rem;font-weight:bold;color:#ffd700;line-height:1;font-variant-numeric:tabular-nums;transition:color .3s}
-#wv{color:#888;font-size:1.6rem;font-weight:bold}
-#wv.active{color:#00e87a;text-shadow:0 0 12px rgba(0,220,120,.5)}
-#cards{display:flex;gap:8px;justify-content:center;padding:0 4px;perspective:1000px;height:182px;align-items:flex-start}
-.cs{display:flex;flex-direction:column;align-items:center;gap:4px;height:182px;justify-content:flex-start}
-.card{width:116px;height:160px;background:#fff;border-radius:8px;border:2px solid #ddd;display:flex;flex-direction:column;justify-content:space-between;padding:7px 7px 6px 7px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
-.card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.4)}
-.card.held{border-color:#ffd700;box-shadow:0 0 12px rgba(255,215,0,.7);transform:translateY(-6px)}
-.card.wc{border-color:#00ff88;box-shadow:0 0 16px rgba(0,255,136,.8);animation:cw .5s ease 3}
-@keyframes cw{0%,100%{transform:translateY(-6px) scale(1)}50%{transform:translateY(-10px) scale(1.05)}}
-/* DEAL: sweep in from left */
-.card.dealing{animation:di .35s cubic-bezier(.25,.46,.45,.94) forwards}
-@keyframes di{from{opacity:0;transform:translateX(-120px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
-/* DRAW: in-place vertical-axis flip */
+.pr:nth-child(even){background:rgba(255,255,255,.05)}
+.pr .hn{flex:1;color:#ccd9ff;text-transform:uppercase;letter-spacing:.5px;font-size:.68rem;font-weight:700}
+.pr .pv{width:40px;text-align:center;color:#7788bb;font-weight:700;font-size:.72rem;font-variant-numeric:tabular-nums}
+/* Active bet column — bright gold */
+.pr .ch{color:#ffe033;font-weight:900;font-size:.82rem;text-shadow:0 0 8px rgba(255,224,0,.6)}
+/* Winning hand row — solid yellow, black text */
+.pr.win{background:#ffe033!important;box-shadow:none;animation:wp .4s ease}
+.pr.win .hn{color:#000!important;font-weight:900}
+.pr.win .pv{color:#000!important}
+.pr.win .ch{color:#000!important;text-shadow:none}
+@keyframes wp{0%{background:#00006e}40%{background:#ffff44}100%{background:#ffe033}}
 
+/* ── CREDITS BAR ── */
+#cbar{display:flex;background:#000;border:2px solid #2a2a2a;border-radius:4px;overflow:hidden}
+.ci{flex:1;text-align:center;padding:9px 8px}
+.ci+.ci{border-left:2px solid #2a2a2a}
+.cl{font-size:.58rem;color:#666;text-transform:uppercase;letter-spacing:2px;margin-bottom:2px}
+.cv{font-size:1.65rem;font-weight:900;color:#ffe033;font-family:'Arial Black',Arial,sans-serif;line-height:1;font-variant-numeric:tabular-nums;transition:color .3s}
+#wv{color:#444;font-size:1.65rem;font-weight:900;font-family:'Arial Black',Arial,sans-serif}
+#wv.active{color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.5)}
 
+/* ── CARDS ── */
+#cards{display:flex;gap:6px;justify-content:center;padding:0 2px;perspective:1000px;height:178px;align-items:flex-start}
+.cs{display:flex;flex-direction:column;align-items:center;gap:4px;height:178px;justify-content:flex-start}
+.card{width:112px;height:155px;background:#fff;border-radius:6px;border:2px solid #ccc;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
+.card.held{border-color:#ffe033;border-width:3px;box-shadow:0 0 18px rgba(255,224,0,.9);transform:translateY(-8px)}
+.card.wc{border-color:#00ff88;box-shadow:0 0 18px rgba(0,255,136,.9);animation:cw .5s ease 3}
+@keyframes cw{0%,100%{transform:translateY(-8px) scale(1)}50%{transform:translateY(-12px) scale(1.06)}}
+/* Card back — casino green felt */
+.card.fd{background:linear-gradient(145deg,#1a6b3c 0%,#0d4020 50%,#1a6b3c 100%);border:3px solid #c8a800}
+.card.fd::after{content:"♠";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:3rem;color:rgba(255,215,0,.22);pointer-events:none}
+/* Card animations */
+.card.dealing{animation:di .32s cubic-bezier(.25,.46,.45,.94) forwards}
+@keyframes di{from{opacity:0;transform:translateX(-100px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
 
-
-.card.fd{background:repeating-linear-gradient(45deg,#c94a5c,#c94a5c 5px,#de6b7a 5px,#de6b7a 10px);border-color:#ffffff}
-.cc{font-family:'Fredoka One',cursive;line-height:1;position:absolute;top:7px;left:8px;display:flex;flex-direction:column;align-items:center;gap:0px}
-.cc .cr{font-size:2rem;line-height:1}
-.cc .cs{font-size:1.45rem;margin-top:-1px}
+/* ── Card face content ── */
+.cc{font-family:'Arial Black',Arial,sans-serif;line-height:1;position:absolute;top:5px;left:6px;display:flex;flex-direction:column;align-items:center;gap:0}
+.cc .cr{font-size:1.85rem;line-height:1;font-weight:900}
+.cc .cs{font-size:1.3rem;margin-top:-2px}
 .cc.bot{display:none}
-.cm{font-size:5.8rem;position:absolute;top:65%;left:50%;transform:translate(-50%,-50%);
-  font-family:'Fredoka One',cursive;
-  filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
-.red{color:#d63031}.black{color:#2d3436}
-.hl{font-size:.65rem;font-weight:bold;color:#ffd700;letter-spacing:2px;text-transform:uppercase;height:16px;line-height:16px;text-shadow:0 0 6px rgba(255,215,0,.8)}
-#msg{text-align:center;height:40px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-#rm{font-size:.9rem;font-weight:bold;letter-spacing:2px;color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.6);text-transform:uppercase}
-#rm.nw{color:#888;text-shadow:none;font-size:.9rem}
-#btns{display:flex;justify-content:space-between;align-items:center;gap:8px}#btns-left{display:flex;gap:8px}#btns-right{display:flex;gap:8px}
-.btn{padding:0 20px;height:44px;border:none;border-radius:12px;font-size:.82rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease,opacity .2s;min-width:80px;position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center}
-.btn::after{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,0));border-radius:12px 12px 0 0;pointer-events:none}
-.btn:active{transform:scale(.93);box-shadow:none!important}
-.btn:disabled{cursor:not-allowed;transform:none}
-/* BET — blue, disabled = muted */
-.b1btn{background:linear-gradient(160deg,#2980d4 0%,#1a5faa 60%,#134d8a 100%);color:#fff;box-shadow:0 4px 14px rgba(30,90,200,.45),inset 0 1px 0 rgba(255,255,255,.25);width:100px}
-.b1btn{transition:opacity .3s ease,filter .3s ease,box-shadow .3s ease}.b1btn:disabled{opacity:.38;filter:grayscale(.7);box-shadow:none}
-/* HOLD ALL — violet/indigo */
-.holdallbtn{background:linear-gradient(160deg,#2980d4 0%,#1a5faa 60%,#134d8a 100%);color:#fff;box-shadow:0 4px 14px rgba(30,90,200,.5),inset 0 1px 0 rgba(255,255,255,.25);width:100px;transition:opacity .3s ease,filter .3s ease,box-shadow .3s ease}.holdallbtn:disabled{opacity:.38;filter:grayscale(1);box-shadow:none}
-/* CLEAR — pink-purple when active, light gray when disabled */
-.clearbtn{background:linear-gradient(160deg,#c05ab0 0%,#9b3a9a 60%,#7a2a80 100%);color:#fff;box-shadow:0 4px 14px rgba(180,80,170,.45),inset 0 1px 0 rgba(255,255,255,.25);width:100px;transition:opacity .3s ease,filter .3s ease,box-shadow .3s ease}
-.clearbtn:disabled{opacity:.38;filter:grayscale(1);box-shadow:none}
-/* DRAW / DEAL — green */
-.drawbtn,.dealbtn{background:linear-gradient(160deg,#2ecc7a 0%,#1fa85c 60%,#167a42 100%);color:#fff;font-size:.85rem;box-shadow:0 4px 18px rgba(30,180,90,.5),inset 0 1px 0 rgba(255,255,255,.25);width:100px}
-.b5btn{background:linear-gradient(135deg,#d4a017,#a07010);color:#fff;border:1px solid rgba(255,215,0,.3)}
-.mbtn{background:linear-gradient(135deg,#c0392b,#922b21);color:#fff;border:1px solid rgba(255,100,100,.3)}
-.drawbtn{background:linear-gradient(160deg,#e74c3c 0%,#c0392b 60%,#922b21 100%);color:#fff;font-size:.85rem;box-shadow:0 4px 18px rgba(220,60,50,.5),inset 0 1px 0 rgba(255,255,255,.25);width:100px}
-.dealbtn{background:linear-gradient(135deg,#27ae60,#1e8449);color:#fff;font-size:1rem;padding:12px 28px}
+.cm{font-size:5.6rem;position:absolute;top:65%;left:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 1px 0 rgba(0,0,0,.12))}
+.red{color:#cc0000}.black{color:#111}
+
+/* HOLD label */
+.hl{font-size:.65rem;font-weight:900;color:#ffe033;letter-spacing:2px;text-transform:uppercase;height:16px;line-height:16px;text-shadow:0 0 8px rgba(255,224,0,.8)}
+
+/* ── MESSAGE ── */
+#msg{text-align:center;height:38px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#rm{font-size:.88rem;font-weight:900;letter-spacing:2px;color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.6);text-transform:uppercase}
+#rm.nw{color:#556;text-shadow:none;font-size:.82rem;font-weight:700;letter-spacing:1px}
+
+/* ── BUTTONS — IGT beveled machine style ── */
+#btns{display:flex;justify-content:space-between;align-items:center;gap:8px}
+#btns-left{display:flex;gap:8px}#btns-right{display:flex;gap:8px}
+.btn{padding:0 16px;height:46px;border-top:2px solid rgba(255,255,255,.38);border-left:2px solid rgba(255,255,255,.22);border-bottom:2px solid rgba(0,0,0,.5);border-right:2px solid rgba(0,0,0,.3);border-radius:5px;font-size:.82rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;cursor:pointer;min-width:78px;position:relative;display:inline-flex;align-items:center;justify-content:center;transition:filter .1s,transform .1s}
+.btn:active{transform:scale(.94) translateY(1px);filter:brightness(.82)}
+.btn:disabled{opacity:.3;cursor:not-allowed;transform:none;filter:grayscale(.6)}
+
+/* BET — electric blue */
+.b1btn{background:linear-gradient(180deg,#44aaff 0%,#0066cc 45%,#004499 100%);color:#fff;width:88px}
+/* CLEAR — silver-grey */
+.clearbtn{background:linear-gradient(180deg,#aaa 0%,#777 45%,#555 100%);color:#fff;width:78px}
+/* HOLD ALL — gold */
+.holdallbtn{background:linear-gradient(180deg,#ffe033 0%,#cc9900 45%,#996600 100%);color:#000;width:88px}
+/* DEAL — IGT classic bright red */
+.dealbtn{background:linear-gradient(180deg,#ff5533 0%,#cc2200 45%,#991100 100%);color:#fff;font-size:.9rem;width:88px}
+/* DRAW — orange */
+.drawbtn{background:linear-gradient(180deg,#ff9900 0%,#dd6600 45%,#bb3300 100%);color:#fff;font-size:.9rem;width:88px}
+.b5btn{background:linear-gradient(180deg,#ff9900 0%,#cc6600 45%,#993300 100%);color:#fff}
+.mbtn{background:linear-gradient(180deg,#ff5533 0%,#cc2200 45%,#991100 100%);color:#fff}
+
+/* ── Confetti ── */
 #cel{display:none;position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:100;overflow:hidden}
 .cf{position:absolute;width:10px;height:10px;border-radius:2px;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
-#seo{width:100%;max-width:680px;padding:20px 16px 40px;color:#aaa;font-size:.85rem;line-height:1.7}
-#seo h2{color:#ffd700;font-size:1rem;margin:16px 0 8px;letter-spacing:1px}
+
+/* ── SEO section ── */
+#seo{width:100%;max-width:680px;padding:20px 16px 40px;color:#99aacc;font-size:.85rem;line-height:1.7}
+#seo h2{color:#ffe033;font-size:1rem;margin:16px 0 8px;letter-spacing:1px;font-family:'Arial Black',Arial,sans-serif}
 #seo table{width:100%;border-collapse:collapse;margin:8px 0}
-#seo th{background:rgba(255,215,0,.15);color:#ffd700;padding:6px 8px;text-align:left;font-size:.8rem}
+#seo th{background:#00006e;color:#ffe033;padding:6px 8px;text-align:left;font-size:.8rem;border:1px solid #3355bb}
 #seo td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.07);font-size:.8rem}
-@media(max-width:500px){#cards{height:102px}.cs{height:102px}.card{width:60px;height:85px;padding:4px}.cc{font-size:.72rem}.cm{font-size:1.4rem}header h1{font-size:1rem}}
+#seo-sep{color:rgba(255,215,0,.3)!important;font-size:.75rem;letter-spacing:2px}
+
+/* ── Mobile ── */
+@media(max-width:500px){
+  #cards{height:104px}.cs{height:104px}
+  .card{width:60px;height:86px;padding:3px}
+  .cc .cr{font-size:1rem}.cm{font-size:1.35rem}
+  header h1{font-size:1rem;letter-spacing:2px}
+  .btn{height:40px;min-width:64px;font-size:.75rem;padding:0 10px}
+}
 </style>
 </head>
 <body>
