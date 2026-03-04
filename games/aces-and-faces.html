@@ -99,8 +99,6 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 .drawbtn{background:linear-gradient(180deg,#ff9900 0%,#dd6600 45%,#bb3300 100%);color:#fff;font-size:.9rem;width:88px}
 .b5btn{background:linear-gradient(180deg,#ff9900 0%,#cc6600 45%,#993300 100%);color:#fff}
 .mbtn{background:linear-gradient(180deg,#ff5533 0%,#cc2200 45%,#991100 100%);color:#fff}
-.cfgbtn{background:linear-gradient(180deg,#5fd0ff 0%,#1b88ee 45%,#1159b8 100%);color:#fff;border-top:2px solid rgba(255,255,255,.5);border-left:2px solid rgba(255,255,255,.28);box-shadow:0 0 8px rgba(80,180,255,.28),inset 0 1px 0 rgba(255,255,255,.18)}
-.dangerbtn{background:linear-gradient(180deg,#ff8c5a 0%,#e14a1d 45%,#a32606 100%);color:#fff;border-top:2px solid rgba(255,255,255,.42);border-left:2px solid rgba(255,255,255,.22);box-shadow:0 0 8px rgba(255,120,80,.22),inset 0 1px 0 rgba(255,255,255,.16)}
 
 /* ── Bottom banner ad slot ── */
 #ad-slot{width:100%;height:56px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#111 0%,#050505 100%);border:1px solid #2f2f2f;border-radius:5px;color:#9aa4bf;font-size:.72rem;letter-spacing:1.4px;text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
@@ -241,8 +239,6 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
   <div id="btns">
     <div id="btns-left">
       <button class="btn b1btn" id="bbbet" onclick="cycleBet()">BET <span id="bet-num">1</span></button>
-      <button class="btn cfgbtn" id="bbremember" onclick="toggleRemember()">💾 MEM ON</button>
-      <button class="btn dangerbtn" id="bbreset" onclick="clearProgress()">⟲ RESET</button>
     </div>
     <div id="btns-right">
       <button class="btn clearbtn" id="bbclear" onclick="clearHolds()">CLEAR</button>
@@ -306,11 +302,9 @@ const START_CREDITS=1000;
 const LS_PREFIX='vp_'+MODE;
 const KEY_CREDITS=LS_PREFIX+'_c';
 const KEY_LASTBET=LS_PREFIX+'_lastbet';
-const KEY_REMEMBER='vp_remember_balance';
 const LEGACY_CREDITS='vp_c';
 const LEGACY_LASTBET='vp_lastbet';
-const rememberStored=localStorage.getItem(KEY_REMEMBER);
-let rememberBalance=rememberStored===null?true:rememberStored==='1';
+let rememberBalance=true;
 const savedCredits=+(localStorage.getItem(KEY_CREDITS)||localStorage.getItem(LEGACY_CREDITS)||START_CREDITS);
 const savedBetRaw=+(localStorage.getItem(KEY_LASTBET)||localStorage.getItem(LEGACY_LASTBET)||1);
 let credits=rememberBalance?(savedCredits>0?savedCredits:START_CREDITS):START_CREDITS,bet=0,lastBet=Math.min(5,Math.max(1,savedBetRaw||1)),hand=[],held=new Set(),deck=[],state='bet';
@@ -408,10 +402,6 @@ function resetCardSlideOut(i,delay){
 function updHeld(){for(let i=0;i<5;i++){document.getElementById('h'+i).textContent=held.has(i)?'HELD':'';const c=document.getElementById('c'+i);held.has(i)?c.classList.add('held'):c.classList.remove('held');}if(state==='hold')document.getElementById('bbclear').disabled=held.size===0;}
 function saveCredits(){if(rememberBalance){localStorage.setItem(KEY_CREDITS,String(credits));}else{localStorage.removeItem(KEY_CREDITS);localStorage.removeItem(LEGACY_CREDITS);}}
 function saveLastBet(){localStorage.setItem(KEY_LASTBET,String(lastBet));localStorage.removeItem(LEGACY_LASTBET);}
-function setRememberBalance(v){rememberBalance=!!v;localStorage.setItem(KEY_REMEMBER,rememberBalance?'1':'0');if(!rememberBalance){localStorage.removeItem(KEY_CREDITS);localStorage.removeItem(LEGACY_CREDITS);}else{saveCredits();}updateRememberBtn();}
-function updateRememberBtn(){const b=document.getElementById('bbremember');if(b)b.textContent=rememberBalance?'💾 MEM ON':'💾 MEM OFF';}
-function toggleRemember(){setRememberBalance(!rememberBalance);setMsg(rememberBalance?'Balance memory ON':'Balance memory OFF',false);}
-function clearProgress(){if(state==='hold'||state==='drawing'){setMsg('Finish this hand before reset',true);return;}credits=START_CREDITS;bet=0;lastBet=1;localStorage.removeItem(KEY_CREDITS);localStorage.removeItem(LEGACY_CREDITS);localStorage.removeItem(KEY_LASTBET);localStorage.removeItem(LEGACY_LASTBET);if(rememberBalance)saveCredits();document.getElementById('bet-num').textContent=lastBet;updCredits();highlightBetColumn(lastBet);setMsg('Progress cleared. Credits reset to 1000.',false);}
 function updCredits(){document.getElementById('cd').textContent=credits;document.getElementById('bd').textContent=bet||'-';saveCredits();}
 function clrPay(){document.querySelectorAll('.pr[data-hand]').forEach(r=>r.classList.remove('win'));}
 function hilPay(ht){clrPay();const r=document.querySelector(`.pr[data-hand="${ht}"]`);if(r)r.classList.add('win');}
@@ -498,7 +488,7 @@ function confetti(){
 function holdAll(){if(state!=='hold')return;for(let i=0;i<5;i++)held.add(i);updHeld();}
 function clearHolds(){if(state!=='hold')return;held.clear();updHeld();}
 const bddeal=document.getElementById('bddeal'),bdr=document.getElementById('bdr');
-renderPayTable();updCredits();showBet();updBetHighlight();document.getElementById('bd').textContent=lastBet;highlightBetColumn(lastBet);updateRememberBtn();
+renderPayTable();updCredits();showBet();updBetHighlight();document.getElementById('bd').textContent=lastBet;highlightBetColumn(lastBet);
   setMsg('BET '+lastBet+' selected — press DEAL to start',false);
 
 // ── Swipe-to-hold gesture (touch + mouse) ─────────────────────────────────
