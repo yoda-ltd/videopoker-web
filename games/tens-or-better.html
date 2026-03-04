@@ -384,8 +384,18 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
 // ── Swipe-to-hold gesture (touch + mouse) ─────────────────────────────────
 (function(){
   let mouseDown = false;
+  let touchDown = false;
   const cardsEl = document.getElementById('cards');
   let touchedInThisSwipe = new Set();
+  let touchTouched = new Set();
+
+  // Remove inline onclick to avoid double-toggle race
+  for (let i = 0; i < 5; i++) {
+    const el = document.getElementById('c' + i);
+    if (!el) continue;
+    el.onclick = null;
+    el.removeAttribute('onclick');
+  }
 
   function cardIndexAt(x, y) {
     for (let i = 0; i < 5; i++) {
@@ -397,86 +407,76 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
     return -1;
   }
 
-  function toggleOnce(idx) {
+  function toggleCard(idx){
     if (idx === -1 || state !== 'hold') return;
-    if (touchedInThisSwipe.has(idx)) return; // one toggle per card per swipe
-    touchedInThisSwipe.add(idx);
     if (held.has(idx)) held.delete(idx); else held.add(idx);
     updHeld();
   }
 
-  function endSwipe() {
+  function toggleOnce(idx){
+    if (idx === -1 || state !== 'hold') return;
+    if (touchedInThisSwipe.has(idx)) return;
+    touchedInThisSwipe.add(idx);
+    toggleCard(idx);
+  }
+
+  function touchToggleOnce(idx){
+    if (idx === -1 || state !== 'hold') return;
+    if (touchTouched.has(idx)) return;
+    touchTouched.add(idx);
+    toggleCard(idx);
+  }
+
+  function endMouseSwipe(){
     mouseDown = false;
     touchedInThisSwipe.clear();
   }
 
-  // Capture click on cards to avoid inline onclick double-toggle
-  cardsEl.addEventListener('click', function(e){
-    const card = e.target.closest('.card');
-    if (!card || state !== 'hold') return;
-    e.preventDefault();
-    e.stopPropagation();
-  }, true);
-
-  // Mouse down anywhere (supports starting outside card area)
   document.addEventListener('mousedown', function(e){
     if (e.button !== 0) return;
     mouseDown = true;
     touchedInThisSwipe.clear();
   });
 
-  // Mouse down on cards: immediate single-card toggle
+  // Start inside: first card toggles immediately
   cardsEl.addEventListener('mousedown', function(e){
     if (e.button !== 0 || state !== 'hold') return;
     toggleOnce(cardIndexAt(e.clientX, e.clientY));
     e.preventDefault();
   });
 
-  // Mouse move on cards: toggle crossed cards once
+  // Continue across cards (also supports start outside then slide in)
   cardsEl.addEventListener('mousemove', function(e){
     if (!mouseDown || state !== 'hold') return;
     toggleOnce(cardIndexAt(e.clientX, e.clientY));
   });
 
-  cardsEl.addEventListener('dragstart', function(e) { e.preventDefault(); });
+  cardsEl.addEventListener('dragstart', function(e){ e.preventDefault(); });
   cardsEl.style.userSelect = 'none';
   cardsEl.style.webkitUserSelect = 'none';
 
-  document.addEventListener('mouseup', endSwipe);
-  document.addEventListener('mouseleave', endSwipe);
+  document.addEventListener('mouseup', endMouseSwipe);
+  document.addEventListener('mouseleave', endMouseSwipe);
 
-  // ── Touch events (mobile) ──
-  let touchDragging = false;
-  let touchTouched = new Set();
-
-  function touchToggleOnce(idx){
-    if (idx === -1 || state !== 'hold') return;
-    if (touchTouched.has(idx)) return;
-    touchTouched.add(idx);
-    if (held.has(idx)) held.delete(idx); else held.add(idx);
-    updHeld();
-  }
-
+  // Touch
   cardsEl.addEventListener('touchstart', function(e){
     if (state !== 'hold') return;
     const t = e.touches[0];
-    const idx = cardIndexAt(t.clientX, t.clientY);
-    if (idx === -1) return;
-    touchDragging = true;
+    touchDown = true;
     touchTouched.clear();
-    touchToggleOnce(idx);
+    touchToggleOnce(cardIndexAt(t.clientX, t.clientY));
     e.preventDefault();
-  }, { passive: false });
+  }, {passive:false});
 
   cardsEl.addEventListener('touchmove', function(e){
-    if (!touchDragging || state !== 'hold') return;
+    if (!touchDown || state !== 'hold') return;
     const t = e.touches[0];
     touchToggleOnce(cardIndexAt(t.clientX, t.clientY));
     e.preventDefault();
-  }, { passive: false });
+  }, {passive:false});
 
   document.addEventListener('touchend', function(){
-    touchDragging = false;
+    touchDown = false;
     touchTouched.clear();
   });
 })();
