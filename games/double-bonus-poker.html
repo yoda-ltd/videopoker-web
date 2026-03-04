@@ -131,13 +131,13 @@ header h1{font-size:1.3rem;letter-spacing:3px;text-transform:uppercase;color:#ff
   <p>3. Press DRAW to replace unheld cards.</p>
   <p>4. Win if your final hand matches the payout table above.</p>
   <h2>Payout Table</h2>
-  <table><tr><th>Hand</th><th>BET 1</th><th>BET 5</th></tr><tr><td>Royal Flush</td><td>250</td><td>4000</td></tr><tr><td>Straight Flush</td><td>50</td><td>250</td></tr><tr><td>Four Aces</td><td>160</td><td>800</td></tr><tr><td>Four 2s-4s</td><td>80</td><td>400</td></tr><tr><td>Four of a Kind</td><td>50</td><td>250</td></tr><tr><td>Full House</td><td>10</td><td>50</td></tr><tr><td>Flush</td><td>7</td><td>35</td></tr><tr><td>Straight</td><td>5</td><td>25</td></tr><tr><td>Three of a Kind</td><td>3</td><td>15</td></tr><tr><td>Two Pair</td><td>1</td><td>5</td></tr><tr><td>Jacks or Better</td><td>1</td><td>5</td></tr></table>
+  <table><tr><th>Hand</th><th>BET 1</th><th>BET 5</th></tr><tr><td>Royal Flush</td><td>250</td><td>4000</td></tr><tr><td>Four Aces</td><td>160</td><td>800</td></tr><tr><td>Four 2s-4s</td><td>80</td><td>400</td></tr><tr><td>Straight Flush</td><td>50</td><td>250</td></tr><tr><td>Four of a Kind</td><td>50</td><td>250</td></tr><tr><td>Full House</td><td>10</td><td>50</td></tr><tr><td>Flush</td><td>7</td><td>35</td></tr><tr><td>Straight</td><td>5</td><td>25</td></tr><tr><td>Three of a Kind</td><td>3</td><td>15</td></tr><tr><td>Two Pair</td><td>1</td><td>5</td></tr><tr><td>Jacks or Better</td><td>1</td><td>5</td></tr></table>
 </div>
 <script>
 const SUITS=['hearts','diamonds','clubs','spades'];
 const RANKS=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
 const SYM={hearts:'&#9829;',diamonds:'&#9830;',clubs:'&#9827;',spades:'&#9824;',joker:'🃏'};
-const PAY={'Royal Flush':[250,4000],'Straight Flush':[50,250],'Four Aces':[160,800],'Four 2s-4s':[80,400],'Four of a Kind':[50,250],'Full House':[10,50],'Flush':[7,35],'Straight':[5,25],'Three of a Kind':[3,15],'Two Pair':[1,5],'Jacks or Better':[1,5]};
+const PAY={'Royal Flush':[250,4000],'Four Aces':[160,800],'Four 2s-4s':[80,400],'Straight Flush':[50,250],'Four of a Kind':[50,250],'Full House':[10,50],'Flush':[7,35],'Straight':[5,25],'Three of a Kind':[3,15],'Two Pair':[1,5],'Jacks or Better':[1,5]};
 const MODE='bonus';
 const PAIR_LABEL='Jacks or Better';
 const PAIR_OK=['J', 'Q', 'K', 'A'];
