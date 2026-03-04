@@ -22,7 +22,7 @@ header{width:100%;text-align:center;padding:10px 0;background:linear-gradient(18
 header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:#ffe033;text-shadow:0 0 30px rgba(255,200,0,.8),0 2px 4px rgba(0,0,0,.8);font-family:'Cinzel','Trajan Pro','Times New Roman',serif;font-weight:800}
 
 /* ── Game wrapper ── */
-#game{width:100%;max-width:680px;padding:8px 12px;display:flex;flex-direction:column;gap:6px;min-height:calc(100vh - 56px);justify-content:flex-start}
+#game{width:100%;max-width:680px;margin:0 auto;padding:8px 12px;display:flex;flex-direction:column;gap:6px;min-height:calc(100vh - 56px);justify-content:flex-start}
 
 /* ── PAYOUT TABLE — IGT deep royal blue ── */
 #payout-table{background:#00006e;border:2px solid #3355bb;border-radius:4px;overflow:hidden}
@@ -75,6 +75,15 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
 /* HOLD label */
 .hl{font-size:.65rem;font-weight:900;color:#ffe033;letter-spacing:2px;text-transform:uppercase;height:16px;line-height:16px;text-shadow:0 0 8px rgba(255,224,0,.8)}
 
+
+
+/* ── Strong visual centering for desktop & mobile ── */
+#game > #payout-table,
+#game > #cbar,
+#game > #cards,
+#game > #msg,
+#game > #btns,
+#game > #ad-slot{width:100%;margin-left:auto;margin-right:auto}
 
 /* ── Unified full-width card layout (all devices) ── */
 #cards{width:100%!important;padding:0!important;justify-content:space-between!important;gap:clamp(3px,1vw,8px)!important;height:auto!important;align-items:flex-start!important}
