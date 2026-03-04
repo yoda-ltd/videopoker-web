@@ -72,10 +72,6 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
 .cm{font-size:calc(5.8rem * var(--card-scale));position:absolute;top:65%;left:50%;transform:translate(-50%,-50%);font-family:'Fredoka One',cursive;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
 .red{color:#d63031}.black{color:#2d3436}
 
-@media (min-width:769px){
-  .cc .cs,.cm{font-family:'Times New Roman','Georgia','Noto Serif','Segoe UI Symbol',serif!important;font-weight:700}
-  .cm{font-size:5.8rem!important}
-}
 
 /* HOLD label */
 .hl{font-size:.65rem;font-weight:900;color:#ffe033;letter-spacing:2px;text-transform:uppercase;height:16px;line-height:16px;text-shadow:0 0 8px rgba(255,224,0,.8)}
@@ -431,7 +427,7 @@ function renderDealCard(i,c,delay){
   renderDrawCard(i,c,delay);
 }
 function faceDown(i){const el=document.getElementById('c'+i);el.className='card fd';el.innerHTML='';el.style.background='';el.style.borderColor='';}
-function syncCardScale(){for(let i=0;i<5;i++){const el=document.getElementById('c'+i);if(!el)continue;if(window.innerWidth<=768){el.style.removeProperty('--card-scale');continue;}const slot=el.parentElement;const w=(slot?slot.getBoundingClientRect().width:el.getBoundingClientRect().width)||112;el.style.setProperty('--card-scale',(w/112).toFixed(4));}}
+function syncCardScale(){/* desktop suit/rank scale locked to legacy visual size */}
 function resetCardSlideOut(i,delay){
   setTimeout(()=>{
     const el=document.getElementById('c'+i);
@@ -530,8 +526,6 @@ function clearHolds(){if(state!=='hold')return;held.clear();updHeld();}
 const bddeal=document.getElementById('bddeal'),bdr=document.getElementById('bdr');
 renderPayTable();updCredits();showBet();updBetHighlight();document.getElementById('bd').textContent=lastBet;highlightBetColumn(lastBet);
   setMsg('BET '+lastBet+' selected — press DEAL to start',false);
-  syncCardScale();
-  window.addEventListener('resize',()=>requestAnimationFrame(syncCardScale));
 
 // ── Swipe-to-hold gesture (touch + mouse) ─────────────────────────────────
 (function(){
