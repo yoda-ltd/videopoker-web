@@ -119,7 +119,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 /* ── Mobile ── */
 @media(max-width:768px){
   body{overflow-x:hidden}
-  #game{max-width:100%;padding:6px 6px 8px;gap:6px;min-height:calc(100dvh - 56px - env(safe-area-inset-bottom));max-height:calc(100dvh - 56px - env(safe-area-inset-bottom));overflow:hidden}
+  #game{max-width:100%;padding:6px 6px calc(48px + env(safe-area-inset-bottom) + 6px);gap:6px;min-height:calc(100dvh - 56px);max-height:calc(100dvh - 56px);overflow:hidden}
   header h1{font-size:1.02rem;letter-spacing:2px}
 
   #payout-table{border-radius:6px}
@@ -153,11 +153,11 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
   #seo h2{font-size:.9rem}
   #seo table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
   #seo th,#seo td{font-size:.74rem;padding:5px 6px}
-  #ad-slot{height:48px;font-size:.66rem;letter-spacing:1px}
+  #ad-slot{position:fixed;left:0;right:0;bottom:0;z-index:40;height:48px;padding-bottom:env(safe-area-inset-bottom);border-radius:0;border-left:none;border-right:none;border-bottom:none;font-size:.66rem;letter-spacing:1px}
 }
 
 @media(max-width:430px){
-  #game{padding:5px 5px 8px}
+  #game{padding:5px 5px calc(44px + env(safe-area-inset-bottom) + 6px)}
   .pr{padding:2px 4px}
   .pr .hn{font-size:.56rem}
   .pr .pv{width:38px;font-size:.62rem}
@@ -173,7 +173,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
   .cl{font-size:.5rem}
   .cv,#wv{font-size:1.16rem}
   #rm{font-size:.66rem}
-  #ad-slot{height:44px;font-size:.60rem}
+  #ad-slot{height:44px;font-size:.60rem;padding-bottom:env(safe-area-inset-bottom)}
 }
 
 /* iPhone 13 (390×844) */
@@ -196,7 +196,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 /* iPhone SE (375×667) */
 @media (min-width:370px) and (max-width:380px) and (max-height:700px){
   header h1{font-size:.94rem;letter-spacing:1.2px}
-  #game{padding:5px 5px 8px;gap:6px}
+  #game{padding:5px 5px calc(40px + env(safe-area-inset-bottom) + 4px);gap:6px}
   .pr{padding:2px 3px}
   .pr .hn{font-size:.52rem}
   .pr .pv{width:34px;font-size:.58rem}
@@ -213,7 +213,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
   #msg{height:22px}
   #rm{font-size:.64rem;letter-spacing:.8px}
   .btn{height:34px;font-size:.58rem;padding:0 5px}
-  #ad-slot{height:40px;font-size:.56rem;letter-spacing:.6px}
+  #ad-slot{height:40px;font-size:.56rem;letter-spacing:.6px;padding-bottom:env(safe-area-inset-bottom)}
 }
 
 </style>
