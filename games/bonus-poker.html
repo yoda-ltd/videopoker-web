@@ -70,7 +70,7 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
 .cc .cs{font-size:calc(1.45rem * var(--card-scale));margin-top:-1px}
 .cc.bot{display:none}
 .cm{font-size:calc(5.8rem * var(--card-scale));position:absolute;top:65%;left:50%;transform:translate(-50%,-50%);font-family:'Fredoka One',cursive;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
-.red{color:#d63031}.black{color:#2d3436}
+.red{color:#cc0000}.black{color:#111}
 
 
 /* HOLD label */
@@ -414,7 +414,7 @@ function renderDealCard(i,c,delay){
   renderDrawCard(i,c,delay);
 }
 function faceDown(i){const el=document.getElementById('c'+i);el.className='card fd';el.innerHTML='';el.style.background='';el.style.borderColor='';}
-function syncCardScale(){/* desktop suit/rank scale locked to legacy visual size */}
+function syncCardScale(){for(let i=0;i<5;i++){const el=document.getElementById('c'+i);if(!el)continue;const slot=el.parentElement;const w=(slot?slot.getBoundingClientRect().width:el.getBoundingClientRect().width)||112;el.style.setProperty('--card-scale',(w/112).toFixed(4));}}
 function resetCardSlideOut(i,delay){
   setTimeout(()=>{
     const el=document.getElementById('c'+i);
@@ -441,6 +441,8 @@ function cycleBet(){
   document.getElementById('bd').textContent=lastBet;
   highlightBetColumn(lastBet);
   setMsg('BET '+lastBet+' selected — press DEAL to start',false);
+  syncCardScale();
+  window.addEventListener('resize',()=>requestAnimationFrame(syncCardScale));
 }
 function updBetHighlight(){
   document.getElementById('bet-num').textContent=lastBet;
@@ -513,6 +515,8 @@ function clearHolds(){if(state!=='hold')return;held.clear();updHeld();}
 const bddeal=document.getElementById('bddeal'),bdr=document.getElementById('bdr');
 renderPayTable();updCredits();showBet();updBetHighlight();document.getElementById('bd').textContent=lastBet;highlightBetColumn(lastBet);
   setMsg('BET '+lastBet+' selected — press DEAL to start',false);
+  syncCardScale();
+  window.addEventListener('resize',()=>requestAnimationFrame(syncCardScale));
 
 // ── Swipe-to-hold gesture (touch + mouse) ─────────────────────────────────
 (function(){
