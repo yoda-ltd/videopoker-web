@@ -443,7 +443,7 @@ renderPayTable();updCredits();showBet();updBetHighlight();document.getElementByI
     if (e.button !== 0) return;
     mouseDown = true;
     touchedInThisSwipe.clear();
-  });
+  }, true);
 
   // Start inside: first card toggles immediately
   cardsEl.addEventListener('mousedown', function(e){
