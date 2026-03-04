@@ -33,7 +33,36 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.42));pointer-events:none}
 .hero-note{position:absolute;left:14px;bottom:12px;color:#ffe033;font-size:.72rem;letter-spacing:1px;text-shadow:0 2px 6px rgba(0,0,0,.7);z-index:2}
 
-@media (max-width:560px){.marquee h1{font-size:1.08rem;letter-spacing:2px}.panel-head .value{font-size:1rem}}
+@media (max-width:900px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero img{height:190px}
+}
+@media (max-width:640px){
+  .wrap{padding:12px 10px 26px}
+  .marquee{padding:10px 8px}
+  .marquee h1{font-size:1.04rem;letter-spacing:1.4px}
+  .hero{margin-top:10px}
+  .hero img{height:148px}
+  .hero-note{font-size:.64rem;left:10px;bottom:8px}
+  .cabinet{padding:10px}
+  .panel-head{padding:8px 10px}
+  .panel-head .label{font-size:.64rem;letter-spacing:1.4px}
+  .panel-head .value{font-size:.95rem}
+  .grid{grid-template-columns:1fr;gap:10px}
+  .game-card{min-height:126px;padding:10px;gap:8px}
+  .topline{margin-bottom:4px}
+  .row{min-height:48px;gap:8px}
+  .logo{width:48px;height:48px;border-radius:7px}
+  .game-card h3{font-size:1rem;min-height:auto;line-height:1.1;margin:0}
+  .play-btn{font-size:.78rem;padding:8px 14px;border-radius:5px}
+}
+@media (max-width:380px){
+  .marquee h1{font-size:.95rem;letter-spacing:1px}
+  .hero img{height:132px}
+  .logo{width:44px;height:44px}
+  .game-card h3{font-size:.92rem}
+  .badge{font-size:.58rem;padding:2px 5px}
+}.panel-head .value{font-size:1rem}}
 </style>
 </head>
 <body>

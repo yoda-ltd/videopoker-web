@@ -114,13 +114,63 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 #seo-sep{color:rgba(255,215,0,.3)!important;font-size:.75rem;letter-spacing:2px}
 
 /* ── Mobile ── */
-@media(max-width:500px){
-  #cards{height:104px}.cs{height:104px}
-  .card{width:60px;height:86px;padding:3px}
-  .cc .cr{font-size:1rem}.cm{font-size:1.35rem}
-  header h1{font-size:1rem;letter-spacing:2px}
-  .btn{height:40px;min-width:64px;font-size:.75rem;padding:0 10px}
+@media(max-width:768px){
+  body{overflow-x:hidden}
+  #game{max-width:100%;padding:8px 8px 10px;gap:8px}
+  header h1{font-size:1.02rem;letter-spacing:2px}
+
+  #payout-table{border-radius:6px}
+  .pr{padding:3px 6px;font-size:.66rem}
+  .pr .hn{font-size:.60rem;letter-spacing:.2px}
+  .pr .pv{width:44px;font-size:.66rem}
+  .pr .ch{font-size:.72rem}
+
+  .ci{padding:7px 4px}
+  .cl{font-size:.52rem;letter-spacing:1.4px}
+  .cv,#wv{font-size:1.28rem}
+
+  #cards{height:118px;gap:4px;padding:0}
+  .cs{height:118px;gap:2px}
+  .card{width:64px;height:92px;padding:4px;border-radius:6px}
+  .cc .cr{font-size:1.1rem}
+  .cc .cs{font-size:.9rem;margin-top:-1px}
+  .cm{font-size:1.7rem;top:64%}
+  .hl{font-size:.56rem;letter-spacing:1.2px;height:14px;line-height:14px}
+
+  #msg{height:32px}
+  #rm{font-size:.76rem;letter-spacing:1.2px}
+  #rm.nw{font-size:.70rem}
+
+  #btns{flex-wrap:wrap;gap:6px}
+  #btns-left,#btns-right{display:flex;width:100%;gap:6px}
+  .btn{height:42px;min-width:0;flex:1;padding:0 8px;font-size:.72rem;letter-spacing:.6px}
+  .dealbtn,.drawbtn,.holdallbtn,.b1btn,.clearbtn,.b5btn,.mbtn{width:auto}
+
+  #seo{padding:16px 10px 28px;font-size:.80rem;line-height:1.6}
+  #seo h2{font-size:.9rem}
+  #seo table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+  #seo th,#seo td{font-size:.74rem;padding:5px 6px}
 }
+
+@media(max-width:430px){
+  #game{padding:6px 6px 10px}
+  .pr{padding:2px 4px}
+  .pr .hn{font-size:.56rem}
+  .pr .pv{width:38px;font-size:.62rem}
+  .pr .ch{font-size:.68rem}
+
+  #cards{height:104px;gap:3px}
+  .cs{height:104px}
+  .card{width:58px;height:84px;padding:3px}
+  .cc .cr{font-size:1rem}
+  .cm{font-size:1.42rem}
+
+  .btn{height:40px;font-size:.68rem}
+  .cl{font-size:.5rem}
+  .cv,#wv{font-size:1.16rem}
+  #rm{font-size:.70rem}
+}
+
 </style>
 </head>
 <body>
