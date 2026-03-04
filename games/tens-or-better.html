@@ -116,7 +116,7 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
 /* ── Mobile ── */
 @media(max-width:768px){
   body{overflow-x:hidden}
-  #game{max-width:100%;padding:8px 8px 10px;gap:8px}
+  #game{max-width:100%;padding:8px 8px 10px;gap:8px;min-height:auto}
   header h1{font-size:1.02rem;letter-spacing:2px}
 
   #payout-table{border-radius:6px}
@@ -169,6 +169,45 @@ header h1{font-size:1.35rem;letter-spacing:4px;text-transform:uppercase;color:#f
   .cl{font-size:.5rem}
   .cv,#wv{font-size:1.16rem}
   #rm{font-size:.70rem}
+}
+
+/* iPhone 13 (390×844) */
+@media (min-width:389px) and (max-width:395px) and (min-height:820px){
+  #cards{height:112px}
+  .cs{height:112px}
+  .card{width:62px;height:90px}
+  .btn{height:42px;font-size:.72rem}
+  .cv,#wv{font-size:1.22rem}
+}
+
+/* iPhone 12/13 mini (375×812) */
+@media (min-width:370px) and (max-width:380px) and (min-height:780px){
+  #cards{height:108px}
+  .cs{height:108px}
+  .card{width:60px;height:86px}
+  .btn{height:40px;font-size:.69rem}
+}
+
+/* iPhone SE (375×667) */
+@media (min-width:370px) and (max-width:380px) and (max-height:700px){
+  header h1{font-size:.94rem;letter-spacing:1.2px}
+  #game{padding:5px 5px 8px;gap:6px}
+  .pr{padding:2px 3px}
+  .pr .hn{font-size:.52rem}
+  .pr .pv{width:34px;font-size:.58rem}
+  .pr .ch{font-size:.64rem}
+  .ci{padding:6px 3px}
+  .cl{font-size:.46rem;letter-spacing:1px}
+  .cv,#wv{font-size:1.06rem}
+  #cards{height:96px;gap:2px}
+  .cs{height:96px}
+  .card{width:54px;height:78px;padding:2px}
+  .cc .cr{font-size:.92rem}
+  .cc .cs{font-size:.78rem}
+  .cm{font-size:1.28rem}
+  #msg{height:26px}
+  #rm{font-size:.64rem;letter-spacing:.8px}
+  .btn{height:38px;font-size:.62rem;padding:0 6px}
 }
 
 </style>
