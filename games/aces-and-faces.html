@@ -112,9 +112,9 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
   .btn{width:100%!important;min-width:0}
 }
 
-.btn{border:none;border-radius:6px;padding:12px 0;height:48px;font-weight:bold;cursor:pointer;text-transform:uppercase;font-family:inherit;font-size:0.8rem;box-shadow:0 3px 0 rgba(0,0,0,0.3);display:inline-flex;align-items:center;justify-content:center;transition:filter .1s,transform .1s}
+.btn{border:none;border-radius:6px;padding:12px 0;height:48px;font-weight:bold;cursor:pointer;text-transform:uppercase;font-family:inherit;font-size:0.8rem;box-shadow:0 3px 0 rgba(0,0,0,0.3);display:inline-flex;align-items:center;justify-content:center;transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)}
 .btn:active{transform:scale(.94) translateY(1px);filter:brightness(.82)}
-.btn:disabled{opacity:.3;cursor:not-allowed;transform:none;filter:grayscale(.6)}
+.btn:disabled{opacity:.2;filter:grayscale(1) brightness(0.7);box-shadow:none;cursor:not-allowed;transform:none;filter:grayscale(.6)}
 
 /* BET — electric blue */
 .b1btn{background:linear-gradient(#4488ff,#2244aa);color:#fff}
@@ -131,6 +131,13 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 
 /* ── Bottom banner ad slot ── */
 #ad-slot{width:100%;height:56px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#111 0%,#050505 100%);border:1px solid #2f2f2f;border-radius:5px;color:#9aa4bf;font-size:.72rem;letter-spacing:1.4px;text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+
+
+@keyframes btnAppear {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.dealbtn, .drawbtn { animation: btnAppear 0.25s ease-out; }
 
 /* ── Confetti ── */
 #cel{display:none;position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:100;overflow:hidden}
