@@ -65,9 +65,9 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
 @keyframes di{from{opacity:0;transform:translateX(-100px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
 
 /* ── Card face content ── */
-.cc{font-family:'Fredoka One',cursive;line-height:1;position:absolute;top:5px;left:6px;display:flex;flex-direction:column;align-items:center;gap:0}
+.cc{font-family:'Fredoka One',cursive;line-height:1;position:absolute;top:calc(5px * var(--card-scale));left:calc(6px * var(--card-scale));display:flex;flex-direction:column;align-items:center;gap:0}
 .cc .cr{font-size:calc(2.4rem * var(--card-scale));line-height:1}
-.cc .cs{font-size:calc(1.74rem * var(--card-scale));margin-top:-1px}
+.cc .cs{font-size:calc(1.74rem * var(--card-scale));margin-top:calc(-1px * var(--card-scale))}
 .cc.bot{display:none}
 .cm{font-size:calc(6.32rem * var(--card-scale));position:absolute;top:66%;left:50%;transform:translate(-50%,-50%);font-family:'Fredoka One',cursive;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
 .red{color:#d63031}.black{color:#2d3436}
@@ -164,7 +164,7 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
   .cs{height:114px;gap:2px}
   .card{width:64px;height:89px;--card-scale:.5714;padding:3px;border-radius:6px}
   
-  .hl{font-size:.56rem;letter-spacing:1.2px;height:14px;line-height:14px}
+  .hl{font-size:calc(0.98rem * var(--card-scale));letter-spacing:calc(2.1px * var(--card-scale));height:calc(28px * var(--card-scale));line-height:calc(28px * var(--card-scale))}
 
   #msg{height:22px}
   #rm{font-size:.76rem;letter-spacing:1.2px}
