@@ -65,11 +65,11 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
 @keyframes di{from{opacity:0;transform:translateX(-100px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
 
 /* ── Card face content ── */
-.cc{font-family:'Fredoka One',cursive;line-height:1;position:absolute;top:calc(5px * var(--card-scale));left:calc(6px * var(--card-scale));display:flex;flex-direction:column;align-items:center;gap:0}
-.cc .cr{font-size:calc(2.4rem * var(--card-scale));line-height:1}
-.cc .cs{font-size:calc(1.74rem * var(--card-scale));margin-top:calc(-1px * var(--card-scale))}
+.cc{transform:scale(var(--card-scale));transform-origin:top left;font-family:'Fredoka One',cursive;line-height:1;position:absolute;top:5px;left:6px;display:flex;flex-direction:column;align-items:center;gap:0}
+.cc .cr{font-size:38.4px;line-height:1}
+.cc .cs{font-size:27.84px;margin-top:-1px}
 .cc.bot{display:none}
-.cm{font-size:calc(6.32rem * var(--card-scale));position:absolute;top:66%;left:50%;transform:translate(-50%,-50%);font-family:'Fredoka One',cursive;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
+.cm{transform:translate(-50%,-50%) scale(var(--card-scale));font-size:101.12px;position:absolute;top:60%;left:50%;transform:translate(-50%,-50%);font-family:'Fredoka One',cursive;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
 .red{color:#d63031}.black{color:#2d3436}
 
 /* Desktop suit size alignment (mobile untouched) */
