@@ -53,7 +53,7 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 
 /* ── CARDS ── */
 #cards{display:flex;gap:6px;justify-content:center;padding:0 2px;perspective:1000px;height:178px;align-items:flex-start;user-select:none;-webkit-user-select:none}
-.cs{display:flex;flex-direction:column;align-items:center;gap:4px;height:178px;justify-content:flex-start}
+.cs{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:180px;position:relative;padding-top:20px}
 .card{container-type:size;width:112px;height:155px;--card-scale:1;background:#fff;border-radius:6px;border:2px solid #ccc;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
 .card.held{border-color:#ffe033;border-width:3px;box-shadow:0 0 18px rgba(255,224,0,.9);transform:translateY(-8px)}
@@ -80,7 +80,7 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 }
 
 /* HOLD label */
-.hl{display:block;font-size:.65rem;font-weight:900;color:#ffe033;letter-spacing:2px;text-transform:uppercase;height:16px;line-height:16px;text-shadow:0 0 8px rgba(255,224,0,.8);min-height:16px}
+.hl{position:absolute;top:0;left:0;width:100%;text-align:center;font-size:.65rem;font-weight:900;color:#ffe033;letter-spacing:2px;text-transform:uppercase;height:20px;line-height:20px;text-shadow:0 0 8px rgba(255,224,0,.8)}
 
 
 
@@ -170,10 +170,10 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
   .cv,#wv{font-size:1.28rem}
 
   #cards{height:114px;gap:3px;padding:0}
-  .cs{height:114px;gap:2px}
+  .cs{height:114px;padding-top:14px;justify-content:flex-end}
   .card{width:64px;height:89px;--card-scale:.5714;padding:3px;border-radius:6px}
   
-  .hl{display:block;font-size:calc(0.98rem * var(--card-scale));letter-spacing:calc(2.1px * var(--card-scale));height:calc(28px * var(--card-scale));line-height:calc(28px * var(--card-scale))}
+  .hl{font-size:calc(0.98rem * var(--card-scale));letter-spacing:calc(2.1px * var(--card-scale));height:calc(28px * var(--card-scale));line-height:calc(28px * var(--card-scale))}
 
   #msg{height:22px}
   #rm{font-size:.76rem;letter-spacing:1.2px}
@@ -200,7 +200,7 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
   .pr .ch{font-size:.68rem}
 
   #cards{height:100px;gap:2px}
-  .cs{height:100px}
+  .cs{height:100px;padding-top:12px;justify-content:flex-end}
   .card{width:54px;height:75px;--card-scale:.4821;padding:2px}
   
 
@@ -214,7 +214,7 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 /* iPhone 12/13 mini (375×812) */
 @media (min-width:370px) and (max-width:380px) and (min-height:780px){
   #cards{height:110px}
-  .cs{height:110px}
+  .cs{height:110px;padding-top:14px;justify-content:flex-end}
   .card{width:60px;height:83px;--card-scale:.5357}
   .btn{height:40px;font-size:.66rem}
 }
@@ -222,13 +222,13 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 /* Medium+ phones (e.g., 400-430px wide Android devices) */
 @media (min-width:390px) and (max-width:430px){
   #cards{height:132px}
-  .cs{height:132px}
+  .cs{height:132px;padding-top:16px;justify-content:flex-end}
   .card{width:82px;height:114px;--card-scale:.7321}
 }
 
 @media (min-width:431px){
   #cards{height:138px}
-  .cs{height:138px}
+  .cs{height:138px;padding-top:18px;justify-content:flex-end}
   .card{width:86px;height:119px;--card-scale:.7679}
 }
 
@@ -244,7 +244,7 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
   .cl{font-size:.46rem;letter-spacing:1px}
   .cv,#wv{font-size:1.06rem}
   #cards{height:92px;gap:2px}
-  .cs{height:92px}
+  .cs{height:92px;padding-top:10px;justify-content:flex-end}
   .card{width:54px;height:75px;--card-scale:.4821;padding:2px}
   
   #msg{height:22px}
