@@ -54,7 +54,7 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 /* ── CARDS ── */
 #cards{display:flex;gap:6px;justify-content:center;padding:0 2px;perspective:1000px;height:178px;align-items:flex-start;user-select:none;-webkit-user-select:none}
 .cs{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:180px;position:relative;padding-top:20px}
-.card{container-type:size;width:112px;height:155px;--card-scale:1;background:#fff;border-radius:6px;border:2px solid #ccc;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
+.card{container-type:size;width:112px;height:155px;background:#fff;border-radius:6px;border:2px solid #ccc;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
 .card.held{border-color:#ffe033;border-width:3px;box-shadow:0 0 18px rgba(255,224,0,.9);transform:translateY(-8px)}
 .card.wc{border-color:#00ff88;box-shadow:0 0 18px rgba(0,255,136,.9);animation:cw .5s ease 3}
@@ -68,10 +68,10 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 
 /* ── Card face content ── */
 .cc{font-family:'Fredoka One',cursive;position:absolute;top:5%;left:4%;width:25%;display:flex;flex-direction:column;align-items:center}
-.cc .cr{font-size:calc(28px * var(--card-scale));line-height:0.9;margin-bottom:calc(-1px * var(--card-scale))}
-.cc .cs{font-size:calc(18px * var(--card-scale));line-height:1}
+.cc .cr{font-size:28cqi;line-height:0.9;margin-bottom:-1cqi}
+.cc .csuit{font-size:18cqi;line-height:1}
 .cc.bot{display:none}
-.cm{position:absolute;bottom:5%;left:50%;transform:translateX(-50%);font-family:'Fredoka One',cursive;font-size:calc(85px * var(--card-scale));line-height:1;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15));display:flex;justify-content:center;align-items:center}
+.cm{position:absolute;bottom:5%;left:50%;transform:translateX(-50%);font-family:'Fredoka One',cursive;font-size:85cqi;line-height:1;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15));display:flex;justify-content:center;align-items:center}
 .red{color:#d63031}.black{color:#2d3436}
 
 /* Desktop suit size alignment (mobile untouched) */
@@ -171,9 +171,9 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 
   #cards{height:114px;gap:3px;padding:0}
   .cs{height:114px;padding-top:22px;justify-content:flex-end}
-  .card{width:64px;height:89px;--card-scale:.5714;padding:3px;border-radius:6px}
-  
-  .hl{top:0;font-size:calc(0.55rem * var(--card-scale));letter-spacing:calc(2.1px * var(--card-scale));height:calc(28px * var(--card-scale));line-height:calc(28px * var(--card-scale))}
+  .card{padding:3px;border-radius:6px}
+
+  .hl{top:0;font-size:.55rem;letter-spacing:1.2px;height:18px;line-height:18px}
 
   #msg{height:22px}
   #rm{font-size:.76rem;letter-spacing:1.2px}
@@ -201,7 +201,7 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 
   #cards{height:100px;gap:2px}
   .cs{height:100px;padding-top:20px;justify-content:flex-end}
-  .card{width:54px;height:75px;--card-scale:.4821;padding:2px}
+  .card{padding:2px}
   
 
   .btn{height:40px;font-size:.64rem}
@@ -215,7 +215,7 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 @media (min-width:370px) and (max-width:380px) and (min-height:780px){
   #cards{height:110px}
   .cs{height:110px;padding-top:22px;justify-content:flex-end}
-  .card{width:60px;height:83px;--card-scale:.5357}
+  .card{padding:3px}
   .btn{height:40px;font-size:.66rem}
 }
 
@@ -223,13 +223,13 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 @media (min-width:390px) and (max-width:430px){
   #cards{height:132px}
   .cs{height:132px;padding-top:24px;justify-content:flex-end}
-  .card{width:82px;height:114px;--card-scale:.7321}
+  .card{padding:3px}
 }
 
 @media (min-width:431px){
   #cards{height:138px}
   .cs{height:138px;padding-top:26px;justify-content:flex-end}
-  .card{width:86px;height:119px;--card-scale:.7679}
+  .card{padding:3px}
 }
 
 /* iPhone SE (375×667) */
@@ -245,8 +245,8 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
   .cv,#wv{font-size:1.06rem}
   #cards{height:92px;gap:2px}
   .cs{height:92px;padding-top:18px;justify-content:flex-end}
-  .card{width:54px;height:75px;--card-scale:.4821;padding:2px}
-  
+  .card{padding:2px}
+
   #msg{height:22px}
   #rm{font-size:.64rem;letter-spacing:.8px}
   .btn{height:37px;font-size:.60rem;padding:0 5px}
@@ -395,7 +395,7 @@ function cardHTML(c){
   const isRed=c.s==='hearts'||c.s==='diamonds';
   const cl=(c.s==='joker')?'black':(isRed?'red':'black');
   const sym=SYM[c.s]||'?';
-  return`<div class="cc ${cl}"><span class="cr">${c.r}</span><span class="cs">${sym}</span></div><div class="cm ${cl}">${sym}</div>`;
+  return`<div class="cc ${cl}"><span class="cr">${c.r}</span><span class="csuit">${sym}</span></div><div class="cm ${cl}">${sym}</div>`;
 }
 function renderDrawCard(i,c,delay){
   setTimeout(()=>{
