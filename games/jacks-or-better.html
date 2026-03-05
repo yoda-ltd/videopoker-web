@@ -25,7 +25,7 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 #game{width:100%;max-width:680px;margin:0 auto;padding:8px 12px;display:flex;flex-direction:column;gap:6px;min-height:calc(100vh - 56px);justify-content:flex-start}
 
 /* ── PAYOUT TABLE — IGT deep royal blue ── */
-#payout-table{background:#001048;border:2px solid #ffe033;border-radius:8px;overflow:hidden;margin-bottom:8px}
+#payout-table{background:#001048;border:2px solid #ffe033;border-radius:8px;overflow:hidden;margin-bottom:10px}
 .pr{display:flex;justify-content:space-between;align-items:center;padding:0;font-size:0.72rem;transition:background .3s}
 .pr:nth-child(even){background:#002878}
 .pr .hn{width:180px;padding:2px 8px;text-align:left;color:#ffe033;text-transform:uppercase;letter-spacing:.5px;font-size:.76rem;font-weight:700}
@@ -41,7 +41,7 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 @keyframes wp{0%{background:#00006e}40%{background:#ffff44}100%{background:#ffe033}}
 
 /* ── CREDITS BAR ── */
-#cbar{display:flex;background:rgba(0,0,0,0.45);border:2px solid rgba(255,255,255,0.15);border-radius:4px;overflow:hidden}
+#cbar{display:flex;background:rgba(0,0,0,0.45);border:2px solid rgba(255,255,255,0.15);border-radius:4px;overflow:hidden;margin-bottom:4px}
 .ci{flex:1;text-align:center;padding:9px 8px}
 .ci+.ci{border-left:2px solid rgba(255,255,255,0.15)}
 .cl{font-size:.58rem;color:#fff;text-transform:uppercase;letter-spacing:2px;margin-bottom:2px}
@@ -52,13 +52,13 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 /* ── CARDS ── */
 #cards{display:flex;gap:6px;justify-content:center;padding:0 2px;perspective:1000px;height:178px;align-items:flex-start;user-select:none;-webkit-user-select:none}
 .cs{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:180px;position:relative;padding-top:20px}
-.card{container-type:size;width:112px;height:155px;background:#fff;border-radius:6px;border:2px solid #ccc;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
+.card{container-type:size;width:112px;aspect-ratio:5/7;background:#fff;border-radius:6px;border:2px solid #ccc;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
 .card.held{border-color:#ffe033;border-width:3px;box-shadow:0 0 18px rgba(255,224,0,.9);transform:translateY(-8px)}
 .card.wc{border-color:#00ff88;box-shadow:0 0 18px rgba(0,255,136,.9);animation:cw .5s ease 3}
 @keyframes cw{0%,100%{transform:translateY(-8px) scale(1)}50%{transform:translateY(-12px) scale(1.06)}}
-/* Card back — casino green felt */
-.card.fd{background:repeating-linear-gradient(45deg,#c94a5c,#c94a5c 5px,#de6b7a 5px,#de6b7a 10px);border-color:#ffffff;border-width:2px}
+/* Card back — deep navy with gold diamond lattice */
+.card.fd{background:repeating-linear-gradient(45deg,transparent,transparent 7px,rgba(255,224,51,.08) 7px,rgba(255,224,51,.08) 8px),repeating-linear-gradient(-45deg,transparent,transparent 7px,rgba(255,224,51,.08) 7px,rgba(255,224,51,.08) 8px),linear-gradient(180deg,#0a1e52 0%,#061440 50%,#040e2e 100%);border-color:#ffe033;border-width:2px;box-shadow:inset 0 0 12px rgba(0,16,72,.5)}
 
 /* Card animations */
 .card.dealing{animation:di .32s cubic-bezier(.25,.46,.45,.94) forwards}
@@ -91,9 +91,9 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 #game > #ad-slot{width:100%;margin-left:auto;margin-right:auto}
 
 /* ── Unified full-width card layout (all devices) ── */
-#cards{width:100%!important;padding:0!important;justify-content:space-between!important;gap:clamp(3px,1vw,8px)!important;height:auto!important;align-items:flex-start!important}
+#cards{width:100%!important;padding:0!important;justify-content:space-between!important;gap:clamp(3px,1vw,8px)!important;height:auto!important;align-items:flex-start!important;margin-bottom:2px}
 .cs{flex:1 1 0!important;min-width:0!important;height:auto!important}
-.card{width:100%!important;height:auto!important;aspect-ratio:112/155!important;max-width:none!important}
+.card{width:100%!important;height:auto!important;aspect-ratio:5/7!important;max-width:none!important}
 
 /* ── MESSAGE ── */
 #msg{text-align:center;height:38px;display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -115,18 +115,18 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 .btn:active{transform:scale(.94) translateY(1px);filter:brightness(.82)}
 .btn:disabled{opacity:.2;filter:grayscale(1) brightness(0.7);box-shadow:none;cursor:not-allowed;transform:none;filter:grayscale(.6)}
 
-/* BET — electric blue */
-.b1btn{background:linear-gradient(#4488ff,#2244aa);color:#fff}
-/* CLEAR — silver-grey */
-.clearbtn{background:linear-gradient(180deg,#dd66cc 0%,#aa33aa 45%,#882299 100%);color:#fff;width:78px}.clearbtn:disabled{background:linear-gradient(180deg,#888 0%,#555 45%,#333 100%);opacity:.45;filter:none}
-/* HOLD ALL — gold */
-.holdallbtn{background:linear-gradient(#44cc44,#228822);color:#fff}
-/* DEAL — IGT classic bright red */
-.dealbtn{background:linear-gradient(#ffaa00,#cc7700);color:#fff}
-/* DRAW — orange */
-.drawbtn{background:linear-gradient(#ffaa00,#cc7700);color:#fff}
-.b5btn{background:linear-gradient(180deg,#ff9900 0%,#cc6600 45%,#993300 100%);color:#fff}
-.mbtn{background:linear-gradient(180deg,#ff5533 0%,#cc2200 45%,#991100 100%);color:#fff}
+/* BET — refined blue, secondary */
+.b1btn{background:linear-gradient(180deg,#3d7ee6 0%,#2a5db8 50%,#1e4a96 100%);color:#fff;border:1px solid rgba(255,255,255,0.15)}
+/* CLEAR — muted steel-blue, utility */
+.clearbtn{background:linear-gradient(180deg,#4a5d78 0%,#384a62 50%,#2c3b4e 100%);color:rgba(255,255,255,0.85);width:78px;border:1px solid rgba(255,255,255,0.08)}.clearbtn:disabled{background:linear-gradient(180deg,#333d4a 0%,#272f3a 50%,#1e252e 100%);opacity:.45;filter:none}
+/* HOLD ALL — muted steel-blue, matching CLEAR */
+.holdallbtn{background:linear-gradient(180deg,#4a5d78 0%,#384a62 50%,#2c3b4e 100%);color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.08)}
+/* DEAL — bright gold primary CTA */
+.dealbtn{background:linear-gradient(180deg,#ffcc00 0%,#e6a800 45%,#cc8800 100%);color:#1a1a00;font-weight:900;border:1px solid rgba(255,255,255,0.2);text-shadow:0 1px 0 rgba(255,255,255,0.2)}
+/* DRAW — same gold as DEAL */
+.drawbtn{background:linear-gradient(180deg,#ffcc00 0%,#e6a800 45%,#cc8800 100%);color:#1a1a00;font-weight:900;border:1px solid rgba(255,255,255,0.2);text-shadow:0 1px 0 rgba(255,255,255,0.2)}
+.b5btn{background:linear-gradient(180deg,#4a5d78 0%,#384a62 50%,#2c3b4e 100%);color:#fff}
+.mbtn{background:linear-gradient(180deg,#4a5d78 0%,#384a62 50%,#2c3b4e 100%);color:#fff}
 
 /* ── Bottom banner ad slot ── */
 #ad-slot{width:100%;height:56px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#111 0%,#050505 100%);border:1px solid #2f2f2f;border-radius:5px;color:#9aa4bf;font-size:.72rem;letter-spacing:1.4px;text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
@@ -157,7 +157,9 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
   #game{max-width:100%;padding:6px 6px calc(48px + env(safe-area-inset-bottom) + 6px);gap:6px;min-height:calc(100dvh - 56px);max-height:calc(100dvh - 56px);overflow:hidden}
   header h1{font-size:1.12rem;letter-spacing:2.4px}
 
-  #payout-table{border-radius:6px}
+  #payout-table{border-radius:6px;margin-bottom:6px}
+  #cbar{margin-bottom:3px}
+  #cards{margin-bottom:1px}
   .pr{padding:2px 6px;font-size:.66rem}
   .pr .hn{font-size:.60rem;letter-spacing:.2px}
   .pr .pv{width:44px;font-size:.66rem}
@@ -177,11 +179,13 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
   #rm{font-size:.76rem;letter-spacing:1.2px}
   #rm.nw{font-size:.70rem}
 
-  #btns{flex-wrap:wrap;gap:6px}
-  #btns-left,#btns-right{display:flex;width:100%;gap:6px}
-  #btns-left{flex-wrap:wrap}
-  .btn{height:42px;min-width:0;flex:1;padding:0 8px;font-size:.68rem;letter-spacing:.5px}
-  .dealbtn,.drawbtn,.holdallbtn,.b1btn,.clearbtn,.b5btn,.mbtn{width:auto}
+  #btns{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  #btns-left,#btns-right{display:contents}
+  .btn{height:42px;min-width:0;width:100%;padding:0 8px;font-size:.68rem;letter-spacing:.5px}
+  .b1btn{grid-column:1;grid-row:1}
+  .clearbtn{grid-column:2;grid-row:1;width:100%}
+  .holdallbtn{grid-column:1;grid-row:2;height:48px}
+  .dealbtn,.drawbtn{grid-column:2;grid-row:2;height:48px;font-size:.76rem}
 
   #seo{padding:16px 10px 28px;font-size:.80rem;line-height:1.6}
   #seo h2{font-size:.9rem}
@@ -203,6 +207,8 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
   
 
   .btn{height:40px;font-size:.64rem}
+  .holdallbtn{height:44px}
+  .dealbtn,.drawbtn{height:44px;font-size:.70rem}
   .cl{font-size:.5rem}
   .cv,#wv{font-size:1.16rem}
   #rm{font-size:.66rem}
@@ -248,6 +254,8 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
   #msg{height:22px}
   #rm{font-size:.64rem;letter-spacing:.8px}
   .btn{height:37px;font-size:.60rem;padding:0 5px}
+  .holdallbtn{height:42px}
+  .dealbtn,.drawbtn{height:42px;font-size:.66rem}
   #ad-slot{height:40px;font-size:.56rem;letter-spacing:.6px;padding-bottom:env(safe-area-inset-bottom)}
 }
 
