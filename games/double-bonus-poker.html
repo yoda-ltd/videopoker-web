@@ -66,12 +66,11 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
 @keyframes di{from{opacity:0;transform:translateX(-100px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
 
 /* ── Card face content ── */
-.cc{font-family:'Fredoka One',cursive;position:absolute;top:2%;left:3%;width:24cqi;height:45cqi}
-.cc .cr{position:absolute;top:-2cqi;left:0;width:100%;font-size:28cqi;line-height:0.7;text-align:center}
-.cc .cs{position:absolute;top:11cqi;left:0;width:100%;font-size:18cqi;line-height:0.7;text-align:center}
+.cc{font-family:'Fredoka One',cursive;position:absolute;top:1%;left:1%;width:24cqi;height:40cqi;overflow:visible}
+.cc .cr{position:absolute;top:-4cqi;left:0;width:100%;font-size:28cqi;line-height:1;text-align:center}
+.cc .cssm{position:absolute;top:6cqi;left:0;width:100%;font-size:18cqi;line-height:1;text-align:center}
 .cc.bot{display:none}
-.cm{position:absolute;bottom:-6%;left:50%;transform:translateX(-50%);font-family:'Fredoka One',cursive;font-size:85cqi;line-height:1;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15));display:flex;justify-content:center;align-items:center}
-
+.cm{position:absolute;bottom:0.5%;left:50%;transform:translateX(-50%);font-family:'Fredoka One',cursive;font-size:85cqi;line-height:1;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15));display:flex;justify-content:center;align-items:center}
 .red{color:#d63031}.black{color:#2d3436}
 
 /* Desktop suit size alignment (mobile untouched) */
@@ -266,11 +265,11 @@ header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:90
     <div class="ci"><div class="cl">Win</div><div class="cv" id="wv">-</div></div>
   </div>
   <div id="cards">
-    <div class="cs"><span class="hl" id="h0"></span><div class="card fd" id="c0" onclick="hold(0)"></div></div>
-    <div class="cs"><span class="hl" id="h1"></span><div class="card fd" id="c1" onclick="hold(1)"></div></div>
-    <div class="cs"><span class="hl" id="h2"></span><div class="card fd" id="c2" onclick="hold(2)"></div></div>
-    <div class="cs"><span class="hl" id="h3"></span><div class="card fd" id="c3" onclick="hold(3)"></div></div>
-    <div class="cs"><span class="hl" id="h4"></span><div class="card fd" id="c4" onclick="hold(4)"></div></div>
+    <div class="cssm"><span class="hl" id="h0"></span><div class="card fd" id="c0" onclick="hold(0)"></div></div>
+    <div class="cssm"><span class="hl" id="h1"></span><div class="card fd" id="c1" onclick="hold(1)"></div></div>
+    <div class="cssm"><span class="hl" id="h2"></span><div class="card fd" id="c2" onclick="hold(2)"></div></div>
+    <div class="cssm"><span class="hl" id="h3"></span><div class="card fd" id="c3" onclick="hold(3)"></div></div>
+    <div class="cssm"><span class="hl" id="h4"></span><div class="card fd" id="c4" onclick="hold(4)"></div></div>
   </div>
   <div id="msg"><div id="rm" class="nw">Place your bet to start!</div></div>
   <div id="btns">
@@ -382,7 +381,7 @@ function cardHTML(c){
   const isRed=c.s==='hearts'||c.s==='diamonds';
   const cl=(c.s==='joker')?'black':(isRed?'red':'black');
   const sym=SYM[c.s]||'?';
-  return`<div class="cc ${cl}"><span class="cr">${c.r}</span><span class="cs">${sym}</span></div><div class="cm ${cl}">${sym}</div>`;
+  return`<div class="cc ${cl}"><span class="cr">${c.r}</span><span class="cssm">${sym}</span></div><div class="cm ${cl}">${sym}</div>`;
 }
 function renderDrawCard(i,c,delay){
   setTimeout(()=>{
