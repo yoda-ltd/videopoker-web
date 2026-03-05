@@ -52,7 +52,7 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
 /* ── CARDS ── */
 #cards{display:flex;gap:6px;justify-content:center;padding:0 2px;perspective:1000px;height:178px;align-items:flex-start;user-select:none;-webkit-user-select:none}
 .cs{display:flex;flex-direction:column;align-items:center;gap:4px;height:178px;justify-content:flex-start}
-.card{width:112px;height:155px;--card-scale:1;background:#fff;border-radius:6px;border:2px solid #ccc;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
+.card{width:11.2em;height:15.5em;font-size:calc(10px * var(--card-scale));background:#fff;border-radius:6px;border:2px solid #ccc;display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
 .card.held{border-color:#ffe033;border-width:3px;box-shadow:0 0 18px rgba(255,224,0,.9);transform:translateY(-8px)}
 .card.wc{border-color:#00ff88;box-shadow:0 0 18px rgba(0,255,136,.9);animation:cw .5s ease 3}
@@ -65,11 +65,11 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
 @keyframes di{from{opacity:0;transform:translateX(-100px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
 
 /* ── Card face content ── */
-.cc{transform:scale(var(--card-scale));transform-origin:top left;font-family:'Fredoka One',cursive;line-height:1;position:absolute;top:5px;left:6px;display:flex;flex-direction:column;align-items:center;gap:0}
-.cc .cr{font-size:38.4px;line-height:1}
-.cc .cs{font-size:27.84px;margin-top:-1px}
+.cc{font-family:'Fredoka One',cursive;line-height:1;position:absolute;top:0.5em;left:0.6em;display:flex;flex-direction:column;align-items:center;gap:0}
+.cc .cr{font-size:3.84em;line-height:1}
+.cc .cs{font-size:2.78em;margin-top:-0.1em}
 .cc.bot{display:none}
-.cm{transform:translate(-50%,-50%) scale(var(--card-scale));font-size:101.12px;position:absolute;top:60%;left:50%;transform:translate(-50%,-50%);font-family:'Fredoka One',cursive;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
+.cm{transform:translate(-50%,-50%);font-size:10.11em;position:absolute;top:60%;left:50%;transform:translate(-50%,-50%);font-family:'Fredoka One',cursive;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
 .red{color:#d63031}.black{color:#2d3436}
 
 /* Desktop suit size alignment (mobile untouched) */
@@ -162,7 +162,7 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
 
   #cards{height:114px;gap:3px;padding:0}
   .cs{height:114px;gap:2px}
-  .card{width:64px;height:89px;--card-scale:.5714;padding:3px;border-radius:6px}
+  .card{--card-scale:.5714}
   
   .hl{font-size:calc(0.98rem * var(--card-scale));letter-spacing:calc(2.1px * var(--card-scale));height:calc(28px * var(--card-scale));line-height:calc(28px * var(--card-scale))}
 
@@ -192,7 +192,7 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
 
   #cards{height:100px;gap:2px}
   .cs{height:100px}
-  .card{width:54px;height:75px;--card-scale:.4821;padding:2px}
+  .card{--card-scale:.4821}
   
 
   .btn{height:40px;font-size:.64rem}
@@ -206,7 +206,7 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
 @media (min-width:370px) and (max-width:380px) and (min-height:780px){
   #cards{height:110px}
   .cs{height:110px}
-  .card{width:60px;height:83px;--card-scale:.5357}
+  .card{--card-scale:.5357}
   .btn{height:40px;font-size:.66rem}
 }
 
@@ -214,13 +214,13 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
 @media (min-width:390px) and (max-width:430px){
   #cards{height:132px}
   .cs{height:132px}
-  .card{width:82px;height:114px;--card-scale:.7321}
+  .card{--card-scale:.7321}
 }
 
 @media (min-width:431px){
   #cards{height:138px}
   .cs{height:138px}
-  .card{width:86px;height:119px;--card-scale:.7679}
+  .card{--card-scale:.7679}
 }
 
 /* iPhone SE (375×667) */
@@ -236,7 +236,7 @@ header h1{font-size:1.52rem;letter-spacing:4.5px;text-transform:uppercase;color:
   .cv,#wv{font-size:1.06rem}
   #cards{height:92px;gap:2px}
   .cs{height:92px}
-  .card{width:54px;height:75px;--card-scale:.4821;padding:2px}
+  .card{--card-scale:.4821}
   
   #msg{height:22px}
   #rm{font-size:.64rem;letter-spacing:.8px}
