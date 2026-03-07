@@ -2,9 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://videopoker-web.pages.dev/</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://videopoker-web.pages.dev/category-bonus.html</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://videopoker-web.pages.dev/category-classic.html</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://videopoker-web.pages.dev/category-joker.html</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://videopoker-web.pages.dev/category-wild.html</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://videopoker-web.pages.dev/sitemap.html</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/aces-and-eights-75.html</loc>
@@ -20,7 +50,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/aces-and-eights.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -44,7 +74,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/aces-and-faces.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -74,7 +104,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/all-american-poker.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -104,7 +134,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/bonus-deuces-wild.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -152,13 +182,13 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/bonus-poker-deluxe.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/bonus-poker.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -182,7 +212,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/deuces-and-joker-wild.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -200,7 +230,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/deuces-wild-bonus.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -218,13 +248,13 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/deuces-wild-deluxe.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/deuces-wild.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -260,7 +290,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/double-bonus-poker.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -278,7 +308,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/double-deuces-wild.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -314,7 +344,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/double-double-bonus-poker.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -332,7 +362,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/double-joker-poker.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -404,7 +434,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/jacks-or-better.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -440,7 +470,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/joker-poker-aces.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -458,13 +488,13 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/joker-poker-twopair.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/joker-poker.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -476,7 +506,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/kings-or-better.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -494,7 +524,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/loose-deuces-wild.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -518,7 +548,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/nines-or-better.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -560,7 +590,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/sevens-wild.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -590,7 +620,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/super-aces-bonus.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -608,7 +638,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/super-double-bonus.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -620,7 +650,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/tens-or-better.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -656,7 +686,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/triple-bonus-poker.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -686,7 +716,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/triple-double-bonus-poker.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -722,7 +752,7 @@
   </url>
   <url>
     <loc>https://videopoker-web.pages.dev/games/white-hot-aces.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
