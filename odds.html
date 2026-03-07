@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Video Poker Odds &amp; Probability Guide | Video Poker Classic</title>
+<meta name="description" content="Complete video poker odds and probability guide. Hand probabilities, RTP comparison tables, variance ratings, Royal Flush frequencies, house edge analysis, and expected value calculations for all major video poker variants.">
+<!-- SEO-META-START -->
+<link rel="canonical" href="https://videopoker-web.pages.dev/odds.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://videopoker-web.pages.dev/odds.html">
+<meta property="og:title" content="Video Poker Odds &amp; Probability Guide | Video Poker Classic">
+<meta property="og:description" content="Complete video poker odds and probability guide. Hand probabilities, RTP comparison tables, variance ratings, Royal Flush frequencies, house edge analysis, and expected value calculations for all major video poker variants.">
+<meta property="og:image" content="https://videopoker-web.pages.dev/assets/hero/hero-vp-premium.png">
+<meta property="og:site_name" content="Video Poker Classic">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Video Poker Odds &amp; Probability Guide | Video Poker Classic">
+<meta name="twitter:description" content="Complete video poker odds and probability guide. Hand probabilities, RTP comparison tables, variance ratings, Royal Flush frequencies, house edge analysis, and expected value calculations for all major video poker variants.">
+<meta name="twitter:image" content="https://videopoker-web.pages.dev/assets/hero/hero-vp-premium.png">
+<!-- SEO-META-END -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Video Poker Odds & Probability Guide","description":"Comprehensive guide to video poker odds, hand probabilities, RTP percentages, variance ratings, Royal Flush frequencies, house edge comparisons, and expected value calculations.","url":"https://videopoker-web.pages.dev/odds.html","image":"https://videopoker-web.pages.dev/assets/hero/hero-vp-premium.png","datePublished":"2026-03-07","dateModified":"2026-03-07","author":{"@type":"Organization","name":"Video Poker Classic"},"publisher":{"@type":"Organization","name":"Video Poker Classic","url":"https://videopoker-web.pages.dev/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://videopoker-web.pages.dev/odds.html"},"inLanguage":"en","keywords":"video poker odds,video poker probability,RTP,return to player,house edge,Royal Flush odds,video poker variance"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Dataset","name":"Video Poker Hand Probabilities","description":"Statistical probability data for all standard poker hands dealt from a 52-card deck, including combination counts, percentage probabilities, and odds ratios.","url":"https://videopoker-web.pages.dev/odds.html","license":"https://creativecommons.org/licenses/by/4.0/","creator":{"@type":"Organization","name":"Video Poker Classic"},"keywords":["poker hand probability","poker combinations","poker odds","video poker statistics"],"variableMeasured":[{"@type":"PropertyValue","name":"Hand Combinations","description":"Number of possible 5-card combinations for each poker hand"},{"@type":"PropertyValue","name":"Probability","description":"Percentage probability of being dealt each hand"},{"@type":"PropertyValue","name":"Odds","description":"Odds ratio expressed as 1 in N"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://videopoker-web.pages.dev/"},{"@type":"ListItem","position":2,"name":"Odds & Probability","item":"https://videopoker-web.pages.dev/odds.html"}]}
+</script>
+<style>
+*{box-sizing:border-box}
+:root{--bg:#020816;--panel-border:#3f62c9;--gold:#ffe033;--muted:#9eb0d8;--red1:#ff5a37;--red2:#bf2100}
+body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradient(1200px 700px at 50% -120px,#1a1406 0,#070c1a 40%,var(--bg) 85%);color:#fff}
+.wrap{max-width:1080px;margin:0 auto;padding:18px 14px 34px}
+.marquee{text-align:center;padding:12px 10px;border:2px solid #a98a00;border-radius:8px;background:linear-gradient(180deg,#1a1200,#0b0700);box-shadow:0 0 18px rgba(255,208,0,.24),inset 0 1px 0 rgba(255,255,255,.15)}
+.marquee h1{margin:0;letter-spacing:3px;color:var(--gold);font-size:1.35rem;text-shadow:0 0 12px rgba(255,224,51,.5)}
+.marquee p{margin:8px 0 0;color:#c5b47a;font-size:.78rem;letter-spacing:1px}
+.breadcrumb{margin:10px 0 0;font-size:.72rem;color:#7f91b9;letter-spacing:1px}
+.breadcrumb a{color:var(--gold);text-decoration:none}.breadcrumb a:hover{text-decoration:underline}
+.cat-nav{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.cat-link{display:inline-block;padding:6px 12px;background:#000418;border:1px solid #1d2e5f;border-radius:6px;color:#9eb0d8;font-size:.72rem;text-decoration:none;letter-spacing:1px;transition:all .15s ease}
+.cat-link:hover{background:#001048;border-color:var(--gold);color:var(--gold)}
+
+/* Content panels */
+.panel{margin:18px 0;padding:18px;background:#000418;border:1px solid #1d2e5f;border-radius:8px}
+.panel h2{margin:0 0 12px;color:var(--gold);font-size:1.1rem;letter-spacing:2px;text-shadow:0 0 8px rgba(255,224,51,.25)}
+.panel h3{margin:18px 0 8px;color:var(--gold);font-size:.95rem;letter-spacing:1px}
+.panel p{margin:0 0 12px;color:var(--muted);font-size:.85rem;line-height:1.65;font-family:Arial,sans-serif}
+.panel ul,.panel ol{margin:0 0 12px;padding-left:22px;color:var(--muted);font-size:.85rem;line-height:1.65;font-family:Arial,sans-serif}
+.panel li{margin-bottom:6px}
+.panel strong{color:#fff}
+.panel em{color:var(--gold);font-style:normal}
+
+/* Data tables */
+.tbl-wrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:.82rem;font-family:Arial,sans-serif}
+thead th{background:#000046;color:var(--gold);font-weight:700;padding:10px 12px;text-align:left;letter-spacing:1px;border:1px solid #3355bb;font-size:.75rem;white-space:nowrap}
+tbody td{padding:8px 12px;border:1px solid #3355bb;color:#c8d6f0;background:rgba(0,4,24,.6)}
+tbody tr:nth-child(even) td{background:rgba(0,8,48,.5)}
+tbody tr:hover td{background:rgba(0,16,72,.6)}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+td.highlight{color:var(--gold);font-weight:700}
+.rtp-high{color:#4ade80}
+.rtp-mid{color:var(--gold)}
+.rtp-low{color:var(--red1)}
+.var-low{color:#4ade80}.var-med{color:var(--gold)}.var-high{color:#ff8c42}.var-extreme{color:var(--red1)}
+a.game-link{color:var(--gold);text-decoration:none}a.game-link:hover{text-decoration:underline}
+
+/* Highlight box */
+.highlight-box{margin:14px 0;padding:14px;background:rgba(0,0,70,.4);border:1px solid var(--panel-border);border-radius:6px}
+.highlight-box p{margin:0;color:#c8d6f0;font-size:.84rem;line-height:1.6;font-family:Arial,sans-serif}
+.highlight-box strong{color:var(--gold)}
+
+/* Formula */
+.formula{margin:12px 0;padding:14px 18px;background:#000;border:1px solid #2c2c2c;border-radius:6px;font-family:'Courier New',Courier,monospace;font-size:.88rem;color:var(--gold);letter-spacing:1px;text-align:center;overflow-x:auto}
+
+/* Related links grid */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.related-card{display:block;padding:14px;background:linear-gradient(180deg,rgba(0,1,138,.3),rgba(0,0,110,.2));border:1px solid rgba(63,98,201,.4);border-radius:6px;text-decoration:none;transition:transform .12s ease,border-color .12s ease}
+.related-card:hover{transform:translateY(-2px);border-color:var(--gold)}
+.related-card .rc-title{color:var(--gold);font-size:.88rem;letter-spacing:1px;margin-bottom:4px}
+.related-card .rc-desc{color:var(--muted);font-size:.76rem;font-family:Arial,sans-serif;line-height:1.4}
+
+/* Footer */
+.footer-nav{margin-top:24px;padding:16px;background:#000418;border:1px solid #1d2e5f;border-radius:8px;text-align:center}
+.footer-nav a{color:#9eb0d8;text-decoration:none;font-size:.72rem;letter-spacing:1px;margin:0 10px}.footer-nav a:hover{color:var(--gold)}
+.footer-note{text-align:center;color:#7f91b9;font-size:.72rem;letter-spacing:1px;margin-top:14px}
+
+@media(max-width:640px){
+  .wrap{padding:12px 10px 26px}
+  .marquee{padding:10px 8px}.marquee h1{font-size:1.04rem;letter-spacing:1.4px}
+  .panel{padding:14px 12px}
+  .panel h2{font-size:.98rem}
+  table{font-size:.74rem}
+  thead th{padding:8px 8px;font-size:.68rem}
+  tbody td{padding:6px 8px}
+  .cat-nav{gap:6px}.cat-link{padding:5px 8px;font-size:.64rem}
+  .related-grid{grid-template-columns:1fr}
+  .footer-nav a{margin:0 6px;font-size:.66rem}
+  .formula{font-size:.78rem;padding:12px 10px}
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="marquee">
+      <h1>VIDEO POKER ODDS &amp; PROBABILITY</h1>
+      <p>COMPREHENSIVE STATISTICAL GUIDE</p>
+    </div>
+
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> &rsaquo; Odds &amp; Probability
+    </div>
+
+    <div class="cat-nav">
+      <a class="cat-link" href="index.html">All Games</a>
+      <a class="cat-link" href="category-classic.html">Classic</a>
+      <a class="cat-link" href="category-bonus.html">Bonus</a>
+      <a class="cat-link" href="category-wild.html">Wild Card</a>
+      <a class="cat-link" href="category-joker.html">Joker</a>
+    </div>
+
+    <!-- 1. Introduction -->
+    <div class="panel">
+      <h2>Understanding Video Poker Odds</h2>
+      <p>Video poker stands apart from other casino games because the odds are transparent, mathematically fixed, and directly influenced by player decisions. Unlike slot machines where outcomes are hidden behind opaque RNG algorithms, every video poker variant uses a standard deck of cards with known probabilities. This means you can calculate the exact expected return for every possible hold decision on every possible hand.</p>
+      <p>Understanding odds is the foundation of smart video poker play. It determines which game you should choose, which cards you should hold, and what kind of bankroll you need to weather variance. A player who grasps probability can consistently select games with higher returns and make optimal hold/discard decisions that minimize the house edge to fractions of a percent.</p>
+      <p>This guide covers everything from basic hand probabilities on the initial deal, to return-to-player (RTP) comparisons across major variants, variance analysis, Royal Flush frequencies by game type, house edge context, and expected value calculations.</p>
+    </div>
+
+    <!-- 2. Hand Probability Table -->
+    <div class="panel">
+      <h2>Hand Probability Table</h2>
+      <p>The table below shows the probability of being dealt each poker hand on the initial 5-card deal from a standard 52-card deck. There are exactly <strong>2,598,960</strong> possible 5-card combinations (C(52,5) = 2,598,960).</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Hand</th>
+              <th>Combinations</th>
+              <th>Probability</th>
+              <th>Odds (1 in ...)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="highlight">Royal Flush</td>
+              <td class="num">4</td>
+              <td class="num">0.000154%</td>
+              <td class="num">649,740</td>
+            </tr>
+            <tr>
+              <td class="highlight">Straight Flush</td>
+              <td class="num">36</td>
+              <td class="num">0.00139%</td>
+              <td class="num">72,193</td>
+            </tr>
+            <tr>
+              <td>Four of a Kind</td>
+              <td class="num">624</td>
+              <td class="num">0.0240%</td>
+              <td class="num">4,165</td>
+            </tr>
+            <tr>
+              <td>Full House</td>
+              <td class="num">3,744</td>
+              <td class="num">0.1441%</td>
+              <td class="num">694</td>
+            </tr>
+            <tr>
+              <td>Flush</td>
+              <td class="num">5,108</td>
+              <td class="num">0.1965%</td>
+              <td class="num">509</td>
+            </tr>
+            <tr>
+              <td>Straight</td>
+              <td class="num">10,200</td>
+              <td class="num">0.3925%</td>
+              <td class="num">255</td>
+            </tr>
+            <tr>
+              <td>Three of a Kind</td>
+              <td class="num">54,912</td>
+              <td class="num">2.1128%</td>
+              <td class="num">47</td>
+            </tr>
+            <tr>
+              <td>Two Pair</td>
+              <td class="num">123,552</td>
+              <td class="num">4.7539%</td>
+              <td class="num">21</td>
+            </tr>
+            <tr>
+              <td>One Pair</td>
+              <td class="num">1,098,240</td>
+              <td class="num">42.2569%</td>
+              <td class="num">2.4</td>
+            </tr>
+            <tr>
+              <td>No Pair (High Card)</td>
+              <td class="num">1,302,540</td>
+              <td class="num">50.1177%</td>
+              <td class="num">2.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Key insight:</strong> Over half of all initial deals produce no pair at all. Only about 42% result in a single pair. This is why the draw phase is essential in video poker -- it gives you a second chance to improve your hand. Optimal strategy focuses on maximizing expected value through smart hold decisions on these common weak starting hands.</p>
+      </div>
+    </div>
+
+    <!-- 3. RTP Comparison Table -->
+    <div class="panel">
+      <h2>Return to Player (RTP) Comparison</h2>
+      <p>Return to Player is the percentage of wagered money a video poker machine returns to players over time when played with perfect strategy. Higher RTP means a lower house edge and better value for the player. The table below compares RTP across the most popular video poker variants and pay table configurations.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Game</th>
+              <th>Pay Table</th>
+              <th>RTP</th>
+              <th>Variance</th>
+              <th>Play</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jacks or Better</td>
+              <td>9/6 (Full Pay)</td>
+              <td class="num rtp-high">99.54%</td>
+              <td class="var-low">Low</td>
+              <td><a class="game-link" href="games/jacks-or-better.html">Play Free</a></td>
+            </tr>
+            <tr>
+              <td>Jacks or Better</td>
+              <td>8/5</td>
+              <td class="num rtp-low">97.30%</td>
+              <td class="var-low">Low</td>
+              <td><a class="game-link" href="games/jacks-or-better-85.html">Play Free</a></td>
+            </tr>
+            <tr>
+              <td>Bonus Poker</td>
+              <td>8/5</td>
+              <td class="num rtp-high">99.17%</td>
+              <td class="var-med">Medium</td>
+              <td><a class="game-link" href="games/bonus-poker.html">Play Free</a></td>
+            </tr>
+            <tr>
+              <td>Double Bonus</td>
+              <td>10/6 (Full Pay)</td>
+              <td class="num rtp-high">100.17%</td>
+              <td class="var-high">High</td>
+              <td><a class="game-link" href="games/double-bonus-106.html">Play Free</a></td>
+            </tr>
+            <tr>
+              <td>Double Bonus</td>
+              <td>9/7</td>
+              <td class="num rtp-high">99.11%</td>
+              <td class="var-high">High</td>
+              <td><a class="game-link" href="games/double-bonus-97.html">Play Free</a></td>
+            </tr>
+            <tr>
+              <td>Double Double Bonus</td>
+              <td>9/6</td>
+              <td class="num rtp-mid">98.98%</td>
+              <td class="var-high">Very High</td>
+              <td><a class="game-link" href="games/double-double-bonus-poker.html">Play Free</a></td>
+            </tr>
+            <tr>
+              <td>Triple Double Bonus</td>
+              <td>9/7</td>
+              <td class="num rtp-high">99.58%</td>
+              <td class="var-extreme">Extreme</td>
+              <td><a class="game-link" href="games/triple-double-bonus-poker.html">Play Free</a></td>
+            </tr>
+            <tr>
+              <td>Deuces Wild</td>
+              <td>Full Pay</td>
+              <td class="num rtp-high">100.76%</td>
+              <td class="var-med">Medium</td>
+              <td><a class="game-link" href="games/deuces-wild.html">Play Free</a></td>
+            </tr>
+            <tr>
+              <td>NSU Deuces Wild</td>
+              <td>--</td>
+              <td class="num rtp-high">99.73%</td>
+              <td class="var-med">Medium</td>
+              <td><a class="game-link" href="games/nsu-deuces-wild.html">Play Free</a></td>
+            </tr>
+            <tr>
+              <td>Bonus Deuces Wild</td>
+              <td>Full Pay</td>
+              <td class="num rtp-high">99.45%</td>
+              <td class="var-high">High</td>
+              <td><a class="game-link" href="games/bonus-deuces-wild.html">Play Free</a></td>
+            </tr>
+            <tr>
+              <td>Joker Poker (Kings+)</td>
+              <td>Full Pay</td>
+              <td class="num rtp-high">100.64%</td>
+              <td class="var-med">Medium</td>
+              <td><a class="game-link" href="games/joker-poker.html">Play Free</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Games with RTP over 100%</strong> (like Full Pay Deuces Wild at 100.76% and Double Bonus 10/6 at 100.17%) theoretically give the player a mathematical edge over the house when played with perfect strategy. These are extremely rare in modern casinos but remain valuable benchmarks for comparing video poker value.</p>
+      </div>
+    </div>
+
+    <!-- 4. Understanding Variance -->
+    <div class="panel">
+      <h2>Understanding Variance</h2>
+      <p>Variance (or volatility) measures how much your actual results deviate from the expected return over a given number of hands. Two games can have identical RTP but wildly different session experiences depending on variance. Understanding variance helps you choose games that match your bankroll and risk tolerance.</p>
+
+      <h3>Variance Levels Explained</h3>
+      <ul>
+        <li><strong>Low Variance</strong> (e.g., Jacks or Better 9/6) -- Wins come frequently, mostly from pairs and two-pair hands. Your bankroll fluctuates gently. Standard deviation is approximately <strong>4.4</strong> per 100 hands (at 5-coin max bet). Best for conservative players and smaller bankrolls. Typical session swings: +/- 20-40 bets.</li>
+        <li><strong>Medium Variance</strong> (e.g., Bonus Poker, Deuces Wild) -- Moderate swings. You will see longer dry spells compared to Jacks or Better, but bonus payouts for specific quads or wild card hands offset them. Standard deviation is approximately <strong>5.0-5.5</strong> per 100 hands. Suitable for players with moderate bankrolls.</li>
+        <li><strong>High Variance</strong> (e.g., Double Bonus, Bonus Deuces Wild) -- Larger swings with significant payouts concentrated in four-of-a-kind hands. Expect more frequent losing sessions, but bigger wins when they hit. Standard deviation is approximately <strong>5.5-6.5</strong> per 100 hands. Requires a larger bankroll to absorb downswings.</li>
+        <li><strong>Very High / Extreme Variance</strong> (e.g., Double Double Bonus, Triple Double Bonus) -- Extreme swings. A large portion of the RTP is driven by rare premium four-of-a-kind combinations with kicker bonuses. You may lose for extended sessions before hitting a large payout. Standard deviation can reach <strong>7.0-9.5</strong> per 100 hands. Only recommended for well-bankrolled players.</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p><strong>Practical example:</strong> Consider a player betting $1.25 per hand (5 coins at $0.25). After 100 hands on Jacks or Better (SD ~4.4), their results typically fall within +/- $55 of the expected return. On Triple Double Bonus (SD ~9.5), the same 100 hands can swing +/- $119. Same RTP range, very different bankroll requirements.</p>
+      </div>
+    </div>
+
+    <!-- 5. Royal Flush Odds by Game -->
+    <div class="panel">
+      <h2>Royal Flush Odds by Game</h2>
+      <p>The Royal Flush is the highest-paying hand in video poker and contributes significantly to overall RTP. However, the frequency of Royal Flushes varies across games because optimal strategy differs -- wild card games open additional Royal Flush possibilities, while high-variance bonus games sometimes sacrifice Royal Flush frequency for bigger quad payouts.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Game</th>
+              <th>Natural Royal</th>
+              <th>Wild Royal</th>
+              <th>Combined</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jacks or Better 9/6</td>
+              <td class="num highlight">1 in 40,391</td>
+              <td class="num">--</td>
+              <td class="num">1 in 40,391</td>
+            </tr>
+            <tr>
+              <td>Bonus Poker 8/5</td>
+              <td class="num">1 in 40,233</td>
+              <td class="num">--</td>
+              <td class="num">1 in 40,233</td>
+            </tr>
+            <tr>
+              <td>Double Bonus 10/6</td>
+              <td class="num">1 in 48,048</td>
+              <td class="num">--</td>
+              <td class="num">1 in 48,048</td>
+            </tr>
+            <tr>
+              <td>Double Double Bonus 9/6</td>
+              <td class="num">1 in 40,782</td>
+              <td class="num">--</td>
+              <td class="num">1 in 40,782</td>
+            </tr>
+            <tr>
+              <td>Triple Double Bonus 9/7</td>
+              <td class="num">1 in 40,643</td>
+              <td class="num">--</td>
+              <td class="num">1 in 40,643</td>
+            </tr>
+            <tr>
+              <td>Deuces Wild (Full Pay)</td>
+              <td class="num">1 in 45,282</td>
+              <td class="num highlight">1 in 5,348</td>
+              <td class="num">1 in 4,909</td>
+            </tr>
+            <tr>
+              <td>Joker Poker (Kings+)</td>
+              <td class="num">1 in 41,215</td>
+              <td class="num highlight">1 in 12,106</td>
+              <td class="num">1 in 9,359</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Wild card advantage:</strong> In Deuces Wild, you will see a Royal Flush roughly once every 4,909 hands when counting both natural and wild Royals combined. Compare that to Jacks or Better at 1 in 40,391 -- over 8 times more frequent. However, natural Royals pay 4,000 coins (at max bet) while wild Royals in Deuces Wild only pay 125 coins, so the actual dollar contribution differs substantially.</p>
+      </div>
+    </div>
+
+    <!-- 6. House Edge vs. RTP -->
+    <div class="panel">
+      <h2>House Edge vs. RTP</h2>
+      <p>House Edge and RTP are two sides of the same coin. The relationship is simple:</p>
+      <div class="formula">House Edge = 100% - RTP</div>
+      <p>If a game has an RTP of 99.54%, the house edge is 0.46%. This means for every $100 wagered, the casino expects to keep $0.46 on average over the long run. Video poker with optimal strategy offers some of the lowest house edges in the casino.</p>
+
+      <h3>Casino Game House Edge Comparison</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Game</th>
+              <th>Typical House Edge</th>
+              <th>RTP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="highlight">Video Poker (Full Pay)</td>
+              <td class="num rtp-high">0.20% - 0.50%</td>
+              <td class="num rtp-high">99.50% - 99.80%</td>
+            </tr>
+            <tr>
+              <td>Blackjack (Basic Strategy)</td>
+              <td class="num rtp-high">0.50%</td>
+              <td class="num rtp-high">99.50%</td>
+            </tr>
+            <tr>
+              <td>Craps (Pass/Don't Pass)</td>
+              <td class="num rtp-mid">1.36% - 1.41%</td>
+              <td class="num rtp-mid">98.59% - 98.64%</td>
+            </tr>
+            <tr>
+              <td>Baccarat (Banker)</td>
+              <td class="num rtp-mid">1.06%</td>
+              <td class="num rtp-mid">98.94%</td>
+            </tr>
+            <tr>
+              <td>Roulette (European)</td>
+              <td class="num rtp-low">2.70%</td>
+              <td class="num rtp-low">97.30%</td>
+            </tr>
+            <tr>
+              <td>Roulette (American)</td>
+              <td class="num rtp-low">5.26%</td>
+              <td class="num rtp-low">94.74%</td>
+            </tr>
+            <tr>
+              <td>Slot Machines</td>
+              <td class="num rtp-low">2% - 15%</td>
+              <td class="num rtp-low">85% - 98%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Why video poker wins:</strong> Full-pay video poker gives players a house edge under 0.5%, rivaling blackjack with basic strategy. Unlike blackjack, video poker does not require card counting or dealing with other players and dealer decisions. And unlike slots, the pay table is fully transparent -- you know the exact mathematical return before you place a single bet.</p>
+      </div>
+    </div>
+
+    <!-- 7. Expected Value Per Hand -->
+    <div class="panel">
+      <h2>Expected Value Per Hand</h2>
+      <p>Expected Value (EV) is the average amount you expect to win or lose on a specific play decision. In video poker, you calculate EV for every possible combination of held cards and choose the hold that produces the highest EV. This is the mathematical basis for optimal strategy.</p>
+
+      <h3>How to Calculate EV</h3>
+      <p>For any given hold decision, EV is calculated by examining every possible draw outcome, multiplying each by its payout, and dividing by the total number of possible draws:</p>
+      <div class="formula">EV = (Sum of all possible outcomes x payouts) / Total possible draws</div>
+
+      <h3>Example: Jacks or Better (9/6, 5-coin bet)</h3>
+      <p>Suppose you are dealt: <strong>J&#9824; J&#9829; 8&#9830; 5&#9827; 3&#9829;</strong></p>
+      <p>You have multiple hold options. The key decision is between holding the pair of Jacks versus speculative draws. Here is how EV guides the decision:</p>
+      <ul>
+        <li><strong>Hold J&#9824; J&#9829;</strong> -- EV = 7.68 coins. Drawing 3 cards gives you chances at two pair, trips, full house, quads, and the guaranteed pair payout of 5 coins. This is the mathematically optimal play.</li>
+        <li><strong>Hold J&#9829; 8&#9829; 5&#9829; 3&#9829;</strong> (four to a flush) -- EV = 3.40 coins. You need one of 9 remaining hearts in a 47-card draw, but miss most of the time.</li>
+        <li><strong>Hold nothing</strong> (draw 5) -- EV = 2.56 coins. Starting fresh rarely produces better value than an existing paying hand.</li>
+      </ul>
+      <p>The pair of Jacks has the highest EV at 7.68 coins, so optimal strategy says hold the pair. This process applies to every single hand you are dealt -- always choose the hold combination with the highest expected value.</p>
+
+      <h3>Why EV Matters</h3>
+      <p>Every departure from optimal EV costs you money over time. A player who makes perfect EV-based decisions on a 9/6 Jacks or Better machine achieves the full 99.54% RTP. A player who makes even occasional mistakes -- like holding a kicker with a pair, or breaking a paying hand to chase a straight -- might only achieve 97-98% RTP, costing them $15-$25 per hour at typical play speeds.</p>
+    </div>
+
+    <!-- 8. Related Pages -->
+    <div class="panel">
+      <h2>Related Pages</h2>
+      <p>Continue learning about video poker with these guides and resources:</p>
+      <div class="related-grid">
+        <a class="related-card" href="how-to-play.html">
+          <div class="rc-title">How to Play</div>
+          <div class="rc-desc">Learn the basics of video poker -- rules, controls, and gameplay mechanics for beginners.</div>
+        </a>
+        <a class="related-card" href="strategy.html">
+          <div class="rc-title">Strategy Guide</div>
+          <div class="rc-desc">Optimal hold strategies for every major video poker variant, including strategy charts and tips.</div>
+        </a>
+        <a class="related-card" href="glossary.html">
+          <div class="rc-title">Glossary</div>
+          <div class="rc-desc">Definitions of key video poker terms -- RTP, variance, pay table, full pay, and more.</div>
+        </a>
+        <a class="related-card" href="faq.html">
+          <div class="rc-title">FAQ</div>
+          <div class="rc-desc">Frequently asked questions about video poker odds, game selection, and bankroll management.</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="category-classic.html">Classic</a>
+      <a href="category-bonus.html">Bonus</a>
+      <a href="category-wild.html">Wild</a>
+      <a href="category-joker.html">Joker</a>
+      <a href="sitemap.html">Sitemap</a>
+    </div>
+    <div class="footer-note">VIDEO POKER CLASSIC &bull; 120 FREE GAMES</div>
+  </div>
+</body>
+</html>

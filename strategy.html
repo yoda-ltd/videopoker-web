@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Video Poker Strategy Guide - Optimal Play Charts &amp; Tips | Video Poker Classic</title>
+<meta name="description" content="Master video poker with our comprehensive strategy guide. Optimal hold decisions for Jacks or Better, Bonus Poker, Deuces Wild, bankroll management tips, and expected return tables.">
+<!-- SEO-META-START -->
+<link rel="canonical" href="https://videopoker-web.pages.dev/strategy.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://videopoker-web.pages.dev/strategy.html">
+<meta property="og:title" content="Video Poker Strategy Guide - Optimal Play Charts &amp; Tips | Video Poker Classic">
+<meta property="og:description" content="Master video poker with our comprehensive strategy guide. Optimal hold decisions for Jacks or Better, Bonus Poker, Deuces Wild, bankroll management tips, and expected return tables.">
+<meta property="og:image" content="https://videopoker-web.pages.dev/assets/hero/hero-vp-premium.png">
+<meta property="og:site_name" content="Video Poker Classic">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Video Poker Strategy Guide - Optimal Play Charts &amp; Tips | Video Poker Classic">
+<meta name="twitter:description" content="Master video poker with our comprehensive strategy guide. Optimal hold decisions for Jacks or Better, Bonus Poker, Deuces Wild, bankroll management tips, and expected return tables.">
+<meta name="twitter:image" content="https://videopoker-web.pages.dev/assets/hero/hero-vp-premium.png">
+<!-- SEO-META-END -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Video Poker Strategy Guide - Optimal Play Charts & Tips","description":"Master video poker with our comprehensive strategy guide covering Jacks or Better, Bonus Poker, Deuces Wild, bankroll management, and expected return tables.","url":"https://videopoker-web.pages.dev/strategy.html","image":"https://videopoker-web.pages.dev/assets/hero/hero-vp-premium.png","author":{"@type":"Organization","name":"Video Poker Classic"},"publisher":{"@type":"Organization","name":"Video Poker Classic","url":"https://videopoker-web.pages.dev/"},"about":{"@type":"Thing","name":"Video Poker Strategy","description":"Optimal strategy and decision-making for video poker games"},"inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Video Poker Classic","url":"https://videopoker-web.pages.dev/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://videopoker-web.pages.dev/"},{"@type":"ListItem","position":2,"name":"Strategy Guide","item":"https://videopoker-web.pages.dev/strategy.html"}]}
+</script>
+<style>
+*{box-sizing:border-box}
+:root{--bg:#020816;--panel-border:#3f62c9;--gold:#ffe033;--muted:#9eb0d8;--red1:#ff5a37;--red2:#bf2100}
+body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradient(1200px 700px at 50% -120px,#1a1406 0,#070c1a 40%,var(--bg) 85%);color:#fff}
+.wrap{max-width:1080px;margin:0 auto;padding:18px 14px 34px}
+.marquee{text-align:center;padding:12px 10px;border:2px solid #a98a00;border-radius:8px;background:linear-gradient(180deg,#1a1200,#0b0700);box-shadow:0 0 18px rgba(255,208,0,.24),inset 0 1px 0 rgba(255,255,255,.15)}
+.marquee h1{margin:0;letter-spacing:3px;color:var(--gold);font-size:1.35rem;text-shadow:0 0 12px rgba(255,224,51,.5)}
+.marquee p{margin:8px 0 0;color:#c5b47a;font-size:.78rem;letter-spacing:1px}
+.breadcrumb{margin:10px 0 0;font-size:.72rem;color:#7f91b9;letter-spacing:1px}
+.breadcrumb a{color:var(--gold);text-decoration:none}.breadcrumb a:hover{text-decoration:underline}
+.cat-nav{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.cat-link{display:inline-block;padding:6px 12px;background:#000418;border:1px solid #1d2e5f;border-radius:6px;color:#9eb0d8;font-size:.72rem;text-decoration:none;letter-spacing:1px;transition:all .15s ease}
+.cat-link:hover{background:#001048;border-color:var(--gold);color:var(--gold)}
+.intro{margin:12px 0;padding:14px;background:#000418;border:1px solid #1d2e5f;border-radius:8px;color:#9eb0d8;font-size:.82rem;line-height:1.6;font-family:Arial,sans-serif}
+.cabinet{margin-top:14px;background:#000418;border:2px solid #1d2e5f;border-radius:10px;padding:14px}
+.cabinet h2{margin:0 0 12px;color:var(--gold);font-size:1.12rem;letter-spacing:1px;text-shadow:0 0 8px rgba(255,224,51,.3)}
+.cabinet h3{margin:16px 0 8px;color:#ffe99a;font-size:.92rem;letter-spacing:.5px}
+.cabinet p{margin:0 0 10px;color:var(--muted);font-size:.82rem;line-height:1.65;font-family:Arial,sans-serif}
+.cabinet ul,.cabinet ol{margin:0 0 12px;padding-left:22px;color:var(--muted);font-size:.82rem;line-height:1.7;font-family:Arial,sans-serif}
+.cabinet li{margin-bottom:4px}
+.cabinet strong{color:#fff}
+.cabinet a{color:var(--gold);text-decoration:none}.cabinet a:hover{text-decoration:underline}
+.strategy-table{width:100%;border-collapse:collapse;margin:12px 0;font-family:Arial,sans-serif;font-size:.78rem}
+.strategy-table th{background:#000;color:var(--gold);border:1px solid #2c2c2c;padding:8px 10px;text-align:left;font-size:.72rem;letter-spacing:1px}
+.strategy-table td{border:1px solid #1a2545;padding:7px 10px;color:var(--muted)}
+.strategy-table tr:nth-child(even) td{background:rgba(0,4,24,.5)}
+.strategy-table tr:hover td{background:rgba(63,98,201,.12)}
+.strategy-table .highlight{color:var(--gold);font-weight:bold}
+.strategy-table .rtp-high{color:#4cff7c}
+.strategy-table .rtp-over{color:#ff5a37;font-weight:bold}
+.tip-box{margin:12px 0;padding:12px;background:rgba(255,224,51,.06);border:1px solid rgba(255,224,51,.2);border-radius:6px;color:#ffe99a;font-size:.8rem;line-height:1.6;font-family:Arial,sans-serif}
+.tip-box strong{color:var(--gold)}
+.play-link{display:inline-block;margin:6px 8px 6px 0;padding:5px 12px;background:linear-gradient(180deg,var(--red1),var(--red2));border:1px solid #7d1600;border-radius:4px;color:#fff;font-size:.72rem;letter-spacing:1px;text-decoration:none;transition:filter .12s ease}
+.play-link:hover{filter:brightness(1.15);text-decoration:none}
+.section-nav{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.section-nav a{display:inline-block;padding:5px 10px;background:#000;border:1px solid #2c2c2c;border-radius:4px;color:var(--muted);font-size:.7rem;text-decoration:none;letter-spacing:.5px;transition:all .15s ease}
+.section-nav a:hover{border-color:var(--gold);color:var(--gold)}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:12px 0}
+.related-card{display:block;padding:12px;background:#000;border:1px solid #2c2c2c;border-radius:6px;color:var(--muted);font-size:.78rem;text-decoration:none;text-align:center;letter-spacing:.5px;transition:all .15s ease}
+.related-card:hover{border-color:var(--gold);color:var(--gold);background:#000418}
+.related-card span{display:block;color:var(--gold);font-size:.85rem;margin-bottom:4px;font-family:Arial Black,Arial,sans-serif}
+.footer-nav{margin-top:24px;padding:16px;background:#000418;border:1px solid #1d2e5f;border-radius:8px;text-align:center}
+.footer-nav a{color:#9eb0d8;text-decoration:none;font-size:.72rem;letter-spacing:1px;margin:0 10px}.footer-nav a:hover{color:var(--gold)}
+.footer-note{text-align:center;color:#7f91b9;font-size:.72rem;letter-spacing:1px;margin-top:14px}
+@media(max-width:640px){
+  .wrap{padding:12px 10px 26px}.marquee h1{font-size:1.04rem;letter-spacing:1.4px}.cabinet{padding:10px}
+  .cat-nav{gap:6px}.cat-link{padding:5px 8px;font-size:.64rem}
+  .strategy-table{font-size:.7rem}.strategy-table th,.strategy-table td{padding:5px 6px}
+  .section-nav a{font-size:.64rem;padding:4px 8px}
+  .related-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .footer-nav a{margin:0 6px;font-size:.64rem}
+}
+@media(max-width:380px){
+  .marquee h1{font-size:.95rem;letter-spacing:1px}
+  .cabinet h2{font-size:1rem}
+  .related-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="marquee">
+      <h1>VIDEO POKER STRATEGY GUIDE</h1>
+      <p>OPTIMAL PLAY DECISIONS FOR MAXIMUM RETURN</p>
+    </div>
+
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> &rsaquo; Strategy Guide
+    </div>
+
+    <div class="cat-nav">
+      <a class="cat-link" href="index.html">All Games</a>
+      <a class="cat-link" href="category-classic.html">Classic</a>
+      <a class="cat-link" href="category-bonus.html">Bonus</a>
+      <a class="cat-link" href="category-wild.html">Wild Card</a>
+      <a class="cat-link" href="category-joker.html">Joker</a>
+    </div>
+
+    <div class="intro">
+      Video poker is one of the few casino games where your decisions directly affect the outcome. Unlike slot machines, which are purely random, every hand of video poker presents you with a strategic choice: which cards to hold and which to discard. Learning the correct strategy can reduce the house edge to less than half a percent on the best pay tables, making video poker one of the most favorable games in the casino. This guide covers optimal strategy for the most popular variants, bankroll management principles, and the expected return for each game type.
+    </div>
+
+    <!-- Section Navigation -->
+    <div class="section-nav">
+      <a href="#jacks-or-better">Jacks or Better</a>
+      <a href="#bonus-poker">Bonus Poker</a>
+      <a href="#deuces-wild">Deuces Wild</a>
+      <a href="#bankroll">Bankroll Management</a>
+      <a href="#mistakes">Common Mistakes</a>
+      <a href="#rtp-table">Expected Returns</a>
+      <a href="#related">Related Pages</a>
+    </div>
+
+    <!-- Section 1: Jacks or Better Strategy -->
+    <div class="cabinet" id="jacks-or-better">
+      <h2>Jacks or Better Strategy &mdash; The Foundation</h2>
+      <p>Jacks or Better is the most common and most important video poker game to master. Once you learn correct strategy here, you can adapt it to almost every other variant. The full-pay (9/6) version returns 99.54% with perfect play, making it one of the best bets available.</p>
+
+      <h3>Core Strategy Rules (Priority Order)</h3>
+      <ol>
+        <li><strong>Always hold a winning hand</strong> &mdash; If you are dealt a pat hand that pays (pair of Jacks or better through Royal Flush), hold it unless a better draw opportunity exists higher on this list.</li>
+        <li><strong>Hold 4 to a Royal Flush over anything</strong> except a made Royal Flush or Straight Flush. Four to a Royal is the strongest draw in the game and should almost never be broken.</li>
+        <li><strong>Hold 4 to a Flush over a low pair.</strong> The Flush draw (4 suited cards) has higher expected value than keeping a small pair (2s through 10s).</li>
+        <li><strong>Hold a low pair over 4 to a Straight.</strong> A pair of 2s through 10s is worth more than an open-ended or inside straight draw because the pair can improve to trips, full houses, and quads.</li>
+        <li><strong>Hold 3 to a Royal Flush over a high pair.</strong> Three suited Royal cards (e.g., J-Q-K suited) have higher expected value than a lone pair of Jacks, Queens, Kings, or Aces. This is one of the most commonly misplayed hands.</li>
+        <li><strong>Hold high cards (Jacks or better).</strong> When you have no pair or draw, hold any combination of Jacks, Queens, Kings, or Aces. Prefer two high cards of the same suit over two off-suit.</li>
+      </ol>
+
+      <h3>Key Decision Table &mdash; Common Hands</h3>
+      <table class="strategy-table">
+        <thead>
+          <tr>
+            <th>DEALT HAND</th>
+            <th>CORRECT HOLD</th>
+            <th>EXPECTED VALUE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Royal Flush</td>
+            <td class="highlight">Hold all 5</td>
+            <td>800.00</td>
+          </tr>
+          <tr>
+            <td>Straight Flush</td>
+            <td class="highlight">Hold all 5</td>
+            <td>50.00</td>
+          </tr>
+          <tr>
+            <td>Four of a Kind</td>
+            <td class="highlight">Hold all 5</td>
+            <td>25.00</td>
+          </tr>
+          <tr>
+            <td>4 to a Royal Flush</td>
+            <td class="highlight">Hold 4, draw 1</td>
+            <td>18.66</td>
+          </tr>
+          <tr>
+            <td>Full House</td>
+            <td class="highlight">Hold all 5</td>
+            <td>9.00</td>
+          </tr>
+          <tr>
+            <td>Flush</td>
+            <td class="highlight">Hold all 5</td>
+            <td>6.00</td>
+          </tr>
+          <tr>
+            <td>3 of a Kind</td>
+            <td class="highlight">Hold 3, draw 2</td>
+            <td>4.30</td>
+          </tr>
+          <tr>
+            <td>Straight</td>
+            <td class="highlight">Hold all 5</td>
+            <td>4.00</td>
+          </tr>
+          <tr>
+            <td>Two Pair</td>
+            <td class="highlight">Hold both pairs, draw 1</td>
+            <td>2.60</td>
+          </tr>
+          <tr>
+            <td>4 to a Straight Flush</td>
+            <td class="highlight">Hold 4, draw 1</td>
+            <td>2.56</td>
+          </tr>
+          <tr>
+            <td>High Pair (JJ, QQ, KK, AA)</td>
+            <td class="highlight">Hold pair, draw 3</td>
+            <td>1.54</td>
+          </tr>
+          <tr>
+            <td>3 to a Royal Flush</td>
+            <td class="highlight">Hold 3, draw 2</td>
+            <td>1.41</td>
+          </tr>
+          <tr>
+            <td>4 to a Flush</td>
+            <td class="highlight">Hold 4, draw 1</td>
+            <td>1.22</td>
+          </tr>
+          <tr>
+            <td>Low Pair (22-1010)</td>
+            <td class="highlight">Hold pair, draw 3</td>
+            <td>0.82</td>
+          </tr>
+          <tr>
+            <td>4 to an Open-Ended Straight</td>
+            <td class="highlight">Hold 4, draw 1</td>
+            <td>0.68</td>
+          </tr>
+          <tr>
+            <td>2 High Cards (same suit)</td>
+            <td class="highlight">Hold 2, draw 3</td>
+            <td>0.58</td>
+          </tr>
+          <tr>
+            <td>3 to a Straight Flush</td>
+            <td class="highlight">Hold 3, draw 2</td>
+            <td>0.54</td>
+          </tr>
+          <tr>
+            <td>2 High Cards (off-suit)</td>
+            <td class="highlight">Hold 2, draw 3</td>
+            <td>0.49</td>
+          </tr>
+          <tr>
+            <td>1 High Card (J, Q, K, A)</td>
+            <td class="highlight">Hold 1, draw 4</td>
+            <td>0.47</td>
+          </tr>
+          <tr>
+            <td>No High Cards, No Draw</td>
+            <td class="highlight">Draw all 5</td>
+            <td>0.36</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        <strong>Pro Tip:</strong> Always bet maximum coins (5 credits). The Royal Flush bonus for max bet (4000 coins vs. 1250 for 4 coins) is the single biggest factor in achieving the theoretical 99.54% return. Without max bet, the return drops to approximately 98.37%.
+      </div>
+
+      <a class="play-link" href="games/jacks-or-better.html">PLAY JACKS OR BETTER</a>
+      <a class="play-link" href="games/jacks-or-better-95.html">PLAY 9/5 JoB</a>
+      <a class="play-link" href="games/jacks-or-better-85.html">PLAY 8/5 JoB</a>
+    </div>
+
+    <!-- Section 2: Bonus Poker Strategy -->
+    <div class="cabinet" id="bonus-poker">
+      <h2>Bonus Poker Strategy Adjustments</h2>
+      <p>Bonus Poker variants add premium payouts for certain four-of-a-kind hands. This changes the optimal strategy because some quads are now worth significantly more. The core Jacks or Better strategy still applies, but several key adjustments are needed to maximize your return.</p>
+
+      <h3>How Bonus Games Change Strategy</h3>
+      <ul>
+        <li><strong>Four Aces pay a premium</strong> &mdash; In most Bonus Poker games, Four Aces pay 80 coins (vs. 25 in Jacks or Better). This means you should hold three Aces more aggressively, even breaking a made straight or flush to do so.</li>
+        <li><strong>Four 2s, 3s, and 4s</strong> also carry enhanced payouts (typically 40 coins). Hold three low cards of the same rank when you have them, even over a high pair.</li>
+        <li><strong>Hold three to Four Aces over other hands</strong> &mdash; If you are dealt three Aces, always keep them and draw two. The premium payout makes this the correct play even over a made flush or straight.</li>
+        <li><strong>In Double Bonus</strong>, the Four Aces payout jumps to 160 coins. This dramatically increases the value of Ace-heavy draws. Break a flush or straight to hold three Aces.</li>
+        <li><strong>In Double Double Bonus</strong>, look for kickers (a specific fifth card paired with four of a kind). Four Aces with a 2, 3, or 4 kicker pays 400 coins at max bet. This is the highest-impact adjustment in the entire variant family.</li>
+      </ul>
+
+      <h3>Bonus Poker Decision Priority Adjustments</h3>
+      <table class="strategy-table">
+        <thead>
+          <tr>
+            <th>SCENARIO</th>
+            <th>STANDARD JoB</th>
+            <th>BONUS POKER</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>3 Aces vs. Made Flush</td>
+            <td>Hold Flush</td>
+            <td class="highlight">Hold 3 Aces</td>
+          </tr>
+          <tr>
+            <td>3 Aces vs. Made Straight</td>
+            <td>Hold Straight</td>
+            <td class="highlight">Hold 3 Aces</td>
+          </tr>
+          <tr>
+            <td>3 Low (2-4) vs. High Pair</td>
+            <td>Hold High Pair</td>
+            <td class="highlight">Hold 3 Low Cards</td>
+          </tr>
+          <tr>
+            <td>Pair of Aces vs. 4 to Flush</td>
+            <td>Hold 4 to Flush</td>
+            <td class="highlight">Hold Pair of Aces</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        <strong>Pro Tip:</strong> In Double Bonus and Double Double Bonus, the variance is significantly higher than standard Jacks or Better. You will experience longer losing streaks, but the premium quad payouts compensate over time. Ensure your bankroll can handle the swings.
+      </div>
+
+      <a class="play-link" href="games/bonus-poker.html">PLAY BONUS POKER</a>
+      <a class="play-link" href="games/double-bonus-poker.html">PLAY DOUBLE BONUS</a>
+      <a class="play-link" href="games/double-double-bonus-poker.html">PLAY DOUBLE DOUBLE BONUS</a>
+      <a class="play-link" href="games/bonus-poker-deluxe.html">PLAY BONUS DELUXE</a>
+    </div>
+
+    <!-- Section 3: Deuces Wild Strategy -->
+    <div class="cabinet" id="deuces-wild">
+      <h2>Deuces Wild Strategy &mdash; A Different Game Entirely</h2>
+      <p>Deuces Wild uses a completely different strategy from Jacks or Better and Bonus Poker. All four 2s are wild cards, which fundamentally changes hand rankings and optimal play. The minimum paying hand is Three of a Kind (since pairs are too easy with wild cards), and the full-pay version returns an exceptional 100.76% with perfect play &mdash; making it a positive-expectation game.</p>
+
+      <h3>Strategy by Number of Deuces</h3>
+
+      <h3>Four Deuces (1 in 4,900 hands)</h3>
+      <ul>
+        <li><strong>Always hold all four deuces.</strong> Four Deuces pays 200 coins (1000 at max bet). There is no draw that can improve this hand. Hold and collect.</li>
+      </ul>
+
+      <h3>Three Deuces (1 in 47 hands)</h3>
+      <ul>
+        <li><strong>Hold all three deuces unless you have a made Royal Flush.</strong> A pat Wild Royal (three 2s plus two suited Royal cards) should be held. Otherwise, discard the two non-deuce cards and draw.</li>
+        <li>Never break three deuces to draw to a non-Royal hand.</li>
+      </ul>
+
+      <h3>Two Deuces (1 in 8 hands)</h3>
+      <ul>
+        <li><strong>Hold four to a Royal Flush</strong> &mdash; If you have two deuces plus two suited Royal cards (10, J, Q, K, A), hold all four and draw one.</li>
+        <li><strong>Hold any made paying hand</strong> (Four of a Kind or better). Do not break quads to draw to a Wild Royal.</li>
+        <li><strong>Otherwise, hold just the two deuces</strong> and draw three cards. The two deuces alone give you a guaranteed Three of a Kind or better on the redraw.</li>
+      </ul>
+
+      <h3>One Deuce (1 in 3 hands)</h3>
+      <ul>
+        <li>Hold any paying hand (Three of a Kind or better), except break a made Flush or Straight to draw to a Royal Flush.</li>
+        <li>Hold four to a Royal Flush.</li>
+        <li>Hold four to a Straight Flush.</li>
+        <li>Hold any Three of a Kind or better made hand.</li>
+        <li>Hold three to a Royal Flush.</li>
+        <li>Hold four to a Flush.</li>
+        <li>Hold four to an open-ended Straight.</li>
+        <li>If none of the above apply, hold just the deuce and draw four.</li>
+      </ul>
+
+      <h3>No Deuces (1 in 2 hands)</h3>
+      <ul>
+        <li>Play similarly to standard strategy, but with critical differences:</li>
+        <li><strong>Do not hold single high cards.</strong> Without a deuce, a single Jack, Queen, King, or Ace has no special value because the minimum hand is Three of a Kind.</li>
+        <li>Hold four to a Royal Flush, Straight Flush, or Flush.</li>
+        <li>Hold made paying hands (Two Pair or better).</li>
+        <li>Hold three to a Royal Flush.</li>
+        <li>Hold pairs (to draw for trips).</li>
+        <li>Hold four to an open-ended Straight.</li>
+        <li>Hold three to a Straight Flush.</li>
+        <li>If nothing applies, draw all five cards.</li>
+      </ul>
+
+      <div class="tip-box">
+        <strong>Key Rule:</strong> Never hold a kicker (an extra card alongside a paying combination) in Deuces Wild. If you have three 7s plus an Ace kicker, discard the Ace and draw two cards &mdash; the kicker reduces your chances of improving to Four of a Kind or better.
+      </div>
+
+      <a class="play-link" href="games/deuces-wild.html">PLAY DEUCES WILD</a>
+      <a class="play-link" href="games/bonus-deuces-wild.html">PLAY BONUS DEUCES</a>
+      <a class="play-link" href="games/loose-deuces-wild.html">PLAY LOOSE DEUCES</a>
+      <a class="play-link" href="games/nsu-deuces-wild.html">PLAY NSU DEUCES</a>
+    </div>
+
+    <!-- Section 4: Bankroll Management -->
+    <div class="cabinet" id="bankroll">
+      <h2>Bankroll Management for Video Poker</h2>
+      <p>Proper bankroll management is essential for surviving the natural variance in video poker. Even with perfect strategy, you will experience extended losing sessions. The recommended bankroll depends on the game variant, its variance profile, and how long you plan to play.</p>
+
+      <h3>Recommended Bankroll by Game Type</h3>
+      <table class="strategy-table">
+        <thead>
+          <tr>
+            <th>GAME TYPE</th>
+            <th>VARIANCE</th>
+            <th>MIN. BANKROLL (BETS)</th>
+            <th>COMFORTABLE BANKROLL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="games/jacks-or-better.html">Jacks or Better 9/6</a></td>
+            <td>Low</td>
+            <td>200 bets</td>
+            <td>500 bets</td>
+          </tr>
+          <tr>
+            <td><a href="games/bonus-poker.html">Bonus Poker 8/5</a></td>
+            <td>Medium</td>
+            <td>300 bets</td>
+            <td>700 bets</td>
+          </tr>
+          <tr>
+            <td><a href="games/double-bonus-poker.html">Double Bonus 10/6</a></td>
+            <td>High</td>
+            <td>500 bets</td>
+            <td>1,000 bets</td>
+          </tr>
+          <tr>
+            <td><a href="games/double-double-bonus-poker.html">Double Double Bonus 9/6</a></td>
+            <td>Very High</td>
+            <td>600 bets</td>
+            <td>1,200 bets</td>
+          </tr>
+          <tr>
+            <td><a href="games/deuces-wild.html">Deuces Wild (Full Pay)</a></td>
+            <td>High</td>
+            <td>500 bets</td>
+            <td>1,000 bets</td>
+          </tr>
+          <tr>
+            <td><a href="games/joker-poker.html">Joker Poker (Kings+)</a></td>
+            <td>High</td>
+            <td>500 bets</td>
+            <td>1,000 bets</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Variance by Category</h3>
+      <ul>
+        <li><strong><a href="category-classic.html">Classic games</a> = Low variance.</strong> Jacks or Better and similar games pay frequently with small wins. Pairs of Jacks or better hit roughly 21% of the time. Your bankroll fluctuates less, making these ideal for beginners.</li>
+        <li><strong><a href="category-bonus.html">Bonus games</a> = Medium to High variance.</strong> The premium quad payouts mean bigger wins but less frequent payoffs. You will go through longer dry spells waiting for those Aces or low quads to hit.</li>
+        <li><strong><a href="category-wild.html">Wild Card games</a> = High variance.</strong> Deuces Wild and other wild-card games concentrate the return into rare, high-paying hands. The minimum qualifying hand (Three of a Kind) means fewer small wins. Prepare for larger bankroll swings.</li>
+      </ul>
+
+      <div class="tip-box">
+        <strong>Bankroll Rule:</strong> Never risk more than you can afford to lose. Set a session loss limit before you start playing, and stop when you reach it. Similarly, set a win goal and consider locking up some profit when you reach it. Discipline is as important as strategy.
+      </div>
+    </div>
+
+    <!-- Section 5: Common Mistakes -->
+    <div class="cabinet" id="mistakes">
+      <h2>Top 5 Video Poker Mistakes to Avoid</h2>
+      <p>Even experienced players make costly strategy errors. Correcting these five common mistakes can significantly improve your expected return across all video poker variants.</p>
+
+      <ol>
+        <li>
+          <strong>Not betting maximum coins.</strong> The Royal Flush pays a disproportionately large bonus at max bet (800-for-1 instead of 250-for-1). Playing fewer than 5 coins reduces your overall return by more than 1%. If the max bet denomination is too high, move to a lower denomination machine and always bet 5 coins.
+        </li>
+        <li>
+          <strong>Holding a kicker with a pair.</strong> Many players keep an Ace alongside a pair of Kings (K-K-A), hoping to hit a Full House. This actually reduces your expected value because it limits the number of cards you can draw. Always discard the kicker and draw three cards to maximize your chance of trips, quads, or a full house.
+        </li>
+        <li>
+          <strong>Breaking a winning hand for a long-shot draw.</strong> Never break a paying Flush to draw to a Straight Flush (unless it is a Royal Flush draw). The math rarely supports chasing the bigger hand when you already have a guaranteed payout in hand.
+        </li>
+        <li>
+          <strong>Keeping three to a Straight over a low pair.</strong> A low pair (2s through 10s) has higher expected value than three to an open-ended straight. The pair gives you drawing chances to trips, full houses, and quads, while the straight draw can only improve to a straight.
+        </li>
+        <li>
+          <strong>Playing unfavorable pay tables.</strong> Not all machines with the same name have the same pay table. A <a href="games/jacks-or-better.html">9/6 Jacks or Better</a> (Full House pays 9, Flush pays 6) returns 99.54%, while an <a href="games/jacks-or-better-65.html">6/5 version</a> returns only 95.00%. Always check the pay table before you play &mdash; the difference can be several percentage points.
+        </li>
+      </ol>
+    </div>
+
+    <!-- Section 6: Expected Return Table -->
+    <div class="cabinet" id="rtp-table">
+      <h2>Expected Return Table &mdash; Popular Video Poker Games</h2>
+      <p>The theoretical return-to-player (RTP) represents the percentage of wagered money a game returns to players over millions of hands, assuming perfect strategy. Games above 100% are mathematically favorable to the player with perfect play.</p>
+
+      <table class="strategy-table">
+        <thead>
+          <tr>
+            <th>GAME</th>
+            <th>PAY TABLE</th>
+            <th>RTP (PERFECT PLAY)</th>
+            <th>CATEGORY</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="games/deuces-wild.html">Deuces Wild</a></td>
+            <td>Full Pay (25/15/9/5/3/2/1)</td>
+            <td class="rtp-over">100.76%</td>
+            <td><a href="category-wild.html">Wild Card</a></td>
+          </tr>
+          <tr>
+            <td><a href="games/joker-poker.html">Joker Poker (Kings+)</a></td>
+            <td>Full Pay</td>
+            <td class="rtp-over">100.64%</td>
+            <td><a href="category-joker.html">Joker</a></td>
+          </tr>
+          <tr>
+            <td><a href="games/double-bonus-poker.html">Double Bonus Poker</a></td>
+            <td>10/6</td>
+            <td class="rtp-over">100.17%</td>
+            <td><a href="category-bonus.html">Bonus</a></td>
+          </tr>
+          <tr>
+            <td><a href="games/jacks-or-better.html">Jacks or Better</a></td>
+            <td>9/6 (Full Pay)</td>
+            <td class="rtp-high">99.54%</td>
+            <td><a href="category-classic.html">Classic</a></td>
+          </tr>
+          <tr>
+            <td><a href="games/bonus-poker.html">Bonus Poker</a></td>
+            <td>8/5</td>
+            <td class="rtp-high">99.17%</td>
+            <td><a href="category-bonus.html">Bonus</a></td>
+          </tr>
+          <tr>
+            <td><a href="games/double-double-bonus-poker.html">Double Double Bonus</a></td>
+            <td>9/6</td>
+            <td>98.98%</td>
+            <td><a href="category-bonus.html">Bonus</a></td>
+          </tr>
+          <tr>
+            <td><a href="games/all-american-poker.html">All American Poker</a></td>
+            <td>8/8/8/1</td>
+            <td class="rtp-high">99.60%</td>
+            <td><a href="category-classic.html">Classic</a></td>
+          </tr>
+          <tr>
+            <td><a href="games/bonus-deuces-wild.html">Bonus Deuces Wild</a></td>
+            <td>Full Pay</td>
+            <td class="rtp-high">99.45%</td>
+            <td><a href="category-wild.html">Wild Card</a></td>
+          </tr>
+          <tr>
+            <td><a href="games/loose-deuces-wild.html">Loose Deuces Wild</a></td>
+            <td>Full Pay (15/10)</td>
+            <td class="rtp-over">100.97%</td>
+            <td><a href="category-wild.html">Wild Card</a></td>
+          </tr>
+          <tr>
+            <td><a href="games/jacks-or-better-85.html">Jacks or Better 8/5</a></td>
+            <td>8/5</td>
+            <td>97.30%</td>
+            <td><a href="category-classic.html">Classic</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="tip-box">
+        <strong>Note:</strong> Games showing over 100% RTP are mathematically favorable to the player &mdash; but only with perfect strategy on every single hand. Even minor deviations from optimal play can push the return below 100%. Use our free games to practice and master the strategy before playing for real.
+      </div>
+    </div>
+
+    <!-- Section 7: Related Pages -->
+    <div class="cabinet" id="related">
+      <h2>Related Pages &amp; Resources</h2>
+      <p>Continue learning about video poker with these additional guides and tools available on our site.</p>
+
+      <div class="related-grid">
+        <a class="related-card" href="how-to-play.html">
+          <span>How to Play</span>
+          Learn the basics of video poker gameplay
+        </a>
+        <a class="related-card" href="odds.html">
+          <span>Odds &amp; Probabilities</span>
+          Hand frequencies and mathematical odds
+        </a>
+        <a class="related-card" href="glossary.html">
+          <span>Glossary</span>
+          Video poker terms and definitions
+        </a>
+        <a class="related-card" href="faq.html">
+          <span>FAQ</span>
+          Frequently asked questions
+        </a>
+      </div>
+
+      <p>Ready to practice your strategy? Jump into any of our 120 free video poker games:</p>
+
+      <div class="section-nav">
+        <a href="category-classic.html">Classic Games</a>
+        <a href="category-bonus.html">Bonus Poker Games</a>
+        <a href="category-wild.html">Wild Card Games</a>
+        <a href="category-joker.html">Joker Poker Games</a>
+        <a href="index.html">Full Game Lobby</a>
+      </div>
+    </div>
+
+    <div class="footer-note">DESIGNED IN CLASSIC VIDEO POKER MACHINE STYLE</div>
+  </div>
+<!-- FOOTER-NAV-START -->
+<div class="footer-nav">
+  <a href="index.html">Home</a>
+  <a href="category-classic.html">Classic</a>
+  <a href="category-bonus.html">Bonus</a>
+  <a href="category-wild.html">Wild</a>
+  <a href="category-joker.html">Joker</a>
+  <a href="sitemap.html">Sitemap</a>
+</div>
+<style>.footer-nav{margin-top:16px;padding:14px;background:#000418;border:1px solid #1d2e5f;border-radius:8px;text-align:center}.footer-nav a{color:#9eb0d8;text-decoration:none;font-size:.72rem;letter-spacing:1px;margin:0 10px}.footer-nav a:hover{color:#ffe033}</style>
+<!-- FOOTER-NAV-END -->
+</body>
+</html>

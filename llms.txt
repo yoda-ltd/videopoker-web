@@ -1,0 +1,79 @@
+# Video Poker Classic
+
+> Play 120 free video poker games online. No download, no registration. Browser-based with optimal strategy guides.
+
+## Site Overview
+
+Video Poker Classic is a free-to-play video poker platform offering 120 game variants across 4 categories. All games run in the browser with no download or registration required. Each game includes a detailed strategy guide, probability analysis, and pay table reference.
+
+## Game Categories
+
+### Classic Video Poker (17 games)
+Traditional draw poker with standard payouts. The foundation of video poker.
+- Jacks or Better (9/6 Full Pay — 99.54% RTP)
+- Tens or Better, Nines or Better, Kings or Better
+- Multiple pay table variants (9/5, 8/6, 8/5, 7/5, 6/5)
+- URL: https://videopoker-web.pages.dev/category-classic.html
+
+### Bonus Poker Games (52 games)
+Enhanced payouts for specific four-of-a-kind hands. Higher variance, bigger potential wins.
+- Bonus Poker, Double Bonus, Double Double Bonus
+- Triple Bonus, Triple Double Bonus
+- Aces and Faces, Aces and Eights, White Hot Aces
+- All American Poker, Super Double Bonus
+- URL: https://videopoker-web.pages.dev/category-bonus.html
+
+### Wild Card Games (35 games)
+Games featuring wild cards that substitute for any card.
+- Deuces Wild (Full Pay — 100.76% RTP)
+- Bonus Deuces Wild, Loose Deuces Wild
+- Sevens Wild, Threes Wild, Fours Wild
+- Multiple regional variants (NSU, Downtown, Vegas Strip, etc.)
+- URL: https://videopoker-web.pages.dev/category-wild.html
+
+### Joker Poker Games (16 games)
+Games using a 53-card deck with one or two Jokers as wild cards.
+- Joker Poker (Kings or Better — 100.64% RTP)
+- Joker Poker Aces, Joker Poker Two Pair
+- Double Joker Poker, Deuces and Joker Wild
+- URL: https://videopoker-web.pages.dev/category-joker.html
+
+## Key Facts
+
+- Total games: 120 video poker variants
+- Price: Free (play money only, no real money gambling)
+- Platform: Web browser (desktop and mobile)
+- Technology: Pure static HTML/CSS/JS, no framework
+- RTP range: 94.82% to 100.76% with optimal play
+- Best RTP: Deuces Wild Full Pay (100.76%), Joker Poker Kings+ (100.64%), Double Bonus 10/6 (100.17%)
+- Each game includes: interactive game, pay table, strategy guide, probability analysis
+
+## Informational Resources
+
+- How to Play Video Poker: https://videopoker-web.pages.dev/how-to-play.html
+- Video Poker Strategy Guide: https://videopoker-web.pages.dev/strategy.html
+- Odds & Probability Guide: https://videopoker-web.pages.dev/odds.html
+- Video Poker Glossary: https://videopoker-web.pages.dev/glossary.html
+- Frequently Asked Questions: https://videopoker-web.pages.dev/faq.html
+
+## Popular Games
+
+| Game | RTP | Variance | URL |
+|------|-----|----------|-----|
+| Jacks or Better 9/6 | 99.54% | Low | https://videopoker-web.pages.dev/games/jacks-or-better.html |
+| Deuces Wild (Full Pay) | 100.76% | Medium | https://videopoker-web.pages.dev/games/deuces-wild.html |
+| Double Bonus 10/6 | 100.17% | High | https://videopoker-web.pages.dev/games/double-bonus-106.html |
+| Joker Poker (Kings+) | 100.64% | Medium | https://videopoker-web.pages.dev/games/joker-poker.html |
+| Bonus Poker 8/5 | 99.17% | Medium | https://videopoker-web.pages.dev/games/bonus-poker.html |
+| Double Double Bonus 9/6 | 98.98% | Very High | https://videopoker-web.pages.dev/games/double-double-bonus-poker.html |
+| Triple Double Bonus 9/7 | 99.58% | Extreme | https://videopoker-web.pages.dev/games/triple-double-bonus-poker.html |
+| All American Poker | 100.72% | Medium | https://videopoker-web.pages.dev/games/all-american-poker.html |
+| Aces and Faces | 99.26% | Medium | https://videopoker-web.pages.dev/games/aces-and-faces.html |
+| NSU Deuces Wild | 99.73% | Medium | https://videopoker-web.pages.dev/games/nsu-deuces-wild.html |
+
+## Site Map
+
+- Homepage: https://videopoker-web.pages.dev/
+- Sitemap (HTML): https://videopoker-web.pages.dev/sitemap.html
+- Sitemap (XML): https://videopoker-web.pages.dev/sitemap.xml
+- All 120 games: https://videopoker-web.pages.dev/games/{game-id}.html

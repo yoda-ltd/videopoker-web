@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Video Poker Glossary - Terms &amp; Definitions | Video Poker Classic</title>
+<meta name="description" content="Complete video poker glossary with 50+ terms and definitions. Learn the meaning of bankroll, expected value, full pay, royal flush, wild card, and more video poker terminology.">
+<!-- SEO-META-START -->
+<link rel="canonical" href="https://videopoker-web.pages.dev/glossary.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://videopoker-web.pages.dev/glossary.html">
+<meta property="og:title" content="Video Poker Glossary - Terms &amp; Definitions | Video Poker Classic">
+<meta property="og:description" content="Complete video poker glossary with 50+ terms and definitions. Learn the meaning of bankroll, expected value, full pay, royal flush, wild card, and more video poker terminology.">
+<meta property="og:image" content="https://videopoker-web.pages.dev/assets/hero/hero-vp-premium.png">
+<meta property="og:site_name" content="Video Poker Classic">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Video Poker Glossary - Terms &amp; Definitions | Video Poker Classic">
+<meta name="twitter:description" content="Complete video poker glossary with 50+ terms and definitions. Learn the meaning of bankroll, expected value, full pay, royal flush, wild card, and more video poker terminology.">
+<meta name="twitter:image" content="https://videopoker-web.pages.dev/assets/hero/hero-vp-premium.png">
+<!-- SEO-META-END -->
+<style>
+*{box-sizing:border-box}
+:root{--bg:#020816;--panel-border:#3f62c9;--gold:#ffe033;--muted:#9eb0d8;--red1:#ff5a37;--red2:#bf2100}
+body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradient(1200px 700px at 50% -120px,#1a1406 0,#070c1a 40%,var(--bg) 85%);color:#fff}
+.wrap{max-width:1080px;margin:0 auto;padding:18px 14px 34px}
+.marquee{text-align:center;padding:12px 10px;border:2px solid #a98a00;border-radius:8px;background:linear-gradient(180deg,#1a1200,#0b0700);box-shadow:0 0 18px rgba(255,208,0,.24),inset 0 1px 0 rgba(255,255,255,.15)}
+.marquee h1{margin:0;letter-spacing:4px;color:var(--gold);font-size:1.45rem;text-shadow:0 0 12px rgba(255,224,51,.5)}
+.marquee p{margin:8px 0 0;color:#c5b47a;font-size:.83rem;letter-spacing:1px}
+
+/* Breadcrumb */
+.breadcrumb{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:4px;font-size:.78rem}
+.breadcrumb li{display:flex;align-items:center;gap:4px}
+.breadcrumb li+li::before{content:">";color:#5a6a8a}
+.breadcrumb a{color:var(--muted);text-decoration:none;font-family:Arial,sans-serif}
+.breadcrumb a:hover{color:var(--gold);text-decoration:underline}
+.breadcrumb .current{color:#fff;font-family:Arial,sans-serif}
+
+/* Category navigation */
+.cat-nav{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;justify-content:center}
+.cat-nav a{display:inline-block;background:linear-gradient(180deg,#00018a,#00006e);border:1px solid var(--panel-border);border-radius:5px;padding:8px 14px;color:var(--gold);font-size:.78rem;letter-spacing:1px;text-decoration:none;transition:transform .12s ease,filter .12s ease}
+.cat-nav a:hover{transform:translateY(-2px);filter:brightness(1.15)}
+
+/* Cabinet */
+.cabinet{margin-top:14px;background:#000418;border:2px solid #1d2e5f;border-radius:10px;padding:14px}
+.panel-head{display:flex;justify-content:space-between;align-items:center;background:#000;border:1px solid #2c2c2c;border-radius:6px;padding:8px 12px;margin-bottom:12px}
+.panel-head .label{color:#78839b;font-size:.72rem;letter-spacing:2px}
+.panel-head .value{color:var(--gold);font-size:1.2rem}
+
+/* Letter index nav */
+.letter-nav{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px;justify-content:center}
+.letter-nav a{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:linear-gradient(180deg,#0a0e2a,#060a1a);border:1px solid var(--panel-border);border-radius:4px;color:var(--gold);font-size:.82rem;text-decoration:none;transition:background .12s ease,transform .1s ease}
+.letter-nav a:hover{background:linear-gradient(180deg,#00018a,#00006e);transform:translateY(-1px)}
+
+/* Letter sections */
+.letter-section{margin-bottom:20px}
+.letter-header{display:flex;align-items:center;gap:10px;padding:8px 14px;margin-bottom:10px;background:linear-gradient(180deg,#0a0e2a,#060a1a);border:1px solid var(--panel-border);border-radius:6px}
+.letter-header h2{margin:0;color:var(--gold);font-size:1.2rem;letter-spacing:3px;text-shadow:0 0 8px rgba(255,224,51,.3)}
+
+/* Term items */
+.term-item{padding:12px 14px;margin-bottom:6px;background:linear-gradient(180deg,rgba(0,1,138,.15),rgba(0,0,110,.1));border:1px solid rgba(63,98,201,.25);border-radius:5px;transition:border-color .12s ease}
+.term-item:hover{border-color:var(--panel-border)}
+.term-name{color:var(--gold);font-size:.95rem;font-weight:bold;letter-spacing:1px;margin-bottom:4px}
+.term-def{color:var(--muted);font-size:.82rem;font-family:Arial,sans-serif;line-height:1.55}
+.term-def a{color:var(--gold);text-decoration:none;font-family:Arial,sans-serif}
+.term-def a:hover{text-decoration:underline}
+.term-example{display:block;margin-top:5px;color:#7f91b9;font-size:.78rem;font-style:italic;font-family:Arial,sans-serif}
+
+/* Related pages */
+.related-section{margin-top:20px}
+.related-header{display:flex;align-items:center;gap:10px;padding:8px 14px;margin-bottom:10px;background:linear-gradient(180deg,#0a0e2a,#060a1a);border:1px solid var(--panel-border);border-radius:6px}
+.related-header h2{margin:0;color:var(--gold);font-size:1rem;letter-spacing:2px;text-shadow:0 0 8px rgba(255,224,51,.3)}
+.related-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px}
+.related-link{display:flex;align-items:center;gap:8px;padding:10px 14px;text-decoration:none;color:#fff;background:linear-gradient(180deg,rgba(0,1,138,.3),rgba(0,0,110,.2));border:1px solid rgba(63,98,201,.3);border-radius:5px;transition:background .12s ease,border-color .12s ease,transform .1s ease;font-family:Arial,sans-serif;font-size:.85rem;line-height:1.3}
+.related-link:hover{background:linear-gradient(180deg,rgba(0,1,138,.6),rgba(0,0,110,.4));border-color:var(--panel-border);transform:translateX(3px)}
+.related-link .arrow{color:var(--gold);font-size:.7rem;margin-left:auto;flex-shrink:0;opacity:.6;transition:opacity .12s}
+.related-link:hover .arrow{opacity:1}
+
+/* Footer */
+.footer-note{text-align:center;color:#7f91b9;font-size:.72rem;letter-spacing:1px;margin-top:14px}
+.back-link{display:block;text-align:center;margin:18px 0 8px}
+.back-link a{color:var(--gold);font-size:.85rem;letter-spacing:1px;text-decoration:none;font-family:Arial,sans-serif}
+.back-link a:hover{text-decoration:underline}
+
+@media (max-width:640px){
+  .wrap{padding:12px 10px 26px}
+  .marquee{padding:10px 8px}
+  .marquee h1{font-size:1.04rem;letter-spacing:1.4px}
+  .cabinet{padding:10px}
+  .panel-head{padding:8px 10px}
+  .panel-head .label{font-size:.64rem;letter-spacing:1.4px}
+  .panel-head .value{font-size:.95rem}
+  .letter-nav a{width:28px;height:28px;font-size:.74rem}
+  .letter-header h2{font-size:1rem;letter-spacing:2px}
+  .term-name{font-size:.88rem}
+  .term-def{font-size:.78rem}
+  .related-links{grid-template-columns:1fr}
+  .cat-nav a{padding:6px 10px;font-size:.72rem}
+}
+@media (max-width:380px){
+  .marquee h1{font-size:.95rem;letter-spacing:1px}
+  .letter-header h2{font-size:.9rem;letter-spacing:1px}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://videopoker-web.pages.dev/"},{"@type":"ListItem","position":2,"name":"Glossary","item":"https://videopoker-web.pages.dev/glossary.html"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"DefinedTermSet","name":"Video Poker Glossary","description":"Comprehensive glossary of video poker terms, definitions, and terminology used in casino video poker games.","url":"https://videopoker-web.pages.dev/glossary.html","hasDefinedTerm":[
+{"@type":"DefinedTerm","name":"Action","description":"The total amount of money wagered by a player over a session or period of time. A measure of overall betting activity at a video poker machine."},
+{"@type":"DefinedTerm","name":"All-American Poker","description":"A video poker variant based on Jacks or Better with enhanced payouts for flushes, straights, and straight flushes, but reduced payouts for full houses and two pairs."},
+{"@type":"DefinedTerm","name":"Ante","description":"An initial bet or wager required to participate in a hand of video poker. In standard video poker, this is the coins or credits wagered before the deal."},
+{"@type":"DefinedTerm","name":"Bankroll","description":"The total amount of money a player has set aside specifically for playing video poker. Proper bankroll management is essential for sustained play."},
+{"@type":"DefinedTerm","name":"Bet Max","description":"A button that automatically wagers the maximum number of coins (usually 5) per hand. Playing max bet is recommended because it qualifies the player for the enhanced royal flush jackpot."},
+{"@type":"DefinedTerm","name":"Bonus Poker","description":"A video poker variant based on Jacks or Better that offers enhanced payouts for four-of-a-kind hands, with different bonus amounts depending on the rank of the four matching cards."},
+{"@type":"DefinedTerm","name":"Bust","description":"To lose all credits or bankroll during a video poker session. Also refers to a hand that fails to achieve a minimum qualifying payout."},
+{"@type":"DefinedTerm","name":"Coins","description":"The unit of wager in video poker. Most machines accept 1 to 5 coins per hand. Betting 5 coins (max bet) activates the bonus payout for a royal flush."},
+{"@type":"DefinedTerm","name":"Credits","description":"The balance displayed on the video poker machine representing the player's available funds. Credits are used to place bets and are increased by winning hands."},
+{"@type":"DefinedTerm","name":"Cycle","description":"The statistically average number of hands required to hit a specific hand combination. For example, a royal flush cycle in Jacks or Better is approximately 40,000 hands."},
+{"@type":"DefinedTerm","name":"Deal","description":"The initial distribution of five cards to the player at the start of a video poker hand. After the deal, the player decides which cards to hold and which to discard."},
+{"@type":"DefinedTerm","name":"Deuces Wild","description":"A popular video poker variant where all four 2s (deuces) act as wild cards and can substitute for any other card to form winning hands."},
+{"@type":"DefinedTerm","name":"Discard","description":"To release one or more cards from the initial five-card hand in order to receive replacement cards on the draw. Cards not held are discarded."},
+{"@type":"DefinedTerm","name":"Double Bonus Poker","description":"A Jacks or Better variant offering increased payouts for four-of-a-kind hands, with the highest bonus paid for four aces."},
+{"@type":"DefinedTerm","name":"Double Down","description":"A feature in some video poker machines that allows the player to risk their winnings from a hand in an attempt to double the payout."},
+{"@type":"DefinedTerm","name":"Double Up","description":"A gamble feature offered after a winning hand where the player can attempt to double their payout by correctly guessing whether a drawn card is higher or lower than the dealer's card."},
+{"@type":"DefinedTerm","name":"Draw","description":"The second phase of a video poker hand where discarded cards are replaced with new cards from the deck. The resulting five-card hand determines the payout."},
+{"@type":"DefinedTerm","name":"Edge","description":"The mathematical advantage one side has over the other. House edge is the casino's advantage; player edge exists in some full-pay video poker games when played with optimal strategy."},
+{"@type":"DefinedTerm","name":"Expected Value (EV)","description":"The average amount a player can expect to win or lose on a particular play or decision, expressed as a mathematical value. Used to determine optimal strategy."},
+{"@type":"DefinedTerm","name":"Expected Return","description":"The theoretical percentage of total money wagered that a video poker game will pay back over time. Expressed as a percentage, e.g., 99.54% for full-pay Jacks or Better."},
+{"@type":"DefinedTerm","name":"Five of a Kind","description":"A hand containing five cards of the same rank, only possible in games with wild cards. For example, in Deuces Wild, three deuces plus two kings equals five kings."},
+{"@type":"DefinedTerm","name":"Flush","description":"A poker hand consisting of five cards all of the same suit, but not in sequential order. Pays 6 coins per coin bet in standard Jacks or Better."},
+{"@type":"DefinedTerm","name":"Four of a Kind","description":"A hand containing four cards of the same rank plus one unrelated card. This hand is the basis for bonus payouts in many video poker variants."},
+{"@type":"DefinedTerm","name":"Full House","description":"A poker hand containing three cards of one rank and two cards of another rank. In full-pay Jacks or Better (9/6), a full house pays 9 coins per coin bet."},
+{"@type":"DefinedTerm","name":"Full Pay","description":"The highest-paying version of a particular video poker game. Full-pay Jacks or Better is the 9/6 version, offering the best return to player at 99.54%."},
+{"@type":"DefinedTerm","name":"Gamble Feature","description":"An optional bonus round after a winning hand that lets the player risk their winnings for a chance to double them. Usually involves guessing the color or suit of a hidden card."},
+{"@type":"DefinedTerm","name":"Game Cycle","description":"The theoretical number of unique hand outcomes possible in a video poker game. In a standard 52-card game, there are 2,598,960 possible five-card hands."},
+{"@type":"DefinedTerm","name":"Hand","description":"A single round of video poker play, from the initial deal through the draw to the final payout. Also refers to the five cards the player holds."},
+{"@type":"DefinedTerm","name":"High Card","description":"A hand that contains no qualifying combination. In some games this is a non-paying hand. The highest single card in a hand when no other combination is formed."},
+{"@type":"DefinedTerm","name":"High Pair","description":"A pair of jacks, queens, kings, or aces in Jacks or Better and related games. This is the minimum paying hand in most standard video poker variants."},
+{"@type":"DefinedTerm","name":"Hold","description":"To keep a card from the initial deal rather than discarding it. Players select which cards to hold before drawing replacements."},
+{"@type":"DefinedTerm","name":"House Edge","description":"The mathematical advantage the casino has over the player, expressed as a percentage of each bet. A game with 99.5% return has a 0.5% house edge."},
+{"@type":"DefinedTerm","name":"Jackpot","description":"The top payout on a video poker machine, typically awarded for a royal flush at maximum bet. In standard games, the royal flush jackpot is 4,000 coins on a 5-coin bet."},
+{"@type":"DefinedTerm","name":"Jacks or Better","description":"The most popular and foundational video poker variant. The minimum paying hand is a pair of jacks. Full-pay (9/6) returns 99.54% with optimal play."},
+{"@type":"DefinedTerm","name":"Joker Poker","description":"A video poker variant played with a 53-card deck that includes one joker as a wild card. The joker can substitute for any card to complete a winning hand."},
+{"@type":"DefinedTerm","name":"Kicker","description":"An unmatched card in a hand that can affect the payout in certain video poker variants. In Double Double Bonus, specific kickers with four-of-a-kind hands trigger enhanced payouts."},
+{"@type":"DefinedTerm","name":"Low Pair","description":"A pair of cards ranked tens or lower (2-10) in Jacks or Better games. A low pair does not qualify for a payout but may be worth holding for draw potential."},
+{"@type":"DefinedTerm","name":"Max Bet","description":"The maximum number of coins that can be wagered on a single hand, typically 5 coins. Playing max bet is essential to receive the full royal flush bonus payout."},
+{"@type":"DefinedTerm","name":"Multi-Hand","description":"A video poker format where the player plays multiple hands simultaneously from the same initial deal. Common configurations include 3-hand, 5-hand, 10-hand, 50-hand, and 100-hand."},
+{"@type":"DefinedTerm","name":"Natural (Royal Flush)","description":"A royal flush made without the use of any wild cards. In wild card games, a natural royal flush typically pays more than a wild royal flush."},
+{"@type":"DefinedTerm","name":"Odds","description":"The mathematical probability of being dealt or drawing a specific hand. Odds are used to calculate expected value and determine optimal playing strategy."},
+{"@type":"DefinedTerm","name":"Optimal Strategy","description":"The mathematically perfect set of decisions for every possible hand in a video poker game. Following optimal strategy maximizes the expected return to the player."},
+{"@type":"DefinedTerm","name":"Pat Hand","description":"A hand that is already complete after the initial deal and requires no cards to be drawn. For example, being dealt a flush, full house, or straight on the deal."},
+{"@type":"DefinedTerm","name":"Pay Table","description":"The chart displayed on a video poker machine showing the payout for each winning hand at each bet level. The pay table determines the game's expected return."},
+{"@type":"DefinedTerm","name":"Payout Percentage","description":"The theoretical long-term return of a video poker game expressed as a percentage. A 99.54% payout percentage means the game returns $99.54 for every $100 wagered on average."},
+{"@type":"DefinedTerm","name":"Progressive","description":"A video poker machine or game where the jackpot increases incrementally as players make bets. The progressive jackpot typically applies to the royal flush payout."},
+{"@type":"DefinedTerm","name":"Return to Player (RTP)","description":"The percentage of all wagered money that a video poker game will theoretically pay back to players over time. Higher RTP means lower house edge."},
+{"@type":"DefinedTerm","name":"Royal Flush","description":"The highest-ranking hand in video poker: ace, king, queen, jack, and ten all of the same suit. Pays 800-to-1 on max bet in most standard games."},
+{"@type":"DefinedTerm","name":"Short Pay","description":"A video poker machine with a reduced pay table compared to the full-pay version. Short-pay games have a lower expected return and higher house edge."},
+{"@type":"DefinedTerm","name":"Straight","description":"Five cards in sequential rank order but not all of the same suit. For example, 5-6-7-8-9 of mixed suits. Pays 4 coins per coin bet in standard Jacks or Better."},
+{"@type":"DefinedTerm","name":"Straight Flush","description":"Five cards in sequential rank order all of the same suit. The second-highest paying hand in most video poker games, below the royal flush."},
+{"@type":"DefinedTerm","name":"Strategy Card","description":"A reference card or chart listing the optimal hold/discard decisions for every possible hand in a specific video poker variant, ranked by expected value."},
+{"@type":"DefinedTerm","name":"Three of a Kind","description":"A hand containing three cards of the same rank plus two unrelated cards. Pays 3 coins per coin bet in standard Jacks or Better."},
+{"@type":"DefinedTerm","name":"Two Pair","description":"A hand containing two separate pairs of cards plus one unrelated card. Pays 2 coins per coin bet in standard Jacks or Better."},
+{"@type":"DefinedTerm","name":"Variance","description":"A statistical measure of how much results deviate from the expected return over time. High-variance games have bigger swings between wins and losses."},
+{"@type":"DefinedTerm","name":"Video Poker","description":"A casino game based on five-card draw poker, played on an electronic machine. Players are dealt five cards and choose which to hold before drawing replacements."},
+{"@type":"DefinedTerm","name":"Wild Card","description":"A designated card that can substitute for any other card to form a winning hand. Deuces (2s) are wild in Deuces Wild; the joker is wild in Joker Poker."}
+]}
+</script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="marquee">
+      <h1>&#9824; VIDEO POKER GLOSSARY &#9829;</h1>
+      <p>TERMS &amp; DEFINITIONS</p>
+    </div>
+
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li><span class="current">Glossary</span></li>
+    </ul>
+
+    <nav class="cat-nav">
+      <a href="index.html">All Games</a>
+      <a href="category-classic.html">Classic</a>
+      <a href="category-bonus.html">Bonus</a>
+      <a href="category-wild.html">Wild Card</a>
+      <a href="category-joker.html">Joker</a>
+    </nav>
+
+    <div class="cabinet">
+      <div class="panel-head"><div><span class="label">COMPLETE VIDEO POKER GLOSSARY</span></div><div class="value">50+ TERMS</div></div>
+
+      <!-- Letter index -->
+      <nav class="letter-nav">
+        <a href="#letter-a">A</a>
+        <a href="#letter-b">B</a>
+        <a href="#letter-c">C</a>
+        <a href="#letter-d">D</a>
+        <a href="#letter-e">E</a>
+        <a href="#letter-f">F</a>
+        <a href="#letter-g">G</a>
+        <a href="#letter-h">H</a>
+        <a href="#letter-j">J</a>
+        <a href="#letter-k">K</a>
+        <a href="#letter-l">L</a>
+        <a href="#letter-m">M</a>
+        <a href="#letter-n">N</a>
+        <a href="#letter-o">O</a>
+        <a href="#letter-p">P</a>
+        <a href="#letter-r">R</a>
+        <a href="#letter-s">S</a>
+        <a href="#letter-t">T</a>
+        <a href="#letter-v">V</a>
+        <a href="#letter-w">W</a>
+      </nav>
+
+      <!-- ===== A ===== -->
+      <div class="letter-section" id="letter-a">
+        <div class="letter-header"><h2>A</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Action</div>
+          <div class="term-def">The total amount of money wagered by a player over a session or period of time. A measure of overall betting activity at a video poker machine.<span class="term-example">Example: If you play 500 hands at $1.25 per hand, your total action is $625.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">All-American Poker</div>
+          <div class="term-def">A video poker variant based on Jacks or Better with enhanced payouts for flushes, straights, and straight flushes, but reduced payouts for full houses and two pairs. <a href="games/all-american-poker.html">Play All American Poker</a><span class="term-example">Example: In All-American Poker, a flush pays 8-for-1 compared to 6-for-1 in standard Jacks or Better.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Ante</div>
+          <div class="term-def">An initial bet or wager required to participate in a hand of video poker. In standard video poker, this is the coins or credits wagered before the deal.</div>
+        </div>
+      </div>
+
+      <!-- ===== B ===== -->
+      <div class="letter-section" id="letter-b">
+        <div class="letter-header"><h2>B</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Bankroll</div>
+          <div class="term-def">The total amount of money a player has set aside specifically for playing video poker. Proper bankroll management is essential for sustained play and surviving natural variance swings.<span class="term-example">Example: A common rule of thumb is to have a bankroll of at least 1,000 max bets for your chosen denomination.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Bet Max</div>
+          <div class="term-def">A button that automatically wagers the maximum number of coins (usually 5) per hand. Playing max bet is strongly recommended because it qualifies the player for the enhanced royal flush jackpot of 4,000 coins instead of 1,250.<span class="term-example">Example: On a quarter machine, max bet is 5 coins = $1.25 per hand.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Bonus Poker</div>
+          <div class="term-def">A video poker variant based on Jacks or Better that offers enhanced payouts for four-of-a-kind hands, with different bonus amounts depending on the rank of the four matching cards. Four aces pays the highest bonus. <a href="games/bonus-poker.html">Play Bonus Poker</a></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Bust</div>
+          <div class="term-def">To lose all credits or bankroll during a video poker session. Also refers to a hand that fails to achieve a minimum qualifying payout combination.</div>
+        </div>
+      </div>
+
+      <!-- ===== C ===== -->
+      <div class="letter-section" id="letter-c">
+        <div class="letter-header"><h2>C</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Coins</div>
+          <div class="term-def">The unit of wager in video poker. Most machines accept 1 to 5 coins per hand. Betting 5 coins (max bet) activates the bonus payout for a royal flush, which pays 800-to-1 instead of 250-to-1.</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Credits</div>
+          <div class="term-def">The balance displayed on the video poker machine representing the player's available funds. Credits are used to place bets and are increased by winning hands. One credit equals one coin at the selected denomination.</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Cycle</div>
+          <div class="term-def">The statistically average number of hands required to hit a specific hand combination. The cycle does not guarantee a win within that number of hands; it is a long-term average.<span class="term-example">Example: The royal flush cycle in Jacks or Better is approximately 40,000 hands with optimal play.</span></div>
+        </div>
+      </div>
+
+      <!-- ===== D ===== -->
+      <div class="letter-section" id="letter-d">
+        <div class="letter-header"><h2>D</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Deal</div>
+          <div class="term-def">The initial distribution of five cards to the player at the start of a video poker hand. After the deal, the player evaluates the hand and decides which cards to hold and which to discard.</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Deuces Wild</div>
+          <div class="term-def">A popular video poker variant where all four 2s (deuces) act as wild cards and can substitute for any other card to form winning hands. The minimum paying hand is typically three of a kind. <a href="games/deuces-wild.html">Play Deuces Wild</a></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Discard</div>
+          <div class="term-def">To release one or more cards from the initial five-card hand in order to receive replacement cards on the draw. Cards not selected to hold are automatically discarded. You can discard anywhere from zero to all five cards.</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Double Bonus Poker</div>
+          <div class="term-def">A Jacks or Better variant offering significantly increased payouts for four-of-a-kind hands, with the highest bonus paid for four aces. The enhanced four-of-a-kind payouts come at the cost of a reduced two-pair payout (1-for-1). <a href="games/double-bonus-poker.html">Play Double Bonus Poker</a></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Double Down</div>
+          <div class="term-def">A feature in some video poker machines that allows the player to risk their winnings from a hand in an attempt to double the payout, usually by guessing the outcome of a card comparison.</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Double Up</div>
+          <div class="term-def">A gamble feature offered after a winning hand where the player can attempt to double their payout. Typically, the player must guess whether a randomly drawn card will be higher than the dealer's revealed card. This is a 50/50 proposition with no house edge.</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Draw</div>
+          <div class="term-def">The second phase of a video poker hand where discarded cards are replaced with new cards from the remaining deck. The resulting five-card hand after the draw determines the final payout.</div>
+        </div>
+      </div>
+
+      <!-- ===== E ===== -->
+      <div class="letter-section" id="letter-e">
+        <div class="letter-header"><h2>E</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Edge</div>
+          <div class="term-def">The mathematical advantage one side has over the other. House edge is the casino's built-in advantage; a positive player edge exists in certain full-pay video poker games when played with perfect optimal strategy.</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Expected Value (EV)</div>
+          <div class="term-def">The average amount a player can expect to win or lose on a particular play or decision, expressed as a mathematical value. EV is used to rank possible holds and determine optimal strategy for each hand.<span class="term-example">Example: Holding a pair of jacks in Jacks or Better has an EV of approximately 1.54, meaning you can expect to get back $1.54 for every $1 wagered on average.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Expected Return</div>
+          <div class="term-def">The theoretical percentage of total money wagered that a video poker game will pay back over time when played with optimal strategy. Also known as Return to Player (RTP).<span class="term-example">Example: Full-pay Jacks or Better (9/6) has an expected return of 99.54%.</span></div>
+        </div>
+      </div>
+
+      <!-- ===== F ===== -->
+      <div class="letter-section" id="letter-f">
+        <div class="letter-header"><h2>F</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Five of a Kind</div>
+          <div class="term-def">A hand containing five cards of the same rank, only possible in games with wild cards such as <a href="games/deuces-wild.html">Deuces Wild</a> or <a href="games/joker-poker.html">Joker Poker</a>.<span class="term-example">Example: In Deuces Wild, holding three deuces (wild) plus two kings gives you five kings.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Flush</div>
+          <div class="term-def">A poker hand consisting of five cards all of the same suit, but not in sequential order. Pays 6 coins per coin bet in standard 9/6 Jacks or Better.<span class="term-example">Example: 2&#9829; 5&#9829; 8&#9829; J&#9829; K&#9829; is a flush (all hearts).</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Four of a Kind</div>
+          <div class="term-def">A hand containing four cards of the same rank plus one unrelated card. This hand is the basis for bonus payouts in many video poker variants such as <a href="games/bonus-poker.html">Bonus Poker</a> and <a href="games/double-double-bonus-poker.html">Double Double Bonus</a>.<span class="term-example">Example: K&#9824; K&#9829; K&#9830; K&#9827; 3&#9824; is four kings.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Full House</div>
+          <div class="term-def">A poker hand containing three cards of one rank and two cards of another rank. In full-pay Jacks or Better (9/6), a full house pays 9 coins per coin bet.<span class="term-example">Example: Q&#9824; Q&#9829; Q&#9830; 7&#9827; 7&#9824; is a full house (queens full of sevens).</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Full Pay</div>
+          <div class="term-def">The highest-paying version of a particular video poker game, offering the best possible return to player. Full-pay games are the benchmark against which short-pay versions are compared. <a href="games/jacks-or-better.html">Play Full-Pay Jacks or Better (9/6)</a><span class="term-example">Example: Full-pay Jacks or Better is the 9/6 version (9 for full house, 6 for flush) with 99.54% RTP.</span></div>
+        </div>
+      </div>
+
+      <!-- ===== G ===== -->
+      <div class="letter-section" id="letter-g">
+        <div class="letter-header"><h2>G</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Gamble Feature</div>
+          <div class="term-def">An optional bonus round presented after a winning hand that lets the player risk their winnings for a chance to double them. Usually involves guessing the color or suit of a hidden card. Also called Double Up or Double Down.</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Game Cycle</div>
+          <div class="term-def">The theoretical number of unique hand outcomes possible in a video poker game. In a standard 52-card game, there are 2,598,960 possible five-card combinations, and each draw combination further expands the total outcomes.</div>
+        </div>
+      </div>
+
+      <!-- ===== H ===== -->
+      <div class="letter-section" id="letter-h">
+        <div class="letter-header"><h2>H</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Hand</div>
+          <div class="term-def">A single round of video poker play, from the initial deal through the draw to the final payout evaluation. Also refers to the five cards the player holds at any given point.</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">High Card</div>
+          <div class="term-def">A hand that contains no qualifying winning combination. In most video poker games, a high-card hand is a non-paying result. The term also refers to the highest single card in a hand when no other poker combination is formed.</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">High Pair</div>
+          <div class="term-def">A pair of jacks, queens, kings, or aces in <a href="games/jacks-or-better.html">Jacks or Better</a> and related games. This is the minimum paying hand in most standard video poker variants, returning the original bet (1-for-1).</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Hold</div>
+          <div class="term-def">To keep a card from the initial deal rather than discarding it. Players select which cards to hold before drawing replacements. The decision of which cards to hold is the core strategic element of video poker.</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">House Edge</div>
+          <div class="term-def">The mathematical advantage the casino has over the player, expressed as a percentage of each bet. A game with 99.5% return has a 0.5% house edge. Lower house edge games are more favorable for the player.<span class="term-example">Example: Full-pay Jacks or Better has only a 0.46% house edge with optimal play.</span></div>
+        </div>
+      </div>
+
+      <!-- ===== J ===== -->
+      <div class="letter-section" id="letter-j">
+        <div class="letter-header"><h2>J</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Jackpot</div>
+          <div class="term-def">The top payout on a video poker machine, typically awarded for a royal flush at maximum bet. In standard non-progressive games, the royal flush jackpot is 4,000 coins on a 5-coin bet (800-to-1).</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Jacks or Better</div>
+          <div class="term-def">The most popular and foundational video poker variant. The minimum paying hand is a pair of jacks or higher. Full-pay (9/6) Jacks or Better returns 99.54% with optimal play, making it one of the best games in the casino. <a href="games/jacks-or-better.html">Play Jacks or Better</a></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Joker Poker</div>
+          <div class="term-def">A video poker variant played with a 53-card deck that includes one joker as a wild card. The joker can substitute for any card to complete a winning hand. Some versions require kings or better to pay, while others pay on two pair. <a href="games/joker-poker.html">Play Joker Poker</a></div>
+        </div>
+      </div>
+
+      <!-- ===== K ===== -->
+      <div class="letter-section" id="letter-k">
+        <div class="letter-header"><h2>K</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Kicker</div>
+          <div class="term-def">An unmatched card in a hand that can affect the payout in certain video poker variants. In <a href="games/double-double-bonus-poker.html">Double Double Bonus</a>, specific kickers alongside four-of-a-kind hands trigger enhanced bonus payouts.<span class="term-example">Example: Four aces with a 2, 3, or 4 kicker pays 2,000 coins in Double Double Bonus, versus 800 coins without the kicker bonus.</span></div>
+        </div>
+      </div>
+
+      <!-- ===== L ===== -->
+      <div class="letter-section" id="letter-l">
+        <div class="letter-header"><h2>L</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Low Pair</div>
+          <div class="term-def">A pair of cards ranked tens or lower (2 through 10) in Jacks or Better games. A low pair does not qualify for a payout but may be worth holding for its draw potential toward three of a kind, full house, or four of a kind.</div>
+        </div>
+      </div>
+
+      <!-- ===== M ===== -->
+      <div class="letter-section" id="letter-m">
+        <div class="letter-header"><h2>M</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Max Bet</div>
+          <div class="term-def">The maximum number of coins that can be wagered on a single hand, typically 5 coins. Playing max bet is essential to receive the full royal flush bonus payout of 4,000 coins rather than the proportional 1,250 coins.</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Multi-Hand</div>
+          <div class="term-def">A video poker format where the player plays multiple hands simultaneously from the same initial deal. After choosing which cards to hold, each hand draws independently from its own separate deck. Common configurations include 3-hand, 5-hand, 10-hand, 50-hand, and 100-hand.</div>
+        </div>
+      </div>
+
+      <!-- ===== N ===== -->
+      <div class="letter-section" id="letter-n">
+        <div class="letter-header"><h2>N</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Natural (Royal Flush)</div>
+          <div class="term-def">A royal flush made without the use of any wild cards. In wild card games like <a href="games/deuces-wild.html">Deuces Wild</a> and <a href="games/joker-poker.html">Joker Poker</a>, a natural royal flush typically pays significantly more than a wild royal flush.<span class="term-example">Example: A&#9824; K&#9824; Q&#9824; J&#9824; 10&#9824; is a natural royal flush. If one of those cards were a wild deuce substituting, it would be a wild royal instead.</span></div>
+        </div>
+      </div>
+
+      <!-- ===== O ===== -->
+      <div class="letter-section" id="letter-o">
+        <div class="letter-header"><h2>O</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Odds</div>
+          <div class="term-def">The mathematical probability of being dealt or drawing a specific hand. Odds are used to calculate expected value and determine optimal playing strategy for each video poker variant.<span class="term-example">Example: The odds of being dealt a royal flush on the initial deal are approximately 1 in 649,740.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Optimal Strategy</div>
+          <div class="term-def">The mathematically perfect set of hold/discard decisions for every possible hand in a video poker game. Following optimal strategy maximizes the expected return to the player and minimizes the house edge. Each variant has its own unique optimal strategy.</div>
+        </div>
+      </div>
+
+      <!-- ===== P ===== -->
+      <div class="letter-section" id="letter-p">
+        <div class="letter-header"><h2>P</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Pat Hand</div>
+          <div class="term-def">A hand that is already complete and strong enough after the initial deal that no cards need to be drawn. Holding all five cards is called standing pat.<span class="term-example">Example: Being dealt Q&#9829; J&#9829; 10&#9829; 9&#9829; 8&#9829; (a straight flush) on the initial deal is a pat hand.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Pay Table</div>
+          <div class="term-def">The chart displayed on a video poker machine showing the payout for each winning hand combination at each bet level. The pay table is the single most important factor in determining a game's expected return. Always check the pay table before playing.</div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Payout Percentage</div>
+          <div class="term-def">The theoretical long-term return of a video poker game expressed as a percentage of total money wagered. Also known as Return to Player (RTP) or Expected Return.<span class="term-example">Example: A 99.54% payout percentage means the game returns $99.54 for every $100 wagered on average over millions of hands.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Progressive</div>
+          <div class="term-def">A video poker machine or game where the jackpot increases incrementally as players make bets, until someone hits the qualifying hand (usually a royal flush). The progressive meter continuously grows until won, then resets to a base amount.</div>
+        </div>
+      </div>
+
+      <!-- ===== R ===== -->
+      <div class="letter-section" id="letter-r">
+        <div class="letter-header"><h2>R</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Return to Player (RTP)</div>
+          <div class="term-def">The percentage of all wagered money that a video poker game will theoretically pay back to players over time when played with optimal strategy. Higher RTP means a lower house edge and a better game for the player.<span class="term-example">Example: Full-pay Deuces Wild has an RTP of 100.76%, meaning it theoretically favors the player with perfect strategy.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Royal Flush</div>
+          <div class="term-def">The highest-ranking hand in video poker: ace, king, queen, jack, and ten all of the same suit. Pays 800-to-1 on max bet (4,000 coins for 5 coins wagered) in most standard games. The royal flush is the most sought-after hand in all of video poker.<span class="term-example">Example: A&#9824; K&#9824; Q&#9824; J&#9824; 10&#9824; is a royal flush in spades.</span></div>
+        </div>
+      </div>
+
+      <!-- ===== S ===== -->
+      <div class="letter-section" id="letter-s">
+        <div class="letter-header"><h2>S</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Short Pay</div>
+          <div class="term-def">A video poker machine with a reduced pay table compared to the full-pay version of the same game. Short-pay games have a lower expected return and higher house edge. Identifying and avoiding short-pay games is essential to good video poker play.<span class="term-example">Example: A 8/5 Jacks or Better machine (8 for full house, 5 for flush) is short-pay compared to the full-pay 9/6 version.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Straight</div>
+          <div class="term-def">Five cards in sequential rank order but not all of the same suit. An ace can be used as high (A-K-Q-J-10) or low (A-2-3-4-5). Pays 4 coins per coin bet in standard Jacks or Better.<span class="term-example">Example: 5&#9824; 6&#9829; 7&#9830; 8&#9827; 9&#9824; is a straight (five through nine).</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Straight Flush</div>
+          <div class="term-def">Five cards in sequential rank order all of the same suit. The second-highest paying hand in most video poker games, ranking just below the royal flush. Pays 50 coins per coin bet in standard Jacks or Better.<span class="term-example">Example: 4&#9829; 5&#9829; 6&#9829; 7&#9829; 8&#9829; is a straight flush in hearts.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Strategy Card</div>
+          <div class="term-def">A reference card or chart listing the optimal hold/discard decisions for every possible hand in a specific video poker variant, ranked by expected value from highest to lowest. Players compare their dealt hand against the strategy card to determine the best play.</div>
+        </div>
+      </div>
+
+      <!-- ===== T ===== -->
+      <div class="letter-section" id="letter-t">
+        <div class="letter-header"><h2>T</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Three of a Kind</div>
+          <div class="term-def">A hand containing three cards of the same rank plus two unrelated cards. Pays 3 coins per coin bet in standard Jacks or Better (9/6).<span class="term-example">Example: 8&#9824; 8&#9829; 8&#9830; K&#9827; 3&#9824; is three eights.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Two Pair</div>
+          <div class="term-def">A hand containing two separate pairs of cards plus one unrelated card. Pays 2 coins per coin bet in standard Jacks or Better. In some bonus variants like Double Bonus, two pair pays only 1-for-1.<span class="term-example">Example: J&#9824; J&#9829; 5&#9830; 5&#9827; K&#9824; is two pair (jacks and fives).</span></div>
+        </div>
+      </div>
+
+      <!-- ===== V ===== -->
+      <div class="letter-section" id="letter-v">
+        <div class="letter-header"><h2>V</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Variance</div>
+          <div class="term-def">A statistical measure of how much actual results deviate from the expected return over time. High-variance games like <a href="games/double-bonus-poker.html">Double Bonus Poker</a> have bigger swings between wins and losses, requiring a larger bankroll. Low-variance games like <a href="games/jacks-or-better.html">Jacks or Better</a> provide more consistent results.<span class="term-example">Example: Deuces Wild has higher variance than Jacks or Better because more of its return comes from rare, high-paying hands.</span></div>
+        </div>
+
+        <div class="term-item">
+          <div class="term-name">Video Poker</div>
+          <div class="term-def">A casino game based on five-card draw poker, played on an electronic machine. Players are dealt five cards, choose which to hold, and draw replacements for the discarded cards. Payouts are determined by the final five-card hand according to the pay table. Unlike table poker, you play against the machine, not other players. <a href="index.html">Browse all video poker games</a></div>
+        </div>
+      </div>
+
+      <!-- ===== W ===== -->
+      <div class="letter-section" id="letter-w">
+        <div class="letter-header"><h2>W</h2></div>
+
+        <div class="term-item">
+          <div class="term-name">Wild Card</div>
+          <div class="term-def">A designated card that can substitute for any other card to form a winning hand. In <a href="games/deuces-wild.html">Deuces Wild</a>, all four 2s are wild. In <a href="games/joker-poker.html">Joker Poker</a>, the joker is wild. Wild cards enable additional hand types such as five of a kind and wild royal flush.<span class="term-example">Example: If deuces are wild and you hold 2&#9824; 2&#9829; K&#9830; K&#9827; 3&#9824;, the two wild deuces can become kings, giving you four of a kind.</span></div>
+        </div>
+      </div>
+
+      <!-- ===== Related Pages ===== -->
+      <div class="related-section">
+        <div class="related-header"><h2>RELATED PAGES</h2></div>
+        <div class="related-links">
+          <a class="related-link" href="how-to-play.html">How to Play Video Poker<span class="arrow">&#9654;</span></a>
+          <a class="related-link" href="strategy.html">Video Poker Strategy Guide<span class="arrow">&#9654;</span></a>
+          <a class="related-link" href="odds.html">Video Poker Odds &amp; Probabilities<span class="arrow">&#9654;</span></a>
+          <a class="related-link" href="faq.html">Frequently Asked Questions<span class="arrow">&#9654;</span></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="back-link"><a href="index.html">&larr; Back to Lobby</a></div>
+    <div class="footer-note">DESIGNED IN CLASSIC VIDEO POKER MACHINE STYLE</div>
+  </div>
+<!-- FOOTER-NAV-START -->
+<div class="footer-nav">
+  <a href="index.html">Home</a>
+  <a href="category-classic.html">Classic</a>
+  <a href="category-bonus.html">Bonus</a>
+  <a href="category-wild.html">Wild</a>
+  <a href="category-joker.html">Joker</a>
+  <a href="sitemap.html">Sitemap</a>
+</div>
+<style>.footer-nav{margin-top:16px;padding:14px;background:#000418;border:1px solid #1d2e5f;border-radius:8px;text-align:center}.footer-nav a{color:#9eb0d8;text-decoration:none;font-size:.72rem;letter-spacing:1px;margin:0 10px}.footer-nav a:hover{color:#ffe033}</style>
+<!-- FOOTER-NAV-END -->
+</body>
+</html>
