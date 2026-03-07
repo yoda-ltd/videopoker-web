@@ -53,6 +53,15 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
 .stat{text-align:center}
 .stat-num{display:block;color:var(--gold);font-size:1.3rem;font-family:Arial Black,Arial,sans-serif;letter-spacing:1px}
 .stat-label{color:#6b7fa8;font-size:.62rem;letter-spacing:2px;text-transform:uppercase}
+.section{margin-top:18px;background:#000418;border:2px solid #1d2e5f;border-radius:10px;padding:14px}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.section-title{margin:0;color:var(--gold);font-size:1rem;letter-spacing:1px}
+.view-all{color:var(--muted);font-size:.74rem;letter-spacing:1px;text-decoration:none;transition:color .15s}
+.view-all:hover{color:var(--gold)}
+.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.game-card.featured{min-height:158px}
+.card-tag{color:#8899bb;font-size:.68rem;margin:2px 0 0;font-family:Arial,sans-serif;font-weight:normal}
+.rtp{color:#4ade80;font-size:.68rem;letter-spacing:.5px;font-family:Arial,sans-serif}
 .cat-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:14px 0 0}
 .cat-link{display:inline-block;padding:8px 16px;background:#000418;border:1px solid #1d2e5f;border-radius:6px;color:#9eb0d8;font-size:.78rem;text-decoration:none;letter-spacing:1px;transition:all .15s ease}
 .cat-link:hover{background:#001048;border-color:var(--gold);color:var(--gold)}
@@ -60,6 +69,7 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
 
 @media (max-width:900px){
   .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .featured-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:640px){
   .cat-nav{gap:6px;margin:10px 0 0}.cat-link{padding:6px 10px;font-size:.68rem}
@@ -82,6 +92,10 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
   .logo{width:48px;height:48px;border-radius:7px}
   .game-card h3{font-size:1rem;min-height:auto;line-height:1.1;margin:0}
   .play-btn{font-size:.78rem;padding:8px 14px;border-radius:5px}
+  .featured-grid{grid-template-columns:1fr}
+  .section{padding:10px;margin-top:12px}
+  .section-title{font-size:.88rem}
+  .section-head{flex-wrap:wrap;gap:4px}
 }
 @media (max-width:380px){
   .marquee h1{font-size:.95rem;letter-spacing:1px}
@@ -141,253 +155,78 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
     </div>
     <!-- CAT-NAV-END -->
 
-    <div class="cabinet">
-      <div class="panel-head"><div><span class="label">AVAILABLE GAMES</span></div><div class="value">120 VARIANTS</div></div>
-      <div id="variants" class="grid">
 
-        <a class="game-card" href="games/jacks-or-better.html"><div class="topline"><span class="badge">CLASSIC</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Jacks or Better logo"><div><h3>Jacks or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/deuces-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Deuces Wild logo"><div><h3>Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/bonus-poker.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Bonus Poker logo"><div><h3>Bonus Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-bonus-poker.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Bonus Poker logo"><div><h3>Double Bonus Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/aces-and-faces.html"><div class="topline"><span class="badge">PREMIUM</span></div><div class="row"><img class="logo" src="assets/logos/aces-and-faces.png" alt="Aces and Faces logo"><div><h3>Aces and Faces</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/nines-or-better.html"><div class="topline"><span class="badge">EASY</span></div><div class="row"><img class="logo" src="assets/logos/nines-or-better.png" alt="Nines or Better logo"><div><h3>Nines or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/tens-or-better.html"><div class="topline"><span class="badge">EASY+</span></div><div class="row"><img class="logo" src="assets/logos/tens-or-better.png" alt="Tens or Better logo"><div><h3>Tens or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/all-american-poker.html"><div class="topline"><span class="badge">PRO</span></div><div class="row"><img class="logo" src="assets/logos/all-american-poker.png" alt="All American Poker logo"><div><h3>All American Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-double-bonus-poker.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Double Bonus Poker logo"><div><h3>Double Double Bonus</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/triple-double-bonus-poker.html"><div class="topline"><span class="badge">MEGA</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Triple Double Bonus Poker logo"><div><h3>Triple Double Bonus</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/aces-and-eights.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/aces-and-faces.png" alt="Aces and Eights logo"><div><h3>Aces and Eights</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/joker-poker.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Joker Poker logo"><div><h3>Joker Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/bonus-poker-deluxe.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Bonus Poker Deluxe logo"><div><h3>Bonus Poker Deluxe</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/triple-bonus-poker.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Triple Bonus Poker logo"><div><h3>Triple Bonus Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/super-aces-bonus.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/aces-and-faces.png" alt="Super Aces Bonus logo"><div><h3>Super Aces Bonus</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/kings-or-better.html"><div class="topline"><span class="badge">CLASSIC</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Kings or Better logo"><div><h3>Kings or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/white-hot-aces.html"><div class="topline"><span class="badge">MEGA</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="White Hot Aces logo"><div><h3>White Hot Aces</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/super-double-bonus.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Super Double Bonus logo"><div><h3>Super Double Bonus</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/bonus-deuces-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Bonus Deuces Wild logo"><div><h3>Bonus Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/loose-deuces-wild.html"><div class="topline"><span class="badge">MEGA</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Loose Deuces Wild logo"><div><h3>Loose Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/deuces-wild-bonus.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Deuces Wild Bonus logo"><div><h3>Deuces Wild Bonus</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/deuces-wild-deluxe.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Deuces Wild Deluxe logo"><div><h3>Deuces Wild Deluxe</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-deuces-wild.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Double Deuces Wild logo"><div><h3>Double Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/joker-poker-twopair.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Joker Poker Two Pair logo"><div><h3>Joker Poker (Two Pair)</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/joker-poker-aces.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Joker Poker Aces or Better logo"><div><h3>Joker Poker (Aces)</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-joker-poker.html"><div class="topline"><span class="badge">MEGA</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Double Joker Poker logo"><div><h3>Double Joker Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/deuces-and-joker-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Deuces and Joker Wild logo"><div><h3>Deuces and Joker Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/sevens-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Sevens Wild logo"><div><h3>Sevens Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/queens-or-better.html"><div class="topline"><span class="badge">CLASSIC</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Queens or Better logo"><div><h3>Queens or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/eights-or-better.html"><div class="topline"><span class="badge">EASY</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Eights or Better logo"><div><h3>Eights or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/sixes-or-better.html"><div class="topline"><span class="badge">EASY+</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Sixes or Better logo"><div><h3>Sixes or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/aces-or-better.html"><div class="topline"><span class="badge">HARD</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Aces or Better logo"><div><h3>Aces or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/two-pair-or-better.html"><div class="topline"><span class="badge">HARD+</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Two Pair or Better logo"><div><h3>Two Pair or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/jacks-or-better-85.html"><div class="topline"><span class="badge">CLASSIC</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Jacks or Better 8/5 logo"><div><h3>Jacks or Better 8/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/jacks-or-better-75.html"><div class="topline"><span class="badge">CLASSIC</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Jacks or Better 7/5 logo"><div><h3>Jacks or Better 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/jacks-or-better-65.html"><div class="topline"><span class="badge">CLASSIC</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Jacks or Better 6/5 logo"><div><h3>Jacks or Better 6/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/nevada-bonus-poker.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Nevada Bonus Poker logo"><div><h3>Nevada Bonus Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/royal-aces-bonus.html"><div class="topline"><span class="badge">MEGA</span></div><div class="row"><img class="logo" src="assets/logos/aces-and-faces.png" alt="Royal Aces Bonus logo"><div><h3>Royal Aces Bonus</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/ultra-bonus-poker.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Ultra Bonus Poker logo"><div><h3>Ultra Bonus Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/short-pay-deuces-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Short Pay Deuces Wild logo"><div><h3>Short Pay Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/illinois-deuces-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Illinois Deuces Wild logo"><div><h3>Illinois Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/colorado-deuces-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Colorado Deuces Wild logo"><div><h3>Colorado Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/airport-deuces-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Airport Deuces Wild logo"><div><h3>Airport Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/nsu-deuces-wild.html"><div class="topline"><span class="badge">PRO</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="NSU Deuces Wild logo"><div><h3>NSU Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/downtown-deuces-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Downtown Deuces Wild logo"><div><h3>Downtown Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/threes-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Threes Wild logo"><div><h3>Threes Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/fours-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Fours Wild logo"><div><h3>Fours Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/fives-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Fives Wild logo"><div><h3>Fives Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/eights-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Eights Wild logo"><div><h3>Eights Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/tens-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Tens Wild logo"><div><h3>Tens Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/jacks-or-better-86.html"><div class="topline"><span class="badge">CLASSIC</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Jacks or Better 8/6 logo"><div><h3>Jacks or Better 8/6</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/jacks-or-better-95.html"><div class="topline"><span class="badge">CLASSIC</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Jacks or Better 9/5 logo"><div><h3>Jacks or Better 9/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/bonus-poker-75.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Bonus Poker 7/5 logo"><div><h3>Bonus Poker 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/bonus-poker-65.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Bonus Poker 6/5 logo"><div><h3>Bonus Poker 6/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/bonus-poker-107.html"><div class="topline"><span class="badge">PRO</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Bonus Poker 10/7 logo"><div><h3>Bonus Poker 10/7</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-bonus-97.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Bonus 9/7 logo"><div><h3>Double Bonus 9/7</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-bonus-96.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Bonus 9/6 logo"><div><h3>Double Bonus 9/6</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-bonus-95.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Bonus 9/5 logo"><div><h3>Double Bonus 9/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-bonus-85.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Bonus 8/5 logo"><div><h3>Double Bonus 8/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-double-bonus-96.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Double Bonus 9/6 logo"><div><h3>Double Double Bonus 9/6</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-double-bonus-85.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Double Bonus 8/5 logo"><div><h3>Double Double Bonus 8/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-double-bonus-75.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Double Bonus 7/5 logo"><div><h3>Double Double Bonus 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-double-bonus-65.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Double Bonus 6/5 logo"><div><h3>Double Double Bonus 6/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/triple-double-bonus-97.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Triple Double Bonus 9/7 logo"><div><h3>Triple Double Bonus 9/7</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/triple-double-bonus-85.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Triple Double Bonus 8/5 logo"><div><h3>Triple Double Bonus 8/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/triple-double-bonus-75.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Triple Double Bonus 7/5 logo"><div><h3>Triple Double Bonus 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/triple-bonus-96.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Triple Bonus Plus 9/6 logo"><div><h3>Triple Bonus Plus 9/6</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/triple-bonus-85.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Triple Bonus Plus 8/5 logo"><div><h3>Triple Bonus Plus 8/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/triple-bonus-75.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Triple Bonus Plus 7/5 logo"><div><h3>Triple Bonus Plus 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/bonus-poker-deluxe-85.html"><div class="topline"><span class="badge">DELUXE</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Bonus Poker Deluxe 8/5 logo"><div><h3>Bonus Poker Deluxe 8/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/bonus-poker-deluxe-75.html"><div class="topline"><span class="badge">DELUXE</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Bonus Poker Deluxe 7/5 logo"><div><h3>Bonus Poker Deluxe 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/bonus-poker-deluxe-65.html"><div class="topline"><span class="badge">DELUXE</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Bonus Poker Deluxe 6/5 logo"><div><h3>Bonus Poker Deluxe 6/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/super-double-bonus-96.html"><div class="topline"><span class="badge">MEGA</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Super Double Bonus 9/6 logo"><div><h3>Super Double Bonus 9/6</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/super-double-bonus-75.html"><div class="topline"><span class="badge">MEGA</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Super Double Bonus 7/5 logo"><div><h3>Super Double Bonus 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/aces-and-faces-85.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/aces-and-faces.png" alt="Aces and Faces 8/5 logo"><div><h3>Aces and Faces 8/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/aces-and-faces-75.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/aces-and-faces.png" alt="Aces and Faces 7/5 logo"><div><h3>Aces and Faces 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/aces-and-faces-76.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/aces-and-faces.png" alt="Aces and Faces 7/6 logo"><div><h3>Aces and Faces 7/6</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/aces-and-eights-75.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/aces-and-faces.png" alt="Aces and Eights 7/5 logo"><div><h3>Aces and Eights 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/aces-and-eights-86.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/aces-and-faces.png" alt="Aces and Eights 8/6 logo"><div><h3>Aces and Eights 8/6</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/white-hot-aces-85.html"><div class="topline"><span class="badge">MEGA</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="White Hot Aces 8/5 logo"><div><h3>White Hot Aces 8/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/white-hot-aces-65.html"><div class="topline"><span class="badge">MEGA</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="White Hot Aces 6/5 logo"><div><h3>White Hot Aces 6/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/super-aces-bonus-85.html"><div class="topline"><span class="badge">MEGA</span></div><div class="row"><img class="logo" src="assets/logos/aces-and-faces.png" alt="Super Aces Bonus 8/5 logo"><div><h3>Super Aces Bonus 8/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/super-aces-bonus-65.html"><div class="topline"><span class="badge">MEGA</span></div><div class="row"><img class="logo" src="assets/logos/aces-and-faces.png" alt="Super Aces Bonus 6/5 logo"><div><h3>Super Aces Bonus 6/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/all-american-poker-86.html"><div class="topline"><span class="badge">ALL-PAY</span></div><div class="row"><img class="logo" src="assets/logos/all-american-poker.png" alt="All American Poker 8/6 logo"><div><h3>All American Poker 8/6</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/all-american-poker-66.html"><div class="topline"><span class="badge">ALL-PAY</span></div><div class="row"><img class="logo" src="assets/logos/all-american-poker.png" alt="All American Poker 6/6 logo"><div><h3>All American Poker 6/6</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/vegas-strip-deuces-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Vegas Strip Deuces Wild logo"><div><h3>Vegas Strip Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/reno-deuces-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Reno Deuces Wild logo"><div><h3>Reno Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/atlantic-city-deuces-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Atlantic City Deuces Wild logo"><div><h3>Atlantic City Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/missouri-deuces-wild.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Missouri Deuces Wild logo"><div><h3>Missouri Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/bonus-deuces-wild-1343.html"><div class="topline"><span class="badge">WILD+</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Bonus Deuces Wild 13/4/3 logo"><div><h3>Bonus Deuces Wild 13/4/3</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/bonus-deuces-wild-1043.html"><div class="topline"><span class="badge">WILD+</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Bonus Deuces Wild 10/4/3 logo"><div><h3>Bonus Deuces Wild 10/4/3</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/bonus-deuces-wild-1243.html"><div class="topline"><span class="badge">WILD+</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Bonus Deuces Wild 12/4/3 logo"><div><h3>Bonus Deuces Wild 12/4/3</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/loose-deuces-wild-1510.html"><div class="topline"><span class="badge">LOOSE</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Loose Deuces 15/10 logo"><div><h3>Loose Deuces 15/10</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/loose-deuces-wild-128.html"><div class="topline"><span class="badge">LOOSE</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Loose Deuces 12/8 logo"><div><h3>Loose Deuces 12/8</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-deuces-wild-128.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Double Deuces Wild 12/8 logo"><div><h3>Double Deuces Wild 12/8</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-deuces-wild-1510.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Double Deuces Wild 15/10 logo"><div><h3>Double Deuces Wild 15/10</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/deuces-wild-bonus-1243.html"><div class="topline"><span class="badge">WILD+</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Deuces Wild Bonus 12/4/3 logo"><div><h3>Deuces Wild Bonus 12/4/3</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/deuces-wild-bonus-1643.html"><div class="topline"><span class="badge">WILD+</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Deuces Wild Bonus 16/4/3 logo"><div><h3>Deuces Wild Bonus 16/4/3</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/deuces-wild-deluxe-1243.html"><div class="topline"><span class="badge">DELUXE</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Deuces Wild Deluxe 12/4/3 logo"><div><h3>Deuces Wild Deluxe 12/4/3</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/deuces-wild-deluxe-1643.html"><div class="topline"><span class="badge">DELUXE</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Deuces Wild Deluxe 16/4/3 logo"><div><h3>Deuces Wild Deluxe 16/4/3</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/joker-poker-75.html"><div class="topline"><span class="badge">JOKER</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Joker Poker 7/5 logo"><div><h3>Joker Poker 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/joker-poker-65.html"><div class="topline"><span class="badge">JOKER</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Joker Poker 6/5 logo"><div><h3>Joker Poker 6/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/joker-poker-85.html"><div class="topline"><span class="badge">JOKER</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Joker Poker 8/5 logo"><div><h3>Joker Poker 8/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/joker-poker-aces-75.html"><div class="topline"><span class="badge">JOKER</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Joker Poker Aces 7/5 logo"><div><h3>Joker Poker Aces 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/joker-poker-aces-65.html"><div class="topline"><span class="badge">JOKER</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Joker Poker Aces 6/5 logo"><div><h3>Joker Poker Aces 6/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/joker-poker-twopair-85.html"><div class="topline"><span class="badge">JOKER</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Joker Poker Two Pair 8/5 logo"><div><h3>Joker Poker Two Pair 8/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/joker-poker-twopair-75.html"><div class="topline"><span class="badge">JOKER</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Joker Poker Two Pair 7/5 logo"><div><h3>Joker Poker Two Pair 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-joker-poker-75.html"><div class="topline"><span class="badge">JOKER</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Double Joker Poker 7/5 logo"><div><h3>Double Joker Poker 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-joker-poker-55.html"><div class="topline"><span class="badge">JOKER</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Double Joker Poker 5/5 logo"><div><h3>Double Joker Poker 5/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/deuces-and-joker-wild-85.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Deuces and Joker Wild 8/5 logo"><div><h3>Deuces and Joker Wild 8/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/deuces-and-joker-wild-65.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Deuces and Joker Wild 6/5 logo"><div><h3>Deuces and Joker Wild 6/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/sevens-wild-2515.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Sevens Wild 25/15 logo"><div><h3>Sevens Wild 25/15</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/sevens-wild-2010.html"><div class="topline"><span class="badge">WILD</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Sevens Wild 20/10 logo"><div><h3>Sevens Wild 20/10</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/tens-or-better-75.html"><div class="topline"><span class="badge">EASY</span></div><div class="row"><img class="logo" src="assets/logos/tens-or-better.png" alt="Tens or Better 7/5 logo"><div><h3>Tens or Better 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/nines-or-better-75.html"><div class="topline"><span class="badge">EASY</span></div><div class="row"><img class="logo" src="assets/logos/nines-or-better.png" alt="Nines or Better 7/5 logo"><div><h3>Nines or Better 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/kings-or-better-75.html"><div class="topline"><span class="badge">HARD</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Kings or Better 7/5 logo"><div><h3>Kings or Better 7/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/bonus-poker-deluxe-96.html"><div class="topline"><span class="badge">DELUXE</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Bonus Poker Deluxe 9/6 logo"><div><h3>Bonus Poker Deluxe 9/6</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-double-bonus-106.html"><div class="topline"><span class="badge">PRO</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Double Bonus 10/6 logo"><div><h3>Double Double Bonus 10/6</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/triple-double-bonus-95.html"><div class="topline"><span class="badge">HI-VAR</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Triple Double Bonus 9/5 logo"><div><h3>Triple Double Bonus 9/5</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-
-        <a class="game-card" href="games/double-bonus-106.html"><div class="topline"><span class="badge">BONUS</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Bonus 10/6 logo"><div><h3>Double Bonus 10/6</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+    <!-- SECTION: Featured Games -->
+    <div class="section">
+      <div class="section-head">
+        <h2 class="section-title">Featured Games</h2>
+      </div>
+      <div class="featured-grid">
+        <a class="game-card featured" href="games/jacks-or-better.html"><div class="topline"><span class="badge">CLASSIC</span><span class="rtp">99.54%</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Jacks or Better logo"><div><h3>Jacks or Better</h3><p class="card-tag">The Classic</p></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card featured" href="games/deuces-wild.html"><div class="topline"><span class="badge">WILD</span><span class="rtp">100.76%</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Deuces Wild logo"><div><h3>Deuces Wild</h3><p class="card-tag">Best RTP</p></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card featured" href="games/double-bonus-106.html"><div class="topline"><span class="badge">BONUS</span><span class="rtp">100.17%</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Bonus 10/6 logo"><div><h3>Double Bonus 10/6</h3><p class="card-tag">High Payout</p></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card featured" href="games/all-american-poker.html"><div class="topline"><span class="badge">PRO</span><span class="rtp">100.72%</span></div><div class="row"><img class="logo" src="assets/logos/all-american-poker.png" alt="All American Poker logo"><div><h3>All American Poker</h3><p class="card-tag">All-Pay</p></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card featured" href="games/joker-poker.html"><div class="topline"><span class="badge">JOKER</span><span class="rtp">100.64%</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Joker Poker logo"><div><h3>Joker Poker</h3><p class="card-tag">Wild Joker</p></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card featured" href="games/double-double-bonus-poker.html"><div class="topline"><span class="badge">HI-VAR</span><span class="rtp">98.98%</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Double Bonus logo"><div><h3>Double Double Bonus</h3><p class="card-tag">Fan Favorite</p></div></div><span class="play-btn">PLAY NOW</span></a>
       </div>
     </div>
 
-    <div class="footer-note">DESIGNED IN CLASSIC VIDEO POKER MACHINE STYLE</div>
+    <!-- SECTION: Classic Video Poker -->
+    <div class="section">
+      <div class="section-head">
+        <h2 class="section-title">Classic Video Poker</h2>
+        <a href="category-classic.html" class="view-all">View All 17 Games &rarr;</a>
+      </div>
+      <div class="grid">
+        <a class="game-card" href="games/jacks-or-better.html"><div class="topline"><span class="badge">CLASSIC</span><span class="rtp">99.54%</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Jacks or Better logo"><div><h3>Jacks or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/tens-or-better.html"><div class="topline"><span class="badge">EASY+</span><span class="rtp">99.14%</span></div><div class="row"><img class="logo" src="assets/logos/tens-or-better.png" alt="Tens or Better logo"><div><h3>Tens or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/kings-or-better.html"><div class="topline"><span class="badge">CLASSIC</span><span class="rtp">98.54%</span></div><div class="row"><img class="logo" src="assets/logos/jacks-or-better.png" alt="Kings or Better logo"><div><h3>Kings or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/nines-or-better.html"><div class="topline"><span class="badge">EASY</span><span class="rtp">99.66%</span></div><div class="row"><img class="logo" src="assets/logos/nines-or-better.png" alt="Nines or Better logo"><div><h3>Nines or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+      </div>
+    </div>
+
+    <!-- SECTION: Bonus Poker -->
+    <div class="section">
+      <div class="section-head">
+        <h2 class="section-title">Bonus Poker</h2>
+        <a href="category-bonus.html" class="view-all">View All 52 Games &rarr;</a>
+      </div>
+      <div class="grid">
+        <a class="game-card" href="games/bonus-poker.html"><div class="topline"><span class="badge">BONUS</span><span class="rtp">99.17%</span></div><div class="row"><img class="logo" src="assets/logos/bonus-poker.png" alt="Bonus Poker logo"><div><h3>Bonus Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/double-bonus-poker.html"><div class="topline"><span class="badge">HI-VAR</span><span class="rtp">99.11%</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Double Bonus Poker logo"><div><h3>Double Bonus Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/aces-and-faces.html"><div class="topline"><span class="badge">PREMIUM</span><span class="rtp">99.26%</span></div><div class="row"><img class="logo" src="assets/logos/aces-and-faces.png" alt="Aces and Faces logo"><div><h3>Aces and Faces</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/triple-double-bonus-poker.html"><div class="topline"><span class="badge">MEGA</span><span class="rtp">99.58%</span></div><div class="row"><img class="logo" src="assets/logos/double-bonus-poker.png" alt="Triple Double Bonus logo"><div><h3>Triple Double Bonus</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+      </div>
+    </div>
+
+    <!-- SECTION: Deuces Wild & Wild Card -->
+    <div class="section">
+      <div class="section-head">
+        <h2 class="section-title">Deuces Wild &amp; Wild Card</h2>
+        <a href="category-wild.html" class="view-all">View All 35 Games &rarr;</a>
+      </div>
+      <div class="grid">
+        <a class="game-card" href="games/deuces-wild.html"><div class="topline"><span class="badge">WILD</span><span class="rtp">100.76%</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Deuces Wild logo"><div><h3>Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/bonus-deuces-wild.html"><div class="topline"><span class="badge">WILD</span><span class="rtp">99.45%</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Bonus Deuces Wild logo"><div><h3>Bonus Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/nsu-deuces-wild.html"><div class="topline"><span class="badge">PRO</span><span class="rtp">99.73%</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="NSU Deuces Wild logo"><div><h3>NSU Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/loose-deuces-wild.html"><div class="topline"><span class="badge">MEGA</span><span class="rtp">99.41%</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Loose Deuces Wild logo"><div><h3>Loose Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+      </div>
+    </div>
+
+    <!-- SECTION: Joker Poker -->
+    <div class="section">
+      <div class="section-head">
+        <h2 class="section-title">Joker Poker</h2>
+        <a href="category-joker.html" class="view-all">View All 16 Games &rarr;</a>
+      </div>
+      <div class="grid">
+        <a class="game-card" href="games/joker-poker.html"><div class="topline"><span class="badge">JOKER</span><span class="rtp">100.64%</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Joker Poker logo"><div><h3>Joker Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/joker-poker-aces.html"><div class="topline"><span class="badge">JOKER</span><span class="rtp">99.62%</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Joker Poker Aces logo"><div><h3>Joker Poker Aces</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/double-joker-poker.html"><div class="topline"><span class="badge">MEGA</span><span class="rtp">99.36%</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Double Joker Poker logo"><div><h3>Double Joker Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/joker-poker-twopair.html"><div class="topline"><span class="badge">JOKER</span><span class="rtp">99.92%</span></div><div class="row"><img class="logo" src="assets/logos/deuces-wild.png" alt="Joker Poker Two Pair logo"><div><h3>Joker Poker Two Pair</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+      </div>
+    </div>
+
   </div>
 <!-- FOOTER-NAV-START -->
 <div class="footer-nav">
