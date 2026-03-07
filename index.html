@@ -83,48 +83,62 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
   .featured-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:640px){
-  .cat-nav{gap:6px;margin:10px 0 0}.cat-link{padding:6px 10px;font-size:.68rem}
-  .wrap{padding:12px 10px 26px}
-  .marquee{padding:10px 8px}
-  .marquee h1{font-size:1.04rem;letter-spacing:1.4px}
-  .hero-text{padding:14px 8px 4px}
-  .hero-sub{font-size:.76rem;letter-spacing:1px}
-  .hero-desc{font-size:.74rem}
-  .btn-primary,.btn-secondary{padding:10px 20px;font-size:.78rem}
-  .hero-stats{gap:20px}.stat-num{font-size:1.1rem}
-  .cabinet{padding:10px}
-  .panel-head{padding:8px 10px}
-  .panel-head .label{font-size:.64rem;letter-spacing:1.4px}
-  .panel-head .value{font-size:.95rem}
-  .grid{grid-template-columns:1fr;gap:10px}
-  .game-card{min-height:126px;padding:10px;gap:8px}
-  .topline{margin-bottom:4px}
-  .row{min-height:48px;gap:8px}
-  .logo{width:48px;height:48px;border-radius:7px}
-  .game-card h3{font-size:1rem;min-height:auto;line-height:1.1;margin:0}
-  .play-btn{font-size:.78rem;padding:8px 14px;border-radius:5px}
-  .featured-grid{grid-template-columns:1fr}
-  .section{padding:10px;margin-top:12px}
-  .section-title{font-size:.88rem}
-  .section-head{flex-wrap:wrap;gap:4px}
+  /* Layout & spacing */
+  .wrap{padding:10px 8px 20px}
+  .marquee{padding:8px 8px}
+  .marquee h1{font-size:1rem;letter-spacing:1.2px}
+  /* Hero */
+  .hero-text{padding:12px 6px 2px}
+  .hero-sub{font-size:.72rem;letter-spacing:1px;margin-bottom:8px}
+  .hero-desc{font-size:.72rem;line-height:1.45;margin-bottom:12px}
+  .hero-cta{gap:8px;margin-bottom:14px}
+  .btn-primary,.btn-secondary{padding:10px 22px;font-size:.76rem}
+  .hero-stats{gap:16px;padding:10px 0}.stat-num{font-size:1.05rem}.stat-label{font-size:.56rem;letter-spacing:1.5px}
+  /* Category nav — horizontal scroll */
+  .cat-nav{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:6px;margin:8px -8px 0;padding:0 8px 6px;scrollbar-width:none}
+  .cat-nav::-webkit-scrollbar{display:none}
+  .cat-link{padding:6px 12px;font-size:.66rem;white-space:nowrap;flex-shrink:0}
+  /* Sections */
+  .section{padding:10px;margin-top:10px}
+  .section-head{flex-wrap:nowrap;gap:6px}
+  .section-title{font-size:.86rem;white-space:nowrap}
+  .view-all{font-size:.66rem;white-space:nowrap}
+  /* Featured grid — 2 columns on mobile */
+  .featured-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .game-card.featured{min-height:auto}
+  /* Game cards — compact */
+  .grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .game-card{min-height:auto;padding:8px;gap:4px}
+  .topline{margin-bottom:2px}
+  .badge{font-size:.54rem;padding:1px 5px}
+  .rtp{font-size:.6rem}
+  .row{min-height:auto;gap:6px}
+  .logo{width:36px;height:36px;border-radius:6px}
+  .game-card h3{font-size:.78rem;min-height:auto;line-height:1.15;margin:0}
+  .game-card p{font-size:.64rem;min-height:auto;margin:0}
+  .card-tag{font-size:.58rem}
+  .play-btn{font-size:.66rem;padding:6px 10px;border-radius:4px;margin-top:4px}
+  .best-badge{font-size:.42rem;padding:2px 6px}
+  /* Info block — 2×2 grid */
+  .info-block{margin:10px 0 0;padding:14px 10px}
+  .info-block h2{font-size:.88rem;margin-bottom:10px}
+  .info-features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 16px}
+  .info-feat{min-width:auto}
+  .info-feat .ico{font-size:1.1rem;margin-bottom:2px}
+  .info-feat .ft-title{font-size:.68rem}
+  .info-feat .ft-desc{font-size:.58rem}
+  /* Footer */
+  .footer-nav{margin-top:10px;padding:10px}
 }
 @media (max-width:380px){
-  .marquee h1{font-size:.95rem;letter-spacing:1px}
-  .logo{width:44px;height:44px}
-  .game-card h3{font-size:.92rem}
-  .badge{font-size:.58rem;padding:2px 5px}
-}
-
-/* iPhone SE (375×667) */
-@media (min-width:370px) and (max-width:380px) and (max-height:700px){
-  .wrap{padding:10px 8px 20px}
-  .marquee h1{font-size:.92rem}
-  .cabinet{padding:8px}
-  .panel-head{margin-bottom:8px}
-  .game-card{min-height:116px;padding:9px;gap:6px}
-  .logo{width:42px;height:42px}
-  .game-card h3{font-size:.88rem}
-  .play-btn{padding:7px 12px;font-size:.72rem}
+  .marquee h1{font-size:.92rem;letter-spacing:1px}
+  .hero-sub{font-size:.68rem}
+  .hero-desc{font-size:.68rem}
+  .btn-primary,.btn-secondary{padding:9px 18px;font-size:.72rem}
+  .logo{width:32px;height:32px}
+  .game-card h3{font-size:.72rem}
+  .badge{font-size:.5rem;padding:1px 4px}
+  .play-btn{font-size:.62rem;padding:5px 8px}
 }
 </style>
 <script type="application/ld+json">
