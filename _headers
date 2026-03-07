@@ -1,0 +1,28 @@
+# Cloudflare Pages custom headers
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Cache static assets aggressively
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache game pages (1 hour - allows frequent updates)
+/games/*
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
+# Cache homepage (1 hour)
+/index.html
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
+# Cache sitemap (1 day)
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+
+# Cache robots.txt (1 day)
+/robots.txt
+  Cache-Control: public, max-age=86400

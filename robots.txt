@@ -1,0 +1,16 @@
+# robots.txt for Video Poker Classic
+# Allow all crawlers to index all pages
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://videopoker-web.pages.dev/sitemap.xml
+
+# Disallow tool/build scripts
+Disallow: /tools/
+Disallow: /dist/
+Disallow: /*.swift$
+Disallow: /*.zip$
+Disallow: /*.md$
+Disallow: /*.sh$
