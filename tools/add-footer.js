@@ -18,17 +18,24 @@ const FT_END = '<!-- FOOTER-NAV-END -->';
 function getGameFooter() {
   return `${FT_START}
 <footer class="site-footer">
-  <nav>
+  <nav class="ft-cats">
     <a href="../index.html">Home</a>
     <a href="../category-classic.html">Classic</a>
     <a href="../category-bonus.html">Bonus</a>
     <a href="../category-wild.html">Wild</a>
     <a href="../category-joker.html">Joker</a>
+  </nav>
+  <nav class="ft-info">
+    <a href="../how-to-play.html">How to Play</a>
+    <a href="../strategy.html">Strategy</a>
+    <a href="../odds.html">Odds</a>
+    <a href="../glossary.html">Glossary</a>
+    <a href="../faq.html">FAQ</a>
     <a href="../sitemap.html">Sitemap</a>
   </nav>
   <p>Video Poker Classic &bull; 120 Free Games &bull; No Download Required</p>
 </footer>
-<style>.site-footer{max-width:680px;margin:20px auto 0;padding:16px;text-align:center;border-top:1px solid #ffe033}.site-footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin-bottom:8px}.site-footer a{color:#c5d4f0;text-decoration:none;font-size:.72rem;letter-spacing:1px}.site-footer a:hover{color:#ffe033}.site-footer p{color:#8899bb;font-size:.64rem;letter-spacing:.5px;margin:0}</style>
+<style>.site-footer{max-width:680px;margin:20px auto 0;padding:16px;text-align:center;border-top:1px solid #ffe033}.site-footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin-bottom:6px}.site-footer a{color:#c5d4f0;text-decoration:none;font-size:.72rem;letter-spacing:1px}.site-footer a:hover{color:#ffe033}.site-footer .ft-info a{color:#8899bb;font-size:.66rem}.site-footer .ft-info a:hover{color:#ffe033}.site-footer p{color:#8899bb;font-size:.64rem;letter-spacing:.5px;margin:4px 0 0}</style>
 ${FT_END}`;
 }
 
@@ -36,14 +43,23 @@ ${FT_END}`;
 function getRootFooter() {
   return `${FT_START}
 <div class="footer-nav">
-  <a href="index.html">Home</a>
-  <a href="category-classic.html">Classic</a>
-  <a href="category-bonus.html">Bonus</a>
-  <a href="category-wild.html">Wild</a>
-  <a href="category-joker.html">Joker</a>
-  <a href="sitemap.html">Sitemap</a>
+  <div class="ft-row">
+    <a href="index.html">Home</a>
+    <a href="category-classic.html">Classic</a>
+    <a href="category-bonus.html">Bonus</a>
+    <a href="category-wild.html">Wild</a>
+    <a href="category-joker.html">Joker</a>
+  </div>
+  <div class="ft-row ft-info">
+    <a href="how-to-play.html">How to Play</a>
+    <a href="strategy.html">Strategy</a>
+    <a href="odds.html">Odds</a>
+    <a href="glossary.html">Glossary</a>
+    <a href="faq.html">FAQ</a>
+    <a href="sitemap.html">Sitemap</a>
+  </div>
 </div>
-<style>.footer-nav{margin-top:16px;padding:14px;background:#000418;border:1px solid #1d2e5f;border-radius:8px;text-align:center}.footer-nav a{color:#9eb0d8;text-decoration:none;font-size:.72rem;letter-spacing:1px;margin:0 10px}.footer-nav a:hover{color:#ffe033}</style>
+<style>.footer-nav{margin-top:16px;padding:14px;background:#000418;border:1px solid #1d2e5f;border-radius:8px;text-align:center}.footer-nav .ft-row{margin:4px 0}.footer-nav a{color:#9eb0d8;text-decoration:none;font-size:.72rem;letter-spacing:1px;margin:0 10px}.footer-nav a:hover{color:#ffe033}.footer-nav .ft-info a{color:#6b7fa8;font-size:.66rem}.footer-nav .ft-info a:hover{color:#ffe033}</style>
 ${FT_END}`;
 }
 
@@ -84,8 +100,8 @@ const catFiles = fs.readdirSync(ROOT).filter(f => f.startsWith('category-') && f
 // Skip category files — they have footers built into the template
 // for (const cf of catFiles) { processFile(path.join(ROOT, cf), false); count++; }
 
-// Other root pages
-const otherPages = ['sitemap.html'];
+// Other root pages (info pages + sitemap)
+const otherPages = ['sitemap.html', 'how-to-play.html', 'strategy.html', 'glossary.html', 'odds.html', 'faq.html'];
 for (const op of otherPages) {
   const fp = path.join(ROOT, op);
   if (fs.existsSync(fp)) {
