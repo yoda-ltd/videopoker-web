@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Breadcrumb Injector for Video Poker Classic
+ * Breadcrumb Injector for Pure Video Poker
  * Adds visual breadcrumb nav + BreadcrumbList JSON-LD schema to all 120 game pages.
  * Safe to run multiple times — uses marker comments.
  */
@@ -9,7 +9,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const GAMES_DIR = path.join(ROOT, 'games');
-const SITE = 'https://videopoker-web.pages.dev';
+const SITE = 'https://purevideopoker.com';
 
 const BC_START = '<!-- BREADCRUMB-START -->';
 const BC_END = '<!-- BREADCRUMB-END -->';

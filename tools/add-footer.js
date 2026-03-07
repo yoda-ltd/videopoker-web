@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Footer Navigation Injector for Video Poker Classic
+ * Footer Navigation Injector for Pure Video Poker
  * Adds consistent footer links to all pages (game pages + index.html + category pages).
  * Creates site-wide internal linking structure.
  * Safe to run multiple times — uses marker comments.
@@ -38,7 +38,7 @@ function getGameFooter() {
     <a href="../privacy.html">Privacy</a>
     <a href="../terms.html">Terms</a>
   </nav>
-  <p>Video Poker Classic &bull; 120 Free Games &bull; No Download Required</p>
+  <p>Pure Video Poker &bull; 120 Free Games &bull; No Download Required</p>
 </footer>
 <style>.site-footer{max-width:680px;margin:20px auto 0;padding:16px;text-align:center;border-top:1px solid #ffe033}.site-footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin-bottom:6px}.site-footer a{color:#c5d4f0;text-decoration:none;font-size:.72rem;letter-spacing:1px}.site-footer a:hover{color:#ffe033}.site-footer .ft-info a{color:#8899bb;font-size:.66rem}.site-footer .ft-info a:hover{color:#ffe033}.site-footer .ft-legal a{color:#667799;font-size:.62rem}.site-footer .ft-legal a:hover{color:#ffe033}.site-footer p{color:#8899bb;font-size:.64rem;letter-spacing:.5px;margin:4px 0 0}</style>
 ${FT_END}`;

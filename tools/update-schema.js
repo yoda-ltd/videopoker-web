@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Enhanced Schema.org Updater for Video Poker Classic
+ * Enhanced Schema.org Updater for Pure Video Poker
  *
  * - Game pages: upgrades basic "Game" to rich "VideoGame" schema
  * - Homepage: adds WebSite + ItemList schema listing all 120 games
@@ -12,7 +12,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const GAMES_DIR = path.join(ROOT, 'games');
-const SITE = 'https://videopoker-web.pages.dev';
+const SITE = 'https://purevideopoker.com';
 
 // ─── Helper: extract existing title & description ────────────────
 function extractMeta(html) {
@@ -46,7 +46,7 @@ function buildGameSchema(filename, title, description) {
     },
     'author': {
       '@type': 'Organization',
-      'name': 'Video Poker Classic'
+      'name': 'Pure Video Poker'
     },
     'datePublished': '2026-03-01',
     'operatingSystem': 'Any'
@@ -58,13 +58,13 @@ function buildHomepageSchemas(gameFiles) {
   const webSite = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    'name': 'Video Poker Classic',
+    'name': 'Pure Video Poker',
     'url': `${SITE}/`,
     'description': '120 classic video poker variants with casino-style UI. Play free online — no download, no registration.',
     'inLanguage': 'en',
     'author': {
       '@type': 'Organization',
-      'name': 'Video Poker Classic'
+      'name': 'Pure Video Poker'
     }
   };
 

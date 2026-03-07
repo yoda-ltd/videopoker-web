@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Related Games Cross-Linker for Video Poker Classic
+ * Related Games Cross-Linker for Pure Video Poker
  * Adds a "Related Games" section with 4-6 links after the SEO content on each game page.
  * Links to: same-family variants + same-category siblings.
  * Safe to run multiple times — uses marker comments.
@@ -10,7 +10,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const GAMES_DIR = path.join(ROOT, 'games');
-const SITE = 'https://videopoker-web.pages.dev';
+const SITE = 'https://purevideopoker.com';
 
 const RG_START = '<!-- RELATED-GAMES-START -->';
 const RG_END = '<!-- RELATED-GAMES-END -->';

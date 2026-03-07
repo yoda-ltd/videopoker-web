@@ -1,11 +1,11 @@
-# robots.txt for Video Poker Classic
+# robots.txt for Pure Video Poker
 # Allow all crawlers to index all pages
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://videopoker-web.pages.dev/sitemap.xml
+Sitemap: https://purevideopoker.com/sitemap.xml
 
 # Disallow tool/build scripts
 Disallow: /tools/

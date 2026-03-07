@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonus Poker Video Poker - Play Free Online | No Download</title>
+<meta name="description" content="Play free Bonus Poker video poker online. No download, no registration. Classic casino video poker in your browser.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Game","name":"Bonus Poker Video Poker","description":"Free online Bonus Poker video poker. No download required.","genre":"Casino"}
+
+
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* ── Body: near-black machine background ── */
+body{background:#0052CC;min-height:100vh;font-family:'Arial Black',Arial,sans-serif;color:#fff;display:flex;flex-direction:column;align-items:center}
+
+/* ── Header ── */
+header{width:100%;text-align:center;padding:10px 0;background:#0052CC;border-bottom:1px solid #333}
+header h1{font-size:1.2rem;text-transform:uppercase;color:#ffe033;font-weight:900}
+
+/* ── Game wrapper ── */
+#game{width:100%;max-width:680px;margin:0 auto;padding:8px 12px;display:flex;flex-direction:column;gap:6px;min-height:calc(100vh - 56px);justify-content:flex-start}
+
+/* ── PAYOUT TABLE — IGT deep royal blue ── */
+#payout-table{background:#001048;border:2px solid #ffe033;border-radius:8px;overflow:hidden;margin-bottom:10px}
+.pr{display:flex;justify-content:space-between;align-items:center;padding:0;font-size:0.72rem;transition:background .3s}
+.pr:nth-child(even){background:#002878}
+.pr .hn{width:180px;padding:2px 8px;text-align:left;color:#ffe033;text-transform:uppercase;letter-spacing:.5px;font-size:.76rem;font-weight:700}
+.pr .pv{position:relative;flex:1;transition:all 0.25s ease-in-out;padding:2px 6px;text-align:right;color:#ffe033;font-weight:700;font-size:.78rem}
+.pr .pv::before{content:'';position:absolute;left:0;top:-1px;bottom:-1px;width:1px;background:#ffe033}
+/* Active bet column — bright gold */
+.pr .ch{background:#FF0000!important;color:#fff!important;font-weight:900;text-shadow:none;box-shadow:none}
+/* Winning hand row — solid yellow, black text */
+.pr.win{background:#ffe033!important;box-shadow:none;animation:wp .4s ease}
+.pr.win .hn{color:#000!important;font-weight:900}
+.pr.win .pv{color:#000!important}
+.pr.win .ch{background:#FF8C00!important;color:#000!important;text-shadow:none}
+@keyframes wp{0%{background:#00006e}40%{background:#ffff44}100%{background:#ffe033}}
+
+/* ── CREDITS BAR ── */
+#cbar{display:flex;background:rgba(0,0,0,0.45);border:2px solid rgba(255,255,255,0.15);border-radius:4px;overflow:hidden;margin-bottom:4px}
+.ci{flex:1;text-align:center;padding:9px 8px}
+.ci+.ci{border-left:2px solid rgba(255,255,255,0.15)}
+.cl{font-size:.58rem;color:#fff;text-transform:uppercase;letter-spacing:2px;margin-bottom:2px}
+.cv{font-size:1.65rem;font-weight:900;color:#ffe033;font-family:'Arial Black',Arial,sans-serif;line-height:1;font-variant-numeric:tabular-nums;transition:color .3s}
+#wv{color:#444;font-size:1.65rem;font-weight:900;font-family:'Arial Black',Arial,sans-serif}
+#wv.active{color:#ffe033;text-shadow:0 0 12px rgba(255,224,51,.5)}
+
+/* ── CARDS ── */
+#cards{display:flex;gap:6px;justify-content:center;padding:0 2px;perspective:1000px;height:178px;align-items:flex-start;user-select:none;-webkit-user-select:none}
+.cs{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:180px;position:relative;padding-top:20px}
+.card{container-type:size;width:112px;aspect-ratio:5/7;background:#fff;border-radius:6px;border:1px solid rgba(0,0,0,0.08);display:flex;flex-direction:column;justify-content:space-between;padding:6px;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s;user-select:none;transform-style:preserve-3d;backface-visibility:hidden}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.5)}
+.card.held{border-color:#ffe033;box-shadow:0 0 18px rgba(255,224,0,.9);transform:translateY(-8px)}
+.card.wc{border-color:#ffe033;box-shadow:0 0 20px rgba(255,224,51,.8);animation:cw 1.6s ease-in-out infinite;transform:translateY(-8px)}
+@keyframes cw{0%,100%{box-shadow:0 0 12px rgba(255,224,51,.5)}50%{box-shadow:0 0 28px rgba(255,224,51,1),0 0 48px rgba(255,180,0,.3)}}
+/* Card back — deep navy with gold diamond lattice */
+.card.fd{background:repeating-linear-gradient(45deg,transparent,transparent 7px,rgba(255,224,51,.08) 7px,rgba(255,224,51,.08) 8px),repeating-linear-gradient(-45deg,transparent,transparent 7px,rgba(255,224,51,.08) 7px,rgba(255,224,51,.08) 8px),linear-gradient(180deg,#0a1e52 0%,#061440 50%,#040e2e 100%);border-color:#ffe033;box-shadow:inset 0 0 12px rgba(0,16,72,.5)}
+
+/* Card animations */
+.card.dealing{animation:di .32s cubic-bezier(.25,.46,.45,.94) forwards}
+@keyframes di{from{opacity:0;transform:translateX(-100px) rotate(-8deg)}to{opacity:1;transform:translateX(0) rotate(0deg)}}
+
+/* ── Card face content ── */
+.cc{font-family:'Fredoka One',cursive;position:absolute;top:2%;left:8%;width:25cqi;display:flex;flex-direction:column;align-items:center}
+.cc .cr{font-size:40cqi;line-height:0.9;margin-bottom:1cqi}
+.cc .csuit{font-size:28cqi;line-height:1;font-variant-emoji:text}
+.cc.bot{display:none}
+.cm{position:absolute;bottom:1%;left:50%;transform:translateX(-50%);font-family:'Fredoka One',cursive;font-size:75cqi;line-height:1;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15));display:flex;justify-content:center;align-items:center;font-variant-emoji:text}
+.cp{position:absolute;top:4%;right:4%;width:35cqi;height:35cqi;border-radius:3cqi;pointer-events:none;object-fit:cover}
+.red{color:#FF0000}.black{color:#000000}
+
+/* Desktop suit size alignment (mobile untouched) */
+@media (min-width:769px){
+  
+}
+
+/* HOLD label */
+.hl{position:absolute;top:0;left:0;width:100%;text-align:center;font-size:.8rem;font-weight:900;color:#ffe033;letter-spacing:2px;text-transform:uppercase;height:20px;line-height:20px;text-shadow:0 0 8px rgba(255,224,0,.8)}
+
+
+
+/* ── Strong visual centering for desktop & mobile ── */
+#game > #payout-table,
+#game > #cbar,
+#game > #cards,
+#game > #msg,
+#game > #btns,
+#game > #ad-slot{width:100%;margin-left:auto;margin-right:auto}
+
+/* ── Unified full-width card layout (all devices) ── */
+#cards{width:100%!important;padding:0!important;justify-content:space-between!important;gap:clamp(3px,1vw,8px)!important;height:auto!important;align-items:flex-start!important;margin-bottom:2px}
+.cs{flex:1 1 0!important;min-width:0!important;height:auto!important}
+.card{width:100%!important;height:auto!important;aspect-ratio:5/7!important;max-width:none!important}
+
+
+/* ── MESSAGE ── */
+#msg{text-align:center;height:38px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#rm{font-size:.88rem;font-weight:900;letter-spacing:2px;color:#00ff88;text-shadow:0 0 12px rgba(0,255,136,.6);text-transform:uppercase}
+#rm.nw{color:#556;text-shadow:none;font-size:.82rem;font-weight:700;letter-spacing:1px}
+
+/* ── BUTTONS — IGT beveled machine style ── */
+#btns{display:flex;justify-content:space-between;align-items:center;gap:8px}
+#btns-left{display:flex;gap:8px}#btns-right{display:flex;gap:8px}
+
+/* Desktop: force perfectly balanced control row */
+@media (min-width:769px){
+  #btns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;align-items:center}
+  #btns-left,#btns-right{display:contents}
+  .btn{width:100%!important;min-width:0}
+}
+
+.btn{border:none;border-radius:6px;padding:12px 0;height:48px;font-weight:bold;cursor:pointer;text-transform:uppercase;font-family:inherit;font-size:0.8rem;box-shadow:0 3px 0 rgba(0,0,0,0.3);display:inline-flex;align-items:center;justify-content:center;transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)}
+.btn:active{transform:scale(.94) translateY(1px);filter:brightness(.82)}
+.btn:disabled{opacity:.2;filter:grayscale(1) brightness(0.7);box-shadow:none;cursor:not-allowed;transform:none;filter:grayscale(.6)}
+
+/* BET — bright blue, secondary */
+.b1btn{background:linear-gradient(180deg,#4a8ef0 0%,#3570d4 50%,#2558b0 100%);color:#fff;border:1px solid rgba(255,255,255,0.18);text-shadow:0 1px 1px rgba(0,0,0,0.2)}
+/* CLEAR — medium blue, utility */
+.clearbtn{background:linear-gradient(180deg,#4a7ab8 0%,#3a6299 50%,#2d5080 100%);color:#fff;border:1px solid rgba(255,255,255,0.12);text-shadow:0 1px 1px rgba(0,0,0,0.2)}
+/* HOLD ALL — medium blue, matching CLEAR */
+.holdallbtn{background:linear-gradient(180deg,#4a7ab8 0%,#3a6299 50%,#2d5080 100%);color:#fff;border:1px solid rgba(255,255,255,0.12);text-shadow:0 1px 1px rgba(0,0,0,0.2)}
+/* DEAL — bright gold primary CTA */
+.dealbtn{background:linear-gradient(180deg,#ffcc00 0%,#e6a800 45%,#cc8800 100%);color:#1a1a00;font-weight:900;border:1px solid rgba(255,255,255,0.2);text-shadow:0 1px 0 rgba(255,255,255,0.2)}
+/* DRAW — same gold as DEAL */
+.drawbtn{background:linear-gradient(180deg,#ffcc00 0%,#e6a800 45%,#cc8800 100%);color:#1a1a00;font-weight:900;border:1px solid rgba(255,255,255,0.2);text-shadow:0 1px 0 rgba(255,255,255,0.2)}
+.b5btn{background:linear-gradient(180deg,#4a5d78 0%,#384a62 50%,#2c3b4e 100%);color:#fff}
+.mbtn{background:linear-gradient(180deg,#4a5d78 0%,#384a62 50%,#2c3b4e 100%);color:#fff}
+
+/* ── Bottom banner ad slot ── */
+#ad-slot{width:100%;height:56px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#111 0%,#050505 100%);border:1px solid #2f2f2f;border-radius:5px;color:#9aa4bf;font-size:.72rem;letter-spacing:1.4px;text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+
+
+@keyframes btnAppear {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.dealbtn, .drawbtn { animation: btnAppear 0.25s ease-out; }
+
+/* ── Confetti ── */
+#cel{display:none;position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:100;overflow:hidden}
+.cf{position:absolute;width:10px;height:10px;border-radius:2px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+
+/* ── SEO section ── */
+#seo{width:100%;max-width:680px;padding:20px 16px 40px;color:#99aacc;font-size:.85rem;line-height:1.7}
+#seo h2{color:#ffe033;font-size:1rem;margin:16px 0 8px;letter-spacing:1px;font-family:'Arial Black',Arial,sans-serif}
+#seo table{width:100%;border-collapse:collapse;margin:8px 0}
+#seo th{background:#00006e;color:#ffe033;padding:6px 8px;text-align:left;font-size:.8rem;border:1px solid #3355bb}
+#seo td{padding:5px 8px;border-bottom:1px solid rgba(255,255,255,.07);font-size:.8rem;text-align:right}#seo td:first-child{text-align:left}
+#seo-sep{color:rgba(255,215,0,.3)!important;font-size:.75rem;letter-spacing:2px}
+
+/* ── Mobile ── */
+@media(max-width:768px){
+  body{overflow-x:hidden}
+  #game{max-width:100%;padding:6px 6px calc(48px + env(safe-area-inset-bottom) + 6px);gap:6px;min-height:calc(100dvh - 56px);max-height:calc(100dvh - 56px);overflow:hidden}
+  header h1{font-size:1.12rem;letter-spacing:2.4px}
+
+  #payout-table{border-radius:6px;margin-bottom:6px}
+  #cbar{margin-bottom:3px}
+  #cards{margin-bottom:1px}
+  .pr{padding:2px 6px;font-size:.66rem}
+  .pr .hn{font-size:.60rem;letter-spacing:.2px}
+  .pr .pv{width:44px;font-size:.66rem}
+  .pr .ch{font-size:.72rem}
+
+  .ci{padding:7px 4px}
+  .cl{font-size:.52rem;letter-spacing:1.4px}
+  .cv,#wv{font-size:1.28rem}
+
+  #cards{height:114px;gap:3px;padding:0}
+  .cs{font-size:2.0em;width:100%;text-align:center;height:114px;gap:2px}
+  .hl{top:0;font-size:.55rem;letter-spacing:1.2px;height:18px;line-height:18px}
+
+  #msg{height:22px}
+  #rm{font-size:.76rem;letter-spacing:1.2px}
+  #rm.nw{font-size:.70rem}
+
+  #btns{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  #btns-left,#btns-right{display:contents}
+  .btn{height:42px;min-width:0;width:100%;padding:0 8px;font-size:.68rem;letter-spacing:.5px}
+  .clearbtn{grid-column:1;grid-row:1;width:100%}
+  .holdallbtn{grid-column:2;grid-row:1}
+  .b1btn{grid-column:1;grid-row:2}
+  .dealbtn,.drawbtn{grid-column:2;grid-row:2;font-size:.76rem}
+
+  #seo{padding:16px 10px 28px;font-size:.80rem;line-height:1.6}
+  #seo h2{font-size:.9rem}
+  #seo table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+  #seo th,#seo td{font-size:.74rem;padding:5px 6px}
+  #ad-slot{position:fixed;left:0;right:0;bottom:0;z-index:40;height:48px;padding-bottom:env(safe-area-inset-bottom);border-radius:0;border-left:none;border-right:none;border-bottom:none;font-size:.66rem;letter-spacing:1px}
+}
+
+@media(max-width:430px){
+  #game{padding:5px 5px calc(44px + env(safe-area-inset-bottom) + 6px)}
+  .pr{padding:1px 4px}
+  .pr .hn{font-size:.56rem}
+  .pr .pv{width:38px;font-size:.62rem}
+  .pr .ch{font-size:.68rem}
+
+  #cards{height:100px;gap:2px}
+  .cs{font-size:2.0em;width:100%;text-align:center;height:100px}
+  .btn{height:40px;font-size:.64rem}
+  .cl{font-size:.5rem}
+  .cv,#wv{font-size:1.16rem}
+  #rm{font-size:.66rem}
+  #ad-slot{height:44px;font-size:.60rem;padding-bottom:env(safe-area-inset-bottom)}
+}
+
+/* iPhone 12/13 mini (375×812) */
+@media (min-width:370px) and (max-width:380px) and (min-height:780px){
+  #cards{height:110px}
+  .cs{font-size:2.0em;width:100%;text-align:center;height:110px}
+  .card{padding:3px}
+  .btn{height:40px;font-size:.66rem}
+}
+
+/* Medium+ phones (e.g., 400-430px wide Android devices) */
+@media (min-width:390px) and (max-width:430px){
+  #cards{height:132px}
+  .cs{font-size:2.0em;width:100%;text-align:center;height:132px}
+  .card{padding:3px}
+}
+
+@media (min-width:431px){
+  #cards{height:138px}
+  .cs{font-size:2.0em;width:100%;text-align:center;height:138px}
+  .card{padding:3px}
+}
+
+/* iPhone SE (375×667) */
+@media (min-width:370px) and (max-width:380px) and (max-height:700px){
+  header h1{font-size:1.00rem;letter-spacing:1.4px}
+  #game{padding:5px 5px calc(40px + env(safe-area-inset-bottom) + 4px);gap:6px}
+  .pr{padding:1px 3px}
+  .pr .hn{font-size:.62rem;width:140px}
+  .pr .pv{width:34px;font-size:.58rem}
+  .pr .ch{font-size:.64rem}
+  .ci{padding:6px 3px}
+  .cl{font-size:.46rem;letter-spacing:1px}
+  .cv,#wv{font-size:1.06rem}
+  #cards{height:92px;gap:2px}
+  .cs{font-size:2.0em;width:100%;text-align:center;height:92px}
+  .card{padding:2px}
+  #msg{height:22px}
+  #rm{font-size:.64rem;letter-spacing:.8px}
+  .btn{height:37px;font-size:.60rem;padding:0 5px}
+  #ad-slot{height:40px;font-size:.56rem;letter-spacing:.6px;padding-bottom:env(safe-area-inset-bottom)}
+}
+
+</style>
+</head>
+<body>
+<header style="position:relative"><a href="../index.html" aria-label="Home" title="Home" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#ffd700;text-decoration:none;font-size:1.6rem;line-height:1">&#8962;</a><h1>&#9824; Bonus Poker &#9829;</h1></header>
+<div id="game">
+  <div id="payout-table"></div>
+  <div id="cbar">
+    <div class="ci"><div class="cl">Credits</div><div class="cv" id="cd">1000</div></div>
+    <div class="ci"><div class="cl">Bet</div><div class="cv" id="bd">-</div></div>
+    <div class="ci"><div class="cl">Win</div><div class="cv" id="wv">-</div></div>
+  </div>
+  <div id="cards">
+    <div class="cs"><span class="hl" id="h0"></span><div class="card fd" id="c0" onclick="hold(0)"></div></div>
+    <div class="cs"><span class="hl" id="h1"></span><div class="card fd" id="c1" onclick="hold(1)"></div></div>
+    <div class="cs"><span class="hl" id="h2"></span><div class="card fd" id="c2" onclick="hold(2)"></div></div>
+    <div class="cs"><span class="hl" id="h3"></span><div class="card fd" id="c3" onclick="hold(3)"></div></div>
+    <div class="cs"><span class="hl" id="h4"></span><div class="card fd" id="c4" onclick="hold(4)"></div></div>
+  </div>
+  <div id="msg"><div id="rm" class="nw">Place your bet to start!</div></div>
+  <div id="btns">
+    <div id="btns-left">
+      <button class="btn b1btn" id="bbbet" onclick="cycleBet()">BET <span id="bet-num">1</span></button>
+    </div>
+    <div id="btns-right">
+      <button class="btn clearbtn" id="bbclear" onclick="clearHolds()">CLEAR</button>
+      <button class="btn holdallbtn" id="bbholdall" onclick="holdAll()">HOLD ALL</button>
+      <button class="btn dealbtn" id="bddeal" onclick="startDeal()">DEAL</button>
+      <button class="btn drawbtn" id="bdr" onclick="draw()" style="display:none">DRAW</button>
+    </div>
+  </div>
+  <div id="ad-slot">Banner Ad Slot · 320×50</div>
+</div>
+<div id="cel"></div>
+<div id="seo-sep" style="width:100%;max-width:680px;padding:16px 16px 0;text-align:center;color:rgba(255,255,255,.25);font-size:.75rem;letter-spacing:2px">▼ &nbsp; GAME GUIDE &nbsp; ▼</div>
+<div id="seo">
+<h2>How to Play Bonus Poker Video Poker — Enhanced Four of a Kind Payouts</h2>
+  <p>Bonus Poker is a popular video poker variant that enhances Jacks or Better with significantly higher payouts for Four of a Kind hands. It's a favorite in Las Vegas casinos and online video poker rooms because it offers exciting bonus jackpots while maintaining familiar gameplay. The key difference: Four Aces pays 80×, Four 2s-4s pays 40×, and other Fours pay 25× your bet.</p>
+
+  <h2>Basic Rules — How to Play Bonus Poker</h2>
+  <p>1. <strong>Bet max (BET 5)</strong> to qualify for the 4,000-credit Royal Flush jackpot.</p>
+  <p>2. <strong>Receive 5 cards</strong> from a 52-card deck and select which to HOLD.</p>
+  <p>3. <strong>Draw</strong> replacement cards and win if your final hand appears on the payout table.</p>
+  <p>4. <strong>Minimum win</strong>: A pair of Jacks or better pays 1× your bet — same as standard Jacks or Better.</p>
+  <p>5. <strong>Bonus hands</strong>: Four Aces (80×), Four 2s/3s/4s (40×), Four 5s–Kings (25×) are the key differentiators.</p>
+
+  <h2>Probability & Return to Player Analysis</h2>
+  <p>Bonus Poker (8/5 variant) returns approximately <strong>99.17% RTP</strong> with perfect strategy. The enhanced Four of a Kind payouts shift strategy toward actively pursuing quads.</p>
+  <table>
+    <tr><th>Hand</th><th>Payout (BET 1)</th><th>Frequency</th></tr>
+    <tr><td>Royal Flush</td><td>250 (4000 at BET5)</td><td>1 in ~40,000</td></tr>
+    <tr><td>Straight Flush</td><td>50</td><td>1 in ~9,000</td></tr>
+    <tr><td>Four Aces</td><td>80</td><td>1 in ~5,100</td></tr>
+    <tr><td>Four 2s-4s</td><td>40</td><td>1 in ~2,000</td></tr>
+    <tr><td>Four 5s-Ks</td><td>25</td><td>1 in ~500</td></tr>
+    <tr><td>Full House</td><td>8</td><td>1 in ~87</td></tr>
+    <tr><td>Flush</td><td>5</td><td>1 in ~91</td></tr>
+  </table>
+
+  <h2>Basic Strategy — Beginner Tips</h2>
+  <p><strong>Prioritize Ace-heavy hands</strong>: A pair of Aces is more valuable in Bonus Poker than other pairs — you're one card away from a 80× jackpot.</p>
+  <p><strong>Hold three Aces</strong>: Three Aces should always be held — the chance of hitting Four Aces (80×) is significant enough to justify.</p>
+  <p><strong>Low pairs still matter</strong>: Despite the bonus focus, low pairs (2s-4s) are worth holding since Four 2s-4s pays 40× — more than most Full Houses in base games.</p>
+
+  <h2>Advanced Strategy — Expert Play</h2>
+  <p><strong>Ace kickers</strong>: Unlike standard Jacks or Better, in Bonus Poker it can be correct to hold an Ace kicker with a pair of Aces — because Four Aces pays 80×, keeping the Ace improves your chances of hitting the jackpot.</p>
+  <p><strong>Two pair with Aces</strong>: With Aces and another pair, hold only the Aces — breaking up two pair to chase Four Aces is mathematically justified in many configurations.</p>
+  <p><strong>Full House vs. Four of a Kind draw</strong>: With three of a kind plus a pair (full house), consider whether the three cards are Aces or 2-4s. If yes, breaking the full house to draw for quads can be +EV.</p>
+  <p><strong>Flush reduction</strong>: Bonus Poker typically reduces Flush to 5× (vs. 6× in Jacks or Better). Compensate by being less aggressive chasing flush draws.</p>
+
+  <h2>Payout Table</h2>
+  <table><tr><th>Hand</th><th>BET 1</th><th>BET 2</th><th>BET 3</th><th>BET 4</th><th>BET 5</th></tr><tr><td>Royal Flush</td><td>250</td><td>500</td><td>750</td><td>1000</td><td>4000</td></tr><tr><td>Four Aces</td><td>80</td><td>160</td><td>240</td><td>320</td><td>400</td></tr><tr><td>Straight Flush</td><td>50</td><td>100</td><td>150</td><td>200</td><td>250</td></tr><tr><td>Four 2s-4s</td><td>40</td><td>80</td><td>120</td><td>160</td><td>200</td></tr><tr><td>Four of a Kind</td><td>25</td><td>50</td><td>75</td><td>100</td><td>125</td></tr><tr><td>Full House</td><td>8</td><td>16</td><td>24</td><td>32</td><td>40</td></tr><tr><td>Flush</td><td>5</td><td>10</td><td>15</td><td>20</td><td>25</td></tr><tr><td>Straight</td><td>4</td><td>8</td><td>12</td><td>16</td><td>20</td></tr><tr><td>Three of a Kind</td><td>3</td><td>6</td><td>9</td><td>12</td><td>15</td></tr><tr><td>Two Pair</td><td>2</td><td>4</td><td>6</td><td>8</td><td>10</td></tr><tr><td>Jacks or Better</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr></table>
+</div>
+<script>
+const SUITS=['hearts','diamonds','clubs','spades'];
+const RANKS=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+const SYM={hearts:'&#9829;&#65038;',diamonds:'&#9830;&#65038;',clubs:'&#9827;&#65038;',spades:'&#9824;&#65038;',joker:'🃏'};
+const FACE_IMG='data:image/png;base64,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';
+const PAY={'Royal Flush':[250,4000],'Four Aces':[80,400],'Straight Flush':[50,250],'Four 2s-4s':[40,200],'Four of a Kind':[25,125],'Full House':[8,40],'Flush':[5,25],'Straight':[4,20],'Three of a Kind':[3,15],'Two Pair':[2,10],'Jacks or Better':[1,5]};
+const MODE='bonus';
+const PAIR_LABEL='Jacks or Better';
+const PAIR_OK=['J', 'Q', 'K', 'A'];
+const START_CREDITS=1000;
+const LS_PREFIX='vp_'+MODE;
+const KEY_CREDITS=LS_PREFIX+'_c';
+const KEY_LASTBET=LS_PREFIX+'_lastbet';
+const LEGACY_CREDITS='vp_c';
+const LEGACY_LASTBET='vp_lastbet';
+let rememberBalance=true;
+const savedCredits=+(localStorage.getItem(KEY_CREDITS)||localStorage.getItem(LEGACY_CREDITS)||START_CREDITS);
+const savedBetRaw=+(localStorage.getItem(KEY_LASTBET)||localStorage.getItem(LEGACY_LASTBET)||1);
+let credits=rememberBalance?(savedCredits>0?savedCredits:START_CREDITS):START_CREDITS,bet=0,lastBet=Math.min(5,Math.max(1,savedBetRaw||1)),hand=[],held=new Set(),deck=[],state='bet';
+function mkDeck(){const d=[];for(const s of SUITS)for(const r of RANKS)d.push({s,r});if(MODE==='joker')d.push({s:'joker',r:'JK'});return d}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function rv(r){return{A:1,J:11,Q:12,K:13,JK:0}[r]||+r}
+function isStraight(rs){const vs=rs.map(rv).sort((a,b)=>a-b);if(JSON.stringify(vs)==='[1,2,3,4,5]')return true;const us=[...new Set(vs)].sort((a,b)=>a-b);if(us.length===5&&JSON.stringify(us)==='[1,10,11,12,13]')return true;const mn=us[0];return us.length===5&&us.every((v,i)=>v===mn+i)}
+function evalClassic(h,pairOk,pairLabel,bonus){const rs=h.map(c=>c.r),ss=h.map(c=>c.s);const rc={};for(const r of rs)rc[r]=(rc[r]||0)+1;const cs=Object.values(rc).sort((a,b)=>b-a);const fl=new Set(ss).size===1;const st=isStraight(rs);const rset=new Set(rs);if(fl&&st&&rset.has('10')&&rset.has('J')&&rset.has('Q')&&rset.has('K')&&rset.has('A'))return'Royal Flush';if(fl&&st)return'Straight Flush';if(cs[0]===4){if(bonus){const q=Object.entries(rc).find(([,v])=>v===4)?.[0];if(q==='A')return'Four Aces';if(['2','3','4'].includes(q))return'Four 2s-4s';}return'Four of a Kind';}if(cs[0]===3&&cs[1]===2)return'Full House';if(fl)return'Flush';if(st)return'Straight';if(cs[0]===3)return'Three of a Kind';if(cs[0]===2&&cs[1]===2)return'Two Pair';if(cs[0]===2){const pr=Object.entries(rc).find(([,v])=>v===2)?.[0];if(pairOk.includes(pr))return pairLabel;}return'No Win'}
+function canStraightWithWild(ranks,w){const set=new Set(ranks.map(rv));const runs=[[1,2,3,4,5],[1,10,11,12,13],[2,3,4,5,6],[3,4,5,6,7],[4,5,6,7,8],[5,6,7,8,9],[6,7,8,9,10],[7,8,9,10,11],[8,9,10,11,12],[9,10,11,12,13]];for(const run of runs){let miss=0;for(const v of run)if(!set.has(v))miss++;if(miss<=w)return true;}return false}
+function evalWild(h,kind){const isWild=c=>kind==='deuces'?c.r==='2':c.s==='joker';const wild=h.filter(isWild).length;const nat=h.filter(c=>!isWild(c));const rs=nat.map(c=>c.r),ss=nat.map(c=>c.s);const rc={};for(const r of rs)rc[r]=(rc[r]||0)+1;if(kind==='deuces'&&wild===4)return'Four Deuces';const royalNeed=new Set(['10','J','Q','K','A']);for(const s of SUITS){const suitRanks=nat.filter(c=>c.s===s).map(c=>c.r);let miss=0;for(const r of royalNeed)if(!suitRanks.includes(r))miss++;if(miss===0&&wild===0)return'Natural Royal Flush';if(miss<=wild&&wild>0)return'Wild Royal Flush';}
+for(const r of RANKS){if((rc[r]||0)+wild>=5)return'Five of a Kind';}
+for(const s of SUITS){const suitRanks=nat.filter(c=>c.s===s).map(c=>c.r);if(canStraightWithWild(suitRanks,wild))return'Straight Flush';}
+for(const r of RANKS){if((rc[r]||0)+wild>=4){if(kind==='joker'&&r==='A')return'Four Aces';return'Four of a Kind';}}
+for(const a of RANKS)for(const b of RANKS){if(a===b)continue;for(let wa=0;wa<=wild;wa++){const wb=wild-wa;if((rc[a]||0)+wa>=3&&(rc[b]||0)+wb>=2)return'Full House';}}
+const suitCount={};for(const s of ss)suitCount[s]=(suitCount[s]||0)+1;if(Object.values(suitCount).some(v=>v+wild>=5))return'Flush';if(canStraightWithWild(rs,wild))return'Straight';for(const r of RANKS){if((rc[r]||0)+wild>=3)return'Three of a Kind';}
+if(kind==='joker'){if(wild===1&&rs.some(r=>['K','A'].includes(r)))return'Kings or Better';if(evalClassic(nat,['K','A'],'Kings or Better',false)==='Two Pair')return'Two Pair';}
+return'No Win'}
+function evalHand(h){if(MODE==='deuces')return evalWild(h,'deuces');if(MODE==='joker'){const hasJ=h.some(c=>c.s==='joker');return hasJ?evalWild(h,'joker'):evalClassic(h,['K','A'],'Kings or Better',false);}if(MODE==='bonus')return evalClassic(h,PAIR_OK,PAIR_LABEL,true);return evalClassic(h,PAIR_OK,PAIR_LABEL,false)}
+function getWin(ht,b){const t=PAY[ht];if(!t)return 0;return b===5?t[1]:t[0]*b}
+
+function payAt(arr,b){return b===5?arr[1]:arr[0]*b}
+function renderPayTable(){
+  const box=document.getElementById('payout-table');
+  const rows=[];
+  for(const [hand,arr] of Object.entries(PAY)){
+    rows.push(`<div class="pr" data-hand="${hand}"><span class="hn">${hand.toUpperCase()}</span><span class="pv b1">${payAt(arr,1)}</span><span class="pv b2">${payAt(arr,2)}</span><span class="pv b3">${payAt(arr,3)}</span><span class="pv b4">${payAt(arr,4)}</span><span class="pv b5">${payAt(arr,5)}</span></div>`);
+  }
+  box.innerHTML=rows.join('');
+  highlightBetColumn(lastBet||1);
+}
+function highlightBetColumn(b){
+  document.querySelectorAll('#payout-table .pv').forEach(el=>el.classList.remove('ch'));
+  document.querySelectorAll(`#payout-table .b${b}`).forEach(el=>el.classList.add('ch'));
+}
+
+
+
+function cardHTML(c){
+  const isRed=c.s==='hearts'||c.s==='diamonds';
+  const cl=(c.s==='joker')?'black':(isRed?'red':'black');
+  const sym=SYM[c.s]||'?';
+  const fp=(c.r==='J'||c.r==='Q'||c.r==='K')?'<img class="cp" src="'+FACE_IMG+'" alt="">':'';
+  return`<div class="cc ${cl}"><span class="cr">${c.r}</span><span class="csuit">${sym}</span></div>${fp}<div class="cm ${cl}">${sym}</div>`;
+}
+function renderDrawCard(i,c,delay){
+  setTimeout(()=>{
+    const el=document.getElementById('c'+i);
+    // Phase 1: old card flips out (still old face)
+    const out = el.animate(
+      [{transform:'rotateY(0deg)',opacity:1},{transform:'rotateY(90deg)',opacity:0}],
+      {duration:150,easing:'ease-in',fill:'forwards'}
+    );
+    out.onfinish=()=>{
+      // Swap to new card exactly at midpoint (when invisible)
+      hand[i]=c;
+      el.className='card';
+      el.innerHTML=cardHTML(c);
+      el.style.background='';el.style.borderColor='';
+      el.style.transform='rotateY(-90deg)';
+      el.style.opacity='0';
+      // Phase 2: new card flips in
+      requestAnimationFrame(()=>{
+        const inn=el.animate(
+          [{transform:'rotateY(-90deg)',opacity:0},{transform:'rotateY(0deg)',opacity:1}],
+          {duration:210,easing:'ease-out',fill:'forwards'}
+        );
+        inn.onfinish=()=>{ el.style.transform=''; el.style.opacity=''; };
+      });
+    };
+  },delay);
+}
+function renderCard(i,c,anim,delay){
+  const el=document.getElementById('c'+i);
+  if(el.getAnimations) el.getAnimations().forEach(a=>a.cancel());
+  el.style.transform='';
+  el.style.opacity='';
+  el.className='card'+(anim?' dealing':'');
+  el.style.animationDelay=delay+'s';
+  el.innerHTML=cardHTML(c);
+  el.style.background='';
+  el.style.borderColor='';
+}
+function renderDealCard(i,c,delay){
+  // same flip mechanic as DRAW: old/back -> midpoint swap -> new front
+  renderDrawCard(i,c,delay);
+}
+function faceDown(i){const el=document.getElementById('c'+i);el.className='card fd';el.innerHTML='';el.style.background='';el.style.borderColor='';}
+function syncCardScale(){/* suit/rank scale locked by CSS breakpoints to preserve original visual proportions */}
+function resetCardSlideOut(i,delay){
+  setTimeout(()=>{
+    const el=document.getElementById('c'+i);
+    if(el.getAnimations) el.getAnimations().forEach(a=>a.cancel());
+    el.animate([{transform:'translateX(0) rotate(0deg)',opacity:1},{transform:'translateX(140px) rotate(10deg)',opacity:0}],{duration:220,easing:'ease-in',fill:'forwards'});
+  },delay);
+}
+function updHeld(){for(let i=0;i<5;i++){document.getElementById('h'+i).textContent=held.has(i)?'HELD':'';const c=document.getElementById('c'+i);held.has(i)?c.classList.add('held'):c.classList.remove('held');}if(state==='hold')document.getElementById('bbclear').disabled=held.size===0;}
+function saveCredits(){if(rememberBalance){localStorage.setItem(KEY_CREDITS,String(credits));}else{localStorage.removeItem(KEY_CREDITS);localStorage.removeItem(LEGACY_CREDITS);}}
+function saveLastBet(){localStorage.setItem(KEY_LASTBET,String(lastBet));localStorage.removeItem(LEGACY_LASTBET);}
+function updCredits(){document.getElementById('cd').textContent=credits;document.getElementById('bd').textContent=bet||'-';saveCredits();}
+function clrPay(){document.querySelectorAll('.pr[data-hand]').forEach(r=>r.classList.remove('win'));}
+function hilPay(ht){clrPay();const r=document.querySelector(`.pr[data-hand="${ht}"]`);if(r)r.classList.add('win');}
+function showBet(){document.getElementById('bbbet').disabled=false;document.getElementById('bbclear').disabled=true;document.getElementById('bbholdall').disabled=true;bddeal.style.display='';bdr.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
+function showHold(){document.getElementById('bbbet').disabled=true;document.getElementById('bbclear').disabled=true;document.getElementById('bbholdall').disabled=false;bddeal.style.display='none';bdr.style.display='';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='';}
+function showAgain(){document.getElementById('bbbet').disabled=false;document.getElementById('bbclear').disabled=true;document.getElementById('bbholdall').disabled=true;bddeal.style.display='';bdr.style.display='none';for(let i=0;i<5;i++)document.getElementById('c'+i).style.pointerEvents='none';}
+function setMsg(t,nw){const el=document.getElementById('rm');el.textContent=t;el.className=nw?'nw':'';}
+
+function cycleBet(){
+  if(state!=='bet'&&state!=='over')return;
+  lastBet=lastBet>=5?1:lastBet+1;
+  saveLastBet();
+  document.getElementById('bet-num').textContent=lastBet;
+  document.getElementById('bd').textContent=lastBet;
+  highlightBetColumn(lastBet);
+  setMsg('BET '+lastBet+' selected — press DEAL to start',false);
+}
+function updBetHighlight(){
+  document.getElementById('bet-num').textContent=lastBet;
+}
+function startDeal(){
+  if(state!=='bet'&&state!=='over')return;
+  const wasOver=state==='over';
+  state='bet';
+  const b=lastBet;
+  if(credits<b){setMsg('Not enough credits!',true);return;}
+  credits-=b;bet=b;held.clear();clrPay();
+  document.getElementById('wv').textContent='-';document.getElementById('wv').classList.remove('active');
+  setMsg('Select cards to HOLD, then press DRAW',false);
+  deck=shuffle(mkDeck());hand=deck.splice(0,5);
+  updHeld();updCredits();state='hold';showHold();
+  if(wasOver){
+    // previous round cards flip in-place into new cards
+    for(let i=0;i<5;i++)renderDealCard(i,hand[i],i*120);
+  }else{
+    // first deal: flip from card back to front
+    for(let i=0;i<5;i++)renderDealCard(i,hand[i],i*120);
+  }
+}
+function hold(i){if(state!=='hold')return;held.has(i)?held.delete(i):held.add(i);updHeld();}
+function drawFaceDown(i,delay){
+  setTimeout(()=>faceDown(i),delay);
+}
+function draw(){
+  if(state!=='hold')return;
+  state='drawing';bdr.disabled=true;
+  const rep=[];for(let i=0;i<5;i++)if(!held.has(i))rep.push(i);
+  rep.forEach((i,idx)=>{const nextCard=deck.splice(0,1)[0];renderDrawCard(i,nextCard,idx*120);});
+  setTimeout(()=>finish(),rep.length*120+450);
+}
+function finish(){
+  const ht=evalHand(hand);const w=getWin(ht,bet);
+  if(w>0){
+    credits+=w;
+    const wvEl=document.getElementById('wv');wvEl.textContent=w;wvEl.classList.add('active');
+    setMsg(ht.toUpperCase(),false);
+    hilPay(ht);hilWin(ht);
+    if(ht==='Royal Flush')confetti();
+  }else{
+    document.getElementById('wv').textContent='-';document.getElementById('wv').classList.remove('active');
+    setMsg('No win — try again!',true);
+  }
+  updCredits();state='over';bdr.disabled=false;showAgain();
+  if(credits<=0)setTimeout(()=>{credits=1000;updCredits();setMsg('Refilled to 1000 credits!',false);},1500);
+}
+function again(){state='bet';held.clear();clrPay();document.getElementById('wv').textContent='-';for(let i=0;i<5;i++)faceDown(i);updHeld();showBet();document.getElementById('bet-num').textContent=lastBet;document.getElementById('bd').textContent=lastBet;highlightBetColumn(lastBet);
+  setMsg('BET '+lastBet+' selected — press DEAL to start',false);}
+function hilWin(ht){
+  const rs=hand.map(c=>c.r),rc={};for(const r of rs)rc[r]=(rc[r]||0)+1;
+  let idx=[];
+  if(['Royal Flush','Straight Flush','Flush','Straight','Full House'].includes(ht))idx=[0,1,2,3,4];
+  else if(ht==='Four of a Kind'){const fr=Object.entries(rc).find(([,v])=>v===4)?.[0];idx=rs.map((r,i)=>r===fr?i:-1).filter(i=>i>=0);}
+  else if(ht==='Three of a Kind'){const tr=Object.entries(rc).find(([,v])=>v===3)?.[0];idx=rs.map((r,i)=>r===tr?i:-1).filter(i=>i>=0);}
+  else if(ht==='Two Pair'){const pr=Object.entries(rc).filter(([,v])=>v===2).map(([r])=>r);idx=rs.map((r,i)=>pr.includes(r)?i:-1).filter(i=>i>=0);}
+  else if(ht===PAIR_LABEL){const pr=Object.entries(rc).find(([,v])=>v===2)?.[0];idx=rs.map((r,i)=>r===pr?i:-1).filter(i=>i>=0);}
+  idx.forEach((i,n)=>setTimeout(()=>document.getElementById('c'+i).classList.add('wc'),n*150));
+}
+function confetti(){
+  const box=document.getElementById('cel');box.style.display='block';box.innerHTML='';
+  const cols=['#ffd700','#ff6b6b','#48dbfb','#ff9ff3','#54a0ff'];
+  for(let i=0;i<80;i++){const el=document.createElement('div');el.className='cf';el.style.left=Math.random()*100+'vw';el.style.top='-20px';el.style.background=cols[Math.floor(Math.random()*cols.length)];el.style.width=(6+Math.random()*8)+'px';el.style.height=(6+Math.random()*8)+'px';el.style.animationDuration=(2+Math.random()*2)+'s';el.style.animationDelay=Math.random()+'s';box.appendChild(el);}
+  setTimeout(()=>{box.style.display='none';box.innerHTML='';},4000);
+}
+function holdAll(){if(state!=='hold')return;for(let i=0;i<5;i++)held.add(i);updHeld();}
+function clearHolds(){if(state!=='hold')return;held.clear();updHeld();}
+const bddeal=document.getElementById('bddeal'),bdr=document.getElementById('bdr');
+renderPayTable();updCredits();showBet();updBetHighlight();document.getElementById('bd').textContent=lastBet;highlightBetColumn(lastBet);
+  setMsg('BET '+lastBet+' selected — press DEAL to start',false);
+
+// ── Swipe-to-hold gesture (touch + mouse) ─────────────────────────────────
+(function(){
+  let mouseDown = false;
+  let touchDown = false;
+  const cardsEl = document.getElementById('cards');
+  let touchedInThisSwipe = new Set();
+  let touchTouched = new Set();
+
+  // Remove inline onclick to avoid double-toggle race
+  for (let i = 0; i < 5; i++) {
+    const el = document.getElementById('c' + i);
+    if (!el) continue;
+    el.onclick = null;
+    el.removeAttribute('onclick');
+  }
+
+  function cardIndexAt(x, y) {
+    for (let i = 0; i < 5; i++) {
+      const el = document.getElementById('c' + i);
+      if (!el) continue;
+      const r = el.getBoundingClientRect();
+      if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return i;
+    }
+    return -1;
+  }
+
+  function toggleCard(idx){
+    if (idx === -1 || state !== 'hold') return;
+    if (held.has(idx)) held.delete(idx); else held.add(idx);
+    updHeld();
+  }
+
+  function toggleOnce(idx){
+    if (idx === -1 || state !== 'hold') return;
+    if (touchedInThisSwipe.has(idx)) return;
+    touchedInThisSwipe.add(idx);
+    toggleCard(idx);
+  }
+
+  function touchToggleOnce(idx){
+    if (idx === -1 || state !== 'hold') return;
+    if (touchTouched.has(idx)) return;
+    touchTouched.add(idx);
+    toggleCard(idx);
+  }
+
+  function endMouseSwipe(){
+    mouseDown = false;
+    touchedInThisSwipe.clear();
+  }
+
+  document.addEventListener('mousedown', function(e){
+    if (e.button !== 0) return;
+    mouseDown = true;
+    touchedInThisSwipe.clear();
+  }, true);
+
+  // Start inside: first card toggles immediately
+  cardsEl.addEventListener('mousedown', function(e){
+    if (e.button !== 0 || state !== 'hold') return;
+    toggleOnce(cardIndexAt(e.clientX, e.clientY));
+    e.preventDefault();
+  });
+
+  // Continue across cards (also supports start outside then slide in)
+  cardsEl.addEventListener('mousemove', function(e){
+    if (!mouseDown || state !== 'hold') return;
+    toggleOnce(cardIndexAt(e.clientX, e.clientY));
+  });
+
+  cardsEl.addEventListener('dragstart', function(e){ e.preventDefault(); });
+  cardsEl.style.userSelect = 'none';
+  cardsEl.style.webkitUserSelect = 'none';
+
+  document.addEventListener('mouseup', endMouseSwipe);
+  document.addEventListener('mouseleave', endMouseSwipe);
+
+  // Touch
+  cardsEl.addEventListener('touchstart', function(e){
+    if (state !== 'hold') return;
+    const t = e.touches[0];
+    touchDown = true;
+    touchTouched.clear();
+    touchToggleOnce(cardIndexAt(t.clientX, t.clientY));
+    e.preventDefault();
+  }, {passive:false});
+
+  cardsEl.addEventListener('touchmove', function(e){
+    if (!touchDown || state !== 'hold') return;
+    const t = e.touches[0];
+    touchToggleOnce(cardIndexAt(t.clientX, t.clientY));
+    e.preventDefault();
+  }, {passive:false});
+
+  document.addEventListener('touchend', function(){
+    touchDown = false;
+    touchTouched.clear();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Meta Tags Injector for Video Poker Classic
+ * Meta Tags Injector for Pure Video Poker
  * Adds canonical URLs, Open Graph, and Twitter Card meta tags to all HTML pages.
  *
  * Injects after the <meta name="description"> tag in each file.
@@ -11,7 +11,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const GAMES_DIR = path.join(ROOT, 'games');
-const SITE = 'https://videopoker-web.pages.dev';
+const SITE = 'https://purevideopoker.com';
 const OG_IMAGE = `${SITE}/assets/hero/hero-vp-premium.png`;
 
 // Marker comments for idempotent injection
@@ -22,7 +22,7 @@ function extractMeta(html) {
   const titleMatch = html.match(/<title>([^<]+)<\/title>/);
   const descMatch = html.match(/<meta\s+name="description"\s+content="([^"]+)"/);
   return {
-    title: titleMatch ? titleMatch[1] : 'Video Poker Classic',
+    title: titleMatch ? titleMatch[1] : 'Pure Video Poker',
     description: descMatch ? descMatch[1] : 'Play free video poker online.'
   };
 }
@@ -35,7 +35,7 @@ function buildMetaTags(url, title, description) {
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${description}">
 <meta property="og:image" content="${OG_IMAGE}">
-<meta property="og:site_name" content="Video Poker Classic">
+<meta property="og:site_name" content="Pure Video Poker">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${description}">

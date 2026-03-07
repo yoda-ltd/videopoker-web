@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * FAQ Section Injector for Video Poker Classic
+ * FAQ Section Injector for Pure Video Poker
  * Adds 3-5 game-specific FAQ items with FAQPage schema to each game page.
  * FAQPage schema enables Google FAQ rich snippets.
  * Safe to run multiple times — uses marker comments.
@@ -10,7 +10,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const GAMES_DIR = path.join(ROOT, 'games');
-const SITE = 'https://videopoker-web.pages.dev';
+const SITE = 'https://purevideopoker.com';
 
 const FAQ_START = '<!-- FAQ-SECTION-START -->';
 const FAQ_END = '<!-- FAQ-SECTION-END -->';
@@ -230,7 +230,7 @@ function generateFAQ(gameId, gameName) {
   // Q5: Free play question
   faqs.push({
     q: `Can I play ${gameName} for free?`,
-    a: `Yes! ${gameName} is completely free to play on Video Poker Classic. No download, no registration, and no real money required. You get 1,000 practice credits to play with. It works in any modern web browser on desktop computers, tablets, and smartphones. Use it to practice strategy and learn the game before playing at a real casino.`
+    a: `Yes! ${gameName} is completely free to play on Pure Video Poker. No download, no registration, and no real money required. You get 1,000 practice credits to play with. It works in any modern web browser on desktop computers, tablets, and smartphones. Use it to practice strategy and learn the game before playing at a real casino.`
   });
 
   return faqs;

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Sitemap Generator for Video Poker Classic
+ * Sitemap Generator for Pure Video Poker
  * Scans all HTML files and generates sitemap.xml with proper priorities.
  */
 const fs = require('fs');
@@ -8,7 +8,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const GAMES_DIR = path.join(ROOT, 'games');
-const SITE = 'https://videopoker-web.pages.dev';
+const SITE = 'https://purevideopoker.com';
 
 function getLastMod(filePath) {
   const stat = fs.statSync(filePath);

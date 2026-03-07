@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Category Hub Page Generator for Video Poker Classic
+ * Category Hub Page Generator for Pure Video Poker
  * Generates 5 category pages matching the index.html visual style.
  * Each page: category intro, game grid, full meta tags, ItemList schema.
  */
@@ -9,7 +9,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const GAMES_DIR = path.join(ROOT, 'games');
-const SITE = 'https://videopoker-web.pages.dev';
+const SITE = 'https://purevideopoker.com';
 
 // ─── Category definitions ─────────────────────────────────────────
 const CATEGORIES = {
@@ -241,7 +241,7 @@ function generateCategoryPage(catKey, cat, games) {
     name: cat.title,
     description: cat.description,
     url: url,
-    isPartOf: { '@type': 'WebSite', name: 'Video Poker Classic', url: `${SITE}/` },
+    isPartOf: { '@type': 'WebSite', name: 'Pure Video Poker', url: `${SITE}/` },
     inLanguage: 'en'
   };
 
@@ -278,7 +278,7 @@ function generateCategoryPage(catKey, cat, games) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${cat.title} - Free Video Poker Games | Video Poker Classic</title>
+<title>${cat.title} - Free Video Poker Games | Pure Video Poker</title>
 <meta name="description" content="${cat.description}">
 <!-- SEO-META-START -->
 <link rel="canonical" href="${url}">
@@ -287,7 +287,7 @@ function generateCategoryPage(catKey, cat, games) {
 <meta property="og:title" content="${cat.title} - Free Video Poker Games">
 <meta property="og:description" content="${cat.description}">
 <meta property="og:image" content="${SITE}/assets/hero/hero-vp-premium.png">
-<meta property="og:site_name" content="Video Poker Classic">
+<meta property="og:site_name" content="Pure Video Poker">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${cat.title} - Free Video Poker Games">
 <meta name="twitter:description" content="${cat.description}">
