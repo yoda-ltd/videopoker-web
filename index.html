@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pure Video Poker — 120 Free Video Poker Games Online</title>
 <meta name="description" content="Play 120 free video poker games online with real RTP data and optimal strategy guides. From Jacks or Better to Deuces Wild — no download, no registration.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- SEO-META-START -->
 <link rel="canonical" href="https://purevideopoker.com/">
 <meta property="og:type" content="website">
@@ -20,138 +21,114 @@
 <!-- SEO-META-END -->
 <style>
 *{box-sizing:border-box}
-:root{--bg:#020816;--panel-border:#3f62c9;--gold:#ffe033;--muted:#9eb0d8;--red1:#ff5a37;--red2:#bf2100}
-body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradient(1200px 700px at 50% -120px,#1a1406 0,#070c1a 40%,var(--bg) 85%);color:#fff}
-.wrap{max-width:1080px;margin:0 auto;padding:18px 14px 34px}
-.marquee{text-align:center;padding:12px 10px;border:2px solid #a98a00;border-radius:8px;background:linear-gradient(180deg,#1a1200,#0b0700);box-shadow:0 0 18px rgba(255,208,0,.24),inset 0 1px 0 rgba(255,255,255,.15)}
-.marquee h1{margin:0;letter-spacing:4px;color:var(--gold);font-size:1.45rem;text-shadow:0 0 12px rgba(255,224,51,.5)}
-.marquee p{margin:8px 0 0;color:#c5b47a;font-size:.83rem;letter-spacing:1px}
-.cabinet{margin-top:14px;background:#000418;border:2px solid #1d2e5f;border-radius:10px;padding:14px}
-.panel-head{display:flex;justify-content:space-between;align-items:center;background:#000;border:1px solid #2c2c2c;border-radius:6px;padding:8px 12px;margin-bottom:12px}
-.panel-head .label{color:#78839b;font-size:.72rem;letter-spacing:2px}.panel-head .value{color:var(--gold);font-size:1.2rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
-.game-card{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:#fff;background:linear-gradient(168deg,#0f1d6e 0%,#0a1555 50%,#071042 100%);border:1px solid rgba(120,160,255,.12);border-radius:10px;padding:12px;box-shadow:0 2px 12px rgba(0,0,0,.3);transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;min-height:138px}
-.game-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,30,200,.25);border-color:rgba(120,160,255,.25)}
+:root{--bg:#0F1118;--panel:#151A26;--card:#1A2030;--card-border:rgba(255,255,255,.06);--gold:#D4AF37;--gold-dim:#8B7332;--gold-glow:rgba(212,175,55,.15);--text:#F1F5F9;--text-muted:#94A3B8;--text-dim:#64748B;--green:#4ade80;--red:#C41E3A}
+body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text)}
+.wrap{max-width:1080px;margin:0 auto;padding:20px 16px 36px}
+.marquee{text-align:center;padding:16px 14px;border:1px solid rgba(212,175,55,.2);border-radius:10px;background:linear-gradient(180deg,#1a1508,#0f0c04);box-shadow:0 0 24px rgba(212,175,55,.06)}
+.marquee h1{margin:0;letter-spacing:6px;color:var(--gold);font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.5rem;text-shadow:0 0 20px rgba(212,175,55,.25)}
+.marquee p{margin:8px 0 0;color:var(--gold-dim);font-size:.82rem;letter-spacing:1.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.game-card{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--text);background:var(--card);border:1px solid var(--card-border);border-radius:10px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;min-height:138px;position:relative}
+.game-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,175,55,.08),0 2px 8px rgba(0,0,0,.3);border-color:rgba(212,175,55,.12)}
 .game-card:active{transform:translateY(-1px) scale(.985)}
-.topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.badge{font-size:.62rem;color:#001018;background:linear-gradient(180deg,#ffe75a,#d6ad00);border:1px solid #8f7200;border-radius:3px;padding:2px 6px;letter-spacing:1px}
-.logo{width:54px;height:54px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.7rem;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.5);line-height:1}
-.row{display:flex;gap:10px;align-items:flex-start;min-height:54px}
-.game-card h3{margin:2px 0 8px;color:var(--gold);letter-spacing:1px;font-size:1.02rem;line-height:1.15;min-height:2.3em}
-.game-card p{margin:0;color:var(--muted);font-size:.78rem;line-height:1.35;font-family:Arial,sans-serif;min-height:42px}
-.play-btn{margin-top:auto;display:inline-block;align-self:flex-start;background:transparent;border:1px solid rgba(255,255,255,.18);border-radius:5px;padding:6px 14px;color:rgba(255,255,255,.6);font-size:.72rem;letter-spacing:1.5px;transition:all .2s ease}
-.game-card:hover .play-btn{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.35);color:#fff}
-.footer-note{text-align:center;color:#7f91b9;font-size:.72rem;letter-spacing:1px;margin-top:14px}
-.hero-text{text-align:center;padding:20px 16px 8px}
-.hero-sub{color:var(--gold);font-size:.88rem;letter-spacing:2px;margin:0 0 12px;font-family:Arial Black,Arial,sans-serif}
-.hero-desc{color:var(--muted);font-size:.82rem;line-height:1.55;max-width:640px;margin:0 auto 18px;font-family:Arial,sans-serif}
-.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.btn-primary{display:inline-block;padding:12px 28px;background:linear-gradient(180deg,var(--red1),var(--red2));border:1px solid #7d1600;border-radius:6px;color:#fff;font-size:.88rem;font-family:Arial Black,Arial,sans-serif;letter-spacing:1px;text-decoration:none;transition:all .15s ease;box-shadow:0 4px 12px rgba(191,33,0,.4)}
-.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.1);box-shadow:0 6px 18px rgba(191,33,0,.5)}
-.btn-secondary{display:inline-block;padding:12px 28px;background:transparent;border:2px solid var(--gold);border-radius:6px;color:var(--gold);font-size:.88rem;font-family:Arial Black,Arial,sans-serif;letter-spacing:1px;text-decoration:none;transition:all .15s ease}
-.btn-secondary:hover{background:rgba(255,224,51,.08);transform:translateY(-2px)}
-.hero-stats{display:flex;justify-content:center;gap:32px;padding:16px 0;border-top:1px solid rgba(255,224,51,.15);border-bottom:1px solid rgba(255,224,51,.15);margin:0 auto;max-width:480px}
+.topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.badge{font-size:.58rem;color:var(--gold);background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.18);border-radius:4px;padding:2px 8px;letter-spacing:1.5px;font-family:'Montserrat',sans-serif;font-weight:600}
+.logo{width:46px;height:56px;border-radius:8px;background:linear-gradient(160deg,#252b3b,#1a2030);border:1px solid rgba(212,175,55,.12);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;text-shadow:0 0 12px rgba(212,175,55,.3);box-shadow:0 2px 8px rgba(0,0,0,.3);line-height:1}
+.row{display:flex;gap:12px;align-items:center;min-height:56px}
+.game-card h3{margin:0 0 4px;color:var(--text);font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.3px;font-size:.98rem;line-height:1.2;min-height:2.3em}
+.game-card p{margin:0;color:var(--text-muted);font-size:.78rem;line-height:1.4;min-height:42px}
+.play-btn{margin-top:auto;display:inline-block;align-self:flex-start;background:transparent;border:1px solid rgba(212,175,55,.18);border-radius:6px;padding:7px 16px;color:var(--gold-dim);font-size:.66rem;font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:1.5px;transition:all .2s ease}
+.game-card:hover .play-btn{background:rgba(212,175,55,.06);border-color:rgba(212,175,55,.35);color:var(--gold)}
+.footer-note{text-align:center;color:var(--text-dim);font-size:.72rem;letter-spacing:1px;margin-top:14px}
+.hero-text{text-align:center;padding:22px 16px 8px}
+.hero-sub{color:var(--gold);font-size:.85rem;letter-spacing:3px;margin:0 0 12px;font-family:'Montserrat',sans-serif;font-weight:600}
+.hero-desc{color:var(--text-muted);font-size:.84rem;line-height:1.6;max-width:620px;margin:0 auto 20px}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+.btn-primary{display:inline-block;padding:12px 28px;background:linear-gradient(135deg,var(--gold),var(--gold-dim));border:none;border-radius:8px;color:var(--bg);font-size:.85rem;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:1px;text-decoration:none;transition:all .2s ease;box-shadow:0 4px 16px rgba(212,175,55,.2)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(212,175,55,.3)}
+.btn-secondary{display:inline-block;padding:12px 28px;background:transparent;border:1px solid rgba(212,175,55,.3);border-radius:8px;color:var(--gold);font-size:.85rem;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:1px;text-decoration:none;transition:all .2s ease}
+.btn-secondary:hover{background:rgba(212,175,55,.05);transform:translateY(-2px)}
+.hero-stats{display:flex;justify-content:center;gap:36px;padding:18px 0;border-top:1px solid rgba(212,175,55,.1);border-bottom:1px solid rgba(212,175,55,.1);margin:0 auto;max-width:480px}
 .stat{text-align:center}
-.stat-num{display:block;color:var(--gold);font-size:1.3rem;font-family:Arial Black,Arial,sans-serif;letter-spacing:1px}
-.stat-label{color:#6b7fa8;font-size:.62rem;letter-spacing:2px;text-transform:uppercase}
-.section{margin-top:18px;background:linear-gradient(180deg,#020a28,#010620);border:1px solid rgba(100,140,255,.1);border-radius:10px;padding:14px}
-.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.section-title{margin:0;color:var(--gold);font-size:1rem;letter-spacing:1px}
-.view-all{color:var(--muted);font-size:.74rem;letter-spacing:1px;text-decoration:none;transition:color .15s}
+.stat-num{display:block;color:var(--gold);font-size:1.3rem;font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:1px}
+.stat-label{color:var(--text-dim);font-size:.6rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:500}
+.section{margin-top:20px;background:var(--panel);border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:18px}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.section-title{margin:0;color:var(--gold);font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.02rem;letter-spacing:.5px}
+.view-all{color:var(--text-muted);font-size:.72rem;letter-spacing:.5px;text-decoration:none;transition:color .15s;font-weight:500}
 .view-all:hover{color:var(--gold)}
-.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.game-card.featured{min-height:158px}
-.card-tag{color:#8899bb;font-size:.68rem;margin:2px 0 0;font-family:Arial,sans-serif;font-weight:normal}
-.rtp{color:#4ade80;font-size:.68rem;letter-spacing:.5px;font-family:Arial,sans-serif}
+.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.game-card.featured{min-height:160px}
+.card-tag{color:var(--text-dim);font-size:.7rem;margin:2px 0 0;font-weight:normal}
+.rtp{color:var(--text-muted);font-size:.7rem;letter-spacing:.5px;font-weight:500}
 .rtp-high{color:#fbbf24}
-.rtp-best{color:#4ade80;font-weight:bold}
-.best-badge{position:absolute;top:-1px;right:-1px;background:linear-gradient(135deg,#4ade80,#16a34a);color:#001018;font-size:.5rem;padding:2px 8px;border-radius:0 6px 0 6px;letter-spacing:1px;font-family:Arial Black,Arial,sans-serif}
-.game-card{position:relative}
-.card-classic{background:linear-gradient(168deg,#0f1d6e,#0a1555 50%,#071042)}
-.card-bonus{background:linear-gradient(168deg,#1a1268,#120c52 50%,#0c0840)}
-.card-wild{background:linear-gradient(168deg,#0a2a48,#072038 50%,#05182e)}
-.card-joker{background:linear-gradient(168deg,#1e1068,#160c52 50%,#100840)}
-.card-classic:hover{box-shadow:0 8px 28px rgba(59,130,246,.2);border-color:rgba(59,130,246,.3)}
-.card-bonus:hover{box-shadow:0 8px 28px rgba(245,158,11,.18);border-color:rgba(245,158,11,.3)}
-.card-wild:hover{box-shadow:0 8px 28px rgba(16,185,129,.18);border-color:rgba(16,185,129,.3)}
-.card-joker:hover{box-shadow:0 8px 28px rgba(168,85,247,.2);border-color:rgba(168,85,247,.3)}
-.logo-classic{background:linear-gradient(135deg,#1d4ed8,#3b82f6);color:#fff;border:none;text-shadow:0 2px 8px rgba(0,0,0,.4);box-shadow:0 4px 14px rgba(29,78,216,.5)}
-.logo-bonus{background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff;border:none;text-shadow:0 2px 8px rgba(0,0,0,.4);box-shadow:0 4px 14px rgba(217,119,6,.5)}
-.logo-wild{background:linear-gradient(135deg,#059669,#10b981);color:#fff;border:none;text-shadow:0 2px 8px rgba(0,0,0,.4);box-shadow:0 4px 14px rgba(5,150,105,.5)}
-.logo-joker{background:linear-gradient(135deg,#7c3aed,#a855f7);color:#fff;border:none;text-shadow:0 2px 8px rgba(0,0,0,.4);box-shadow:0 4px 14px rgba(124,58,237,.5)}
-.info-block{margin:18px 0 0;padding:20px;background:#000418;border:1px solid #1d2e5f;border-radius:10px;text-align:center}
-.info-block h2{color:var(--gold);font-size:1rem;margin:0 0 12px;letter-spacing:1px}
-.info-features{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.rtp-best{color:var(--green);font-weight:600}
+.best-badge{position:absolute;top:-1px;right:-1px;background:linear-gradient(135deg,var(--gold),var(--gold-dim));color:var(--bg);font-size:.48rem;padding:3px 10px;border-radius:0 10px 0 8px;letter-spacing:1px;font-family:'Montserrat',sans-serif;font-weight:700}
+.info-block{margin:20px 0 0;padding:24px;background:var(--panel);border:1px solid rgba(255,255,255,.04);border-radius:12px;text-align:center}
+.info-block h2{color:var(--gold);font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin:0 0 14px;letter-spacing:.5px}
+.info-features{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
 .info-feat{text-align:center;min-width:120px}
-.info-feat .ico{font-size:1.4rem;margin-bottom:4px}
-.info-feat .ft-title{color:#fff;font-size:.76rem;letter-spacing:.5px;margin-bottom:2px}
-.info-feat .ft-desc{color:#6b7fa8;font-size:.64rem;font-family:Arial,sans-serif;line-height:1.3}
-.cat-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:14px 0 0}
-.cat-link{display:inline-block;padding:8px 16px;background:#000418;border:1px solid #1d2e5f;border-radius:6px;color:#9eb0d8;font-size:.78rem;text-decoration:none;letter-spacing:1px;transition:all .15s ease}
-.cat-link:hover{background:#001048;border-color:var(--gold);color:var(--gold)}
-.cat-active{background:#001048;border-color:var(--gold);color:var(--gold)}
+.info-feat .ico{font-size:1.4rem;margin-bottom:6px}
+.info-feat .ft-title{color:var(--text);font-size:.76rem;letter-spacing:.3px;margin-bottom:3px;font-weight:600}
+.info-feat .ft-desc{color:var(--text-dim);font-size:.66rem;line-height:1.35}
+.cat-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:16px 0 0}
+.cat-link{display:inline-block;padding:8px 18px;background:transparent;border:1px solid rgba(255,255,255,.08);border-radius:8px;color:var(--text-muted);font-size:.76rem;text-decoration:none;letter-spacing:.5px;transition:all .15s ease;font-weight:500}
+.cat-link:hover{border-color:rgba(212,175,55,.25);color:var(--gold)}
+.cat-active{border-color:rgba(212,175,55,.25);color:var(--gold);background:rgba(212,175,55,.05)}
 
 @media (max-width:900px){
   .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .featured-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:640px){
-  /* Layout & spacing */
-  .wrap{padding:10px 8px 20px}
-  .marquee{padding:8px 8px}
-  .marquee h1{font-size:1rem;letter-spacing:1.2px}
-  /* Hero */
-  .hero-text{padding:12px 6px 2px}
-  .hero-sub{font-size:.72rem;letter-spacing:1px;margin-bottom:8px}
-  .hero-desc{font-size:.72rem;line-height:1.45;margin-bottom:12px}
-  .hero-cta{gap:8px;margin-bottom:14px}
+  .wrap{padding:12px 10px 20px}
+  .marquee{padding:10px 8px}
+  .marquee h1{font-size:1.05rem;letter-spacing:2px}
+  .hero-text{padding:14px 8px 2px}
+  .hero-sub{font-size:.72rem;letter-spacing:1.5px;margin-bottom:8px}
+  .hero-desc{font-size:.74rem;line-height:1.5;margin-bottom:14px}
+  .hero-cta{gap:10px;margin-bottom:14px}
   .btn-primary,.btn-secondary{padding:10px 22px;font-size:.76rem}
-  .hero-stats{gap:16px;padding:10px 0}.stat-num{font-size:1.05rem}.stat-label{font-size:.56rem;letter-spacing:1.5px}
-  /* Category nav — horizontal scroll */
-  .cat-nav{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:6px;margin:8px -8px 0;padding:0 8px 6px;scrollbar-width:none}
+  .hero-stats{gap:20px;padding:12px 0}.stat-num{font-size:1.05rem}.stat-label{font-size:.54rem;letter-spacing:2px}
+  .cat-nav{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:6px;margin:10px -10px 0;padding:0 10px 6px;scrollbar-width:none}
   .cat-nav::-webkit-scrollbar{display:none}
-  .cat-link{padding:6px 12px;font-size:.66rem;white-space:nowrap;flex-shrink:0}
-  /* Sections */
-  .section{padding:10px;margin-top:10px}
+  .cat-link{padding:6px 14px;font-size:.66rem;white-space:nowrap;flex-shrink:0}
+  .section{padding:12px;margin-top:12px}
   .section-head{flex-wrap:nowrap;gap:6px}
-  .section-title{font-size:.86rem;white-space:nowrap}
-  .view-all{font-size:.66rem;white-space:nowrap}
-  /* Featured grid — 2 columns on mobile */
-  .featured-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .section-title{font-size:.88rem;white-space:nowrap}
+  .view-all{font-size:.64rem;white-space:nowrap}
+  .featured-grid{grid-template-columns:repeat(2,1fr);gap:10px}
   .game-card.featured{min-height:auto}
-  /* Game cards — compact */
-  .grid{grid-template-columns:repeat(2,1fr);gap:8px}
-  .game-card{min-height:auto;padding:8px;gap:4px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .game-card{min-height:auto;padding:10px;gap:6px}
   .topline{margin-bottom:2px}
-  .badge{font-size:.54rem;padding:1px 5px}
+  .badge{font-size:.52rem;padding:2px 6px}
   .rtp{font-size:.6rem}
-  .row{min-height:auto;gap:6px}
-  .logo{width:36px;height:36px;border-radius:6px;font-size:1.15rem}
-  .game-card h3{font-size:.78rem;min-height:auto;line-height:1.15;margin:0}
-  .game-card p{font-size:.64rem;min-height:auto;margin:0}
+  .row{min-height:auto;gap:8px}
+  .logo{width:34px;height:40px;border-radius:6px;font-size:1.1rem}
+  .game-card h3{font-size:.78rem;min-height:auto;line-height:1.2;margin:0}
+  .game-card p{font-size:.66rem;min-height:auto;margin:0}
   .card-tag{font-size:.58rem}
-  .play-btn{font-size:.66rem;padding:6px 10px;border-radius:4px;margin-top:4px}
-  .best-badge{font-size:.42rem;padding:2px 6px}
-  /* Info block — 2×2 grid */
-  .info-block{margin:10px 0 0;padding:14px 10px}
+  .play-btn{font-size:.6rem;padding:5px 10px;border-radius:4px;margin-top:4px}
+  .best-badge{font-size:.4rem;padding:2px 6px}
+  .info-block{margin:12px 0 0;padding:16px 10px}
   .info-block h2{font-size:.88rem;margin-bottom:10px}
-  .info-features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 16px}
+  .info-features{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 16px}
   .info-feat{min-width:auto}
   .info-feat .ico{font-size:1.1rem;margin-bottom:2px}
   .info-feat .ft-title{font-size:.68rem}
   .info-feat .ft-desc{font-size:.58rem}
-  /* Footer */
-  .footer-nav{margin-top:10px;padding:10px}
+  .footer-nav{margin-top:12px;padding:12px}
 }
 @media (max-width:380px){
-  .marquee h1{font-size:.92rem;letter-spacing:1px}
+  .marquee h1{font-size:.92rem;letter-spacing:1.5px}
   .hero-sub{font-size:.68rem}
   .hero-desc{font-size:.68rem}
   .btn-primary,.btn-secondary{padding:9px 18px;font-size:.72rem}
-  .logo{width:32px;height:32px;font-size:1rem}
+  .logo{width:30px;height:36px;font-size:.95rem}
   .game-card h3{font-size:.72rem}
-  .badge{font-size:.5rem;padding:1px 4px}
-  .play-btn{font-size:.62rem;padding:5px 8px}
+  .badge{font-size:.48rem;padding:1px 5px}
+  .play-btn{font-size:.56rem;padding:4px 8px}
 }
 </style>
 <script type="application/ld+json">
@@ -200,12 +177,12 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
         <h2 class="section-title">Featured Games</h2>
       </div>
       <div class="featured-grid">
-        <a class="game-card featured card-classic" href="games/jacks-or-better.html"><div class="topline"><span class="badge">CLASSIC</span><span class="rtp">99.54%</span></div><div class="row"><span class="logo logo-classic">♠</span><div><h3>Jacks or Better</h3><p class="card-tag">The Classic</p></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card featured card-wild" href="games/deuces-wild.html"><span class="best-badge">BEST RTP</span><div class="topline"><span class="badge">WILD</span><span class="rtp rtp-best">100.76%</span></div><div class="row"><span class="logo logo-wild">★</span><div><h3>Deuces Wild</h3><p class="card-tag">Best RTP</p></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card featured card-bonus" href="games/double-bonus-106.html"><span class="best-badge">BEST RTP</span><div class="topline"><span class="badge">BONUS</span><span class="rtp rtp-best">100.17%</span></div><div class="row"><span class="logo logo-bonus">♦</span><div><h3>Double Bonus 10/6</h3><p class="card-tag">High Payout</p></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card featured card-classic" href="games/all-american-poker.html"><span class="best-badge">BEST RTP</span><div class="topline"><span class="badge">PRO</span><span class="rtp rtp-best">100.72%</span></div><div class="row"><span class="logo logo-classic">♠</span><div><h3>All American Poker</h3><p class="card-tag">All-Pay</p></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card featured card-joker" href="games/joker-poker.html"><span class="best-badge">BEST RTP</span><div class="topline"><span class="badge">JOKER</span><span class="rtp rtp-best">100.64%</span></div><div class="row"><span class="logo logo-joker">♣</span><div><h3>Joker Poker</h3><p class="card-tag">Wild Joker</p></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card featured card-bonus" href="games/double-double-bonus-poker.html"><div class="topline"><span class="badge">HI-VAR</span><span class="rtp">98.98%</span></div><div class="row"><span class="logo logo-bonus">♦</span><div><h3>Double Double Bonus</h3><p class="card-tag">Fan Favorite</p></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card featured" href="games/jacks-or-better.html"><div class="topline"><span class="badge">CLASSIC</span><span class="rtp">99.54%</span></div><div class="row"><span class="logo">♠</span><div><h3>Jacks or Better</h3><p class="card-tag">The Classic</p></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card featured" href="games/deuces-wild.html"><span class="best-badge">BEST RTP</span><div class="topline"><span class="badge">WILD</span><span class="rtp rtp-best">100.76%</span></div><div class="row"><span class="logo">★</span><div><h3>Deuces Wild</h3><p class="card-tag">Best RTP</p></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card featured" href="games/double-bonus-106.html"><span class="best-badge">BEST RTP</span><div class="topline"><span class="badge">BONUS</span><span class="rtp rtp-best">100.17%</span></div><div class="row"><span class="logo">♦</span><div><h3>Double Bonus 10/6</h3><p class="card-tag">High Payout</p></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card featured" href="games/all-american-poker.html"><span class="best-badge">BEST RTP</span><div class="topline"><span class="badge">PRO</span><span class="rtp rtp-best">100.72%</span></div><div class="row"><span class="logo">♠</span><div><h3>All American Poker</h3><p class="card-tag">All-Pay</p></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card featured" href="games/joker-poker.html"><span class="best-badge">BEST RTP</span><div class="topline"><span class="badge">JOKER</span><span class="rtp rtp-best">100.64%</span></div><div class="row"><span class="logo">♣</span><div><h3>Joker Poker</h3><p class="card-tag">Wild Joker</p></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card featured" href="games/double-double-bonus-poker.html"><div class="topline"><span class="badge">HI-VAR</span><span class="rtp">98.98%</span></div><div class="row"><span class="logo">♦</span><div><h3>Double Double Bonus</h3><p class="card-tag">Fan Favorite</p></div></div><span class="play-btn">PLAY NOW</span></a>
       </div>
     </div>
 
@@ -216,10 +193,10 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
         <a href="category-classic.html" class="view-all">View All 17 Games &rarr;</a>
       </div>
       <div class="grid">
-        <a class="game-card card-classic" href="games/jacks-or-better.html"><div class="topline"><span class="badge">CLASSIC</span><span class="rtp">99.54%</span></div><div class="row"><span class="logo logo-classic">♠</span><div><h3>Jacks or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card card-classic" href="games/tens-or-better.html"><div class="topline"><span class="badge">EASY+</span><span class="rtp">99.14%</span></div><div class="row"><span class="logo logo-classic">♠</span><div><h3>Tens or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card card-classic" href="games/kings-or-better.html"><div class="topline"><span class="badge">CLASSIC</span><span class="rtp">98.54%</span></div><div class="row"><span class="logo logo-classic">♠</span><div><h3>Kings or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card card-classic" href="games/nines-or-better.html"><div class="topline"><span class="badge">EASY</span><span class="rtp">99.66%</span></div><div class="row"><span class="logo logo-classic">♠</span><div><h3>Nines or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/jacks-or-better.html"><div class="topline"><span class="badge">CLASSIC</span><span class="rtp">99.54%</span></div><div class="row"><span class="logo">♠</span><div><h3>Jacks or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/tens-or-better.html"><div class="topline"><span class="badge">EASY+</span><span class="rtp">99.14%</span></div><div class="row"><span class="logo">♠</span><div><h3>Tens or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/kings-or-better.html"><div class="topline"><span class="badge">CLASSIC</span><span class="rtp">98.54%</span></div><div class="row"><span class="logo">♠</span><div><h3>Kings or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/nines-or-better.html"><div class="topline"><span class="badge">EASY</span><span class="rtp">99.66%</span></div><div class="row"><span class="logo">♠</span><div><h3>Nines or Better</h3></div></div><span class="play-btn">PLAY NOW</span></a>
       </div>
     </div>
 
@@ -230,10 +207,10 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
         <a href="category-bonus.html" class="view-all">View All 52 Games &rarr;</a>
       </div>
       <div class="grid">
-        <a class="game-card card-bonus" href="games/bonus-poker.html"><div class="topline"><span class="badge">BONUS</span><span class="rtp">99.17%</span></div><div class="row"><span class="logo logo-bonus">♦</span><div><h3>Bonus Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card card-bonus" href="games/double-bonus-poker.html"><div class="topline"><span class="badge">HI-VAR</span><span class="rtp">99.11%</span></div><div class="row"><span class="logo logo-bonus">♦</span><div><h3>Double Bonus Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card card-bonus" href="games/aces-and-faces.html"><div class="topline"><span class="badge">PREMIUM</span><span class="rtp">99.26%</span></div><div class="row"><span class="logo logo-bonus">♦</span><div><h3>Aces and Faces</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card card-bonus" href="games/triple-double-bonus-poker.html"><div class="topline"><span class="badge">MEGA</span><span class="rtp">99.58%</span></div><div class="row"><span class="logo logo-bonus">♦</span><div><h3>Triple Double Bonus</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/bonus-poker.html"><div class="topline"><span class="badge">BONUS</span><span class="rtp">99.17%</span></div><div class="row"><span class="logo">♦</span><div><h3>Bonus Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/double-bonus-poker.html"><div class="topline"><span class="badge">HI-VAR</span><span class="rtp">99.11%</span></div><div class="row"><span class="logo">♦</span><div><h3>Double Bonus Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/aces-and-faces.html"><div class="topline"><span class="badge">PREMIUM</span><span class="rtp">99.26%</span></div><div class="row"><span class="logo">♦</span><div><h3>Aces and Faces</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/triple-double-bonus-poker.html"><div class="topline"><span class="badge">MEGA</span><span class="rtp">99.58%</span></div><div class="row"><span class="logo">♦</span><div><h3>Triple Double Bonus</h3></div></div><span class="play-btn">PLAY NOW</span></a>
       </div>
     </div>
 
@@ -244,10 +221,10 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
         <a href="category-wild.html" class="view-all">View All 35 Games &rarr;</a>
       </div>
       <div class="grid">
-        <a class="game-card card-wild" href="games/deuces-wild.html"><div class="topline"><span class="badge">WILD</span><span class="rtp">100.76%</span></div><div class="row"><span class="logo logo-wild">★</span><div><h3>Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card card-wild" href="games/bonus-deuces-wild.html"><div class="topline"><span class="badge">WILD</span><span class="rtp">99.45%</span></div><div class="row"><span class="logo logo-wild">★</span><div><h3>Bonus Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card card-wild" href="games/nsu-deuces-wild.html"><div class="topline"><span class="badge">PRO</span><span class="rtp">99.73%</span></div><div class="row"><span class="logo logo-wild">★</span><div><h3>NSU Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card card-wild" href="games/loose-deuces-wild.html"><div class="topline"><span class="badge">MEGA</span><span class="rtp">99.41%</span></div><div class="row"><span class="logo logo-wild">★</span><div><h3>Loose Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/deuces-wild.html"><div class="topline"><span class="badge">WILD</span><span class="rtp">100.76%</span></div><div class="row"><span class="logo">★</span><div><h3>Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/bonus-deuces-wild.html"><div class="topline"><span class="badge">WILD</span><span class="rtp">99.45%</span></div><div class="row"><span class="logo">★</span><div><h3>Bonus Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/nsu-deuces-wild.html"><div class="topline"><span class="badge">PRO</span><span class="rtp">99.73%</span></div><div class="row"><span class="logo">★</span><div><h3>NSU Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/loose-deuces-wild.html"><div class="topline"><span class="badge">MEGA</span><span class="rtp">99.41%</span></div><div class="row"><span class="logo">★</span><div><h3>Loose Deuces Wild</h3></div></div><span class="play-btn">PLAY NOW</span></a>
       </div>
     </div>
 
@@ -258,10 +235,10 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
         <a href="category-joker.html" class="view-all">View All 16 Games &rarr;</a>
       </div>
       <div class="grid">
-        <a class="game-card card-joker" href="games/joker-poker.html"><div class="topline"><span class="badge">JOKER</span><span class="rtp">100.64%</span></div><div class="row"><span class="logo logo-joker">♣</span><div><h3>Joker Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card card-joker" href="games/joker-poker-aces.html"><div class="topline"><span class="badge">JOKER</span><span class="rtp">99.62%</span></div><div class="row"><span class="logo logo-joker">♣</span><div><h3>Joker Poker Aces</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card card-joker" href="games/double-joker-poker.html"><div class="topline"><span class="badge">MEGA</span><span class="rtp">99.36%</span></div><div class="row"><span class="logo logo-joker">♣</span><div><h3>Double Joker Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
-        <a class="game-card card-joker" href="games/joker-poker-twopair.html"><div class="topline"><span class="badge">JOKER</span><span class="rtp">99.92%</span></div><div class="row"><span class="logo logo-joker">♣</span><div><h3>Joker Poker Two Pair</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/joker-poker.html"><div class="topline"><span class="badge">JOKER</span><span class="rtp">100.64%</span></div><div class="row"><span class="logo">♣</span><div><h3>Joker Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/joker-poker-aces.html"><div class="topline"><span class="badge">JOKER</span><span class="rtp">99.62%</span></div><div class="row"><span class="logo">♣</span><div><h3>Joker Poker Aces</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/double-joker-poker.html"><div class="topline"><span class="badge">MEGA</span><span class="rtp">99.36%</span></div><div class="row"><span class="logo">♣</span><div><h3>Double Joker Poker</h3></div></div><span class="play-btn">PLAY NOW</span></a>
+        <a class="game-card" href="games/joker-poker-twopair.html"><div class="topline"><span class="badge">JOKER</span><span class="rtp">99.92%</span></div><div class="row"><span class="logo">♣</span><div><h3>Joker Poker Two Pair</h3></div></div><span class="play-btn">PLAY NOW</span></a>
       </div>
     </div>
 
@@ -298,7 +275,7 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
     <a href="terms.html">Terms</a>
   </div>
 </div>
-<style>.footer-nav{margin-top:16px;padding:14px;background:#000418;border:1px solid #1d2e5f;border-radius:8px;text-align:center}.footer-nav .ft-row{margin:4px 0}.footer-nav a{color:#9eb0d8;text-decoration:none;font-size:.72rem;letter-spacing:1px;margin:0 10px}.footer-nav a:hover{color:#ffe033}.footer-nav .ft-info a{color:#6b7fa8;font-size:.66rem}.footer-nav .ft-info a:hover{color:#ffe033}.footer-nav .ft-legal a{color:#556b8a;font-size:.62rem}.footer-nav .ft-legal a:hover{color:#ffe033}</style>
+<style>.footer-nav{margin-top:20px;padding:16px;background:var(--panel);border:1px solid rgba(255,255,255,.04);border-radius:10px;text-align:center}.footer-nav .ft-row{margin:5px 0}.footer-nav a{color:var(--text-muted);text-decoration:none;font-size:.72rem;letter-spacing:.5px;margin:0 10px;transition:color .15s}.footer-nav a:hover{color:var(--gold)}.footer-nav .ft-info a{color:var(--text-dim);font-size:.66rem}.footer-nav .ft-info a:hover{color:var(--gold)}.footer-nav .ft-legal a{color:var(--text-dim);font-size:.62rem;opacity:.7}.footer-nav .ft-legal a:hover{color:var(--gold);opacity:1}</style>
 <!-- FOOTER-NAV-END -->
 </body>
 </html>
