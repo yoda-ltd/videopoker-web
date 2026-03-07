@@ -48,15 +48,162 @@ const CATEGORIES = {
   }
 };
 
-// ─── Read game card data from index.html ──────────────────────────
+// ─── RTP data for all games ───────────────────────────────────────
+const RTP_DATA = {
+  'jacks-or-better': { rtp: '99.54', payTable: '9/6', variance: 'Low', minHand: 'Jacks or Better' },
+  'jacks-or-better-95': { rtp: '98.45', payTable: '9/5', variance: 'Low', minHand: 'Jacks or Better' },
+  'jacks-or-better-86': { rtp: '98.39', payTable: '8/6', variance: 'Low', minHand: 'Jacks or Better' },
+  'jacks-or-better-85': { rtp: '97.30', payTable: '8/5', variance: 'Low', minHand: 'Jacks or Better' },
+  'jacks-or-better-75': { rtp: '96.15', payTable: '7/5', variance: 'Low', minHand: 'Jacks or Better' },
+  'jacks-or-better-65': { rtp: '95.00', payTable: '6/5', variance: 'Low', minHand: 'Jacks or Better' },
+  'tens-or-better': { rtp: '99.14', payTable: '6/5', variance: 'Low', minHand: 'Tens or Better' },
+  'tens-or-better-75': { rtp: '96.08', payTable: '7/5', variance: 'Low', minHand: 'Tens or Better' },
+  'nines-or-better': { rtp: '98.80', payTable: '8/5', variance: 'Low', minHand: 'Nines or Better' },
+  'nines-or-better-75': { rtp: '96.00', payTable: '7/5', variance: 'Low', minHand: 'Nines or Better' },
+  'kings-or-better': { rtp: '98.60', payTable: '9/6', variance: 'Low', minHand: 'Kings or Better' },
+  'kings-or-better-75': { rtp: '95.80', payTable: '7/5', variance: 'Low', minHand: 'Kings or Better' },
+  'queens-or-better': { rtp: '99.00', payTable: '9/6', variance: 'Low', minHand: 'Queens or Better' },
+  'eights-or-better': { rtp: '98.50', payTable: '8/5', variance: 'Low', minHand: 'Eights or Better' },
+  'sixes-or-better': { rtp: '98.40', payTable: '8/5', variance: 'Low', minHand: 'Sixes or Better' },
+  'aces-or-better': { rtp: '98.20', payTable: '8/5', variance: 'Low', minHand: 'Aces or Better' },
+  'two-pair-or-better': { rtp: '97.00', payTable: '9/6', variance: 'Very Low', minHand: 'Two Pair' },
+  'bonus-poker': { rtp: '99.17', payTable: '8/5', variance: 'Medium', minHand: 'Jacks or Better' },
+  'bonus-poker-107': { rtp: '99.90', payTable: '10/7', variance: 'Medium', minHand: 'Jacks or Better' },
+  'bonus-poker-75': { rtp: '98.01', payTable: '7/5', variance: 'Medium', minHand: 'Jacks or Better' },
+  'bonus-poker-65': { rtp: '96.87', payTable: '6/5', variance: 'Medium', minHand: 'Jacks or Better' },
+  'double-bonus-poker': { rtp: '100.17', payTable: '10/7', variance: 'High', minHand: 'Jacks or Better' },
+  'double-bonus-106': { rtp: '100.17', payTable: '10/6', variance: 'High', minHand: 'Jacks or Better' },
+  'double-bonus-97': { rtp: '99.11', payTable: '9/7', variance: 'High', minHand: 'Jacks or Better' },
+  'double-bonus-96': { rtp: '97.81', payTable: '9/6', variance: 'High', minHand: 'Jacks or Better' },
+  'double-bonus-95': { rtp: '96.38', payTable: '9/5', variance: 'High', minHand: 'Jacks or Better' },
+  'double-bonus-85': { rtp: '94.82', payTable: '8/5', variance: 'High', minHand: 'Jacks or Better' },
+  'double-double-bonus-poker': { rtp: '98.98', payTable: '9/6', variance: 'Very High', minHand: 'Jacks or Better' },
+  'double-double-bonus-106': { rtp: '100.07', payTable: '10/6', variance: 'Very High', minHand: 'Jacks or Better' },
+  'double-double-bonus-96': { rtp: '97.87', payTable: '9/6', variance: 'Very High', minHand: 'Jacks or Better' },
+  'double-double-bonus-85': { rtp: '96.79', payTable: '8/5', variance: 'Very High', minHand: 'Jacks or Better' },
+  'double-double-bonus-75': { rtp: '95.71', payTable: '7/5', variance: 'Very High', minHand: 'Jacks or Better' },
+  'double-double-bonus-65': { rtp: '94.66', payTable: '6/5', variance: 'Very High', minHand: 'Jacks or Better' },
+  'triple-bonus-poker': { rtp: '99.58', payTable: '9/7', variance: 'Very High', minHand: 'Jacks or Better' },
+  'triple-bonus-96': { rtp: '98.46', payTable: '9/6', variance: 'Very High', minHand: 'Jacks or Better' },
+  'triple-bonus-85': { rtp: '97.02', payTable: '8/5', variance: 'Very High', minHand: 'Jacks or Better' },
+  'triple-bonus-75': { rtp: '95.97', payTable: '7/5', variance: 'Very High', minHand: 'Jacks or Better' },
+  'triple-double-bonus-poker': { rtp: '99.58', payTable: '9/7', variance: 'Extreme', minHand: 'Jacks or Better' },
+  'triple-double-bonus-97': { rtp: '99.58', payTable: '9/7', variance: 'Extreme', minHand: 'Jacks or Better' },
+  'triple-double-bonus-95': { rtp: '98.15', payTable: '9/5', variance: 'Extreme', minHand: 'Jacks or Better' },
+  'triple-double-bonus-85': { rtp: '96.73', payTable: '8/5', variance: 'Extreme', minHand: 'Jacks or Better' },
+  'triple-double-bonus-75': { rtp: '95.34', payTable: '7/5', variance: 'Extreme', minHand: 'Jacks or Better' },
+  'bonus-poker-deluxe': { rtp: '99.64', payTable: '9/6', variance: 'Medium', minHand: 'Jacks or Better' },
+  'bonus-poker-deluxe-96': { rtp: '98.49', payTable: '9/6', variance: 'Medium', minHand: 'Jacks or Better' },
+  'bonus-poker-deluxe-85': { rtp: '97.40', payTable: '8/5', variance: 'Medium', minHand: 'Jacks or Better' },
+  'bonus-poker-deluxe-75': { rtp: '96.25', payTable: '7/5', variance: 'Medium', minHand: 'Jacks or Better' },
+  'bonus-poker-deluxe-65': { rtp: '95.36', payTable: '6/5', variance: 'Medium', minHand: 'Jacks or Better' },
+  'super-double-bonus': { rtp: '99.69', payTable: '9/5', variance: 'Very High', minHand: 'Jacks or Better' },
+  'super-double-bonus-96': { rtp: '98.69', payTable: '9/6', variance: 'Very High', minHand: 'Jacks or Better' },
+  'super-double-bonus-75': { rtp: '96.24', payTable: '7/5', variance: 'Very High', minHand: 'Jacks or Better' },
+  'aces-and-faces': { rtp: '99.26', payTable: '8/5', variance: 'Medium', minHand: 'Jacks or Better' },
+  'aces-and-faces-85': { rtp: '97.46', payTable: '8/5', variance: 'Medium', minHand: 'Jacks or Better' },
+  'aces-and-faces-76': { rtp: '96.31', payTable: '7/6', variance: 'Medium', minHand: 'Jacks or Better' },
+  'aces-and-faces-75': { rtp: '95.71', payTable: '7/5', variance: 'Medium', minHand: 'Jacks or Better' },
+  'aces-and-eights': { rtp: '99.78', payTable: '8/5', variance: 'Medium', minHand: 'Jacks or Better' },
+  'aces-and-eights-86': { rtp: '98.40', payTable: '8/6', variance: 'Medium', minHand: 'Jacks or Better' },
+  'aces-and-eights-75': { rtp: '96.16', payTable: '7/5', variance: 'Medium', minHand: 'Jacks or Better' },
+  'white-hot-aces': { rtp: '99.57', payTable: '9/5', variance: 'High', minHand: 'Jacks or Better' },
+  'white-hot-aces-85': { rtp: '97.95', payTable: '8/5', variance: 'High', minHand: 'Jacks or Better' },
+  'white-hot-aces-65': { rtp: '95.94', payTable: '6/5', variance: 'High', minHand: 'Jacks or Better' },
+  'super-aces-bonus': { rtp: '99.94', payTable: '8/5', variance: 'Very High', minHand: 'Jacks or Better' },
+  'super-aces-bonus-85': { rtp: '97.78', payTable: '8/5', variance: 'Very High', minHand: 'Jacks or Better' },
+  'super-aces-bonus-65': { rtp: '95.89', payTable: '6/5', variance: 'Very High', minHand: 'Jacks or Better' },
+  'all-american-poker': { rtp: '100.72', payTable: '8/8/8', variance: 'Medium', minHand: 'Jacks or Better' },
+  'all-american-poker-86': { rtp: '98.49', payTable: '8/6', variance: 'Medium', minHand: 'Jacks or Better' },
+  'all-american-poker-66': { rtp: '96.26', payTable: '6/6', variance: 'Medium', minHand: 'Jacks or Better' },
+  'nevada-bonus-poker': { rtp: '99.15', payTable: '10/7', variance: 'Medium', minHand: 'Jacks or Better' },
+  'royal-aces-bonus': { rtp: '99.58', payTable: '8/5', variance: 'Very High', minHand: 'Jacks or Better' },
+  'ultra-bonus-poker': { rtp: '99.17', payTable: '8/5', variance: 'Medium', minHand: 'Jacks or Better' },
+  'deuces-wild': { rtp: '100.76', payTable: 'Full Pay', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'nsu-deuces-wild': { rtp: '99.73', payTable: 'NSU', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'short-pay-deuces-wild': { rtp: '98.91', payTable: 'Short Pay', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'downtown-deuces-wild': { rtp: '98.54', payTable: 'Downtown', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'illinois-deuces-wild': { rtp: '98.91', payTable: 'Illinois', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'colorado-deuces-wild': { rtp: '98.14', payTable: 'Colorado', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'airport-deuces-wild': { rtp: '96.77', payTable: 'Airport', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'vegas-strip-deuces-wild': { rtp: '97.58', payTable: 'Vegas Strip', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'reno-deuces-wild': { rtp: '97.06', payTable: 'Reno', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'atlantic-city-deuces-wild': { rtp: '97.58', payTable: 'Atlantic City', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'missouri-deuces-wild': { rtp: '96.77', payTable: 'Missouri', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'bonus-deuces-wild': { rtp: '99.45', payTable: 'Full Pay', variance: 'High', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'bonus-deuces-wild-1343': { rtp: '98.80', payTable: '13/4/3', variance: 'High', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'bonus-deuces-wild-1243': { rtp: '98.07', payTable: '12/4/3', variance: 'High', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'bonus-deuces-wild-1043': { rtp: '96.22', payTable: '10/4/3', variance: 'High', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'loose-deuces-wild': { rtp: '100.15', payTable: 'Full Pay', variance: 'Very High', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'loose-deuces-wild-1510': { rtp: '99.20', payTable: '15/10', variance: 'Very High', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'loose-deuces-wild-128': { rtp: '97.38', payTable: '12/8', variance: 'Very High', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'double-deuces-wild': { rtp: '99.62', payTable: 'Full Pay', variance: 'Very High', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'double-deuces-wild-1510': { rtp: '98.60', payTable: '15/10', variance: 'Very High', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'double-deuces-wild-128': { rtp: '96.70', payTable: '12/8', variance: 'Very High', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'deuces-wild-bonus': { rtp: '99.86', payTable: 'Full Pay', variance: 'High', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'deuces-wild-bonus-1643': { rtp: '99.11', payTable: '16/4/3', variance: 'High', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'deuces-wild-bonus-1243': { rtp: '97.36', payTable: '12/4/3', variance: 'High', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'deuces-wild-deluxe': { rtp: '99.73', payTable: 'Full Pay', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'deuces-wild-deluxe-1643': { rtp: '98.96', payTable: '16/4/3', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'deuces-wild-deluxe-1243': { rtp: '96.03', payTable: '12/4/3', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Deuces (2s)' },
+  'sevens-wild': { rtp: '100.14', payTable: '25/15', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Sevens (7s)' },
+  'sevens-wild-2515': { rtp: '100.14', payTable: '25/15', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Sevens (7s)' },
+  'sevens-wild-2010': { rtp: '97.66', payTable: '20/10', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Sevens (7s)' },
+  'threes-wild': { rtp: '99.33', payTable: 'Full Pay', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Threes (3s)' },
+  'fours-wild': { rtp: '99.20', payTable: 'Full Pay', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Fours (4s)' },
+  'fives-wild': { rtp: '99.10', payTable: 'Full Pay', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Fives (5s)' },
+  'eights-wild': { rtp: '99.40', payTable: 'Full Pay', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Eights (8s)' },
+  'tens-wild': { rtp: '99.50', payTable: 'Full Pay', variance: 'Medium', minHand: 'Three of a Kind', wildCard: 'Tens (10s)' },
+  'joker-poker': { rtp: '100.64', payTable: 'Full Pay', variance: 'Medium', minHand: 'Kings or Better', wildCard: 'Joker', deck: 53 },
+  'joker-poker-85': { rtp: '98.09', payTable: '8/5', variance: 'Medium', minHand: 'Kings or Better', wildCard: 'Joker', deck: 53 },
+  'joker-poker-75': { rtp: '96.38', payTable: '7/5', variance: 'Medium', minHand: 'Kings or Better', wildCard: 'Joker', deck: 53 },
+  'joker-poker-65': { rtp: '95.46', payTable: '6/5', variance: 'Medium', minHand: 'Kings or Better', wildCard: 'Joker', deck: 53 },
+  'joker-poker-aces': { rtp: '99.07', payTable: 'Full Pay', variance: 'Medium', minHand: 'Pair of Aces', wildCard: 'Joker', deck: 53 },
+  'joker-poker-aces-75': { rtp: '97.19', payTable: '7/5', variance: 'Medium', minHand: 'Pair of Aces', wildCard: 'Joker', deck: 53 },
+  'joker-poker-aces-65': { rtp: '95.43', payTable: '6/5', variance: 'Medium', minHand: 'Pair of Aces', wildCard: 'Joker', deck: 53 },
+  'joker-poker-twopair': { rtp: '99.92', payTable: 'Full Pay', variance: 'Low', minHand: 'Two Pair', wildCard: 'Joker', deck: 53 },
+  'joker-poker-twopair-85': { rtp: '98.44', payTable: '8/5', variance: 'Low', minHand: 'Two Pair', wildCard: 'Joker', deck: 53 },
+  'joker-poker-twopair-75': { rtp: '96.39', payTable: '7/5', variance: 'Low', minHand: 'Two Pair', wildCard: 'Joker', deck: 53 },
+  'double-joker-poker': { rtp: '99.97', payTable: 'Full Pay', variance: 'Medium', minHand: 'Two Pair', wildCard: '2 Jokers', deck: 54 },
+  'double-joker-poker-75': { rtp: '98.10', payTable: '7/5', variance: 'Medium', minHand: 'Two Pair', wildCard: '2 Jokers', deck: 54 },
+  'double-joker-poker-55': { rtp: '95.33', payTable: '5/5', variance: 'Medium', minHand: 'Two Pair', wildCard: '2 Jokers', deck: 54 },
+  'deuces-and-joker-wild': { rtp: '99.07', payTable: 'Full Pay', variance: 'High', minHand: 'Three of a Kind', wildCard: 'Deuces + Joker', deck: 53 },
+  'deuces-and-joker-wild-85': { rtp: '97.56', payTable: '8/5', variance: 'High', minHand: 'Three of a Kind', wildCard: 'Deuces + Joker', deck: 53 },
+  'deuces-and-joker-wild-65': { rtp: '95.28', payTable: '6/5', variance: 'High', minHand: 'Three of a Kind', wildCard: 'Deuces + Joker', deck: 53 },
+};
+
+// ─── Read game card data from game files ──────────────────────────
 function parseGameCards() {
-  const indexHtml = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf-8');
-  const cardRegex = /<a class="game-card" href="games\/([^"]+)"[^>]*>.*?<span class="badge">([^<]+)<\/span>.*?<img class="logo" src="([^"]+)"[^>]*>.*?<h3>([^<]+)<\/h3>/gs;
+  const gameFiles = fs.readdirSync(GAMES_DIR).filter(f => f.endsWith('.html')).sort();
   const cards = [];
-  let m;
-  while ((m = cardRegex.exec(indexHtml)) !== null) {
-    const id = m[1].replace('.html', '');
-    cards.push({ id, file: m[1], badge: m[2], logo: m[3], name: m[4] });
+  for (const file of gameFiles) {
+    const id = file.replace('.html', '');
+    const html = fs.readFileSync(path.join(GAMES_DIR, file), 'utf-8');
+
+    // Extract title from <title> tag and clean up
+    const titleMatch = html.match(/<title>([^<]+)/);
+    let name = titleMatch ? titleMatch[1].replace(/ Video Poker.*$/, '').trim() : id;
+
+    // Determine badge from category
+    let badge = 'CLASSIC';
+    for (const [key, cat] of Object.entries(CATEGORIES)) {
+      if (cat.match(id)) {
+        badge = cat.badge;
+        break;
+      }
+    }
+
+    // Determine logo
+    let logo = 'assets/logos/jacks-or-better.png';
+    if (/deuces|wild|sevens|threes|fours|fives|eights-wild|tens-wild|joker/.test(id)) logo = 'assets/logos/deuces-wild.png';
+    else if (/bonus-poker(?!.*deluxe)|triple-bonus|nevada-bonus|ultra-bonus/.test(id)) logo = 'assets/logos/bonus-poker.png';
+    else if (/double-bonus|double-double|triple-double|super-double|white-hot/.test(id)) logo = 'assets/logos/double-bonus-poker.png';
+    else if (/aces-and|super-aces|royal-aces/.test(id)) logo = 'assets/logos/aces-and-faces.png';
+    else if (/all-american/.test(id)) logo = 'assets/logos/all-american-poker.png';
+    else if (/tens-or-better/.test(id)) logo = 'assets/logos/tens-or-better.png';
+    else if (/nines-or-better/.test(id)) logo = 'assets/logos/nines-or-better.png';
+
+    cards.push({ id, file, badge, logo, name });
   }
   return cards;
 }
@@ -110,7 +257,14 @@ function generateCategoryPage(catKey, cat, games) {
 
   const gameCards = games.map(g => {
     const desc = getDescription(g.file);
-    return `        <a class="game-card" href="games/${g.file}"><div class="topline"><span class="badge">${g.badge}</span></div><div class="row"><img class="logo" src="${g.logo}" alt="${g.name} logo"><div><h3>${g.name}</h3></div></div><p>${desc.replace(/Play free .+?\. /, '').substring(0, 100)}</p><span class="play-btn">PLAY NOW</span></a>`;
+    const rtpEntry = RTP_DATA[g.id];
+    const rtp = rtpEntry ? rtpEntry.rtp : '99.00';
+    return `        <a class="game-card" href="games/${g.file}">
+          <div class="topline"><span class="badge">${g.badge}</span><span class="rtp">${rtp}%</span></div>
+          <div class="row"><img class="logo" src="${g.logo}" alt="${g.name} logo"><div><h3>${g.name}</h3></div></div>
+          <p>${desc.replace(/Play free .+?\. /, '').substring(0, 100)}</p>
+          <span class="play-btn">PLAY NOW</span>
+        </a>`;
   }).join('\n\n');
 
   // Category nav links
@@ -171,6 +325,7 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
 .game-card:hover{transform:translateY(-3px);filter:brightness(1.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 22px rgba(0,0,0,.55)}
 .game-card:active{transform:translateY(-1px) scale(.985)}
 .topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.rtp{color:#4ade80;font-size:.68rem;letter-spacing:.5px;font-family:Arial,sans-serif}
 .badge{font-size:.62rem;color:#001018;background:linear-gradient(180deg,#ffe75a,#d6ad00);border:1px solid #8f7200;border-radius:3px;padding:2px 6px;letter-spacing:1px}
 .logo{width:54px;height:54px;border-radius:8px;border:1px solid rgba(255,255,255,.25);display:block;object-fit:cover;box-shadow:0 4px 10px rgba(0,0,0,.45)}
 .row{display:flex;gap:10px;align-items:flex-start;min-height:54px}
@@ -243,7 +398,7 @@ ${gameCards}
 
 // ─── Main ────────────────────────────────────────────────────────
 const allCards = parseGameCards();
-console.log(`Found ${allCards.length} game cards in index.html`);
+console.log(`Found ${allCards.length} game cards in games/ directory`);
 
 let totalCategorized = 0;
 for (const [catKey, cat] of Object.entries(CATEGORIES)) {
