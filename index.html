@@ -41,27 +41,36 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
 .game-card p{margin:0;color:var(--muted);font-size:.78rem;line-height:1.35;font-family:Arial,sans-serif;min-height:42px}
 .play-btn{margin-top:auto;display:inline-block;align-self:flex-start;background:linear-gradient(180deg,var(--red1),var(--red2));border:1px solid #7d1600;border-radius:4px;padding:6px 12px;color:#fff;font-size:.74rem;letter-spacing:1px}
 .footer-note{text-align:center;color:#7f91b9;font-size:.72rem;letter-spacing:1px;margin-top:14px}
+.hero-text{text-align:center;padding:20px 16px 8px}
+.hero-sub{color:var(--gold);font-size:.88rem;letter-spacing:2px;margin:0 0 12px;font-family:Arial Black,Arial,sans-serif}
+.hero-desc{color:var(--muted);font-size:.82rem;line-height:1.55;max-width:640px;margin:0 auto 18px;font-family:Arial,sans-serif}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.btn-primary{display:inline-block;padding:12px 28px;background:linear-gradient(180deg,var(--red1),var(--red2));border:1px solid #7d1600;border-radius:6px;color:#fff;font-size:.88rem;font-family:Arial Black,Arial,sans-serif;letter-spacing:1px;text-decoration:none;transition:all .15s ease;box-shadow:0 4px 12px rgba(191,33,0,.4)}
+.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.1);box-shadow:0 6px 18px rgba(191,33,0,.5)}
+.btn-secondary{display:inline-block;padding:12px 28px;background:transparent;border:2px solid var(--gold);border-radius:6px;color:var(--gold);font-size:.88rem;font-family:Arial Black,Arial,sans-serif;letter-spacing:1px;text-decoration:none;transition:all .15s ease}
+.btn-secondary:hover{background:rgba(255,224,51,.08);transform:translateY(-2px)}
+.hero-stats{display:flex;justify-content:center;gap:32px;padding:16px 0;border-top:1px solid rgba(255,224,51,.15);border-bottom:1px solid rgba(255,224,51,.15);margin:0 auto;max-width:480px}
+.stat{text-align:center}
+.stat-num{display:block;color:var(--gold);font-size:1.3rem;font-family:Arial Black,Arial,sans-serif;letter-spacing:1px}
+.stat-label{color:#6b7fa8;font-size:.62rem;letter-spacing:2px;text-transform:uppercase}
 .cat-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:14px 0 0}
 .cat-link{display:inline-block;padding:8px 16px;background:#000418;border:1px solid #1d2e5f;border-radius:6px;color:#9eb0d8;font-size:.78rem;text-decoration:none;letter-spacing:1px;transition:all .15s ease}
 .cat-link:hover{background:#001048;border-color:var(--gold);color:var(--gold)}
 .cat-active{background:#001048;border-color:var(--gold);color:var(--gold)}
-.hero{margin-top:12px;border:2px solid #213a78;border-radius:10px;overflow:hidden;position:relative;background:#000}
-.hero img{display:block;width:100%;height:220px;object-fit:cover;filter:saturate(.95) contrast(1.03)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.42));pointer-events:none}
-.hero-note{position:absolute;left:14px;bottom:12px;color:#ffe033;font-size:.72rem;letter-spacing:1px;text-shadow:0 2px 6px rgba(0,0,0,.7);z-index:2}
 
 @media (max-width:900px){
   .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .hero img{height:190px}
 }
 @media (max-width:640px){
   .cat-nav{gap:6px;margin:10px 0 0}.cat-link{padding:6px 10px;font-size:.68rem}
   .wrap{padding:12px 10px 26px}
   .marquee{padding:10px 8px}
   .marquee h1{font-size:1.04rem;letter-spacing:1.4px}
-  .hero{margin-top:10px}
-  .hero img{height:148px}
-  .hero-note{font-size:.64rem;left:10px;bottom:8px}
+  .hero-text{padding:14px 8px 4px}
+  .hero-sub{font-size:.76rem;letter-spacing:1px}
+  .hero-desc{font-size:.74rem}
+  .btn-primary,.btn-secondary{padding:10px 20px;font-size:.78rem}
+  .hero-stats{gap:20px}.stat-num{font-size:1.1rem}
   .cabinet{padding:10px}
   .panel-head{padding:8px 10px}
   .panel-head .label{font-size:.64rem;letter-spacing:1.4px}
@@ -76,32 +85,15 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
 }
 @media (max-width:380px){
   .marquee h1{font-size:.95rem;letter-spacing:1px}
-  .hero img{height:132px}
   .logo{width:44px;height:44px}
   .game-card h3{font-size:.92rem}
   .badge{font-size:.58rem;padding:2px 5px}
-}
-
-/* iPhone 13 (390×844) */
-@media (min-width:389px) and (max-width:395px) and (min-height:820px){
-  .hero img{height:156px}
-  .game-card{min-height:132px;padding:11px}
-  .play-btn{padding:9px 14px;font-size:.8rem}
-}
-
-/* iPhone 12/13 mini (375×812) */
-@media (min-width:370px) and (max-width:380px) and (min-height:780px){
-  .hero img{height:144px}
-  .game-card{min-height:128px}
-  .play-btn{padding:8px 13px}
 }
 
 /* iPhone SE (375×667) */
 @media (min-width:370px) and (max-width:380px) and (max-height:700px){
   .wrap{padding:10px 8px 20px}
   .marquee h1{font-size:.92rem}
-  .hero img{height:116px}
-  .hero-note{font-size:.58rem;left:8px;bottom:6px}
   .cabinet{padding:8px}
   .panel-head{margin-bottom:8px}
   .game-card{min-height:116px;padding:9px;gap:6px}
@@ -125,9 +117,18 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
     </div>
 
 
-    <div class="hero">
-      <img src="assets/hero/hero-vp-premium.png" alt="Video Poker promotional hero">
-      <div class="hero-note">AI HERO • PREMIUM CASINO ATMOSPHERE</div>
+    <div class="hero-text">
+      <p class="hero-sub">120 Free Games &bull; No Download &bull; No Registration</p>
+      <p class="hero-desc">Play the world's most complete collection of video poker variants — from classic Jacks or Better to exotic Deuces Wild. Each game includes optimal strategy guides and real probability analysis.</p>
+      <div class="hero-cta">
+        <a href="games/jacks-or-better.html" class="btn-primary">Play Jacks or Better</a>
+        <a href="games/deuces-wild.html" class="btn-secondary">Try Deuces Wild</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">120</span><span class="stat-label">Game Variants</span></div>
+        <div class="stat"><span class="stat-num">100.76%</span><span class="stat-label">Best RTP</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Categories</span></div>
+      </div>
     </div>
 
     <!-- CAT-NAV-START -->
