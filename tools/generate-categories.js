@@ -178,7 +178,7 @@ body{margin:0;font-family:Arial Black,Arial,sans-serif;background:radial-gradien
 .game-card p{margin:0;color:var(--muted);font-size:.72rem;line-height:1.3;font-family:Arial,sans-serif}
 .play-btn{margin-top:auto;display:inline-block;align-self:flex-start;background:linear-gradient(180deg,var(--red1),var(--red2));border:1px solid #7d1600;border-radius:4px;padding:6px 12px;color:#fff;font-size:.74rem;letter-spacing:1px}
 .footer-nav{margin-top:24px;padding:16px;background:#000418;border:1px solid #1d2e5f;border-radius:8px;text-align:center}
-.footer-nav .ft-row{margin:4px 0}.footer-nav a{color:#9eb0d8;text-decoration:none;font-size:.72rem;letter-spacing:1px;margin:0 10px}.footer-nav a:hover{color:var(--gold)}.footer-nav .ft-info a{color:#6b7fa8;font-size:.66rem}.footer-nav .ft-info a:hover{color:var(--gold)}
+.footer-nav .ft-row{margin:4px 0}.footer-nav a{color:#9eb0d8;text-decoration:none;font-size:.72rem;letter-spacing:1px;margin:0 10px}.footer-nav a:hover{color:var(--gold)}.footer-nav .ft-info a{color:#6b7fa8;font-size:.66rem}.footer-nav .ft-info a:hover{color:var(--gold)}.footer-nav .ft-legal a{color:#556b8a;font-size:.62rem}.footer-nav .ft-legal a:hover{color:var(--gold)}
 .footer-note{text-align:center;color:#7f91b9;font-size:.72rem;letter-spacing:1px;margin-top:14px}
 @media(max-width:640px){
   .wrap{padding:12px 10px 26px}.marquee h1{font-size:1.04rem}.cabinet{padding:10px}
@@ -227,6 +227,11 @@ ${gameCards}
         <a href="glossary.html">Glossary</a>
         <a href="faq.html">FAQ</a>
         <a href="sitemap.html">Sitemap</a>
+      </div>
+      <div class="ft-row ft-legal">
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
       </div>
     </div>
     <div class="footer-note">VIDEO POKER CLASSIC &bull; 120 FREE GAMES</div>

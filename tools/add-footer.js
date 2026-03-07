@@ -33,9 +33,14 @@ function getGameFooter() {
     <a href="../faq.html">FAQ</a>
     <a href="../sitemap.html">Sitemap</a>
   </nav>
+  <nav class="ft-legal">
+    <a href="../about.html">About</a>
+    <a href="../privacy.html">Privacy</a>
+    <a href="../terms.html">Terms</a>
+  </nav>
   <p>Video Poker Classic &bull; 120 Free Games &bull; No Download Required</p>
 </footer>
-<style>.site-footer{max-width:680px;margin:20px auto 0;padding:16px;text-align:center;border-top:1px solid #ffe033}.site-footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin-bottom:6px}.site-footer a{color:#c5d4f0;text-decoration:none;font-size:.72rem;letter-spacing:1px}.site-footer a:hover{color:#ffe033}.site-footer .ft-info a{color:#8899bb;font-size:.66rem}.site-footer .ft-info a:hover{color:#ffe033}.site-footer p{color:#8899bb;font-size:.64rem;letter-spacing:.5px;margin:4px 0 0}</style>
+<style>.site-footer{max-width:680px;margin:20px auto 0;padding:16px;text-align:center;border-top:1px solid #ffe033}.site-footer nav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;margin-bottom:6px}.site-footer a{color:#c5d4f0;text-decoration:none;font-size:.72rem;letter-spacing:1px}.site-footer a:hover{color:#ffe033}.site-footer .ft-info a{color:#8899bb;font-size:.66rem}.site-footer .ft-info a:hover{color:#ffe033}.site-footer .ft-legal a{color:#667799;font-size:.62rem}.site-footer .ft-legal a:hover{color:#ffe033}.site-footer p{color:#8899bb;font-size:.64rem;letter-spacing:.5px;margin:4px 0 0}</style>
 ${FT_END}`;
 }
 
@@ -58,8 +63,13 @@ function getRootFooter() {
     <a href="faq.html">FAQ</a>
     <a href="sitemap.html">Sitemap</a>
   </div>
+  <div class="ft-row ft-legal">
+    <a href="about.html">About</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
 </div>
-<style>.footer-nav{margin-top:16px;padding:14px;background:#000418;border:1px solid #1d2e5f;border-radius:8px;text-align:center}.footer-nav .ft-row{margin:4px 0}.footer-nav a{color:#9eb0d8;text-decoration:none;font-size:.72rem;letter-spacing:1px;margin:0 10px}.footer-nav a:hover{color:#ffe033}.footer-nav .ft-info a{color:#6b7fa8;font-size:.66rem}.footer-nav .ft-info a:hover{color:#ffe033}</style>
+<style>.footer-nav{margin-top:16px;padding:14px;background:#000418;border:1px solid #1d2e5f;border-radius:8px;text-align:center}.footer-nav .ft-row{margin:4px 0}.footer-nav a{color:#9eb0d8;text-decoration:none;font-size:.72rem;letter-spacing:1px;margin:0 10px}.footer-nav a:hover{color:#ffe033}.footer-nav .ft-info a{color:#6b7fa8;font-size:.66rem}.footer-nav .ft-info a:hover{color:#ffe033}.footer-nav .ft-legal a{color:#556b8a;font-size:.62rem}.footer-nav .ft-legal a:hover{color:#ffe033}</style>
 ${FT_END}`;
 }
 
@@ -101,7 +111,7 @@ const catFiles = fs.readdirSync(ROOT).filter(f => f.startsWith('category-') && f
 // for (const cf of catFiles) { processFile(path.join(ROOT, cf), false); count++; }
 
 // Other root pages (info pages + sitemap)
-const otherPages = ['sitemap.html', 'how-to-play.html', 'strategy.html', 'glossary.html', 'odds.html', 'faq.html'];
+const otherPages = ['sitemap.html', 'how-to-play.html', 'strategy.html', 'glossary.html', 'odds.html', 'faq.html', 'about.html', 'privacy.html', 'terms.html'];
 for (const op of otherPages) {
   const fp = path.join(ROOT, op);
   if (fs.existsSync(fp)) {
