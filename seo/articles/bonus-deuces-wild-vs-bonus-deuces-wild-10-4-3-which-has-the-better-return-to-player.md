@@ -1,0 +1,4 @@
+# Bonus Deuces Wild vs Bonus Deuces Wild (10/4/3): Which Has the Better Return to Player?
+Category: Comparison
+
+[STUB] Draft content for: Bonus Deuces Wild vs Bonus Deuces Wild (10/4/3): Which Has the Better Return to Player?

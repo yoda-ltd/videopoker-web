@@ -1,0 +1,4 @@
+# Jacks or Better (8/6) vs Jacks or Better (9/5): Strategy Differences Explained
+Category: Comparison
+
+[STUB] Draft content for: Jacks or Better (8/6) vs Jacks or Better (9/5): Strategy Differences Explained

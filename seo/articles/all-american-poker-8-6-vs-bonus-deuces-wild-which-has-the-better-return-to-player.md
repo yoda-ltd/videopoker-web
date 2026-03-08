@@ -1,0 +1,4 @@
+# All American Poker (8/6) vs Bonus Deuces Wild: Which Has the Better Return to Player?
+Category: Comparison
+
+[STUB] Draft content for: All American Poker (8/6) vs Bonus Deuces Wild: Which Has the Better Return to Player?

@@ -1,4 +1,5 @@
 # Strategy Differences: Moving from Aces and Eights to Loose Deuces
 Category: Comparison
+Language: English
 
-[STUB] Draft content for Strategy Differences: Moving from Aces and Eights to Loose Deuces.
+[STUB] Draft content for Strategy Differences: Moving from Aces and Eights to Loose Deuces in English.

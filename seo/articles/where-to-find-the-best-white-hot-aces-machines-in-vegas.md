@@ -1,4 +1,5 @@
 # Where to Find the Best White Hot Aces Machines in Vegas
 Category: Variant Guide
+Language: English
 
-[STUB] Draft content for Where to Find the Best White Hot Aces Machines in Vegas.
+[STUB] Draft content for Where to Find the Best White Hot Aces Machines in Vegas in English.

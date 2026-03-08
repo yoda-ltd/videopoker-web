@@ -1,4 +1,5 @@
 # Transitioning from Slots to Royal Flush Bonus
 Category: Variant Guide
+Language: English
 
-[STUB] Draft content for Transitioning from Slots to Royal Flush Bonus.
+[STUB] Draft content for Transitioning from Slots to Royal Flush Bonus in English.

@@ -1,0 +1,4 @@
+# Bonus Deuces Wild (13/4/3) vs Bonus Poker: Which Has the Better Return to Player?
+Category: Comparison
+
+[STUB] Draft content for: Bonus Deuces Wild (13/4/3) vs Bonus Poker: Which Has the Better Return to Player?

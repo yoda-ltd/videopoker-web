@@ -1,0 +1,4 @@
+# Deuces Wild vs Deuces Wild Bonus: Which Has the Better Return to Player?
+Category: Comparison
+
+[STUB] Draft content for: Deuces Wild vs Deuces Wild Bonus: Which Has the Better Return to Player?

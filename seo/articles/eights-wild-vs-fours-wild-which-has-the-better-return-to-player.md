@@ -1,0 +1,4 @@
+# Eights Wild vs Fours Wild: Which Has the Better Return to Player?
+Category: Comparison
+
+[STUB] Draft content for: Eights Wild vs Fours Wild: Which Has the Better Return to Player?
